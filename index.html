@@ -778,7 +778,7 @@
                 <a href="#solution" id="nav-solution">הפתרון</a>
                 <a href="#process" id="nav-process">איך זה עובד</a>
                 <a href="#fit" id="nav-fit">למי מתאים</a>
-                <a href="#contact" class="btn btn-primary" id="nav-cta">בואו נדבר</a>
+                <a href="https://wa.me/972528544775?text=בוא נדבר" target="_blank" class="btn btn-primary" id="nav-cta">Chat on WhatsApp</a>
             </nav>
             <button class="mobile-menu-btn" aria-label="תפריט">☰</button>
         </div>
@@ -1029,9 +1029,9 @@
                 setHtml('cta-closing', formatText(content.cta.closing));
                 setText('cta-button', content.cta.button);
 
-                // Set email link
-                const email = content.footer?.email || 'itzik.woda@trifoldtechnologies.com';
-                document.getElementById('cta-button').href = `mailto:${email}?subject=פנייה מהאתר - Strategic Discovery Sprint`;
+                // Set WhatsApp link
+                document.getElementById('cta-button').href = 'https://wa.me/972528544775?text=בוא נדבר';
+                document.getElementById('cta-button').target = '_blank';
             }
 
             // Trifold
