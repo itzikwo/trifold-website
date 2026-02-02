@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">TriFold Technologies | השותף האסטרטגי שלכם ל-AI</title>
+    <meta name="description" id="page-description" content="איציק וודה - לא עוד יועץ AI. אחריות מלאה מקצה לקצה על יישום AI בארגון שלכם, מהאסטרטגיה ועד ל-production.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trifoldtechnologies.com/">
+    <meta property="og:title" content="TriFold Technologies | השותף האסטרטגי שלכם ל-AI">
+    <meta property="og:description" content="איציק וודה - לא עוד יועץ AI. אחריות מלאה מקצה לקצה על יישום AI בארגון שלכם.">
+    <meta property="og:image" content="https://trifoldtechnologies.com/og-image.png">
+    <meta property="og:locale" content="he_IL">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TriFold Technologies | השותף האסטרטגי שלכם ל-AI">
+    <meta name="twitter:description" content="איציק וודה - לא עוד יועץ AI. אחריות מלאה מקצה לקצה על יישום AI בארגון שלכם.">
+    <meta name="twitter:image" content="https://trifoldtechnologies.com/og-image.png">
+
+    <!-- Additional SEO -->
+    <meta name="author" content="Itzik Woda">
+    <meta name="keywords" content="AI consulting, AI implementation, CAIO, AI strategy, Israel, יועץ AI, יישום AI, אסטרטגיית AI">
+    <link rel="canonical" href="https://trifoldtechnologies.com/">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #3182ce;
+            --accent-light: #4299e1;
+            --success: #38a169;
+            --danger: #e53e3e;
+            --text: #1a202c;
+            --text-light: #4a5568;
+            --text-lighter: #718096;
+            --bg: #ffffff;
+            --bg-alt: #f7fafc;
+            --bg-dark: #edf2f7;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        /* Loading state */
+        body.loading .dynamic-content {
+            opacity: 0;
+        }
+
+        body:not(.loading) .dynamic-content {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .problem-story {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .problem-story p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+
+        .problem-story .highlight {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            padding: 24px;
+            background: var(--bg-alt);
+            border-radius: 12px;
+            border-right: 4px solid var(--accent);
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 100px 0;
+            background: var(--bg-alt);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .intro-box {
+            max-width: 800px;
+            margin: 0 auto 64px;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .intro-box p {
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .comparison-card {
+            padding: 32px;
+            border-radius: 16px;
+            background: white;
+        }
+
+        .comparison-card.negative {
+            border: 2px solid var(--danger);
+        }
+
+        .comparison-card.positive {
+            border: 2px solid var(--success);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+
+        .comparison-card ul {
+            list-style: none;
+        }
+
+        .comparison-card li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+
+        .comparison-card li:last-child {
+            margin-bottom: 0;
+        }
+
+        .icon-x {
+            color: var(--danger);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .icon-check {
+            color: var(--success);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            background: var(--bg-alt);
+            padding: 32px;
+            border-radius: 16px;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .step-content .step-subtitle {
+            font-size: 1.1rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .step-content ul {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+
+        .step-content li {
+            padding: 8px 0;
+            color: var(--text-light);
+            padding-right: 24px;
+            position: relative;
+        }
+
+        .step-content li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+
+        .step-result {
+            background: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            border-right: 3px solid var(--success);
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Fit Section */
+        .fit {
+            padding: 100px 0;
+            background: var(--bg-alt);
+        }
+
+        .fit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+        }
+
+        .fit-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+        }
+
+        .fit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .fit-card.positive h3 {
+            color: var(--success);
+        }
+
+        .fit-card.negative h3 {
+            color: var(--danger);
+        }
+
+        .fit-card ul {
+            list-style: none;
+        }
+
+        .fit-card li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        .fit-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Why Section */
+        .why {
+            padding: 100px 0;
+            background: var(--primary);
+            color: white;
+        }
+
+        .why .section-header h2 {
+            color: white;
+        }
+
+        .why .section-header p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .why-card {
+            background: rgba(255,255,255,0.1);
+            padding: 32px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .why-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: var(--accent-light);
+        }
+
+        .why-card p {
+            color: rgba(255,255,255,0.9);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: var(--bg);
+        }
+
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: var(--bg-alt);
+            padding: 64px;
+            border-radius: 24px;
+        }
+
+        .cta-box h2 {
+            font-size: 2.25rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .cta-box > p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .cta-benefits {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            text-align: right;
+            margin-bottom: 40px;
+        }
+
+        .cta-benefit {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        .cta-benefit .icon-check {
+            font-size: 1.25rem;
+        }
+
+        .cta-closing {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        /* Trifold Explanation */
+        .trifold {
+            padding: 80px 0;
+            background: var(--bg-alt);
+        }
+
+        .trifold-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .trifold-content h2 {
+            font-size: 1.75rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+
+        .trifold-content p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .trifold-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 40px 0;
+        }
+
+        .pillar {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .pillar h4 {
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .pillar p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .trifold-tagline {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 64px 0 32px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 48px;
+        }
+
+        .footer-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .footer-info .tagline {
+            color: var(--accent-light);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-contact a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.2s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-light);
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .fit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trifold-pillars {
+                grid-template-columns: 1fr;
+            }
+
+            .step {
+                grid-template-columns: 1fr;
+            }
+
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .cta-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .cta-box {
+                padding: 40px 24px;
+            }
+
+            .problem, .solution, .process, .fit, .why, .cta {
+                padding: 64px 0;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo" id="logo">Tri<span>Fold</span></a>
+            <nav id="main-nav">
+                <a href="#problem" id="nav-problem">הבעיה</a>
+                <a href="#solution" id="nav-solution">הפתרון</a>
+                <a href="#process" id="nav-process">איך זה עובד</a>
+                <a href="#fit" id="nav-fit">למי מתאים</a>
+                <a href="#contact" class="btn btn-primary" id="nav-cta">בואו נדבר</a>
+            </nav>
+            <button class="mobile-menu-btn" aria-label="תפריט">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content dynamic-content">
+                <h1 id="hero-title"></h1>
+                <p class="hero-subtitle" id="hero-subtitle"></p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary btn-large" id="hero-cta-primary"></a>
+                    <a href="#process" class="btn btn-secondary btn-large" id="hero-cta-secondary"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="problem-story dynamic-content" id="problem-content">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="solution" id="solution">
+        <div class="container dynamic-content">
+            <div class="section-header">
+                <h2 id="solution-title"></h2>
+                <p id="solution-subtitle"></p>
+            </div>
+
+            <div class="intro-box">
+                <p id="solution-intro"></p>
+            </div>
+
+            <div class="comparison">
+                <div class="comparison-card negative">
+                    <h3 id="solution-negative-title"></h3>
+                    <ul id="solution-negative-list">
+                        <!-- Populated by JavaScript -->
+                    </ul>
+                </div>
+                <div class="comparison-card positive">
+                    <h3 id="solution-positive-title"></h3>
+                    <ul id="solution-positive-list">
+                        <!-- Populated by JavaScript -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process" id="process">
+        <div class="container dynamic-content">
+            <div class="section-header">
+                <h2 id="process-title"></h2>
+            </div>
+
+            <div class="process-steps" id="process-steps">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Fit Section -->
+    <section class="fit" id="fit">
+        <div class="container dynamic-content">
+            <div class="section-header">
+                <h2 id="fit-title"></h2>
+            </div>
+
+            <div class="fit-grid">
+                <div class="fit-card positive">
+                    <h3><span class="icon-check">✓</span> <span id="fit-positive-title"></span></h3>
+                    <ul id="fit-positive-list">
+                        <!-- Populated by JavaScript -->
+                    </ul>
+                </div>
+                <div class="fit-card negative">
+                    <h3><span class="icon-x">✗</span> <span id="fit-negative-title"></span></h3>
+                    <ul id="fit-negative-list">
+                        <!-- Populated by JavaScript -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="why">
+        <div class="container dynamic-content">
+            <div class="section-header">
+                <h2 id="why-title"></h2>
+            </div>
+
+            <div class="why-grid" id="why-cards">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container">
+            <div class="cta-box dynamic-content">
+                <h2 id="cta-title"></h2>
+                <p id="cta-description"></p>
+                <div class="cta-benefits" id="cta-benefits">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <p class="cta-closing" id="cta-closing"></p>
+                <a href="" class="btn btn-primary btn-large" id="cta-button"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trifold Explanation -->
+    <section class="trifold">
+        <div class="container">
+            <div class="trifold-content dynamic-content">
+                <h2 id="trifold-title"></h2>
+                <p id="trifold-intro"></p>
+                <div class="trifold-pillars" id="trifold-pillars">
+                    <!-- Populated by JavaScript -->
+                </div>
+                <p id="trifold-outro"></p>
+                <p class="trifold-tagline" id="trifold-tagline"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content dynamic-content">
+                <div class="footer-info">
+                    <h3 id="footer-name"></h3>
+                    <p class="tagline" id="footer-tagline"></p>
+                    <div class="footer-contact">
+                        <a href="" id="footer-phone"></a>
+                        <a href="" id="footer-email"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-copyright"></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load and render content
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('content.json');
+                const content = await response.json();
+                renderContent(content);
+                document.body.classList.remove('loading');
+            } catch (error) {
+                console.error('Error loading content:', error);
+                // Fallback - show page anyway
+                document.body.classList.remove('loading');
+            }
+        });
+
+        function renderContent(content) {
+            // Meta
+            if (content.meta) {
+                document.getElementById('page-title').textContent = content.meta.title;
+                document.getElementById('page-description').setAttribute('content', content.meta.description);
+            }
+
+            // Header
+            if (content.header) {
+                if (content.header.nav) {
+                    setText('nav-problem', content.header.nav.problem);
+                    setText('nav-solution', content.header.nav.solution);
+                    setText('nav-process', content.header.nav.process);
+                    setText('nav-fit', content.header.nav.fit);
+                    setText('nav-cta', content.header.nav.cta);
+                }
+            }
+
+            // Hero
+            if (content.hero) {
+                setHtml('hero-title', formatText(content.hero.title));
+                setText('hero-subtitle', content.hero.subtitle);
+                setText('hero-cta-primary', content.hero.ctaPrimary);
+                setText('hero-cta-secondary', content.hero.ctaSecondary);
+            }
+
+            // Problem
+            if (content.problem) {
+                const problemContent = document.getElementById('problem-content');
+                let html = '';
+                content.problem.paragraphs.forEach(p => {
+                    html += `<p>${escapeHtml(p)}</p>`;
+                });
+                html += `<p class="highlight">${escapeHtml(content.problem.highlight)}</p>`;
+                problemContent.innerHTML = html;
+            }
+
+            // Solution
+            if (content.solution) {
+                setText('solution-title', content.solution.title);
+                setText('solution-subtitle', content.solution.subtitle);
+                setHtml('solution-intro', `<strong>${content.solution.intro.split(' - ')[0]}</strong> - ${content.solution.intro.split(' - ')[1] || ''}`);
+
+                setText('solution-negative-title', content.solution.negative.title);
+                renderList('solution-negative-list', content.solution.negative.items, 'x');
+
+                setText('solution-positive-title', content.solution.positive.title);
+                renderList('solution-positive-list', content.solution.positive.items, 'check');
+            }
+
+            // Process
+            if (content.process) {
+                setText('process-title', content.process.title);
+                renderProcessSteps(content.process.steps);
+            }
+
+            // Fit
+            if (content.fit) {
+                setText('fit-title', content.fit.title);
+                setText('fit-positive-title', content.fit.positive.title);
+                renderSimpleList('fit-positive-list', content.fit.positive.items);
+                setText('fit-negative-title', content.fit.negative.title);
+                renderSimpleList('fit-negative-list', content.fit.negative.items);
+            }
+
+            // Why
+            if (content.why) {
+                setText('why-title', content.why.title);
+                renderWhyCards(content.why.cards);
+            }
+
+            // CTA
+            if (content.cta) {
+                setText('cta-title', content.cta.title);
+                setHtml('cta-description', formatText(content.cta.description));
+                renderCtaBenefits(content.cta.benefits);
+                setHtml('cta-closing', formatText(content.cta.closing));
+                setText('cta-button', content.cta.button);
+
+                // Set email link
+                const email = content.footer?.email || 'itzik.woda@trifoldtechnologies.com';
+                document.getElementById('cta-button').href = `mailto:${email}?subject=פנייה מהאתר - Strategic Discovery Sprint`;
+            }
+
+            // Trifold
+            if (content.trifold) {
+                setText('trifold-title', content.trifold.title);
+                setText('trifold-intro', content.trifold.intro);
+                renderTrifoldPillars(content.trifold.pillars);
+                setText('trifold-outro', content.trifold.outro);
+                setText('trifold-tagline', content.trifold.tagline);
+            }
+
+            // Footer
+            if (content.footer) {
+                setText('footer-name', content.footer.name);
+                setText('footer-tagline', content.footer.tagline);
+
+                const phoneEl = document.getElementById('footer-phone');
+                phoneEl.href = `tel:${content.footer.phone}`;
+                phoneEl.innerHTML = `📱 ${content.footer.phone}`;
+
+                const emailEl = document.getElementById('footer-email');
+                emailEl.href = `mailto:${content.footer.email}`;
+                emailEl.innerHTML = `✉️ ${content.footer.email}`;
+
+                setText('footer-copyright', content.footer.copyright);
+            }
+        }
+
+        // Helper functions
+        function setText(id, text) {
+            const el = document.getElementById(id);
+            if (el && text) el.textContent = text;
+        }
+
+        function setHtml(id, html) {
+            const el = document.getElementById(id);
+            if (el && html) el.innerHTML = html;
+        }
+
+        function formatText(text) {
+            if (!text) return '';
+            return escapeHtml(text).replace(/\n/g, '<br>');
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function renderList(containerId, items, iconType) {
+            const container = document.getElementById(containerId);
+            if (!container || !items) return;
+
+            const iconClass = iconType === 'x' ? 'icon-x' : 'icon-check';
+            const iconChar = iconType === 'x' ? '✗' : '✓';
+
+            container.innerHTML = items.map(item =>
+                `<li><span class="${iconClass}">${iconChar}</span> ${escapeHtml(item)}</li>`
+            ).join('');
+        }
+
+        function renderSimpleList(containerId, items) {
+            const container = document.getElementById(containerId);
+            if (!container || !items) return;
+
+            container.innerHTML = items.map(item =>
+                `<li>${escapeHtml(item)}</li>`
+            ).join('');
+        }
+
+        function renderProcessSteps(steps) {
+            const container = document.getElementById('process-steps');
+            if (!container || !steps) return;
+
+            container.innerHTML = steps.map((step, index) => {
+                const descParts = step.description.split('\n\n');
+                const descHtml = descParts.map(p => `<p>${escapeHtml(p)}</p>`).join('');
+                const itemsHtml = step.items.map(item => `<li>${escapeHtml(item)}</li>`).join('');
+                const resultHtml = step.result ? `<div class="step-result">${escapeHtml(step.result)}</div>` : '';
+
+                return `
+                    <div class="step">
+                        <div class="step-number">${index + 1}</div>
+                        <div class="step-content">
+                            <h3>${escapeHtml(step.title)}</h3>
+                            <p class="step-subtitle">${escapeHtml(step.subtitle)}</p>
+                            ${descHtml}
+                            <ul>${itemsHtml}</ul>
+                            ${resultHtml}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderWhyCards(cards) {
+            const container = document.getElementById('why-cards');
+            if (!container || !cards) return;
+
+            container.innerHTML = cards.map(card => `
+                <div class="why-card">
+                    <h3>${escapeHtml(card.title)}</h3>
+                    <p>${escapeHtml(card.description)}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderCtaBenefits(benefits) {
+            const container = document.getElementById('cta-benefits');
+            if (!container || !benefits) return;
+
+            container.innerHTML = benefits.map(benefit => `
+                <div class="cta-benefit">
+                    <span class="icon-check">✓</span>
+                    ${escapeHtml(benefit)}
+                </div>
+            `).join('');
+        }
+
+        function renderTrifoldPillars(pillars) {
+            const container = document.getElementById('trifold-pillars');
+            if (!container || !pillars) return;
+
+            container.innerHTML = pillars.map(pillar => `
+                <div class="pillar">
+                    <h4>${escapeHtml(pillar.title)}</h4>
+                    <p>${escapeHtml(pillar.description)}</p>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

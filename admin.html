@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ניהול תוכן | TriFold Technologies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #3182ce;
+            --success: #38a169;
+            --danger: #e53e3e;
+            --warning: #d69e2e;
+            --text: #1a202c;
+            --text-light: #4a5568;
+            --bg: #f7fafc;
+            --bg-white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Heebo', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Layout */
+        .admin-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: var(--primary);
+            color: white;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: auto;
+            z-index: 100;
+        }
+
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+
+        .sidebar-header p {
+            font-size: 0.875rem;
+            opacity: 0.7;
+        }
+
+        .sidebar-nav {
+            padding: 16px 0;
+        }
+
+        .nav-section {
+            padding: 8px 24px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.5;
+            margin-top: 16px;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 12px 24px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .nav-item.active {
+            border-right: 3px solid var(--accent);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-right: 280px;
+            padding: 32px;
+        }
+
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .content-header h2 {
+            font-size: 1.75rem;
+            color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #2f855a;
+        }
+
+        .btn-secondary {
+            background: var(--bg-white);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c53030;
+        }
+
+        /* Section Panels */
+        .section-panel {
+            display: none;
+        }
+
+        .section-panel.active {
+            display: block;
+        }
+
+        /* Form Groups */
+        .form-section {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .form-section h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+            direction: rtl;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group .hint {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+
+        /* List Editor */
+        .list-editor {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-white);
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .list-item input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        .list-item input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .list-item .item-number {
+            width: 28px;
+            height: 28px;
+            background: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+            flex-shrink: 0;
+        }
+
+        .list-item .btn-icon {
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+            transition: all 0.2s;
+        }
+
+        .list-item .btn-icon:hover {
+            background: var(--bg);
+            color: var(--danger);
+        }
+
+        .list-add {
+            padding: 12px 16px;
+            background: var(--bg);
+        }
+
+        .list-add .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* Card Editor */
+        .card-editor {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .card-editor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .card-editor-header h4 {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .card-editor-body {
+            padding: 16px;
+        }
+
+        /* Step Editor */
+        .step-editor {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .step-header-content {
+            flex: 1;
+        }
+
+        .step-header-content h4 {
+            font-size: 1rem;
+            color: var(--primary);
+        }
+
+        .step-header-content p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .step-body {
+            padding: 20px;
+        }
+
+        /* Toast Notifications */
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .toast {
+            padding: 16px 24px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.success {
+            background: var(--success);
+        }
+
+        .toast.error {
+            background: var(--danger);
+        }
+
+        .toast.warning {
+            background: var(--warning);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Preview Button */
+        .preview-link {
+            position: fixed;
+            bottom: 24px;
+            right: 304px;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .preview-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .status-badge.saved {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status-badge.unsaved {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .status-badge.draft {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* Info Banner */
+        .info-banner {
+            background: #ebf8ff;
+            border: 1px solid #90cdf4;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .info-banner.hidden {
+            display: none;
+        }
+
+        .info-content {
+            color: #2c5282;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .info-close {
+            background: none;
+            border: none;
+            color: #4299e1;
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .info-close:hover {
+            color: #2b6cb0;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 240px;
+            }
+            .main-content {
+                margin-right: 240px;
+            }
+            .preview-link {
+                right: 264px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(100%);
+                transition: transform 0.3s;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-right: 0;
+            }
+            .preview-link {
+                right: 24px;
+                bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>ניהול תוכן</h1>
+                <p>TriFold Technologies</p>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">כללי</div>
+                <a class="nav-item active" data-section="meta">מטא ו-SEO</a>
+                <a class="nav-item" data-section="header">Header וניווט</a>
+
+                <div class="nav-section">תוכן העמוד</div>
+                <a class="nav-item" data-section="hero">Hero - כותרת ראשית</a>
+                <a class="nav-item" data-section="problem">הבעיה</a>
+                <a class="nav-item" data-section="solution">הפתרון</a>
+                <a class="nav-item" data-section="process">איך זה עובד</a>
+                <a class="nav-item" data-section="fit">למי מתאים</a>
+                <a class="nav-item" data-section="why">למה TriFold</a>
+                <a class="nav-item" data-section="cta">קריאה לפעולה</a>
+                <a class="nav-item" data-section="trifold">הסבר TriFold</a>
+                <a class="nav-item" data-section="footer">Footer</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h2 id="section-title">מטא ו-SEO</h2>
+                <div class="header-actions">
+                    <span class="status-badge saved" id="save-status">
+                        <span>✓</span> שמור
+                    </span>
+                    <button class="btn btn-secondary" onclick="resetContent()">איפוס</button>
+                    <button class="btn btn-primary" onclick="saveToLocalStorage()">שמור טיוטה</button>
+                    <button class="btn btn-success" onclick="exportContent()">ייצוא JSON</button>
+                </div>
+            </div>
+
+            <!-- Instructions Banner -->
+            <div class="info-banner" id="info-banner">
+                <div class="info-content">
+                    <strong>שים לב:</strong> עמוד זה מאפשר עריכת תוכן. השינויים נשמרים בדפדפן שלך (טיוטה).
+                    <br>לפרסום באתר: לחץ "ייצוא JSON" → החלף את content.json ב-GitHub → Netlify יעדכן אוטומטית.
+                </div>
+                <button class="info-close" onclick="closeBanner()">✕</button>
+            </div>
+
+            <!-- Meta Section -->
+            <div class="section-panel active" id="panel-meta">
+                <div class="form-section">
+                    <h3>הגדרות SEO</h3>
+                    <div class="form-group">
+                        <label>כותרת העמוד (Title)</label>
+                        <input type="text" id="meta-title" data-path="meta.title">
+                        <p class="hint">מופיע בכותרת הדפדפן ובתוצאות חיפוש</p>
+                    </div>
+                    <div class="form-group">
+                        <label>תיאור (Description)</label>
+                        <textarea id="meta-description" data-path="meta.description"></textarea>
+                        <p class="hint">תיאור קצר שמופיע בתוצאות חיפוש Google</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Header Section -->
+            <div class="section-panel" id="panel-header">
+                <div class="form-section">
+                    <h3>לוגו</h3>
+                    <div class="form-group">
+                        <label>טקסט הלוגו</label>
+                        <input type="text" id="header-logo" data-path="header.logo">
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>תפריט ניווט</h3>
+                    <div class="form-group">
+                        <label>הבעיה</label>
+                        <input type="text" data-path="header.nav.problem">
+                    </div>
+                    <div class="form-group">
+                        <label>הפתרון</label>
+                        <input type="text" data-path="header.nav.solution">
+                    </div>
+                    <div class="form-group">
+                        <label>איך זה עובד</label>
+                        <input type="text" data-path="header.nav.process">
+                    </div>
+                    <div class="form-group">
+                        <label>למי מתאים</label>
+                        <input type="text" data-path="header.nav.fit">
+                    </div>
+                    <div class="form-group">
+                        <label>כפתור CTA</label>
+                        <input type="text" data-path="header.nav.cta">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="section-panel" id="panel-hero">
+                <div class="form-section">
+                    <h3>כותרת ראשית</h3>
+                    <div class="form-group">
+                        <label>כותרת</label>
+                        <textarea id="hero-title" data-path="hero.title" rows="3"></textarea>
+                        <p class="hint">השתמשו ב-\n לשבירת שורה</p>
+                    </div>
+                    <div class="form-group">
+                        <label>תת-כותרת</label>
+                        <textarea id="hero-subtitle" data-path="hero.subtitle" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>כפתורי פעולה</h3>
+                    <div class="form-group">
+                        <label>כפתור ראשי</label>
+                        <input type="text" data-path="hero.ctaPrimary">
+                    </div>
+                    <div class="form-group">
+                        <label>כפתור משני</label>
+                        <input type="text" data-path="hero.ctaSecondary">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problem Section -->
+            <div class="section-panel" id="panel-problem">
+                <div class="form-section">
+                    <h3>סיפור הבעיה</h3>
+                    <div class="form-group">
+                        <label>פסקה ראשונה</label>
+                        <textarea data-path="problem.paragraphs.0" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>פסקה שנייה</label>
+                        <textarea data-path="problem.paragraphs.1" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>משפט מודגש (Highlight)</label>
+                        <textarea data-path="problem.highlight" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solution Section -->
+            <div class="section-panel" id="panel-solution">
+                <div class="form-section">
+                    <h3>כותרות</h3>
+                    <div class="form-group">
+                        <label>כותרת ראשית</label>
+                        <input type="text" data-path="solution.title">
+                    </div>
+                    <div class="form-group">
+                        <label>תת-כותרת</label>
+                        <input type="text" data-path="solution.subtitle">
+                    </div>
+                    <div class="form-group">
+                        <label>טקסט הקדמה</label>
+                        <textarea data-path="solution.intro" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>לא עוד (שלילי)</h3>
+                    <div class="form-group">
+                        <label>כותרת</label>
+                        <input type="text" data-path="solution.negative.title">
+                    </div>
+                    <div class="form-group">
+                        <label>פריטים</label>
+                        <div class="list-editor" id="solution-negative-list"></div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>במקום זה (חיובי)</h3>
+                    <div class="form-group">
+                        <label>כותרת</label>
+                        <input type="text" data-path="solution.positive.title">
+                    </div>
+                    <div class="form-group">
+                        <label>פריטים</label>
+                        <div class="list-editor" id="solution-positive-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Section -->
+            <div class="section-panel" id="panel-process">
+                <div class="form-section">
+                    <h3>כותרת</h3>
+                    <div class="form-group">
+                        <label>כותרת הסקשן</label>
+                        <input type="text" data-path="process.title">
+                    </div>
+                </div>
+                <div id="process-steps-container"></div>
+            </div>
+
+            <!-- Fit Section -->
+            <div class="section-panel" id="panel-fit">
+                <div class="form-section">
+                    <h3>כותרת</h3>
+                    <div class="form-group">
+                        <label>כותרת הסקשן</label>
+                        <input type="text" data-path="fit.title">
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>מתאים (חיובי)</h3>
+                    <div class="form-group">
+                        <label>כותרת</label>
+                        <input type="text" data-path="fit.positive.title">
+                    </div>
+                    <div class="form-group">
+                        <label>פריטים</label>
+                        <div class="list-editor" id="fit-positive-list"></div>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>לא מתאים (שלילי)</h3>
+                    <div class="form-group">
+                        <label>כותרת</label>
+                        <input type="text" data-path="fit.negative.title">
+                    </div>
+                    <div class="form-group">
+                        <label>פריטים</label>
+                        <div class="list-editor" id="fit-negative-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Section -->
+            <div class="section-panel" id="panel-why">
+                <div class="form-section">
+                    <h3>כותרת</h3>
+                    <div class="form-group">
+                        <label>כותרת הסקשן</label>
+                        <input type="text" data-path="why.title">
+                    </div>
+                </div>
+                <div id="why-cards-container"></div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="section-panel" id="panel-cta">
+                <div class="form-section">
+                    <h3>תוכן</h3>
+                    <div class="form-group">
+                        <label>כותרת</label>
+                        <input type="text" data-path="cta.title">
+                    </div>
+                    <div class="form-group">
+                        <label>תיאור</label>
+                        <textarea data-path="cta.description" rows="3"></textarea>
+                        <p class="hint">השתמשו ב-\n לשבירת שורה</p>
+                    </div>
+                    <div class="form-group">
+                        <label>יתרונות</label>
+                        <div class="list-editor" id="cta-benefits-list"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>סיכום</label>
+                        <textarea data-path="cta.closing" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>טקסט כפתור</label>
+                        <input type="text" data-path="cta.button">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trifold Section -->
+            <div class="section-panel" id="panel-trifold">
+                <div class="form-section">
+                    <h3>תוכן</h3>
+                    <div class="form-group">
+                        <label>כותרת</label>
+                        <input type="text" data-path="trifold.title">
+                    </div>
+                    <div class="form-group">
+                        <label>הקדמה</label>
+                        <input type="text" data-path="trifold.intro">
+                    </div>
+                </div>
+                <div id="trifold-pillars-container"></div>
+                <div class="form-section">
+                    <h3>סיום</h3>
+                    <div class="form-group">
+                        <label>טקסט סיום</label>
+                        <input type="text" data-path="trifold.outro">
+                    </div>
+                    <div class="form-group">
+                        <label>טאגליין</label>
+                        <input type="text" data-path="trifold.tagline">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Section -->
+            <div class="section-panel" id="panel-footer">
+                <div class="form-section">
+                    <h3>פרטי קשר</h3>
+                    <div class="form-group">
+                        <label>שם</label>
+                        <input type="text" data-path="footer.name">
+                    </div>
+                    <div class="form-group">
+                        <label>טאגליין</label>
+                        <input type="text" data-path="footer.tagline">
+                    </div>
+                    <div class="form-group">
+                        <label>טלפון</label>
+                        <input type="text" data-path="footer.phone">
+                    </div>
+                    <div class="form-group">
+                        <label>אימייל</label>
+                        <input type="text" data-path="footer.email">
+                    </div>
+                    <div class="form-group">
+                        <label>זכויות יוצרים</label>
+                        <input type="text" data-path="footer.copyright">
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Preview Link -->
+    <a href="index.html" target="_blank" class="preview-link">צפייה באתר</a>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script>
+        // Global state
+        let content = {};
+        let originalContent = {};
+        let hasUnsavedChanges = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadContent();
+            setupNavigation();
+            setupAutoSave();
+
+            // Check for draft
+            loadDraft();
+
+            // Check if banner was closed
+            if (localStorage.getItem('trifold_banner_closed') === 'true') {
+                document.getElementById('info-banner').classList.add('hidden');
+            }
+        });
+
+        // Load content from JSON
+        async function loadContent() {
+            try {
+                const response = await fetch('content.json');
+                content = await response.json();
+                originalContent = JSON.parse(JSON.stringify(content));
+                populateAllFields();
+                showToast('התוכן נטען בהצלחה', 'success');
+            } catch (error) {
+                showToast('שגיאה בטעינת התוכן', 'error');
+                console.error(error);
+            }
+        }
+
+        // Get nested value from object
+        function getNestedValue(obj, path) {
+            return path.split('.').reduce((current, key) => current?.[key], obj);
+        }
+
+        // Set nested value in object
+        function setNestedValue(obj, path, value) {
+            const keys = path.split('.');
+            const lastKey = keys.pop();
+            const target = keys.reduce((current, key) => {
+                if (!(key in current)) current[key] = {};
+                return current[key];
+            }, obj);
+            target[lastKey] = value;
+        }
+
+        // Populate all form fields
+        function populateAllFields() {
+            // Simple inputs and textareas
+            document.querySelectorAll('[data-path]').forEach(input => {
+                const value = getNestedValue(content, input.dataset.path);
+                if (value !== undefined) {
+                    input.value = value;
+                }
+            });
+
+            // List editors
+            renderListEditor('solution-negative-list', 'solution.negative.items');
+            renderListEditor('solution-positive-list', 'solution.positive.items');
+            renderListEditor('fit-positive-list', 'fit.positive.items');
+            renderListEditor('fit-negative-list', 'fit.negative.items');
+            renderListEditor('cta-benefits-list', 'cta.benefits');
+
+            // Process steps
+            renderProcessSteps();
+
+            // Why cards
+            renderWhyCards();
+
+            // Trifold pillars
+            renderTrifoldPillars();
+        }
+
+        // Render list editor
+        function renderListEditor(containerId, path) {
+            const container = document.getElementById(containerId);
+            const items = getNestedValue(content, path) || [];
+
+            container.innerHTML = items.map((item, index) => `
+                <div class="list-item">
+                    <span class="item-number">${index + 1}</span>
+                    <input type="text" value="${escapeHtml(item)}"
+                           onchange="updateListItem('${path}', ${index}, this.value)">
+                    <button class="btn-icon" onclick="removeListItem('${path}', ${index})" title="מחק">
+                        ✕
+                    </button>
+                </div>
+            `).join('') + `
+                <div class="list-add">
+                    <button class="btn btn-secondary" onclick="addListItem('${path}')">
+                        + הוסף פריט
+                    </button>
+                </div>
+            `;
+        }
+
+        // List item operations
+        function updateListItem(path, index, value) {
+            const items = getNestedValue(content, path);
+            items[index] = value;
+            markUnsaved();
+        }
+
+        function addListItem(path) {
+            const items = getNestedValue(content, path);
+            items.push('פריט חדש');
+            renderListEditor(getContainerIdForPath(path), path);
+            markUnsaved();
+        }
+
+        function removeListItem(path, index) {
+            const items = getNestedValue(content, path);
+            items.splice(index, 1);
+            renderListEditor(getContainerIdForPath(path), path);
+            markUnsaved();
+        }
+
+        function getContainerIdForPath(path) {
+            const mapping = {
+                'solution.negative.items': 'solution-negative-list',
+                'solution.positive.items': 'solution-positive-list',
+                'fit.positive.items': 'fit-positive-list',
+                'fit.negative.items': 'fit-negative-list',
+                'cta.benefits': 'cta-benefits-list'
+            };
+            return mapping[path];
+        }
+
+        // Render process steps
+        function renderProcessSteps() {
+            const container = document.getElementById('process-steps-container');
+            const steps = content.process?.steps || [];
+
+            container.innerHTML = steps.map((step, index) => `
+                <div class="step-editor">
+                    <div class="step-header">
+                        <div class="step-number">${index + 1}</div>
+                        <div class="step-header-content">
+                            <h4>${escapeHtml(step.subtitle)}</h4>
+                        </div>
+                    </div>
+                    <div class="step-body">
+                        <div class="form-group">
+                            <label>כותרת</label>
+                            <input type="text" value="${escapeHtml(step.title)}"
+                                   onchange="updateStep(${index}, 'title', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>תת-כותרת (שם השלב)</label>
+                            <input type="text" value="${escapeHtml(step.subtitle)}"
+                                   onchange="updateStep(${index}, 'subtitle', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>תיאור</label>
+                            <textarea rows="3" onchange="updateStep(${index}, 'description', this.value)">${escapeHtml(step.description)}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>פריטים</label>
+                            <div class="list-editor" id="step-${index}-items"></div>
+                        </div>
+                        <div class="form-group">
+                            <label>תוצאה / סיכום</label>
+                            <textarea rows="2" onchange="updateStep(${index}, 'result', this.value)">${escapeHtml(step.result || '')}</textarea>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Render step items lists
+            steps.forEach((step, index) => {
+                renderStepItemsList(index, step.items);
+            });
+        }
+
+        function renderStepItemsList(stepIndex, items) {
+            const container = document.getElementById(`step-${stepIndex}-items`);
+            if (!container) return;
+
+            container.innerHTML = items.map((item, itemIndex) => `
+                <div class="list-item">
+                    <span class="item-number">${itemIndex + 1}</span>
+                    <input type="text" value="${escapeHtml(item)}"
+                           onchange="updateStepItem(${stepIndex}, ${itemIndex}, this.value)">
+                    <button class="btn-icon" onclick="removeStepItem(${stepIndex}, ${itemIndex})" title="מחק">
+                        ✕
+                    </button>
+                </div>
+            `).join('') + `
+                <div class="list-add">
+                    <button class="btn btn-secondary" onclick="addStepItem(${stepIndex})">
+                        + הוסף פריט
+                    </button>
+                </div>
+            `;
+        }
+
+        function updateStep(index, field, value) {
+            content.process.steps[index][field] = value;
+            markUnsaved();
+        }
+
+        function updateStepItem(stepIndex, itemIndex, value) {
+            content.process.steps[stepIndex].items[itemIndex] = value;
+            markUnsaved();
+        }
+
+        function addStepItem(stepIndex) {
+            content.process.steps[stepIndex].items.push('פריט חדש');
+            renderStepItemsList(stepIndex, content.process.steps[stepIndex].items);
+            markUnsaved();
+        }
+
+        function removeStepItem(stepIndex, itemIndex) {
+            content.process.steps[stepIndex].items.splice(itemIndex, 1);
+            renderStepItemsList(stepIndex, content.process.steps[stepIndex].items);
+            markUnsaved();
+        }
+
+        // Render why cards
+        function renderWhyCards() {
+            const container = document.getElementById('why-cards-container');
+            const cards = content.why?.cards || [];
+
+            container.innerHTML = cards.map((card, index) => `
+                <div class="card-editor">
+                    <div class="card-editor-header">
+                        <h4>כרטיס ${index + 1}</h4>
+                    </div>
+                    <div class="card-editor-body">
+                        <div class="form-group">
+                            <label>כותרת</label>
+                            <input type="text" value="${escapeHtml(card.title)}"
+                                   onchange="updateWhyCard(${index}, 'title', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>תיאור</label>
+                            <textarea rows="3" onchange="updateWhyCard(${index}, 'description', this.value)">${escapeHtml(card.description)}</textarea>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateWhyCard(index, field, value) {
+            content.why.cards[index][field] = value;
+            markUnsaved();
+        }
+
+        // Render trifold pillars
+        function renderTrifoldPillars() {
+            const container = document.getElementById('trifold-pillars-container');
+            const pillars = content.trifold?.pillars || [];
+
+            container.innerHTML = pillars.map((pillar, index) => `
+                <div class="card-editor">
+                    <div class="card-editor-header">
+                        <h4>עמוד ${index + 1}</h4>
+                    </div>
+                    <div class="card-editor-body">
+                        <div class="form-group">
+                            <label>כותרת</label>
+                            <input type="text" value="${escapeHtml(pillar.title)}"
+                                   onchange="updatePillar(${index}, 'title', this.value)">
+                        </div>
+                        <div class="form-group">
+                            <label>תיאור</label>
+                            <input type="text" value="${escapeHtml(pillar.description)}"
+                                   onchange="updatePillar(${index}, 'description', this.value)">
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updatePillar(index, field, value) {
+            content.trifold.pillars[index][field] = value;
+            markUnsaved();
+        }
+
+        // Navigation
+        function setupNavigation() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const sectionTitles = {
+                'meta': 'מטא ו-SEO',
+                'header': 'Header וניווט',
+                'hero': 'Hero - כותרת ראשית',
+                'problem': 'הבעיה',
+                'solution': 'הפתרון',
+                'process': 'איך זה עובד',
+                'fit': 'למי מתאים',
+                'why': 'למה TriFold',
+                'cta': 'קריאה לפעולה',
+                'trifold': 'הסבר TriFold',
+                'footer': 'Footer'
+            };
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const section = item.dataset.section;
+
+                    // Update nav
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    item.classList.add('active');
+
+                    // Update panels
+                    document.querySelectorAll('.section-panel').forEach(panel => {
+                        panel.classList.remove('active');
+                    });
+                    document.getElementById(`panel-${section}`).classList.add('active');
+
+                    // Update title
+                    document.getElementById('section-title').textContent = sectionTitles[section];
+                });
+            });
+        }
+
+        // Auto-save tracking
+        function setupAutoSave() {
+            document.querySelectorAll('[data-path]').forEach(input => {
+                input.addEventListener('input', () => {
+                    setNestedValue(content, input.dataset.path, input.value);
+                    markUnsaved();
+                });
+            });
+        }
+
+        function markUnsaved() {
+            hasUnsavedChanges = true;
+            const badge = document.getElementById('save-status');
+            badge.className = 'status-badge unsaved';
+            badge.innerHTML = '<span>!</span> יש שינויים שלא נשמרו';
+        }
+
+        function markSaved() {
+            hasUnsavedChanges = false;
+            const badge = document.getElementById('save-status');
+            badge.className = 'status-badge saved';
+            badge.innerHTML = '<span>✓</span> שמור';
+        }
+
+        // Save to localStorage (draft)
+        function saveToLocalStorage() {
+            try {
+                localStorage.setItem('trifold_content_draft', JSON.stringify(content));
+                localStorage.setItem('trifold_content_draft_time', new Date().toISOString());
+                markDraft();
+                showToast('הטיוטה נשמרה בדפדפן', 'success');
+            } catch (error) {
+                showToast('שגיאה בשמירת הטיוטה', 'error');
+                console.error(error);
+            }
+        }
+
+        // Export content as JSON file
+        function exportContent() {
+            try {
+                const dataStr = JSON.stringify(content, null, 2);
+                const dataBlob = new Blob([dataStr], { type: 'application/json' });
+                const url = URL.createObjectURL(dataBlob);
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'content.json';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+
+                showToast('הקובץ content.json הורד. העלה אותו ל-GitHub כדי לעדכן את האתר.', 'success');
+            } catch (error) {
+                showToast('שגיאה בייצוא התוכן', 'error');
+                console.error(error);
+            }
+        }
+
+        // Load draft from localStorage if exists
+        function loadDraft() {
+            const draft = localStorage.getItem('trifold_content_draft');
+            const draftTime = localStorage.getItem('trifold_content_draft_time');
+
+            if (draft && draftTime) {
+                const draftDate = new Date(draftTime);
+                const formattedDate = draftDate.toLocaleDateString('he-IL') + ' ' + draftDate.toLocaleTimeString('he-IL');
+
+                if (confirm(`נמצאה טיוטה מ-${formattedDate}. האם לטעון אותה?`)) {
+                    content = JSON.parse(draft);
+                    populateAllFields();
+                    markDraft();
+                    showToast('הטיוטה נטענה', 'success');
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Clear draft
+        function clearDraft() {
+            localStorage.removeItem('trifold_content_draft');
+            localStorage.removeItem('trifold_content_draft_time');
+        }
+
+        function markDraft() {
+            hasUnsavedChanges = true;
+            const badge = document.getElementById('save-status');
+            badge.className = 'status-badge draft';
+            badge.innerHTML = '<span>📝</span> טיוטה נשמרה';
+        }
+
+        function closeBanner() {
+            document.getElementById('info-banner').classList.add('hidden');
+            localStorage.setItem('trifold_banner_closed', 'true');
+        }
+
+        // Reset content
+        function resetContent() {
+            if (confirm('האם אתם בטוחים שברצונכם לאפס את כל השינויים?')) {
+                content = JSON.parse(JSON.stringify(originalContent));
+                populateAllFields();
+                markSaved();
+                showToast('התוכן אופס', 'warning');
+            }
+        }
+
+        // Toast notifications
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 4000);
+        }
+
+        // Utility
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Warn before leaving with unsaved changes
+        window.addEventListener('beforeunload', (e) => {
+            if (hasUnsavedChanges) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+    </script>
+</body>
+</html>

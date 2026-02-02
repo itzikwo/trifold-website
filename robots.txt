@@ -1,0 +1,10 @@
+# robots.txt for TriFold Technologies
+User-agent: *
+Allow: /
+
+# Disallow admin page from indexing
+Disallow: /admin.html
+Disallow: /admin
+
+# Sitemap
+Sitemap: https://trifoldtechnologies.com/sitemap.xml
