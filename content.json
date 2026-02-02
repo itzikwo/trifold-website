@@ -10,7 +10,7 @@
       "solution": "הפתרון",
       "process": "איך זה עובד",
       "fit": "למי מתאים",
-      "cta": "Chat on WhatsApp"
+      "cta": "בואו נדבר"
     }
   },
   "hero": {
@@ -135,7 +135,7 @@
       },
       {
         "title": "Zero Vendor Lock-in",
-        "description": "האינטרס שלנו הוא הרווחיות שלכם. לא מכירת רישיונות של Microsoft, Google, או כל ענק ענן אחר."
+        "description": "האינטרס שלנו הוא הרווחיות שלכם. לא מכירת רישיונות."
       },
       {
         "title": "End-to-End Responsibility",
@@ -153,7 +153,7 @@
       "החלטת Go/No-Go בביטחון מלא"
     ],
     "closing": "לא עוד מצגות תיאורטיות.\nמתווה עסקי ברור שמאפשר לכם להחליט בחוכמה.",
-    "button": "Chat on WhatsApp"
+    "button": "בואו נדבר"
   },
   "trifold": {
     "title": "למה \"TriFold\"?",
