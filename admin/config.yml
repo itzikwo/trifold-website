@@ -1,0 +1,200 @@
+backend:
+  name: git-gateway
+  branch: development
+
+# Publish mode - simple for now
+publish_mode: editorial_workflow
+
+# Media files (if you add images later)
+media_folder: "images"
+public_folder: "/images"
+
+# Locale
+locale: 'he'
+
+# Site URL
+site_url: https://trifold-website.netlify.app
+display_url: https://trifold-website.netlify.app
+
+collections:
+  - name: "settings"
+    label: "הגדרות האתר"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "content"
+        label: "תוכן האתר"
+        file: "content.json"
+        fields:
+          # Meta Section
+          - label: "מטא ו-SEO"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "כותרת העמוד", name: "title", widget: "string" }
+              - { label: "תיאור לחיפוש", name: "description", widget: "text" }
+
+          # Header Section
+          - label: "Header"
+            name: "header"
+            widget: "object"
+            fields:
+              - { label: "לוגו", name: "logo", widget: "string" }
+              - label: "תפריט ניווט"
+                name: "nav"
+                widget: "object"
+                fields:
+                  - { label: "הבעיה", name: "problem", widget: "string" }
+                  - { label: "הפתרון", name: "solution", widget: "string" }
+                  - { label: "איך זה עובד", name: "process", widget: "string" }
+                  - { label: "למי מתאים", name: "fit", widget: "string" }
+                  - { label: "כפתור CTA", name: "cta", widget: "string" }
+
+          # Hero Section
+          - label: "Hero - כותרת ראשית"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "כותרת", name: "title", widget: "text" }
+              - { label: "תת-כותרת", name: "subtitle", widget: "text" }
+              - { label: "כפתור ראשי", name: "ctaPrimary", widget: "string" }
+              - { label: "כפתור משני", name: "ctaSecondary", widget: "string" }
+
+          # Problem Section
+          - label: "הבעיה"
+            name: "problem"
+            widget: "object"
+            fields:
+              - label: "פסקאות"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "פסקה", name: "paragraph", widget: "text" }
+              - { label: "משפט מודגש", name: "highlight", widget: "text" }
+
+          # Solution Section
+          - label: "הפתרון"
+            name: "solution"
+            widget: "object"
+            fields:
+              - { label: "כותרת", name: "title", widget: "string" }
+              - { label: "תת-כותרת", name: "subtitle", widget: "string" }
+              - { label: "הקדמה", name: "intro", widget: "text" }
+              - label: "לא עוד (שלילי)"
+                name: "negative"
+                widget: "object"
+                fields:
+                  - { label: "כותרת", name: "title", widget: "string" }
+                  - label: "פריטים"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "פריט", name: "item", widget: "string" }
+              - label: "במקום זה (חיובי)"
+                name: "positive"
+                widget: "object"
+                fields:
+                  - { label: "כותרת", name: "title", widget: "string" }
+                  - label: "פריטים"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "פריט", name: "item", widget: "string" }
+
+          # Process Section
+          - label: "איך זה עובד"
+            name: "process"
+            widget: "object"
+            fields:
+              - { label: "כותרת", name: "title", widget: "string" }
+              - label: "שלבים"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - { label: "כותרת השלב", name: "title", widget: "string" }
+                  - { label: "תת-כותרת", name: "subtitle", widget: "string" }
+                  - { label: "תיאור", name: "description", widget: "text" }
+                  - label: "פריטים"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "פריט", name: "item", widget: "string" }
+                  - { label: "תוצאה/סיכום", name: "result", widget: "text", required: false }
+
+          # Fit Section
+          - label: "למי מתאים"
+            name: "fit"
+            widget: "object"
+            fields:
+              - { label: "כותרת", name: "title", widget: "string" }
+              - label: "מתאים (חיובי)"
+                name: "positive"
+                widget: "object"
+                fields:
+                  - { label: "כותרת", name: "title", widget: "string" }
+                  - label: "פריטים"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "פריט", name: "item", widget: "string" }
+              - label: "לא מתאים (שלילי)"
+                name: "negative"
+                widget: "object"
+                fields:
+                  - { label: "כותרת", name: "title", widget: "string" }
+                  - label: "פריטים"
+                    name: "items"
+                    widget: "list"
+                    field: { label: "פריט", name: "item", widget: "string" }
+
+          # Why Section
+          - label: "למה TriFold"
+            name: "why"
+            widget: "object"
+            fields:
+              - { label: "כותרת", name: "title", widget: "string" }
+              - label: "כרטיסים"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "כותרת", name: "title", widget: "string" }
+                  - { label: "תיאור", name: "description", widget: "text" }
+
+          # CTA Section
+          - label: "קריאה לפעולה"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "כותרת", name: "title", widget: "string" }
+              - { label: "תיאור", name: "description", widget: "text" }
+              - label: "יתרונות"
+                name: "benefits"
+                widget: "list"
+                field: { label: "יתרון", name: "benefit", widget: "string" }
+              - { label: "סיכום", name: "closing", widget: "text" }
+              - { label: "טקסט כפתור", name: "button", widget: "string" }
+
+          # Trifold Section
+          - label: "הסבר TriFold"
+            name: "trifold"
+            widget: "object"
+            fields:
+              - { label: "כותרת", name: "title", widget: "string" }
+              - { label: "הקדמה", name: "intro", widget: "string" }
+              - label: "שלושת העמודים"
+                name: "pillars"
+                widget: "list"
+                max: 3
+                min: 3
+                fields:
+                  - { label: "כותרת", name: "title", widget: "string" }
+                  - { label: "תיאור", name: "description", widget: "string" }
+              - { label: "סיום", name: "outro", widget: "string" }
+              - { label: "טאגליין", name: "tagline", widget: "string" }
+
+          # Footer Section
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "שם", name: "name", widget: "string" }
+              - { label: "טאגליין", name: "tagline", widget: "string" }
+              - { label: "טלפון", name: "phone", widget: "string" }
+              - { label: "אימייל", name: "email", widget: "string" }
+              - { label: "זכויות יוצרים", name: "copyright", widget: "string" }
