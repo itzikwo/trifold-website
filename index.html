@@ -48,11 +48,43 @@
             --danger: #e53e3e;
             --text: #1a202c;
             --text-light: #4a5568;
-            --text-lighter: #718096;
+            --text-lighter: #595f6d;
             --bg: #ffffff;
             --bg-alt: #f7fafc;
             --bg-dark: #edf2f7;
             --border: #e2e8f0;
+        }
+
+        /* Skip to content link */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 0 0 8px 8px;
+            z-index: 10000;
+            font-weight: 600;
+            text-decoration: none;
+            transition: top 0.2s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Screen reader only text */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
         }
 
         * {
@@ -133,6 +165,15 @@
 
         nav a:hover {
             color: var(--primary);
+        }
+
+        /* Global focus-visible styles (WCAG 2.4.7) */
+        a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+        a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
+            outline: none;
         }
 
         .btn {
@@ -689,6 +730,59 @@
             text-align: center;
         }
 
+        /* Legal Pages (Privacy Policy & Terms) */
+        .legal-section {
+            padding: 80px 0 60px;
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+        }
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .legal-content h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .legal-content h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 28px;
+            margin-bottom: 10px;
+        }
+        .legal-content p {
+            color: var(--text-light);
+            margin-bottom: 14px;
+            line-height: 1.9;
+        }
+        .legal-content ul {
+            list-style: none;
+            margin-bottom: 16px;
+        }
+        .legal-content li {
+            padding: 4px 0;
+            padding-right: 22px;
+            position: relative;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        .legal-content li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+        }
+        .legal-update-date {
+            font-size: 0.9rem;
+            color: var(--text-lighter);
+            margin-top: 28px;
+            text-align: center;
+        }
+
         /* Footer */
         footer {
             background: var(--primary);
@@ -796,6 +890,21 @@
         @media (max-width: 768px) {
             nav {
                 display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 16px 24px;
+                gap: 16px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            }
+
+            nav.mobile-open {
+                display: flex;
             }
 
             .mobile-menu-btn {
@@ -976,23 +1085,38 @@
     </style>
 </head>
 <body class="loading">
+    <!-- Skip to content link (WCAG 2.4.1) -->
+    <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+    <!-- Noscript fallback -->
+    <noscript>
+        <div style="padding: 40px; text-align: center; font-family: sans-serif; direction: rtl;">
+            <h1>TriFold Technologies</h1>
+            <p>לצפייה מלאה באתר יש להפעיל JavaScript בדפדפן.</p>
+            <p>ליצירת קשר: <a href="tel:052-8544775">052-8544775</a> | <a href="mailto:contact@trifoldtechnologies.com">contact@trifoldtechnologies.com</a></p>
+        </div>
+    </noscript>
+
     <!-- Header -->
-    <header>
+    <header role="banner">
         <div class="header-content">
             <a href="#" class="logo" id="logo"><img src="/logo.svg" alt="TriFold Technologies" height="200"></a>
-            <nav id="main-nav">
+            <nav id="main-nav" role="navigation" aria-label="ניווט ראשי">
                 <a href="#problem" id="nav-problem">הבעיה</a>
                 <a href="#solution" id="nav-solution">הפתרון</a>
                 <a href="#process" id="nav-process">איך זה עובד</a>
                 <a href="#fit" id="nav-fit">למי מתאים</a>
-                <a href="https://wa.me/972528544775?text=בוא נדבר" target="_blank" class="btn btn-primary" id="nav-cta">Chat on WhatsApp</a>
+                <a href="https://wa.me/972528544775?text=בוא נדבר" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="nav-cta"><span lang="en">Chat on WhatsApp</span> <span class="sr-only">(נפתח בחלון חדש)</span></a>
             </nav>
-            <button class="mobile-menu-btn" aria-label="תפריט">☰</button>
+            <button class="mobile-menu-btn" aria-label="פתיחת תפריט ניווט" aria-expanded="false" aria-controls="main-nav">☰</button>
         </div>
     </header>
 
+    <!-- Main content -->
+    <main id="main-content">
+
     <!-- Hero -->
-    <section class="hero">
+    <section class="hero" aria-label="מבוא">
         <div class="container">
             <div class="hero-content dynamic-content">
                 <h1 id="hero-title"></h1>
@@ -1006,7 +1130,7 @@
     </section>
 
     <!-- Problem -->
-    <section class="problem" id="problem">
+    <section class="problem" id="problem" aria-label="הבעיה">
         <div class="container">
             <div class="problem-story dynamic-content" id="problem-content">
                 <!-- Populated by JavaScript -->
@@ -1015,7 +1139,7 @@
     </section>
 
     <!-- Solution -->
-    <section class="solution" id="solution">
+    <section class="solution" id="solution" aria-label="הפתרון">
         <div class="container dynamic-content">
             <div class="section-header">
                 <h2 id="solution-title"></h2>
@@ -1044,7 +1168,7 @@
     </section>
 
     <!-- Process -->
-    <section class="process" id="process">
+    <section class="process" id="process" aria-label="תהליך העבודה">
         <div class="container dynamic-content">
             <div class="section-header">
                 <h2 id="process-title"></h2>
@@ -1057,7 +1181,7 @@
     </section>
 
     <!-- Fit Section -->
-    <section class="fit" id="fit">
+    <section class="fit" id="fit" aria-label="למי מתאים">
         <div class="container dynamic-content">
             <div class="section-header">
                 <h2 id="fit-title"></h2>
@@ -1081,7 +1205,7 @@
     </section>
 
     <!-- Why Section -->
-    <section class="why">
+    <section class="why" aria-label="למה אנחנו">
         <div class="container dynamic-content">
             <div class="section-header">
                 <h2 id="why-title"></h2>
@@ -1094,7 +1218,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta" id="contact">
+    <section class="cta" id="contact" aria-label="יצירת קשר">
         <div class="container">
             <div class="cta-box dynamic-content">
                 <h2 id="cta-title"></h2>
@@ -1109,7 +1233,7 @@
     </section>
 
     <!-- Trifold Explanation -->
-    <section class="trifold">
+    <section class="trifold" aria-label="מי אנחנו">
         <div class="container">
             <div class="trifold-content dynamic-content">
                 <h2 id="trifold-title"></h2>
@@ -1133,15 +1257,18 @@
 
                 <h3>התאמות הנגישות שבוצעו באתר</h3>
                 <ul>
+                    <li>קישור "דלג לתוכן הראשי" לניווט מהיר עבור משתמשי מקלדת וקוראי מסך</li>
                     <li>תמיכה מלאה בכיוון טקסט RTL (ימין לשמאל) לקריאה נוחה בעברית</li>
-                    <li>מבנה סמנטי תקין עם כותרות היררכיות (H1-H4) לניווט קל</li>
-                    <li>תמיכה בניווט באמצעות מקלדת בלבד</li>
+                    <li>מבנה סמנטי תקין עם כותרות היררכיות (H1-H4), אזורי ציון דרך (landmarks), ותגיות <span lang="en">ARIA</span> לניווט קל</li>
+                    <li>תמיכה מלאה בניווט באמצעות מקלדת בלבד, כולל סימון מיקוד נראה (<span lang="en">focus-visible</span>)</li>
                     <li>תוסף נגישות מובנה המאפשר: הגדלת טקסט, ניגודיות גבוהה, גווני אפור, הדגשת קישורים, סמן גדול, הדגשת מיקוד, מרווח שורות ואותיות, ועצירת אנימציות</li>
-                    <li>תגיות alt לתמונות ו-aria-label לאלמנטים אינטראקטיביים</li>
-                    <li>ניגודיות צבעים מספקת בין טקסט לרקע</li>
-                    <li>עיצוב רספונסיבי המותאם לכל סוגי המכשירים</li>
-                    <li>אפשרות סגירת תפריט הנגישות באמצעות מקש Escape</li>
+                    <li>תגיות <span lang="en">alt</span> לתמונות ו-<span lang="en">aria-label</span> לאלמנטים אינטראקטיביים</li>
+                    <li>ניגודיות צבעים מספקת בין טקסט לרקע (יחס 4.5:1 לפחות)</li>
+                    <li>עיצוב רספונסיבי המותאם לכל סוגי המכשירים, כולל תפריט מובייל נגיש</li>
+                    <li>סימון שפת טקסט באנגלית (<span lang="en">lang="en"</span>) עבור קוראי מסך</li>
+                    <li>אפשרות סגירת תפריט הנגישות באמצעות מקש <span lang="en">Escape</span></li>
                     <li>שמירת העדפות נגישות בין ביקורים באתר</li>
+                    <li>הודעת <span lang="en">noscript</span> חלופית למשתמשים ללא <span lang="en">JavaScript</span></li>
                 </ul>
 
                 <h3>טכנולוגיות נגישות</h3>
@@ -1162,8 +1289,126 @@
         </div>
     </section>
 
+    <!-- Privacy Policy -->
+    <section class="legal-section" id="privacy" aria-label="מדיניות פרטיות">
+        <div class="container">
+            <div class="legal-content">
+                <h2>מדיניות פרטיות</h2>
+
+                <p>חברת <span lang="en">TriFold Technologies</span> (להלן: "החברה") מכבדת את פרטיותם של המשתמשים באתר <span lang="en">trifoldtechnologies.com</span> (להלן: "האתר"). מדיניות פרטיות זו מפרטת את האופן שבו החברה אוספת, משתמשת ומגינה על מידע אישי של המשתמשים, בהתאם לחוק הגנת הפרטיות, התשמ"א-1981 ותקנותיו.</p>
+
+                <h3>1. מידע שאנו אוספים</h3>
+                <p>האתר עשוי לאסוף את סוגי המידע הבאים:</p>
+                <ul>
+                    <li><strong>מידע שנמסר מרצון:</strong> שם, כתובת דוא"ל, מספר טלפון ופרטים נוספים שתמסרו בעת יצירת קשר דרך האתר או באמצעות <span lang="en">WhatsApp</span></li>
+                    <li><strong>מידע טכני:</strong> כתובת <span lang="en">IP</span>, סוג דפדפן, מערכת הפעלה, עמודים שנצפו ומשך ביקור – הנאסף באמצעות כלים אנליטיים</li>
+                    <li><strong>עוגיות (<span lang="en">Cookies</span>):</strong> האתר משתמש בעוגיות טכניות לצורך שמירת העדפות נגישות ותפקוד תקין של האתר</li>
+                </ul>
+
+                <h3>2. מטרות השימוש במידע</h3>
+                <p>המידע שנאסף ישמש אך ורק למטרות הבאות:</p>
+                <ul>
+                    <li>מענה לפניות ובקשות ליצירת קשר</li>
+                    <li>שיפור חוויית המשתמש באתר</li>
+                    <li>ניתוח סטטיסטי אנונימי של דפוסי גלישה</li>
+                    <li>עמידה בדרישות חוקיות ורגולטוריות</li>
+                </ul>
+
+                <h3>3. שיתוף מידע עם צדדים שלישיים</h3>
+                <p>החברה לא תמכור, תשכיר או תעביר מידע אישי לצדדים שלישיים, למעט במקרים הבאים:</p>
+                <ul>
+                    <li>ספקי שירות הפועלים מטעם החברה (כגון שירותי אחסון אתרים) המחויבים לשמירת סודיות</li>
+                    <li>כאשר נדרש על פי דין, צו בית משפט או דרישה של רשות מוסמכת</li>
+                    <li>במקרה של מחלוקת משפטית בין המשתמש לחברה</li>
+                </ul>
+
+                <h3>4. אבטחת מידע</h3>
+                <p>החברה נוקטת באמצעי אבטחה סבירים ומקובלים להגנה על המידע האישי, לרבות שימוש בפרוטוקול <span lang="en">HTTPS</span> מוצפן. עם זאת, אין אפשרות להבטיח הגנה מוחלטת מפני חדירות בלתי מורשות.</p>
+
+                <h3>5. זכויות המשתמש</h3>
+                <p>בהתאם לחוק הגנת הפרטיות, כל משתמש זכאי:</p>
+                <ul>
+                    <li>לעיין במידע אישי המוחזק אודותיו</li>
+                    <li>לבקש תיקון או מחיקה של מידע אישי</li>
+                    <li>להתנגד לשימוש במידע למטרות שיווק ישיר</li>
+                    <li>לבקש העברת המידע לגורם אחר</li>
+                </ul>
+                <p>לצורך מימוש זכויות אלה, ניתן לפנות אלינו בכתובת: <a href="mailto:contact@trifoldtechnologies.com">contact@trifoldtechnologies.com</a></p>
+
+                <h3>6. קישורים חיצוניים</h3>
+                <p>האתר עשוי לכלול קישורים לאתרים חיצוניים (כגון <span lang="en">WhatsApp</span>). החברה אינה אחראית למדיניות הפרטיות או לתוכן של אתרים אלה ומומלץ לעיין במדיניות הפרטיות שלהם בנפרד.</p>
+
+                <h3>7. שינויים במדיניות</h3>
+                <p>החברה שומרת לעצמה את הזכות לעדכן מדיניות פרטיות זו מעת לעת. שינויים מהותיים יפורסמו באתר. המשך השימוש באתר לאחר עדכון המדיניות מהווה הסכמה לשינויים.</p>
+
+                <h3>8. יצירת קשר</h3>
+                <p>לשאלות או בקשות בנושא פרטיות, ניתן לפנות אלינו:</p>
+                <p><strong>דוא"ל:</strong> <a href="mailto:contact@trifoldtechnologies.com">contact@trifoldtechnologies.com</a><br>
+                <strong>טלפון:</strong> <a href="tel:052-8544775">052-8544775</a></p>
+
+                <p class="legal-update-date">מדיניות זו עודכנה לאחרונה בתאריך: פברואר 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms of Use -->
+    <section class="legal-section" id="terms" aria-label="תנאי שימוש">
+        <div class="container">
+            <div class="legal-content">
+                <h2>תנאי שימוש</h2>
+
+                <p>ברוכים הבאים לאתר <span lang="en">TriFold Technologies</span> (להלן: "האתר"). השימוש באתר כפוף לתנאי שימוש אלה. עצם הגלישה באתר מהווה הסכמה לתנאים המפורטים להלן. אם אינכם מסכימים לתנאים אלה, אנא הימנעו מהשימוש באתר.</p>
+
+                <h3>1. תיאור השירות</h3>
+                <p>האתר משמש כאתר תדמית ומידע עבור חברת <span lang="en">TriFold Technologies</span>, העוסקת בייעוץ ויישום פתרונות בינה מלאכותית (<span lang="en">AI</span>) לארגונים. האתר מספק מידע כללי על שירותי החברה ואמצעי ליצירת קשר.</p>
+
+                <h3>2. קניין רוחני</h3>
+                <p>כל התכנים באתר, לרבות טקסטים, עיצובים, לוגו, גרפיקה ותמונות, הם רכושה הבלעדי של החברה ומוגנים על פי חוקי זכויות יוצרים וקניין רוחני. אין להעתיק, לשכפל, להפיץ, לפרסם או לעשות שימוש מסחרי בתכני האתר ללא הסכמה מפורשת בכתב מהחברה.</p>
+
+                <h3>3. שימוש מותר</h3>
+                <p>השימוש באתר מותר למטרות אישיות ולא מסחריות בלבד. המשתמש מתחייב:</p>
+                <ul>
+                    <li>לא לעשות שימוש באתר לכל מטרה בלתי חוקית</li>
+                    <li>לא לנסות לחדור למערכות האתר או לפגוע בתפקודו</li>
+                    <li>לא להעביר תוכן פוגעני, מטעה או מפר זכויות צדדים שלישיים</li>
+                    <li>לא לאסוף מידע על משתמשים אחרים ללא הסכמתם</li>
+                </ul>
+
+                <h3>4. הגבלת אחריות</h3>
+                <p>המידע באתר מוגש "כפי שהוא" (<span lang="en">As Is</span>) ומיועד למטרות מידע כלליות בלבד. החברה אינה מתחייבת לדיוק, שלמות או עדכניות המידע באתר. החברה לא תישא באחריות לכל נזק ישיר או עקיף הנובע מהשימוש באתר או מחוסר היכולת להשתמש בו, לרבות:</p>
+                <ul>
+                    <li>נזקים הנובעים משגיאות או אי-דיוקים בתוכן</li>
+                    <li>הפסדים עסקיים או אובדן רווחים</li>
+                    <li>נזקים הנובעים מגישה בלתי מורשית לשרתי האתר</li>
+                    <li>נזקים הנובעים מווירוסים או קוד זדוני</li>
+                </ul>
+
+                <h3>5. קישורים לאתרים חיצוניים</h3>
+                <p>האתר עשוי לכלול קישורים לאתרים ושירותים של צדדים שלישיים (כגון <span lang="en">WhatsApp</span>). קישורים אלה מסופקים לנוחות המשתמש בלבד. החברה אינה אחראית לתוכנם, למדיניות הפרטיות שלהם או לזמינותם של אתרים חיצוניים.</p>
+
+                <h3>6. יצירת קשר ומסירת מידע</h3>
+                <p>בעת יצירת קשר עם החברה באמצעות האתר או <span lang="en">WhatsApp</span>, המשתמש מאשר כי המידע שנמסר הוא מדויק ונמסר מרצון חופשי. החברה תטפל בפניות בהתאם למדיניות הפרטיות שלה.</p>
+
+                <h3>7. שינויים בתנאי השימוש</h3>
+                <p>החברה שומרת לעצמה את הזכות לשנות את תנאי השימוש בכל עת וללא הודעה מוקדמת. המשך השימוש באתר לאחר עדכון התנאים מהווה הסכמה לשינויים.</p>
+
+                <h3>8. דין חל וסמכות שיפוט</h3>
+                <p>תנאי שימוש אלה כפופים לדיני מדינת ישראל בלבד. סמכות השיפוט הבלעדית בכל עניין הנובע מתנאים אלה או מהשימוש באתר תהיה לבתי המשפט המוסמכים בתל אביב-יפו.</p>
+
+                <h3>9. יצירת קשר</h3>
+                <p>לשאלות בנוגע לתנאי השימוש, ניתן לפנות אלינו:</p>
+                <p><strong>דוא"ל:</strong> <a href="mailto:contact@trifoldtechnologies.com">contact@trifoldtechnologies.com</a><br>
+                <strong>טלפון:</strong> <a href="tel:052-8544775">052-8544775</a></p>
+
+                <p class="legal-update-date">תנאים אלה עודכנו לאחרונה בתאריך: פברואר 2026</p>
+            </div>
+        </div>
+    </section>
+
+    </main><!-- end main-content -->
+
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
             <div class="footer-content dynamic-content">
                 <div class="footer-info">
@@ -1177,7 +1422,7 @@
             </div>
             <div class="footer-bottom">
                 <p id="footer-copyright"></p>
-                <p style="margin-top: 8px;"><a href="#accessibility" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem;">הצהרת נגישות</a></p>
+                <p style="margin-top: 8px;"><a href="#accessibility" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem;">הצהרת נגישות</a> | <a href="#privacy" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem;">מדיניות פרטיות</a> | <a href="#terms" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem;">תנאי שימוש</a></p>
             </div>
         </div>
     </footer>
@@ -1211,7 +1456,11 @@
                     setText('nav-solution', content.header.nav.solution);
                     setText('nav-process', content.header.nav.process);
                     setText('nav-fit', content.header.nav.fit);
-                    setText('nav-cta', content.header.nav.cta);
+                    // Preserve lang and sr-only spans for accessibility
+                    var navCta = document.getElementById('nav-cta');
+                    if (navCta && content.header.nav.cta) {
+                        navCta.innerHTML = '<span lang="en">' + escapeHtml(content.header.nav.cta) + '</span> <span class="sr-only">(נפתח בחלון חדש)</span>';
+                    }
                 }
             }
 
@@ -1279,6 +1528,7 @@
                 // Set WhatsApp link
                 document.getElementById('cta-button').href = 'https://wa.me/972528544775?text=בוא נדבר';
                 document.getElementById('cta-button').target = '_blank';
+                document.getElementById('cta-button').rel = 'noopener noreferrer';
             }
 
             // Trifold
@@ -1411,6 +1661,29 @@
                 </div>
             `).join('');
         }
+
+        // Mobile menu toggle
+        (function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.getElementById('main-nav');
+            if (menuBtn && nav) {
+                menuBtn.addEventListener('click', function() {
+                    const isOpen = nav.classList.toggle('mobile-open');
+                    menuBtn.setAttribute('aria-expanded', isOpen);
+                    menuBtn.setAttribute('aria-label', isOpen ? 'סגירת תפריט ניווט' : 'פתיחת תפריט ניווט');
+                    menuBtn.textContent = isOpen ? '✕' : '☰';
+                });
+                // Close mobile menu when a nav link is clicked
+                nav.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        nav.classList.remove('mobile-open');
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                        menuBtn.setAttribute('aria-label', 'פתיחת תפריט ניווט');
+                        menuBtn.textContent = '☰';
+                    });
+                });
+            }
+        })();
     </script>
 
     <!-- Accessibility Widget -->
