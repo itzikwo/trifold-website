@@ -1165,6 +1165,7 @@
                 <a href="#solution" id="nav-solution">הפתרון</a>
                 <a href="#process" id="nav-process">איך זה עובד</a>
                 <a href="#fit" id="nav-fit">למי מתאים</a>
+                <a href="/ai-strategy-playbook/" id="nav-playbook">Playbook</a>
                 <a href="https://wa.me/972528544775?text=בוא נדבר" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="nav-cta"><span lang="en">Chat on WhatsApp</span> <span class="sr-only">(נפתח בחלון חדש)</span></a>
             </nav>
             <button class="mobile-menu-btn" aria-label="פתיחת תפריט ניווט" aria-expanded="false" aria-controls="main-nav">☰</button>
@@ -1187,6 +1188,140 @@
             </div>
         </div>
     </section>
+
+    <!-- Playbook Spotlight Banner -->
+    <section class="playbook-spotlight">
+        <div class="container">
+            <a href="/ai-strategy-playbook/" class="playbook-banner">
+                <div class="playbook-banner-tag">חדש · מאי 2026</div>
+                <div class="playbook-banner-content">
+                    <h2>פלייבוק להנהלה הבכירה: מאסטרטגיה למערכת פועלת</h2>
+                    <p>15 פרקים · 9 תבניות עבודה להורדה · כלי הערכת בשלות אינטראקטיבי · מחשבון ROI · מבוסס על סינתזה של 10 דוחות מובילים — BCG, Bain, McKinsey, Accenture, Deloitte, KPMG, Google, Microsoft, Cisco.</p>
+                </div>
+                <div class="playbook-banner-cta">
+                    <span class="playbook-banner-btn">פתח את ה-Playbook ←</span>
+                    <span class="playbook-banner-meta">קריאה חופשית · ללא הרשמה</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <style>
+    .playbook-spotlight {
+        padding: 40px 0 0;
+        background: var(--bg);
+    }
+    .playbook-banner {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 32px;
+        align-items: center;
+        background: linear-gradient(135deg, #0a1f44 0%, #1a3160 100%);
+        color: white;
+        padding: 36px 40px;
+        border-radius: 20px;
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 12px 32px rgba(10, 31, 68, 0.15);
+        border: 1px solid rgba(200, 165, 88, 0.3);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .playbook-banner::before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0;
+        width: 6px;
+        background: linear-gradient(180deg, #c8a558 0%, #e6cf95 100%);
+    }
+    .playbook-banner::after {
+        content: "";
+        position: absolute;
+        top: -50%; left: -10%;
+        width: 400px; height: 400px;
+        background: radial-gradient(circle, rgba(200, 165, 88, 0.18) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .playbook-banner:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 48px rgba(10, 31, 68, 0.25);
+        border-color: #c8a558;
+    }
+    .playbook-banner-tag {
+        position: absolute;
+        top: 20px; left: 28px;
+        background: #c8a558;
+        color: #0a1f44;
+        padding: 6px 14px;
+        border-radius: 30px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        z-index: 2;
+    }
+    .playbook-banner-content {
+        position: relative;
+        z-index: 1;
+    }
+    .playbook-banner-content h2 {
+        font-size: 1.7rem;
+        font-weight: 800;
+        color: #c8a558;
+        margin-bottom: 12px;
+        line-height: 1.3;
+    }
+    .playbook-banner-content p {
+        color: rgba(255, 255, 255, 0.88);
+        font-size: 1rem;
+        line-height: 1.7;
+        margin: 0;
+    }
+    .playbook-banner-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        z-index: 1;
+    }
+    .playbook-banner-btn {
+        background: #c8a558;
+        color: #0a1f44;
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 1rem;
+        white-space: nowrap;
+        transition: all 0.25s;
+    }
+    .playbook-banner:hover .playbook-banner-btn {
+        background: #e6cf95;
+        transform: translateX(-4px);
+    }
+    .playbook-banner-meta {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.6);
+    }
+    @media (max-width: 768px) {
+        .playbook-banner {
+            grid-template-columns: 1fr;
+            padding: 60px 24px 28px;
+            gap: 20px;
+            text-align: center;
+        }
+        .playbook-banner-content h2 {
+            font-size: 1.35rem;
+        }
+        .playbook-banner-content p {
+            font-size: 0.95rem;
+        }
+        .playbook-banner-tag {
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    </style>
 
     <!-- Problem -->
     <section class="problem" id="problem" aria-label="הבעיה">

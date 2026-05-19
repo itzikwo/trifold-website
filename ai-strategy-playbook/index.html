@@ -1,0 +1,2794 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playbook אסטרטגיית AI להנהלה הבכירה | TriFold Technologies</title>
+<meta name="description" content="Playbook אסטרטגיית AI לדירקטוריון, מנכ״ל ו-C-suite בארגונים ישראליים. הערכת בשלות, תעדוף יוזמות, מודל תפעולי, ממשל, ROI, מפת דרכים ו-9 תבניות עבודה להורדה. מאת איציק וודה, TriFold Technologies.">
+<meta name="author" content="Itzik Woda · TriFold Technologies">
+<meta name="keywords" content="אסטרטגיית AI, פלייבוק AI, יישום AI, AI להנהלה, CAIO, מודל בשלות, ROI AI, רגולציה AI ישראל, בנק ישראל 357A, רשות הגנת הפרטיות">
+<link rel="canonical" href="https://trifoldtechnologies.com/ai-strategy-playbook/">
+<!-- Favicon (inherits from parent site) -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://trifoldtechnologies.com/ai-strategy-playbook/">
+<meta property="og:title" content="Playbook אסטרטגיית AI להנהלה הבכירה | TriFold Technologies">
+<meta property="og:description" content="המסע המובנה למנכ״לים, חברי דירקטוריון, CIOs ומנהלי יחידות עסקיות בארגונים ישראליים. 15 פרקים, 9 תבניות עבודה, כלי הערכת בשלות אינטראקטיבי.">
+<meta property="og:image" content="https://trifoldtechnologies.com/og-image.png">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="TriFold Technologies">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Playbook אסטרטגיית AI להנהלה הבכירה">
+<meta name="twitter:description" content="המסע המובנה למנכ״לים וחברי הנהלה בארגונים ישראליים. 15 פרקים, 9 תבניות עבודה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&amp;family=Frank+Ruhl+Libre:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+:root {
+  /* TriFold corporate blue (from landing page) */
+  --tf-primary: #1a365d;
+  --tf-accent: #3182ce;
+  --tf-accent-light: #4299e1;
+  /* Premium playbook palette */
+  --navy: #0a1f44;
+  --navy-deep: #061330;
+  --navy-soft: #1a3160;
+  --gold: #c8a558;
+  --gold-soft: #e6cf95;
+  --ivory: #faf8f4;
+  --bone: #f1ede4;
+  --gray-900: #1a1a1a;
+  --gray-700: #4a4a4a;
+  --gray-500: #7a7a7a;
+  --gray-300: #d4d4d4;
+  --gray-200: #e8e8e8;
+  --gray-100: #f3f3f3;
+  --teal: #2c7a7b;
+  --burgundy: #831c2c;
+  --green: #2f6f3f;
+  --orange: #c4602a;
+  --red: #a02322;
+  --shadow-sm: 0 2px 4px rgba(10,31,68,0.05);
+  --shadow-md: 0 6px 18px rgba(10,31,68,0.08);
+  --shadow-lg: 0 20px 50px rgba(10,31,68,0.14);
+  --serif: 'Frank Ruhl Libre', 'Times New Roman', serif;
+  --sans: 'Heebo', 'Arial Hebrew', -apple-system, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--ivory);
+  color: var(--gray-900);
+  line-height: 1.7;
+  font-size: 16px;
+  font-weight: 400;
+  direction: rtl;
+  text-align: right;
+}
+h1, h2, h3, h4, h5, h6 { font-family: var(--serif); color: var(--navy); line-height: 1.25; font-weight: 700; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); font-weight: 900; }
+h2 { font-size: clamp(1.8rem, 3.2vw, 2.8rem); margin-bottom: 1.2rem; }
+h3 { font-size: clamp(1.3rem, 2.2vw, 1.8rem); margin-bottom: 0.8rem; }
+h4 { font-size: 1.15rem; margin-bottom: 0.6rem; color: var(--navy-soft); }
+p { margin-bottom: 1rem; color: var(--gray-700); }
+a { color: var(--navy); text-decoration: none; transition: color 0.2s; }
+a:hover { color: var(--gold); }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.container-narrow { max-width: 920px; margin: 0 auto; padding: 0 2rem; }
+
+/* ==== TOP NAV ==== */
+.topbar {
+  position: sticky; top: 0; z-index: 1000;
+  background: rgba(10,31,68,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(200,165,88,0.2);
+  padding: 1rem 0;
+}
+.topbar-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.brand { display: flex; align-items: center; gap: 0.7rem; color: white; font-family: var(--serif); font-weight: 700; font-size: 1.2rem; }
+.brand-mark {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy); font-weight: 900; font-family: var(--serif);
+}
+.nav-links { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.85rem; font-weight: 500;
+  padding: 0.5rem 0.8rem; border-radius: 4px;
+  transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--gold); background: rgba(200,165,88,0.08); }
+.menu-toggle { display: none; background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+/* ==== HERO ==== */
+.hero {
+  background:
+    radial-gradient(ellipse at top left, rgba(200,165,88,0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(44,122,123,0.1) 0%, transparent 50%),
+    linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, var(--navy-soft) 100%);
+  color: white;
+  padding: 7rem 0 8rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px; opacity: 0.5;
+}
+.hero-inner { position: relative; z-index: 2; }
+.eyebrow {
+  display: inline-block; padding: 0.4rem 1rem;
+  border: 1px solid var(--gold); color: var(--gold);
+  font-size: 0.85rem; letter-spacing: 0.15em; font-weight: 500;
+  border-radius: 30px; margin-bottom: 1.5rem;
+}
+.hero h1 { color: white; margin-bottom: 1.5rem; max-width: 950px; }
+.hero h1 em { color: var(--gold); font-style: normal; }
+.hero-sub { font-size: 1.3rem; color: rgba(255,255,255,0.85); max-width: 780px; font-weight: 300; margin-bottom: 2.5rem; }
+.cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.95rem 2rem;
+  font-family: var(--sans); font-weight: 600; font-size: 0.95rem;
+  border: 2px solid transparent; cursor: pointer;
+  border-radius: 4px; transition: all 0.25s;
+}
+.btn-gold { background: var(--gold); color: var(--navy); }
+.btn-gold:hover { background: var(--gold-soft); color: var(--navy-deep); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-ghost { background: transparent; color: white; border-color: rgba(255,255,255,0.4); }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* Hero stats */
+.hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(200,165,88,0.3); }
+.stat-block { color: white; }
+.stat-num { font-family: var(--serif); font-size: 2.6rem; font-weight: 900; color: var(--gold); line-height: 1; }
+.stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 0.5rem; }
+.stat-source { font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-top: 0.3rem; }
+
+/* ==== SECTIONS ==== */
+section.page-section { padding: 6rem 0; border-bottom: 1px solid var(--bone); }
+section.alt { background: white; }
+section.dark { background: var(--navy); color: white; }
+section.dark h2, section.dark h3, section.dark h4 { color: white; }
+section.dark p { color: rgba(255,255,255,0.8); }
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.78rem; letter-spacing: 0.2em; font-weight: 600;
+  color: var(--gold); margin-bottom: 1rem; text-transform: uppercase;
+}
+.section-title { margin-bottom: 1rem; }
+.section-lead { font-size: 1.15rem; max-width: 780px; color: var(--gray-700); margin-bottom: 2.5rem; line-height: 1.65; }
+section.dark .section-lead { color: rgba(255,255,255,0.85); }
+section.dark .section-tag { color: var(--gold); }
+
+/* ==== EXEC BOX ==== */
+.exec-box {
+  background: linear-gradient(135deg, white 0%, var(--bone) 100%);
+  border-right: 4px solid var(--gold);
+  padding: 2rem 2.5rem;
+  margin: 2rem 0;
+  border-radius: 6px;
+  box-shadow: var(--shadow-md);
+}
+.exec-box h4 { color: var(--navy); margin-bottom: 1rem; font-family: var(--serif); }
+.exec-box ul { list-style: none; padding: 0; }
+.exec-box li {
+  padding: 0.6rem 0; padding-right: 1.7rem; position: relative;
+  color: var(--gray-700); border-bottom: 1px dashed var(--gray-200);
+}
+.exec-box li::before {
+  content: '◆'; color: var(--gold);
+  position: absolute; right: 0; top: 0.7rem; font-size: 0.7rem;
+}
+.exec-box li:last-child { border-bottom: none; }
+
+/* ==== GRID ==== */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+/* ==== CARDS ==== */
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--gray-200);
+  transition: all 0.25s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--gold-soft); }
+.card-num {
+  width: 44px; height: 44px;
+  background: var(--navy); color: var(--gold);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-weight: 700; font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
+.card p { font-size: 0.95rem; color: var(--gray-700); }
+
+/* ==== TIMELINE ==== */
+.timeline {
+  position: relative; padding: 2rem 0;
+}
+.timeline::after {
+  content: ''; position: absolute; top: 0; bottom: 0;
+  right: 50%; width: 2px; background: var(--gold-soft);
+}
+.tl-item {
+  width: 50%; padding: 0 3rem 2.5rem 1rem;
+  position: relative;
+}
+.tl-item:nth-child(even) {
+  margin-right: 50%; padding: 0 1rem 2.5rem 3rem;
+}
+.tl-dot {
+  position: absolute; top: 0.5rem; left: -10px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--gold); border: 4px solid white; box-shadow: 0 0 0 2px var(--gold);
+}
+.tl-item:nth-child(even) .tl-dot { left: auto; right: -10px; }
+.tl-content {
+  background: white; padding: 1.5rem; border-radius: 6px;
+  box-shadow: var(--shadow-sm); border-right: 3px solid var(--gold);
+}
+.tl-quarter { font-size: 0.8rem; font-weight: 700; color: var(--gold); letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+
+/* ==== TABLES ==== */
+table.exec-table {
+  width: 100%; border-collapse: collapse;
+  margin: 2rem 0;
+  background: white;
+  box-shadow: var(--shadow-md);
+  border-radius: 8px; overflow: hidden;
+}
+.exec-table th {
+  background: var(--navy); color: white;
+  padding: 1rem; text-align: right;
+  font-family: var(--serif); font-weight: 700; font-size: 0.95rem;
+}
+.exec-table td {
+  padding: 1rem; border-bottom: 1px solid var(--gray-200);
+  color: var(--gray-700); font-size: 0.95rem; vertical-align: top;
+}
+.exec-table tr:last-child td { border-bottom: none; }
+.exec-table tr:nth-child(even) { background: var(--bone); }
+
+/* Maturity matrix */
+.matrix-table .level-100 { background: #fdd; color: #831c2c; padding: 0.3rem 0.6rem; border-radius: 3px; font-weight: 600; font-size: 0.85rem; text-align: center; }
+.matrix-table .level-200 { background: #fed; color: #a04a1a; padding: 0.3rem 0.6rem; border-radius: 3px; font-weight: 600; font-size: 0.85rem; text-align: center; }
+.matrix-table .level-300 { background: #ffe9a1; color: #6b4d10; padding: 0.3rem 0.6rem; border-radius: 3px; font-weight: 600; font-size: 0.85rem; text-align: center; }
+.matrix-table .level-400 { background: #c9e8c9; color: #2f6f3f; padding: 0.3rem 0.6rem; border-radius: 3px; font-weight: 600; font-size: 0.85rem; text-align: center; }
+.matrix-table .level-500 { background: #b8d4f5; color: #0a3a78; padding: 0.3rem 0.6rem; border-radius: 3px; font-weight: 600; font-size: 0.85rem; text-align: center; }
+
+/* ==== INTERACTIVE: MATURITY ASSESSMENT ==== */
+.assessment-tool {
+  background: white;
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  margin: 2rem 0;
+}
+.driver-row {
+  padding: 1.5rem 0; border-bottom: 1px solid var(--gray-200);
+}
+.driver-row:last-child { border-bottom: none; }
+.driver-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
+.driver-name { font-weight: 700; color: var(--navy); font-size: 1.05rem; }
+.driver-score { font-family: var(--serif); font-size: 1.3rem; color: var(--gold); font-weight: 700; }
+.driver-desc { font-size: 0.9rem; color: var(--gray-500); margin-bottom: 0.8rem; }
+.slider-row {
+  display: grid; grid-template-columns: 60px 1fr 60px;
+  align-items: center; gap: 1rem;
+}
+.level-tag { font-size: 0.75rem; color: var(--gray-500); text-align: center; }
+input[type=range] {
+  width: 100%; height: 8px; -webkit-appearance: none; appearance: none;
+  background: linear-gradient(90deg, #fdd 0%, #fed 25%, #ffe9a1 50%, #c9e8c9 75%, #b8d4f5 100%);
+  border-radius: 4px; outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--navy); border: 3px solid var(--gold);
+  cursor: pointer; box-shadow: var(--shadow-md);
+}
+input[type=range]::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--navy); border: 3px solid var(--gold);
+  cursor: pointer; box-shadow: var(--shadow-md);
+}
+.assessment-result {
+  margin-top: 2rem; padding: 2rem;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+  color: white; border-radius: 8px;
+}
+.assessment-result h4 { color: var(--gold); margin-bottom: 1rem; font-size: 1rem; letter-spacing: 0.1em; }
+.assessment-summary { font-size: 1.3rem; font-family: var(--serif); margin-bottom: 0.5rem; }
+.scale-breaker { color: var(--gold); font-weight: 700; }
+
+/* Radar chart container */
+.radar-container { display: flex; justify-content: center; margin: 2rem 0; }
+
+/* ==== PRIORITIZATION MATRIX ==== */
+.prio-matrix {
+  position: relative;
+  background: white;
+  border: 2px solid var(--gray-300);
+  border-radius: 8px;
+  height: 520px;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+.prio-axis-x {
+  position: absolute; bottom: -30px; right: 50%; transform: translateX(50%);
+  font-size: 0.85rem; color: var(--gray-700); font-weight: 600;
+}
+.prio-axis-y {
+  position: absolute; top: 50%; right: -30px; transform: rotate(-90deg) translateX(50%);
+  transform-origin: right top;
+  font-size: 0.85rem; color: var(--gray-700); font-weight: 600;
+  white-space: nowrap;
+}
+.prio-quadrant {
+  position: absolute; padding: 1rem; font-size: 0.7rem;
+  color: var(--gray-500); font-weight: 600; letter-spacing: 0.1em;
+}
+.prio-q1 { top: 1rem; left: 1rem; } /* high value low complexity = quick wins */
+.prio-q2 { top: 1rem; right: 1rem; } /* high value high complexity = strategic */
+.prio-q3 { bottom: 1rem; left: 1rem; } /* low value low complexity = fill-ins */
+.prio-q4 { bottom: 1rem; right: 1rem; } /* low value high complexity = avoid */
+.prio-grid-h, .prio-grid-v {
+  position: absolute; background: var(--gray-200);
+}
+.prio-grid-h { right: 0; left: 0; top: 50%; height: 1px; }
+.prio-grid-v { top: 0; bottom: 0; right: 50%; width: 1px; }
+.prio-bubble {
+  position: absolute;
+  background: var(--navy);
+  color: white; border-radius: 50%;
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; text-align: center;
+  cursor: pointer; transition: all 0.2s;
+  box-shadow: var(--shadow-md);
+  line-height: 1.1;
+}
+.prio-bubble.gold { background: var(--gold); color: var(--navy); }
+.prio-bubble.teal { background: var(--teal); }
+.prio-bubble.burg { background: var(--burgundy); }
+.prio-bubble:hover { transform: scale(1.15); z-index: 10; }
+.prio-bubble::after {
+  content: attr(data-tooltip); position: absolute;
+  bottom: 110%; right: 50%; transform: translateX(50%);
+  background: var(--navy-deep); color: white;
+  padding: 0.5rem 0.8rem; border-radius: 4px;
+  font-size: 0.8rem; white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s; z-index: 20;
+}
+.prio-bubble:hover::after { opacity: 1; }
+
+/* ==== PATTERN CARDS ==== */
+.pattern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.pattern-card {
+  background: white; padding: 1.8rem;
+  border-radius: 8px; border: 1px solid var(--gray-200);
+  border-top: 4px solid var(--gold);
+  position: relative; transition: all 0.25s;
+}
+.pattern-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.pattern-num {
+  position: absolute; top: 1rem; left: 1rem;
+  font-family: var(--serif); font-size: 2.5rem; color: var(--gold-soft);
+  font-weight: 900; line-height: 1;
+}
+.pattern-card h4 { font-size: 1.1rem; margin: 0.5rem 0 0.5rem; }
+.pattern-card .pattern-tag { font-size: 0.78rem; color: var(--teal); font-weight: 600; }
+.pattern-card p { font-size: 0.9rem; }
+
+/* ==== KPI DASHBOARD ==== */
+.kpi-dash {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  border-radius: 12px; padding: 2.5rem;
+  color: white; margin: 2rem 0;
+}
+.kpi-dash h3 { color: white; }
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+.kpi-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(200,165,88,0.3);
+  border-radius: 8px; padding: 1.2rem;
+}
+.kpi-label { font-size: 0.78rem; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; }
+.kpi-value { font-family: var(--serif); font-size: 2rem; color: var(--gold); font-weight: 700; line-height: 1.1; margin: 0.3rem 0; }
+.kpi-delta { font-size: 0.8rem; color: #88d488; }
+.kpi-delta.down { color: #ff8888; }
+.kpi-bar-wrap { background: rgba(255,255,255,0.1); height: 6px; border-radius: 3px; margin-top: 0.6rem; }
+.kpi-bar { background: linear-gradient(90deg, var(--gold-soft), var(--gold)); height: 100%; border-radius: 3px; }
+
+/* ==== ROI CALCULATOR ==== */
+.roi-calc { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: var(--shadow-md); }
+.roi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.roi-input-group { margin-bottom: 1rem; }
+.roi-input-group label { display: block; font-weight: 600; color: var(--navy); margin-bottom: 0.3rem; font-size: 0.9rem; }
+.roi-input-group input {
+  width: 100%; padding: 0.75rem; border: 1px solid var(--gray-300);
+  border-radius: 4px; font-family: var(--sans); font-size: 1rem; text-align: right; direction: ltr;
+}
+.roi-input-group input:focus { border-color: var(--gold); outline: none; }
+.roi-result {
+  background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+  color: white; padding: 2rem; border-radius: 8px;
+}
+.roi-result h4 { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+.roi-big-num { font-family: var(--serif); font-size: 3rem; color: var(--gold); font-weight: 900; line-height: 1; }
+.roi-line { display: flex; justify-content: space-between; padding: 0.7rem 0; border-bottom: 1px solid rgba(255,255,255,0.15); font-size: 0.95rem; }
+.roi-line:last-child { border-bottom: none; }
+
+/* ==== CASE STUDIES ==== */
+.case-card {
+  background: white; padding: 2rem; border-radius: 8px;
+  border: 1px solid var(--gray-200); position: relative; overflow: hidden;
+  transition: all 0.25s;
+}
+.case-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.case-card::before {
+  content: ''; position: absolute; top: 0; right: 0;
+  width: 70px; height: 70px;
+  background: var(--gold-soft); opacity: 0.3;
+  border-radius: 0 0 0 100%;
+}
+.case-sector {
+  display: inline-block; padding: 0.3rem 0.8rem;
+  background: var(--bone); color: var(--navy);
+  border-radius: 20px; font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.05em; margin-bottom: 1rem;
+}
+.case-card h4 { font-size: 1.15rem; }
+.case-result { display: flex; gap: 1.5rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--gray-300); }
+.case-stat { flex: 1; }
+.case-stat-num { font-family: var(--serif); font-size: 1.4rem; color: var(--gold); font-weight: 700; }
+.case-stat-lbl { font-size: 0.75rem; color: var(--gray-500); }
+
+/* ==== TEMPLATES ==== */
+.tpl-card {
+  background: white; padding: 1.5rem; border-radius: 8px;
+  border: 1px solid var(--gray-200); display: flex; gap: 1.2rem; align-items: flex-start;
+  transition: all 0.25s;
+}
+.tpl-card:hover { box-shadow: var(--shadow-md); border-color: var(--gold); }
+.tpl-icon {
+  flex-shrink: 0; width: 50px; height: 50px;
+  background: var(--navy); color: var(--gold);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.tpl-card h4 { font-size: 1rem; margin-bottom: 0.3rem; }
+.tpl-card p { font-size: 0.85rem; color: var(--gray-500); margin: 0; }
+.tpl-action {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  color: var(--navy); background: var(--bone);
+  font-size: 0.82rem; font-weight: 700;
+  margin-top: 0.6rem; padding: 0.4rem 0.85rem;
+  border-radius: 4px; border: 1px solid transparent;
+  text-decoration: none; cursor: pointer;
+  transition: all 0.2s;
+}
+.tpl-action:hover {
+  background: var(--gold); color: var(--navy-deep);
+  border-color: var(--gold); transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==== ARCHETYPE ==== */
+.archetypes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.archetype {
+  padding: 2rem; border-radius: 8px; text-align: center; position: relative;
+  border: 2px solid transparent;
+}
+.archetype.follower { background: #f5e6e6; border-color: #c45757; }
+.archetype.pragmatist { background: #fff4d6; border-color: var(--gold); }
+.archetype.trailblazer { background: #e0f0e0; border-color: var(--green); }
+.archetype-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 900; margin-bottom: 0.5rem; }
+.archetype.follower .archetype-title { color: var(--burgundy); }
+.archetype.pragmatist .archetype-title { color: #6b4d10; }
+.archetype.trailblazer .archetype-title { color: var(--green); }
+.archetype-pct { font-family: var(--serif); font-size: 3rem; font-weight: 900; }
+.archetype.follower .archetype-pct { color: var(--burgundy); }
+.archetype.pragmatist .archetype-pct { color: #6b4d10; }
+.archetype.trailblazer .archetype-pct { color: var(--green); }
+.archetype-desc { font-size: 0.9rem; color: var(--gray-700); margin-top: 0.5rem; }
+
+/* ==== EXERCISE / WORKSHOP ==== */
+.exercise {
+  background: var(--bone);
+  border-right: 4px solid var(--teal);
+  padding: 1.8rem 2rem; border-radius: 6px; margin: 1.5rem 0;
+}
+.exercise-label {
+  display: inline-block; font-size: 0.75rem; font-weight: 700;
+  color: var(--teal); letter-spacing: 0.1em; margin-bottom: 0.7rem;
+}
+.exercise h4 { color: var(--navy); margin-bottom: 0.8rem; }
+.exercise ol { margin-right: 1.3rem; }
+.exercise li { padding: 0.3rem 0; color: var(--gray-700); }
+
+.deliverable-list {
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px; padding: 1.5rem 2rem; margin: 1.5rem 0;
+}
+.deliverable-list h4 { color: var(--navy); margin-bottom: 0.8rem; }
+.deliverable-list li {
+  list-style: none; padding: 0.5rem 0 0.5rem 0; padding-right: 2rem; position: relative;
+  font-size: 0.95rem;
+}
+.deliverable-list li::before {
+  content: '✓'; position: absolute; right: 0;
+  color: var(--green); font-weight: 700; font-size: 1.1rem;
+}
+
+/* ==== HEXAGON ARCHITECTURE DIAGRAM ==== */
+.arch-svg { width: 100%; max-width: 800px; margin: 2rem auto; display: block; }
+
+/* ==== FOOTER ==== */
+footer {
+  background: var(--navy-deep); color: rgba(255,255,255,0.8);
+  padding: 4rem 0 2rem;
+}
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+footer h5 { color: var(--gold); font-family: var(--sans); font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em; margin-bottom: 1rem; }
+footer a { color: rgba(255,255,255,0.7); display: block; padding: 0.3rem 0; font-size: 0.9rem; }
+footer a:hover { color: var(--gold); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1.5rem;
+  display: flex; justify-content: space-between; font-size: 0.85rem; color: rgba(255,255,255,0.5);
+}
+
+/* ==== UTILITY ==== */
+.highlight-num { font-family: var(--serif); color: var(--gold); font-weight: 700; }
+.divider { height: 1px; background: var(--gray-200); margin: 3rem 0; }
+.text-center { text-align: center; }
+hr.gold { border: 0; border-top: 2px solid var(--gold); width: 60px; margin: 1rem 0 1.5rem 0; }
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .menu-toggle { display: block; }
+  .nav-links.open { display: flex; position: absolute; top: 100%; right: 0; left: 0; background: var(--navy); flex-direction: column; padding: 1rem 2rem; gap: 0; }
+  .grid-2, .grid-3, .grid-4, .pattern-grid, .archetypes { grid-template-columns: 1fr 1fr; }
+  .roi-grid, .kpi-grid { grid-template-columns: 1fr; }
+  .hero-stats { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .timeline::after { right: 20px; }
+  .tl-item, .tl-item:nth-child(even) { width: 100%; padding: 0 1rem 2rem 1rem; padding-right: 50px; margin-right: 0; }
+  .tl-dot, .tl-item:nth-child(even) .tl-dot { right: 10px; left: auto; }
+}
+@media (max-width: 640px) {
+  .grid-2, .grid-3, .grid-4, .pattern-grid, .archetypes, .kpi-grid { grid-template-columns: 1fr; }
+  .hero { padding: 5rem 0 6rem; }
+  section.page-section { padding: 4rem 0; }
+  .container, .container-narrow { padding: 0 1.2rem; }
+  .exec-box { padding: 1.5rem; }
+}
+@media print {
+  .topbar, .cta-row, .menu-toggle, footer { display: none; }
+  .hero { padding: 3rem 0; background: white; color: var(--navy); }
+  .hero h1, .hero-sub { color: var(--navy); }
+  section { page-break-inside: avoid; break-inside: avoid; padding: 2rem 0; }
+  .card, .exec-box { box-shadow: none; border: 1px solid var(--gray-300); }
+}
+
+/* TOC */
+.toc {
+  background: white;
+  border-right: 4px solid var(--navy);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: 6px;
+  box-shadow: var(--shadow-sm);
+}
+.toc h4 { color: var(--navy); margin-bottom: 1rem; font-family: var(--serif); }
+.toc ol { columns: 2; column-gap: 2rem; margin-right: 1.3rem; }
+.toc ol li { padding: 0.3rem 0; font-size: 0.92rem; }
+.toc ol li a { color: var(--gray-700); }
+.toc ol li a:hover { color: var(--gold); }
+
+@media (max-width: 640px) {
+  .toc ol { columns: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== TOP NAV ==================== -->
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">T</span>
+      <span>TriFold · Playbook אסטרטגיית AI</span>
+    </a>
+    <a href="/" class="back-home" title="חזרה לאתר הראשי">
+      <span>← לאתר TriFold Technologies</span>
+    </a>
+  </div>
+</nav>
+
+<style>
+.back-home {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.88rem; font-weight: 500;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(200,165,88,0.35);
+  border-radius: 4px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.back-home:hover {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+@media (max-width: 640px) {
+  .back-home { display: none; }
+}
+</style>
+
+<!-- ==================== STICKY SIDE NAVIGATION ==================== -->
+<style>
+.side-nav {
+  position: fixed;
+  top: 50%;
+  right: 1.2rem;
+  transform: translateY(-50%);
+  z-index: 900;
+  background: rgba(10, 31, 68, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(200, 165, 88, 0.3);
+  border-radius: 10px;
+  padding: 0.7rem 0.55rem;
+  width: 240px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 32px rgba(10, 31, 68, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.side-nav-title {
+  font-family: var(--serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-align: center;
+  padding: 0.4rem 0 0.6rem;
+  border-bottom: 1px solid rgba(200, 165, 88, 0.2);
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 700;
+}
+.side-nav-title .short { display: none; }
+.side-nav-title .full { display: inline; }
+.side-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.45rem 0.5rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-decoration: none;
+}
+.side-nav a:hover {
+  background: rgba(200, 165, 88, 0.14);
+  color: var(--gold);
+}
+.side-nav a.active {
+  background: rgba(200, 165, 88, 0.2);
+  color: var(--gold);
+}
+.side-nav a .num {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(200, 165, 88, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--gold-soft);
+  transition: all 0.2s;
+}
+.side-nav a:hover .num,
+.side-nav a.active .num {
+  background: var(--gold);
+  color: var(--navy-deep);
+  border-color: var(--gold);
+  transform: scale(1.05);
+}
+.side-nav a .label {
+  opacity: 1;
+}
+/* Custom scrollbar */
+.side-nav::-webkit-scrollbar { width: 4px; }
+.side-nav::-webkit-scrollbar-track { background: transparent; }
+.side-nav::-webkit-scrollbar-thumb { background: rgba(200, 165, 88, 0.3); border-radius: 2px; }
+
+/* Reserve right space for content so it doesn't slide under sidebar */
+@media (min-width: 1181px) {
+  body { padding-right: 280px; }
+}
+/* Hide on tablet and mobile */
+@media (max-width: 1180px) {
+  .side-nav { display: none; }
+}
+</style>
+
+<aside class="side-nav" aria-label="ניווט פרקים">
+  <div class="side-nav-title">
+    <span class="short">פרקים</span>
+    <span class="full">ניווט פרקים</span>
+  </div>
+  <a href="#top" data-target="top"><span class="num">★</span><span class="label">דף הבית</span></a>
+  <a href="#intro" data-target="intro"><span class="num">1</span><span class="label">מבוא</span></a>
+  <a href="#why-now" data-target="why-now"><span class="num">2</span><span class="label">למה AI עכשיו</span></a>
+  <a href="#readiness" data-target="readiness"><span class="num">3</span><span class="label">מוכנות ארגונית</span></a>
+  <a href="#use-cases" data-target="use-cases"><span class="num">4</span><span class="label">מקרי שימוש</span></a>
+  <a href="#prioritization" data-target="prioritization"><span class="num">5</span><span class="label">תעדוף יוזמות</span></a>
+  <a href="#operating" data-target="operating"><span class="num">6</span><span class="label">מודל תפעולי</span></a>
+  <a href="#data-tech" data-target="data-tech"><span class="num">7</span><span class="label">Data &amp; Tech</span></a>
+  <a href="#governance" data-target="governance"><span class="num">8</span><span class="label">ממשל וסיכון</span></a>
+  <a href="#talent" data-target="talent"><span class="num">9</span><span class="label">כישרון ותרבות</span></a>
+  <a href="#business-case" data-target="business-case"><span class="num">10</span><span class="label">Business Case &amp; ROI</span></a>
+  <a href="#roadmap" data-target="roadmap"><span class="num">11</span><span class="label">מפת דרכים</span></a>
+  <a href="#kpis" data-target="kpis"><span class="num">12</span><span class="label">KPI Dashboard</span></a>
+  <a href="#case-studies" data-target="case-studies"><span class="num">13</span><span class="label">Case Studies</span></a>
+  <a href="#templates" data-target="templates"><span class="num">14</span><span class="label">תבניות</span></a>
+  <a href="#workshop" data-target="workshop"><span class="num">15</span><span class="label">סדנת הנהלה</span></a>
+</aside>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <span class="eyebrow">Playbook להנהלה הבכירה · מהדורת 2026</span>
+    <h1>מאסטרטגיית AI על הנייר<br>אל <em>מערכת שפועלת</em> בארגון.</h1>
+    <p class="hero-sub">המסע המובנה למנכ״לים, חברי דירקטוריון, CIOs ומנהלי יחידות עסקיות בארגונים ישראליים — מבנקאות וביטוח ועד בריאות, ממשלה, ביטחון, רשתות שיווק ותקשורת. שיטה אחת שמבוססת על תשובות של 2,360 מנכ״לים, 1,031 מנהלי טכנולוגיה, ומחקרים של שבע פירמות הייעוץ המובילות בעולם.</p>
+    <div class="cta-row">
+      <a href="#readiness" class="btn btn-gold">התחל מהערכת מוכנות ←</a>
+      <a href="#workshop" class="btn btn-ghost">הזמן סדנת הנהלה</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-block">
+        <div class="stat-num">×2</div>
+        <div class="stat-label">הכפלת השקעה ב-AI כשיעור מהכנסות בין 2025 ל-2026</div>
+        <div class="stat-source">BCG AI Radar 2026</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">72%</div>
+        <div class="stat-label">מהמנכ״לים — מקבלי ההחלטה הראשיים על AI</div>
+        <div class="stat-source">BCG AI Radar 2026</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">&lt;20%</div>
+        <div class="stat-label">מהארגונים רואים השפעה מוחשית על שורת הרווח</div>
+        <div class="stat-source">McKinsey State of Organizations 2026</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">2.2×</div>
+        <div class="stat-label">צמיחת הכנסות בארגונים שמיישרים אסטרטגיית AI + פלטפורמה + עסק</div>
+        <div class="stat-source">Accenture, 1,031 מנהלים</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 1: HOMEPAGE / INTRO ==================== -->
+<section class="page-section" id="intro">
+  <div class="container">
+    <span class="section-tag">פרק 1 · מבוא</span>
+    <h2 class="section-title">המעבר מ-Copilot ל-Operating System.</h2>
+    <p class="section-lead">בחודשים האחרונים השתנה משהו מהותי. ספקיות ה-AI המובילות הפסיקו לדבר על "כלי פרודוקטיביות" והתחילו לדבר על מערכת הפעלה ארגונית. סוכנים אוטונומיים, רב-שלביים, שמתבצעים על פני מערכות הליבה — לא בעוד שלוש שנים, בשנה הקרובה.</p>
+
+    <div class="grid-2">
+      <div>
+        <h3>הסיפור בקיצור</h3>
+        <p>שוקי ההון תמחרו מחדש: מדדי תוכנה התרסקו תוך שבועיים בתחילת 2026, בזמן שהמדדים הרחבים נשארו יציבים. המסר ברור — מודלים שמבוססים על per-seat SaaS, מערכות מורשת, ייעוץ אנושי שניתן לאוטומציה, ו-marketplaces ש-AI יכולים לעקוף — נמצאים בסיכון מבני.</p>
+        <p>בישראל, השוק הזה אומר משהו ספציפי: בנקים שהמשיכו לתחזק מערכות core של עשרות שנים. חברות ביטוח שיוצרות underwriting ידני. רשתות שיווק עם תהליכי procurement מורכבים. ספקי טלקום עם תפעול שירות לקוחות מבוסס שיחות. גופים ביטחוניים עם תהליכי שילוב מערכות מורשת איטיים.</p>
+        <p>לכל אחד מהם, השאלה אינה "האם להשקיע ב-AI". השאלה היא — <strong>איך לעבור מ-30–50 ניסויים מבודדים, לתהליך תעשייתי שמייצר עשרות סוכנים אמינים בשנה.</strong></p>
+      </div>
+
+      <div class="exec-box">
+        <h4>ארבע השאלות שכל מנכ״ל חייב לענות עליהן עכשיו</h4>
+        <ul>
+          <li>איך AI ישנה את התעשייה שלך ואת האסטרטגיה?</li>
+          <li>אילו משימות יבצעו סוכנים, ואיפה האדם נשאר יתרון תחרותי?</li>
+          <li>איך תתעש את הדרך שבה נבנים, נשלטים ונאכפים סוכנים?</li>
+          <li>איך תוביל את הצמיחה לרוחב הארגון?</li>
+        </ul>
+        <p style="font-size:0.85rem;color:var(--gray-500);margin-top:1rem;">מקור: Bain &amp; Company, "The AI Enterprise: Code Red", פברואר 2026</p>
+      </div>
+    </div>
+
+    <div class="toc">
+      <h4>מה תמצאו במסע הזה</h4>
+      <ol>
+        <li><a href="#why-now">למה AI עכשיו — מגמות עולמיות וישראליות</a></li>
+        <li><a href="#readiness">הערכת מוכנות ארגונית (כלי אינטראקטיבי)</a></li>
+        <li><a href="#use-cases">זיהוי מקרי שימוש עסקיים</a></li>
+        <li><a href="#prioritization">תעדוף יוזמות לפי ערך ומורכבות</a></li>
+        <li><a href="#operating">מודל תפעולי וארכיטקטורת AI</a></li>
+        <li><a href="#data-tech">Data &amp; Technology Foundations</a></li>
+        <li><a href="#governance">Governance, Risk &amp; Responsible AI</a></li>
+        <li><a href="#talent">Talent, Culture &amp; Change Management</a></li>
+        <li><a href="#business-case">Business Case &amp; ROI Calculator</a></li>
+        <li><a href="#roadmap">מפת דרכים ל-12–24 חודשים</a></li>
+        <li><a href="#kpis">KPI Dashboard להנהלה</a></li>
+        <li><a href="#case-studies">Case Studies מהשוק הישראלי והעולמי</a></li>
+        <li><a href="#templates">Templates וכלי עבודה להורדה</a></li>
+        <li><a href="#workshop">Executive Workshop Facilitation Guide</a></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 2: WHY NOW ==================== -->
+<section class="page-section alt" id="why-now">
+  <div class="container">
+    <span class="section-tag">פרק 2</span>
+    <h2 class="section-title">למה AI עכשיו — מגמות עולמיות ותמונת מצב ישראלית</h2>
+    <p class="section-lead">הנתון שכל מנכ״ל צריך להכיר: ההשקעה הממוצעת ב-AI מכלל ההכנסות הוכפלה בשנה אחת. 94% מהמנכ״לים ימשיכו להשקיע גם אם תוצאות 2026 לא ישתלמו. זה לא חבות תקציבית — זה הימור על תקופה.</p>
+
+    <h3>שלוש דינמיקות מעצבות מחדש את התחרות</h3>
+    <div class="grid-3" style="margin-bottom: 3rem;">
+      <div class="card">
+        <div class="card-num">1</div>
+        <h3>עקומות עלות וניסיון נכתבות מחדש</h3>
+        <p>המיקום על עקומת התחרות לא נקבע יותר על ידי גודל הארגון. הוא נקבע על ידי <strong>מהירות הלמידה ומשך הצטברות הניסיון</strong>. שחקנים קטנים יכולים להדביק שחקנים גדולים תוך 18 חודשים.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">2</div>
+        <h3>בידול לקוח עובר ל-Data + Trust</h3>
+        <p>AI יאפשר היפר-פרסונליזציה לכולם. הבידול יבוא מ-<strong>בסיסי ידע קנייניים, אינטגרציה מעמיקה ב-journeys, ובניית קהילה</strong>. בישראל — נתוני לקוחות בעברית עם הקשר מקומי הם נכס שאי-אפשר לקנות בענן.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">3</div>
+        <h3>נקודות שליטה בתעשייה זזות</h3>
+        <p>כאשר צרכנים מתחילים journeys בשיחה עם סוכן — מי "מחזיק" את הלקוח? התשובה היא <strong>אמון</strong>. ארגונים שבונים אמון רגולטורי, שקיפות ועקביות — מקבלים את ההרשאה לתזמר את החיים הדיגיטליים של הלקוח.</p>
+      </div>
+    </div>
+
+    <h3>שלושה ארכיטיפים של מנכ״לים — איפה אתה?</h3>
+    <p>מחקר BCG בקרב 640 מנכ״לים בעולם זיהה שלושה ארכיטיפים מובהקים. הקבוצה השלישית — Trailblazers — לא רק שונה בכמות. היא שונה במנטליות, בקצב הקבלת ההחלטות, ובחלוקת התקציב הפנימית.</p>
+
+    <div class="archetypes" style="margin-top: 2rem;">
+      <div class="archetype follower">
+        <div class="archetype-pct">15%</div>
+        <div class="archetype-title">Followers · עוקבים</div>
+        <p class="archetype-desc">מזהים פוטנציאל אבל חסרי שכנוע. השקעות מצומצמות וזהירות. רק 24% מתקציב הטרנספורמציה ל-AI. רק 35% מהצוות עבר הכשרה. הלך רוח: חרדה או קונפליקט.</p>
+      </div>
+      <div class="archetype pragmatist">
+        <div class="archetype-pct">70%</div>
+        <div class="archetype-title">Pragmatists · פרגמטיים</div>
+        <p class="archetype-desc">נלהבים ובטוחים אבל משקיעים רק כשהם רואים ערך מובהק וסיכון נמוך. 27% מתקציב הטרנספורמציה. 41% מהצוות הוכשר. הלך רוח: התרגשות מבוקרת.</p>
+      </div>
+      <div class="archetype trailblazer">
+        <div class="archetype-pct">15%</div>
+        <div class="archetype-title">Trailblazers · חלוצים</div>
+        <p class="archetype-desc">מובילים טרנספורמציה end-to-end. 73% מתקציב הטרנספורמציה ל-AI. 69% מהצוות הוכשר. משקיעים מעל 50M$ ב-2026 פי 2.8 מהאחרים. הלך רוח: שכנוע מלא.</p>
+      </div>
+    </div>
+
+    <div class="exec-box" style="margin-top: 3rem;">
+      <h4>שאלות מרכזיות לדיון הנהלה</h4>
+      <ul>
+        <li>איזה ארכיטיפ מאפיין את הארגון שלנו היום — בכנות?</li>
+        <li>אם אנחנו Pragmatists, מה מונע מאיתנו להפוך ל-Trailblazers? תקציב? שכנוע? מבנה ארגוני? יכולת ביצוע?</li>
+        <li>איזה אחוז מתקציב הטרנספורמציה השנתי שלנו מופנה ל-AI? מתחת ל-25% פירושו שאנחנו עוקבים.</li>
+        <li>מי בהנהלה מתעדכן 6+ שעות בשבוע ב-AI? אם זה אפס — זו בעיה אסטרטגית, לא טכנית.</li>
+        <li>איך נהפוך את ה-AI לעדיפות ראשונה של המנכ״ל ב-12 חודשים הקרובים?</li>
+      </ul>
+    </div>
+
+    <div class="grid-2" style="margin-top: 3rem;">
+      <div>
+        <h3>תמונת מצב ישראלית — נתונים מאומתים</h3>
+        <p>סקר רשמי של הלמ״ס בניתוח המכון הישראלי לדמוקרטיה, יוני 2025 ואפריל 2026, חושף את התמונה האמיתית:</p>
+        <ul style="list-style: none; padding: 0;">
+          <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--gray-200);"><strong>28% → 39%</strong> מהעסקים בישראל משתמשים ב-AI בייצור מוצרים ושירותים — קפיצה של 11 נקודות ב-10 חודשים (יוני 2025 → אפריל 2026)<sup>1</sup></li>
+          <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--gray-200);"><strong>32%</strong> מהעובדים הישראליים מועסקים בעסקים שמשתמשים ב-AI<sup>1</sup></li>
+          <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--gray-200);"><strong>41% מול 4%</strong> — אימוץ AI במחוז ת״א מול מחוז ירושלים: פער של פי 10<sup>1</sup></li>
+          <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--gray-200);"><strong>×3</strong> שימוש ב-AI בתעשיות עתירות-ידע (היי-טק) לעומת תעשיות מסורתיות (תעשייה, מסחר, בנייה)<sup>1</sup></li>
+          <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--gray-200);"><strong>11%</strong> בלבד מהמעסיקים בישראל מספקים הכשרת AI מסודרת לעובדים<sup>2</sup></li>
+          <li style="padding: 0.6rem 0; border-bottom: 1px solid var(--gray-200);"><strong>79% מול 18%</strong> — אימוץ עובדים שעברו 5+ שעות הכשרת AI מול עובדים ללא הכשרה<sup>2</sup></li>
+          <li style="padding: 0.6rem 0;"><strong>מקום 1 בעולם</strong> — מדד שימוש AI לנפש של Anthropic, ×4.9 מהממוצע<sup>3</sup></li>
+        </ul>
+        <p style="font-size: 0.75rem; color: var(--gray-500); margin-top: 1rem; line-height: 1.5;">
+          מקורות:
+          <sup>1</sup> <a href="https://en.idi.org.il/articles/60189" target="_blank" rel="noopener" style="color: var(--gold);">המכון הישראלי לדמוקרטיה, "Business Adoption of AI in Israel", סקר הלמ״ס יוני 2025; עדכון אפריל 2026</a>.
+          <sup>2</sup> <a href="https://www.cwsisrael.com/ai-adoption-israel-workplace-2025-employer-guide/" target="_blank" rel="noopener" style="color: var(--gold);">CWS Israel, AI Adoption Workplace 2025 Guide</a>.
+          <sup>3</sup> <a href="https://aijourn.com/israel-ranks-1-in-the-world-for-ai-adoption-per-capita-95-of-israeli-tech-workers-now-use-ai-daily-joint-5wpr-louder-study-finds/" target="_blank" rel="noopener" style="color: var(--gold);">5WPR-Louder Study, "Israel Ranks #1 in the World for AI Adoption Per Capita", 2025</a>.
+        </p>
+      </div>
+      <div>
+        <h3>ארבעת הפערים שמייצרים את ההזדמנות</h3>
+        <p style="font-size: 0.9rem; color: var(--gray-500); margin-bottom: 1rem;">כל פער מבוסס על הנתונים המאומתים שלצידו. כל פער הוא גם הזדמנות אסטרטגית.</p>
+
+        <p><strong>1. הפער הגיאוגרפי-תעשייתי</strong> — מחוז ת״א מאמץ AI ב-41% מהעסקים, מחוז ירושלים ב-4% בלבד. תעשיות עתירות-ידע מאמצות ×3 לעומת תעשיות מסורתיות (תעשייה, מסחר, בנייה)<sup>1</sup>. <em>ההזדמנות:</em> ארגונים מסורתיים שיזרזו אימוץ ייהנו מ-runway קצר של שכנוע פנימי.</p>
+
+        <p><strong>2. הפער בריבונות נתונים</strong> — 77% מהארגונים בעולם רואים במיקום פיתוח ה-AI שיקול אסטרטגי<sup>2</sup>. בישראל, מסגרת רגולטורית מתהדקת: הוראת בנק ישראל 357A לניהול סיכוני מודלים, תיקון 13 לחוק הגנת הפרטיות (2025), ורגולציה צפויה ברוח EU AI Act. <em>ההזדמנות:</em> ארגונים שיענו על "איפה הנתונים יושבים" מראש — ייצרו אמון לקוח כיתרון תחרותי.</p>
+
+        <p><strong>3. פער ההכשרה — ה-ROI המהיר ביותר</strong> — רק 11% מהמעסיקים בישראל מספקים הכשרת AI מסודרת. עובדים שעברו 5+ שעות הכשרה מאמצים AI בשיעור 79%, מול 18% בקרב חסרי-הכשרה<sup>3</sup>. <em>ההזדמנות:</em> השקעה של 30–40 אלף ש״ח להכשרת 100 עובדים מייצרת תוספת אימוץ של 60 נקודות אחוז.</p>
+
+        <p><strong>4. פער השימוש האישי מול הארגוני</strong> — ישראל ראשונה בעולם במדד שימוש AI לנפש של Anthropic (×4.9 מהממוצע)<sup>4</sup>, אך רק 39% מהעסקים משתמשים ב-AI בייצור<sup>1</sup>. <em>ההזדמנות:</em> ה-fluency האישי כבר קיים בעובדים — חסר רק תהליך ארגוני שיתרגם זאת לערך עסקי מדיד.</p>
+
+        <p style="font-size: 0.72rem; color: var(--gray-500); margin-top: 1rem; line-height: 1.5;">
+          מקורות:
+          <sup>1</sup> <a href="https://en.idi.org.il/articles/60189" target="_blank" rel="noopener" style="color: var(--gold);">המכון הישראלי לדמוקרטיה, סקר הלמ״ס יוני 2025 ואפריל 2026</a>.
+          <sup>2</sup> Deloitte, State of AI in the Enterprise 2026 (n=3,235 מנהלים).
+          <sup>3</sup> <a href="https://www.cwsisrael.com/ai-adoption-israel-workplace-2025-employer-guide/" target="_blank" rel="noopener" style="color: var(--gold);">CWS Israel, AI Adoption Workplace 2025</a>.
+          <sup>4</sup> <a href="https://aijourn.com/israel-ranks-1-in-the-world-for-ai-adoption-per-capita-95-of-israeli-tech-workers-now-use-ai-daily-joint-5wpr-louder-study-finds/" target="_blank" rel="noopener" style="color: var(--gold);">5WPR-Louder Study, Anthropic AI Usage Index, 2025</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="deliverable-list" style="margin-top: 3rem;">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>הצהרת ארכיטיפ ה-CEO לדיון הנהלה (Trailblazer / Pragmatist / Follower)</li>
+        <li>מסמך "Why AI Now" באורך 2 עמודים לדירקטוריון, עם נתוני שוק ישראליים</li>
+        <li>בחינת תקציב — שיעור ההשקעה ב-AI כאחוז מההכנסות מול Benchmark תעשייתי</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 3: READINESS ASSESSMENT ==================== -->
+<section class="page-section" id="readiness">
+  <div class="container">
+    <span class="section-tag">פרק 3 · כלי אבחון</span>
+    <h2 class="section-title">הערכת מוכנות ארגונית — מצא את ה-Scale-Breaker שלך</h2>
+    <p class="section-lead">מודל הבשלות אינו תעודת ציונים — הוא כלי אבחון. המטרה אינה להגיע לרמה 500 בכל מקום, אלא לזהות את <strong>הגורם היחיד</strong> שיכשיל את ההרחבה. זה המנוע שבו צריך להשקיע 80% מהאנרגיה הארגונית ב-12 החודשים הקרובים.</p>
+
+    <h3>חמשת מנועי היכולת</h3>
+    <p>מודל הבשלות מודד חמישה ממדים. כל אחד מהם יכול לעצור עצמאית את היכולת שלך לצמיחה, ללא קשר לחוזקות בשאר.</p>
+
+    <table class="exec-table">
+      <thead><tr><th>מנוע</th><th>מה זה מודד</th><th>השאלה האסטרטגית</th></tr></thead>
+      <tbody>
+        <tr><td><strong>אסטרטגיית AI וחוויה</strong></td><td>עד כמה אתה מתכנן, משקיע ומפתח AI באופן מכוון</td><td>האם יש לנו אסטרטגיה כתובה אחת? האם המנכ״ל הוא מקבל ההחלטות?</td></tr>
+        <tr><td><strong>אסטרטגיה עסקית</strong></td><td>עד כמה AI שזור בתהליכים ובמדידת תוצאות</td><td>האם תהליכים תוכננו מחדש ל-Agents, או שהוספנו AI לתהליך הישן?</td></tr>
+        <tr><td><strong>ממשל וביטחון מידע</strong></td><td>ניהול סיכון, ציות, מוניטורינג, AI אחראי</td><td>האם יש לנו מודל סיכון מדורג? האם אנחנו עומדים ברגולציה ישראלית?</td></tr>
+        <tr><td><strong>טכנולוגיה ונתונים</strong></td><td>פלטפורמות, ארכיטקטורה, איכות נתונים, טלמטריה</td><td>האם נתוני הליבה שלנו נגישים, איכותיים ועם ownership?</td></tr>
+        <tr><td><strong>ארגון ותרבות</strong></td><td>אימוץ, כישורים, תרבות פתוחה ל-AI</td><td>האם הצוות מבין, סומך, ומשתמש? האם הנהגה מדגימה?</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top: 3rem;">חמש רמות בשלות (100 ← 500)</h3>
+    <table class="exec-table matrix-table">
+      <thead><tr><th>רמה</th><th>שם</th><th>תיאור</th></tr></thead>
+      <tbody>
+        <tr><td><span class="level-100">100</span></td><td>Initial · התחלתי</td><td>ניסויים מבודדים, ללא ממשל, ללא תמיכת הנהגה. כלים מקוטעים. הצלחה אנקדוטלית.</td></tr>
+        <tr><td><span class="level-200">200</span></td><td>Repeatable · ניתן לחזרה</td><td>תבניות מתחילות להתגבש. גארדריילים בסיסיים. סטנדרטים חלקיים. שגרירים ראשונים.</td></tr>
+        <tr><td><span class="level-300">300</span></td><td>Defined · מוגדר</td><td>אסטרטגיה כתובה. ממשל מתועד. KPIs קשורים לתוצאות. אימוץ מובל-יחידה.</td></tr>
+        <tr><td><span class="level-400">400</span></td><td>Capable · מסוגל</td><td>חוצה-פונקציות. מחזור חיים משולב. ניהול סיכון פרואקטיבי.</td></tr>
+        <tr><td><span class="level-500">500</span></td><td>Optimized · ממוטב</td><td>תרבות AI-first. תהליכים אוטונומיים. מערכות מתחדשות. ממשל חיזוי.</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top: 3rem;">כלי הערכה אינטראקטיבי</h3>
+    <p>הזיזו את הסליידרים — קבלו את ה-Scale-Breaker שלכם וצפו בפרופיל מול דפוסי האימוץ.</p>
+
+    <div class="assessment-tool">
+      <div class="driver-row">
+        <div class="driver-header">
+          <div class="driver-name">1. אסטרטגיית AI וחוויה</div>
+          <div class="driver-score"><span id="s1-val">200</span></div>
+        </div>
+        <div class="driver-desc">האם יש לכם אסטרטגיית AI כתובה, ממומנת, עם sponsor ברמת C-suite, וקשורה ליעדים העסקיים?</div>
+        <div class="slider-row">
+          <span class="level-tag">100</span>
+          <input type="range" id="s1" min="100" max="500" step="100" value="200" oninput="updateRadar()">
+          <span class="level-tag">500</span>
+        </div>
+      </div>
+
+      <div class="driver-row">
+        <div class="driver-header">
+          <div class="driver-name">2. אסטרטגיה עסקית</div>
+          <div class="driver-score"><span id="s2-val">200</span></div>
+        </div>
+        <div class="driver-desc">האם תהליכים תוכננו מחדש מקצה לקצה? האם ל-Agents יש KPIs ברורים? האם הערך נמדד?</div>
+        <div class="slider-row">
+          <span class="level-tag">100</span>
+          <input type="range" id="s2" min="100" max="500" step="100" value="200" oninput="updateRadar()">
+          <span class="level-tag">500</span>
+        </div>
+      </div>
+
+      <div class="driver-row">
+        <div class="driver-header">
+          <div class="driver-name">3. ממשל וביטחון מידע</div>
+          <div class="driver-score"><span id="s3-val">200</span></div>
+        </div>
+        <div class="driver-desc">סיווג סיכון של agents, ניטור, control tower, kill switches, ציות לבנק ישראל / חוק הגנת הפרטיות / EU AI Act.</div>
+        <div class="slider-row">
+          <span class="level-tag">100</span>
+          <input type="range" id="s3" min="100" max="500" step="100" value="200" oninput="updateRadar()">
+          <span class="level-tag">500</span>
+        </div>
+      </div>
+
+      <div class="driver-row">
+        <div class="driver-header">
+          <div class="driver-name">4. טכנולוגיה ונתונים</div>
+          <div class="driver-score"><span id="s4-val">200</span></div>
+        </div>
+        <div class="driver-desc">פלטפורמות סטנדרטיות, ALM, ארכיטקטורת רפרנס, נתונים נגישים ואיכותיים, טלמטריה מרכזית.</div>
+        <div class="slider-row">
+          <span class="level-tag">100</span>
+          <input type="range" id="s4" min="100" max="500" step="100" value="200" oninput="updateRadar()">
+          <span class="level-tag">500</span>
+        </div>
+      </div>
+
+      <div class="driver-row">
+        <div class="driver-header">
+          <div class="driver-name">5. ארגון ותרבות</div>
+          <div class="driver-score"><span id="s5-val">200</span></div>
+        </div>
+        <div class="driver-desc">הכשרה, אימוץ פעיל, שגרירים, מנהיגות מדגימה, פתיחות לטעויות ולמידה.</div>
+        <div class="slider-row">
+          <span class="level-tag">100</span>
+          <input type="range" id="s5" min="100" max="500" step="100" value="200" oninput="updateRadar()">
+          <span class="level-tag">500</span>
+        </div>
+      </div>
+
+      <div class="radar-container">
+        <svg id="radar-svg" viewBox="0 0 420 420" width="420" height="420">
+          <!-- background pentagons -->
+          <polygon points="210,30 386,158 318,360 102,360 34,158" fill="none" stroke="#e8e8e8" stroke-width="1"></polygon>
+          <polygon points="210,76 350,178 297,338 122,338 70,178" fill="none" stroke="#e8e8e8" stroke-width="1"></polygon>
+          <polygon points="210,122 313,198 277,316 142,316 106,198" fill="none" stroke="#e8e8e8" stroke-width="1"></polygon>
+          <polygon points="210,168 276,218 256,294 163,294 144,218" fill="none" stroke="#e8e8e8" stroke-width="1"></polygon>
+          <polygon points="210,214 239,238 235,272 184,272 180,238" fill="none" stroke="#e8e8e8" stroke-width="1"></polygon>
+          <!-- axes -->
+          <line x1="210" y1="210" x2="210" y2="30" stroke="#d4d4d4" stroke-width="1"></line>
+          <line x1="210" y1="210" x2="386" y2="158" stroke="#d4d4d4" stroke-width="1"></line>
+          <line x1="210" y1="210" x2="318" y2="360" stroke="#d4d4d4" stroke-width="1"></line>
+          <line x1="210" y1="210" x2="102" y2="360" stroke="#d4d4d4" stroke-width="1"></line>
+          <line x1="210" y1="210" x2="34" y2="158" stroke="#d4d4d4" stroke-width="1"></line>
+          <!-- data polygon -->
+          <polygon id="radar-data" points="210,138 280,176 274,288 146,288 140,176" fill="rgba(200,165,88,0.35)" stroke="#c8a558" stroke-width="2"></polygon>
+          <!-- labels -->
+          <text x="210" y="20" text-anchor="middle" font-size="11" font-weight="600" fill="#0a1f44">אסטרטגיית AI</text>
+          <text x="396" y="160" text-anchor="start" font-size="11" font-weight="600" fill="#0a1f44">עסקי</text>
+          <text x="328" y="380" text-anchor="middle" font-size="11" font-weight="600" fill="#0a1f44">ממשל</text>
+          <text x="92" y="380" text-anchor="middle" font-size="11" font-weight="600" fill="#0a1f44">Tech &amp; Data</text>
+          <text x="24" y="160" text-anchor="end" font-size="11" font-weight="600" fill="#0a1f44">ארגון ותרבות</text>
+        </svg>
+      </div>
+
+      <div class="assessment-result">
+        <h4>תוצאות האבחון</h4>
+        <div class="assessment-summary">ממוצע בשלות: <span id="avg-score">200</span> · <span id="maturity-label">Repeatable</span></div>
+        <div style="margin-top: 1rem;">המנוע החלש ביותר — <strong>ה-Scale-Breaker</strong> שלך: <span class="scale-breaker" id="scale-breaker">אסטרטגיית AI</span></div>
+        <div style="margin-top: 1rem; font-size: 0.95rem; color: rgba(255,255,255,0.85);" id="rec-text">מומלץ למקד 80% מתקציב השיפור הארגוני ב-AI ב-12 החודשים הקרובים סביב המנוע הזה. בלעדיו, שאר ההשקעות לא ייצרו תשואה במלואן.</div>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <span class="exercise-label">תרגיל סדנת הנהלה · 45 דקות</span>
+      <h4>"היכן אנחנו באמת" — הערכה כנה ב-5 ממדים</h4>
+      <ol>
+        <li>חלקו את ההנהלה ל-2 קבוצות. כל קבוצה מקבלת 5 כרטיסי מנועי יכולת (Skill engines).</li>
+        <li>כל מנהל נותן ציון פרטני (100–500) למנוע כפי שהוא רואה אותו <em>אצלו</em> ביחידה.</li>
+        <li>הקבוצות מתאחדות, מציגות ציונים, ומוצאות שני דברים: היכן יש קונסנזוס, היכן יש פערי תפיסה.</li>
+        <li>פערי תפיסה הם סימן ל-Scale-Breaker מבני. הסכמה על מקום נמוך — סימן לבעיה בעדיפות.</li>
+        <li>סיכום: בחירה במנוע יחיד כ-Scale-Breaker למיקוד 12 חודשים.</li>
+      </ol>
+    </div>
+
+    <div class="deliverable-list">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>פרופיל בשלות מקיף — 5 מנועים × 5 רמות</li>
+        <li>זיהוי Scale-Breaker אחד למיקוד 12 חודשים</li>
+        <li>מסמך baseline שאליו יושוו כל הערכות בשלות עתידיות (כל 6 חודשים)</li>
+        <li>תקציב מומלץ למיקוד — 80% למנוע החלש, 20% לחיזוק החזקים</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- continued in part 2 -->
+
+<!-- ==================== SECTION 4: USE CASE DISCOVERY ==================== -->
+<section class="page-section alt" id="use-cases">
+  <div class="container">
+    <span class="section-tag">פרק 4</span>
+    <h2 class="section-title">זיהוי מקרי שימוש עסקיים — שש הדפוסים שעובדים</h2>
+    <p class="section-lead">לפני שמתעדפים, צריך לדעת מה לתעדף. מחקרי התעשייה זיהו שישה דפוסי שימוש שמסבירים 95% מיוזמות ה-AI שהצליחו לצמוח. כל דפוס דורש מודל תפעולי שונה, רמת בשלות שונה, ו-Scale-Breaker שונה. הטעות הנפוצה: להתייחס לכולם אותו דבר.</p>
+
+    <div class="pattern-grid">
+      <div class="pattern-card">
+        <div class="pattern-num">01</div>
+        <span class="pattern-tag">העצמת עובדים</span>
+        <h4>Employee AI Enablement</h4>
+        <p>עובדים משתמשים ב-AI לתחקיר, ניסוח, סיכום ואוטומציה אישית. האדם נשאר אחראי לכל החלטה. הדפוס הנגיש ביותר ונקודת המוצא לרוב הארגונים.</p>
+        <hr class="gold">
+        <p style="font-size: 0.85rem;"><strong>Scale-Breaker:</strong> ארגון ותרבות (300)<br><strong>CoE:</strong> Centralized<br><strong>דוגמאות:</strong> סיכום ישיבות, מענה לאימיילים, ניתוח דוחות, מחקר רקע</p>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-num">02</div>
+        <span class="pattern-tag">העצמת מומחים</span>
+        <h4>Business Expert Empowerment</h4>
+        <p>שימור והרחבת ידע SME. המומחה מגדיר כללים, מעיין באיכות, ונשאר אחראי. ה-Agent הופך לפרוקסי-בקנה-מידה לידע המומחה. שמירת ידע מוסדי = יתרון תחרותי.</p>
+        <hr class="gold">
+        <p style="font-size: 0.85rem;"><strong>Scale-Breaker:</strong> Tech &amp; Data (איכות מקורות)<br><strong>CoE:</strong> Federated<br><strong>דוגמאות:</strong> שאלות מדיניות, פרשנות רגולציה, סטנדרטים הנדסיים, הנחיות איכות</p>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-num">03</div>
+        <span class="pattern-tag">שירותי תפעול</span>
+        <h4>Workplace &amp; IT Services</h4>
+        <p>Agents מפעילים שירותים פנימיים מקצה לקצה — HR, IT helpdesk, פיננסים, רכש. לא רק עונים — מבצעים workflows. שינוי מודל שירות.</p>
+        <hr class="gold">
+        <p style="font-size: 0.85rem;"><strong>Scale-Breaker:</strong> תכנון עסקי (400)<br><strong>CoE:</strong> Centralized → Hybrid<br><strong>דוגמאות:</strong> איפוס סיסמאות, אישורי חופשה, אישור הוצאות, ניתוב הזמנות</p>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-num">04</div>
+        <span class="pattern-tag">תהליכי ליבה</span>
+        <h4>Core Business Process Transformation</h4>
+        <p>Agents מפעילים תהליכי ליבה ארגוניים מקצה לקצה, מקבלים החלטות אוטונומיות, ומשפיעים ישירות על הכנסות ועלויות. הדפוס הקשה ביותר, התשואה הגבוהה ביותר.</p>
+        <hr class="gold">
+        <p style="font-size: 0.85rem;"><strong>Scale-Breaker:</strong> הכל (5/5 בכל המנועים)<br><strong>CoE:</strong> Federated<br><strong>דוגמאות:</strong> טיפול תביעות ביטוח, order-to-cash, סגירה פיננסית, KYC, ניהול שרשרת אספקה</p>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-num">05</div>
+        <span class="pattern-tag">חיצוני</span>
+        <h4>External Engagement</h4>
+        <p>Agents מתקשרים ישירות עם לקוחות ושותפים. חוצה את גבול האמון של הארגון. כל אינטראקציה משפיעה על מותג ורגולציה. שגיאות גלויות.</p>
+        <hr class="gold">
+        <p style="font-size: 0.85rem;"><strong>Scale-Breaker:</strong> ממשל וביטחון (500)<br><strong>CoE:</strong> Centralized<br><strong>דוגמאות:</strong> תמיכה Tier-1, concierge דיגיטלי, קליטת ספקים, מצב משלוחים</p>
+      </div>
+      <div class="pattern-card">
+        <div class="pattern-num">06</div>
+        <span class="pattern-tag">חדשני</span>
+        <h4>AI-First Capabilities</h4>
+        <p>יכולות שלא היו אפשריות לפני AI. Agents בלולאות sense-decide-act. מנוע למידה מתמשך. יתרון תחרותי שאי-אפשר להעתיק.</p>
+        <hr class="gold">
+        <p style="font-size: 0.85rem;"><strong>Scale-Breaker:</strong> הכל (500 בכל המנועים)<br><strong>CoE:</strong> Federated<br><strong>דוגמאות:</strong> תמחור דינמי, זיהוי הונאות, אופטימיזציית מלאי בזמן אמת, market sensing</p>
+      </div>
+    </div>
+
+    <div class="exec-box" style="margin-top: 3rem;">
+      <h4>שאלות לגילוי מקרי שימוש בארגון</h4>
+      <ul>
+        <li>אילו תהליכים אצלנו אוכלים הכי הרבה שעות אדם של עובדים יקרים?</li>
+        <li>אילו החלטות חוזרות-על-עצמן עם דפוס ברור — אבל גם עם חריגים מורכבים?</li>
+        <li>אילו שירותים פנימיים יוצרים תורים, ferramentas backlog, או חוויה גרועה לעובד?</li>
+        <li>איפה אנחנו מאבדים לקוחות בגלל זמן תגובה איטי?</li>
+        <li>אילו תהליכים תוכננו לפני 15 שנה ולא שונו מאז?</li>
+        <li>איפה יש לנו ידע מוסדי בעל ערך שנמצא ב-3–5 ראשים בלבד?</li>
+      </ul>
+    </div>
+
+    <h3>תרגיל גילוי — Workflow Mining למנהלים</h3>
+    <div class="exercise">
+      <span class="exercise-label">תרגיל סדנת הנהלה · 90 דקות</span>
+      <h4>מפת ה-Workflows עם פוטנציאל הגבוה ביותר</h4>
+      <ol>
+        <li>כל מנהל יחידה מציג 3 תהליכי ליבה ביחידה שלו — שם, נפח, עלות שנתית, זמן ממוצע.</li>
+        <li>לכל תהליך, סיווג לפי 3 שאלות: ערך עסקי (High/Med/Low), עלות נוכחית (גבוהה/נמוכה), קריטיות למשימה.</li>
+        <li>סינון ראשון: רק תהליכים High-Value או High-Cost או Mission-Critical.</li>
+        <li>לכל תהליך שעבר סינון — איזה משש הדפוסים מתאים? מה ה-Scale-Breaker שיגדיר את ההצלחה?</li>
+        <li>מיון רב-מימדי: נפח × ערך × התאמה לדפוס. הוצאת רשימה ראשונית של 10–15 מועמדים.</li>
+      </ol>
+    </div>
+
+    <div class="deliverable-list">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>קטלוג מקרי שימוש ראשוני — 10–15 מועמדים מסווגים לפי דפוס</li>
+        <li>ניתוח Pain × Value לכל תהליך</li>
+        <li>הקצאת בעלים פוטנציאלי לכל מועמד (Business Owner + Subject Matter Expert)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 5: PRIORITIZATION ==================== -->
+<section class="page-section" id="prioritization">
+  <div class="container">
+    <span class="section-tag">פרק 5</span>
+    <h2 class="section-title">תעדוף יוזמות — מטריצת ערך × מורכבות</h2>
+    <p class="section-lead">רוב הארגונים מתעדפים על פי "התלהבות". 18% בלבד מדווחים על הלימה מלאה בין אסטרטגיית ה-AI, אסטרטגיית הפלטפורמה והאסטרטגיה העסקית שלהם. תעדוף מבוסס נתונים — לפי ערך עסקי צפוי מול מורכבות מימוש — הוא הצעד היחיד שיוצר מיקוד אמיתי.</p>
+
+    <div class="prio-matrix">
+      <span class="prio-axis-y">ערך עסקי גבוה ←</span>
+      <span class="prio-axis-x">→ מורכבות גוברת</span>
+      <div class="prio-grid-h"></div>
+      <div class="prio-grid-v"></div>
+      <div class="prio-quadrant prio-q1">Quick Wins · ניצחונות מהירים</div>
+      <div class="prio-quadrant prio-q2">Strategic Bets · הימורים אסטרטגיים</div>
+      <div class="prio-quadrant prio-q3">Fill-ins · מילוי</div>
+      <div class="prio-quadrant prio-q4">Avoid · להימנע</div>
+
+      <!-- Sample bubbles - positioned absolutely -->
+      <div class="prio-bubble gold" style="top: 12%; left: 18%;" data-tooltip="סיכום ישיבות (Employee Enablement)">A</div>
+      <div class="prio-bubble gold" style="top: 18%; left: 28%;" data-tooltip="עוזר תמיכת לקוחות (External Engagement)">B</div>
+      <div class="prio-bubble" style="top: 25%; left: 55%;" data-tooltip="טיפול תביעות (Core Process)">C</div>
+      <div class="prio-bubble" style="top: 15%; left: 72%;" data-tooltip="זיהוי הונאות (AI-First)">D</div>
+      <div class="prio-bubble teal" style="top: 35%; left: 25%;" data-tooltip="עוזר משאבי אנוש">E</div>
+      <div class="prio-bubble teal" style="top: 30%; left: 45%;" data-tooltip="ניתוח חוזים אוטומטי">F</div>
+      <div class="prio-bubble burg" style="top: 70%; left: 22%;" data-tooltip="צ׳אטבוט באתר">G</div>
+      <div class="prio-bubble burg" style="top: 78%; left: 65%;" data-tooltip="פיתוח שפה ייעודית">H</div>
+    </div>
+
+    <p style="margin-top: 3rem;"><strong>מקרא:</strong> צהוב = Quick Wins · כחול = Strategic Bets · ירקרק = Fill-ins · אדום-יין = Avoid</p>
+
+    <h3 style="margin-top: 3rem;">קריטריונים לדירוג ערך</h3>
+    <table class="exec-table">
+      <thead><tr><th>מימד</th><th>שאלה</th><th>ניקוד</th></tr></thead>
+      <tbody>
+        <tr><td><strong>השפעה כספית ישירה</strong></td><td>עלות שנתית של התהליך × פוטנציאל חיסכון</td><td>1–5</td></tr>
+        <tr><td><strong>קריטיות ללקוח</strong></td><td>האם זה משפיע על NPS, churn, conversion?</td><td>1–5</td></tr>
+        <tr><td><strong>Scalability</strong></td><td>האם הפתרון ניתן לחזרה ב-3+ יחידות נוספות?</td><td>1–5</td></tr>
+        <tr><td><strong>תאימות אסטרטגית</strong></td><td>האם זה מקדם את 1–3 העדיפויות האסטרטגיות?</td><td>1–5</td></tr>
+        <tr><td><strong>זמן ערך</strong></td><td>האם נראה ROI ב-6 חודשים? 12? 24?</td><td>1–5</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top: 3rem;">קריטריונים לדירוג מורכבות</h3>
+    <table class="exec-table">
+      <thead><tr><th>מימד</th><th>שאלה</th><th>ניקוד</th></tr></thead>
+      <tbody>
+        <tr><td><strong>איכות נתונים</strong></td><td>האם הנתונים זמינים, נקיים, עקביים?</td><td>1–5</td></tr>
+        <tr><td><strong>אינטגרציות נדרשות</strong></td><td>כמה מערכות צריך לחבר? יש APIs?</td><td>1–5</td></tr>
+        <tr><td><strong>סיכון רגולטורי</strong></td><td>האם חשוף ל-BoI, EU AI Act, GDPR, מגזרי?</td><td>1–5</td></tr>
+        <tr><td><strong>ניהול שינוי</strong></td><td>כמה תפקידים מושפעים? יש התנגדות צפויה?</td><td>1–5</td></tr>
+        <tr><td><strong>בשלות טכנולוגית</strong></td><td>האם המודלים שלים? הספק בשל?</td><td>1–5</td></tr>
+      </tbody>
+    </table>
+
+    <div class="exec-box" style="margin-top: 3rem;">
+      <h4>כללי תעדוף לדירקטוריון</h4>
+      <ul>
+        <li><strong>הכלל הראשון:</strong> אל תתחילו מהמורכב ביותר רק כי הוא הכי "אסטרטגי". התחילו במשהו עם ערך מוכח ומורכבות בינונית.</li>
+        <li><strong>חוק 70/20/10:</strong> 70% מהיוזמות ב-Quick Wins ו-Strategic Bets בעלי בשלות, 20% הימורים אסטרטגיים גדולים, 10% חקירה ב-AI-First.</li>
+        <li><strong>גודל פורטפוליו:</strong> בארגון בינוני — לא יותר מ-3–5 יוזמות פעילות בכל רגע. מעבר לזה — אין מיקוד.</li>
+        <li><strong>תאריך תפוגה:</strong> כל יוזמה מקבלת 90 יום לסיים POC, 180 יום ל-Production. אם לא מתקדמת — Sunset.</li>
+        <li><strong>Stage Gates:</strong> מעבר משלב לשלב דורש אישור הנהלה ועמידה ב-KPIs.</li>
+      </ul>
+    </div>
+
+    <div class="exercise">
+      <span class="exercise-label">תרגיל סדנת הנהלה · 2 שעות</span>
+      <h4>תעדוף 10–15 המועמדים מפרק 4</h4>
+      <ol>
+        <li>כל מועמד מקבל דירוג של 1–5 ב-5 קריטריוני ערך. ממוצע = ציון ערך.</li>
+        <li>כל מועמד מקבל דירוג של 1–5 ב-5 קריטריוני מורכבות. ממוצע = ציון מורכבות.</li>
+        <li>שרטוט במטריצה ערך × מורכבות. בועה גדולה = השקעה גדולה.</li>
+        <li>בוחרים 3–5 יוזמות מ-Quick Wins ו-Strategic Bets לתחילת רבעון הבא.</li>
+        <li>חתימה אישית של מנהל יחידה כ-Sponsor פר יוזמה.</li>
+      </ol>
+    </div>
+
+    <div class="deliverable-list">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>מטריצת תעדוף מלאה עם 15+ יוזמות מדורגות</li>
+        <li>בחירה מובהקת של 3–5 יוזמות לרבעון הראשון, עם Sponsor חתום</li>
+        <li>Sunset List — יוזמות ניסוי קיימות שצריך לסגור כדי לפנות מקום</li>
+        <li>מסמך אחד עמוד למנכ״ל: התיקים שבחרנו, למה, ומה נקבל בעוד 90 יום</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 6: OPERATING MODEL ==================== -->
+<section class="page-section alt" id="operating">
+  <div class="container">
+    <span class="section-tag">פרק 6</span>
+    <h2 class="section-title">מודל תפעולי וארכיטקטורת AI — היררכיית הסוכנים</h2>
+    <p class="section-lead">"להוסיף AI על תהליך ישן" = ב-100% מהמקרים, רק יותר עלות בלי תוצאה. הארגונים שמצליחים בונים שני דברים יחד: ארכיטקטורת AI חדשה ומודל תפעולי חדש. שניהם מבוססים על אותה תפישה — היררכיה ברורה של מי עושה מה.</p>
+
+    <h3>היררכיית הפלטפורמה — שלוש שכבות סוכנים</h3>
+    <p>הארכיטקטורה החדשה דומה לכוורת. סוכני עזר מבצעים משימות. סוכנים על מתאמים בין משימות. סוכני אורקסטרציה מנהלים את המערכת כולה. ההיררכיה הזו פותרת את הבעיה הגדולה ביותר של ניסויים: סוכנים שלא מצליחים לעבוד יחד.</p>
+
+    <svg class="arch-svg" viewBox="0 0 800 400">
+      <!-- Orchestrator -->
+      <rect x="300" y="20" width="200" height="80" rx="8" fill="#0a1f44" stroke="#c8a558" stroke-width="2"></rect>
+      <text x="400" y="55" text-anchor="middle" fill="#c8a558" font-family="Frank Ruhl Libre" font-size="18" font-weight="700">Orchestrator</text>
+      <text x="400" y="78" text-anchor="middle" fill="white" font-size="12">סוכן תיאום-על · ממשל</text>
+
+      <!-- Lines down -->
+      <line x1="350" y1="100" x2="150" y2="150" stroke="#c8a558" stroke-width="2"></line>
+      <line x1="400" y1="100" x2="400" y2="150" stroke="#c8a558" stroke-width="2"></line>
+      <line x1="450" y1="100" x2="650" y2="150" stroke="#c8a558" stroke-width="2"></line>
+
+      <!-- Super Agents row -->
+      <rect x="50" y="150" width="200" height="80" rx="8" fill="#1a3160" stroke="#c8a558" stroke-width="1"></rect>
+      <text x="150" y="185" text-anchor="middle" fill="white" font-family="Frank Ruhl Libre" font-size="16" font-weight="700">Super Agent</text>
+      <text x="150" y="208" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11">"סגור רבעון פיננסי"</text>
+
+      <rect x="300" y="150" width="200" height="80" rx="8" fill="#1a3160" stroke="#c8a558" stroke-width="1"></rect>
+      <text x="400" y="185" text-anchor="middle" fill="white" font-family="Frank Ruhl Libre" font-size="16" font-weight="700">Super Agent</text>
+      <text x="400" y="208" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11">"טפל בתביעה"</text>
+
+      <rect x="550" y="150" width="200" height="80" rx="8" fill="#1a3160" stroke="#c8a558" stroke-width="1"></rect>
+      <text x="650" y="185" text-anchor="middle" fill="white" font-family="Frank Ruhl Libre" font-size="16" font-weight="700">Super Agent</text>
+      <text x="650" y="208" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="11">"גייס לקוח חדש"</text>
+
+      <!-- lines to utility -->
+      <line x1="100" y1="230" x2="80" y2="290" stroke="#999" stroke-width="1"></line>
+      <line x1="150" y1="230" x2="150" y2="290" stroke="#999" stroke-width="1"></line>
+      <line x1="200" y1="230" x2="220" y2="290" stroke="#999" stroke-width="1"></line>
+
+      <line x1="350" y1="230" x2="330" y2="290" stroke="#999" stroke-width="1"></line>
+      <line x1="400" y1="230" x2="400" y2="290" stroke="#999" stroke-width="1"></line>
+      <line x1="450" y1="230" x2="470" y2="290" stroke="#999" stroke-width="1"></line>
+
+      <line x1="600" y1="230" x2="580" y2="290" stroke="#999" stroke-width="1"></line>
+      <line x1="650" y1="230" x2="650" y2="290" stroke="#999" stroke-width="1"></line>
+      <line x1="700" y1="230" x2="720" y2="290" stroke="#999" stroke-width="1"></line>
+
+      <!-- Utility Agents -->
+      <rect x="40" y="290" width="80" height="60" rx="6" fill="#f1ede4" stroke="#c8a558"></rect>
+      <text x="80" y="320" text-anchor="middle" font-size="11" fill="#0a1f44" font-weight="700">SAP Utility</text>
+      <text x="80" y="338" text-anchor="middle" font-size="9" fill="#7a7a7a">GL Reads</text>
+
+      <rect x="130" y="290" width="80" height="60" rx="6" fill="#f1ede4" stroke="#c8a558"></rect>
+      <text x="170" y="320" text-anchor="middle" font-size="11" fill="#0a1f44" font-weight="700">Workday</text>
+      <text x="170" y="338" text-anchor="middle" font-size="9" fill="#7a7a7a">HR Data</text>
+
+      <rect x="220" y="290" width="80" height="60" rx="6" fill="#f1ede4" stroke="#c8a558"></rect>
+      <text x="260" y="320" text-anchor="middle" font-size="11" fill="#0a1f44" font-weight="700">Email API</text>
+      <text x="260" y="338" text-anchor="middle" font-size="9" fill="#7a7a7a">Send/Read</text>
+
+      <rect x="320" y="290" width="80" height="60" rx="6" fill="#f1ede4" stroke="#c8a558"></rect>
+      <text x="360" y="320" text-anchor="middle" font-size="11" fill="#0a1f44" font-weight="700">Claims DB</text>
+      <text x="360" y="338" text-anchor="middle" font-size="9" fill="#7a7a7a">Validation</text>
+
+      <rect x="410" y="290" width="80" height="60" rx="6" fill="#f1ede4" stroke="#c8a558"></rect>
+      <text x="450" y="320" text-anchor="middle" font-size="11" fill="#0a1f44" font-weight="700">Risk Model</text>
+      <text x="450" y="338" text-anchor="middle" font-size="9" fill="#7a7a7a">Scoring</text>
+
+      <rect x="500" y="290" width="80" height="60" rx="6" fill="#f1ede4" stroke="#c8a558"></rect>
+      <text x="540" y="320" text-anchor="middle" font-size="11" fill="#0a1f44" font-weight="700">Payment</text>
+      <text x="540" y="338" text-anchor="middle" font-size="9" fill="#7a7a7a">Execute</text>
+
+      <rect x="590" y="290" width="80" height="60" rx="6" fill="#f1ede4" stroke="#c8a558"></rect>
+      <text x="630" y="320" text-anchor="middle" font-size="11" fill="#0a1f44" font-weight="700">CRM</text>
+      <text x="630" y="338" text-anchor="middle" font-size="9" fill="#7a7a7a">Salesforce</text>
+
+      <rect x="680" y="290" width="80" height="60" rx="6" fill="#f1ede4" stroke="#c8a558"></rect>
+      <text x="720" y="320" text-anchor="middle" font-size="11" fill="#0a1f44" font-weight="700">KYC API</text>
+      <text x="720" y="338" text-anchor="middle" font-size="9" fill="#7a7a7a">Verify</text>
+
+      <text x="400" y="385" text-anchor="middle" font-size="11" fill="#7a7a7a">סוכני עזר · Utility Agents — מבצעים משימות אטומיות מול מערכות ספציפיות</text>
+    </svg>
+
+    <h3 style="margin-top: 3rem;">מבני מרכז מצוינות (CoE) — שלוש אופציות</h3>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-num">C</div>
+        <h3>Centralized · מרכזי</h3>
+        <p>צוות מרכזי בונה את הסוכנים, מנהל את הפלטפורמה, אוכף ממשל. מתאים לסוכני external engagement, להתחלות, ולמצבי ציות כבד. שולט אבל יוצר צוואר בקבוק.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>מתאים ל:</strong> Employee Enablement, External Engagement, Workplace Services בהתחלה</p>
+      </div>
+      <div class="card">
+        <div class="card-num">H</div>
+        <h3>Hybrid · משולב</h3>
+        <p>פלטפורמה ותקני אבטחה מרכזיים. יחידות עסקיות בונות ומפעילות סוכנים. CoE מספק שירותי enablement ולא delivery. איזון בין שליטה לקצב.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>מתאים ל:</strong> Workplace Services בשלים, ארגונים בינוניים</p>
+      </div>
+      <div class="card">
+        <div class="card-num">F</div>
+        <h3>Federated · פדרטיבי</h3>
+        <p>יחידות עסקיות הן הבעלים של הסוכנים — בנייה, תפעול, וגם תוצאות. CoE מספק רק תקנים, ארכיטקטורות, ופיקוח על חריגים. מהיר אבל דורש בשלות גבוהה.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>מתאים ל:</strong> Core Business Process, AI-First, Expert Empowerment</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">חוזה הסוכן — Agent Contract</h3>
+    <p>הקריטריון היחיד שמבחין בין סוכן שמוכן ל-Production לבין POC עם רעש: חוזה כתוב וברור. אם אי-אפשר לכתוב את החוזה, הסוכן לא מוכן להיבנות.</p>
+
+    <table class="exec-table">
+      <thead><tr><th>סעיף בחוזה</th><th>שאלה לבעלים</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Trigger Conditions</strong></td><td>מה גורם לסוכן להתחיל לפעול? אירוע? קריאה? לוח זמנים?</td></tr>
+        <tr><td><strong>Input/Output Schema</strong></td><td>אילו נתונים נכנסים? באיזה פורמט בדיוק? מה יוצא?</td></tr>
+        <tr><td><strong>Autonomy Boundaries</strong></td><td>איזה החלטות יכול לקבל לבד? איזה מצריך אישור?</td></tr>
+        <tr><td><strong>Tool Access</strong></td><td>לאילו מערכות יש גישה? מה ההרשאה — read-only? execute?</td></tr>
+        <tr><td><strong>Performance Targets</strong></td><td>מה ה-KPIs? דיוק? זמן תגובה? עלות לטרנזקציה?</td></tr>
+        <tr><td><strong>Escalation Modes</strong></td><td>מתי הסוכן מעביר לאדם? למי? באיזה ערוץ?</td></tr>
+      </tbody>
+    </table>
+
+    <div class="exec-box" style="margin-top: 3rem;">
+      <h4>שאלות הנהלה למודל התפעולי</h4>
+      <ul>
+        <li>מי בארגון יהיה ה-Chief AI Officer (CAIO) — חיצוני (Fractional) או פנימי?</li>
+        <li>איפה ימוקם ה-CoE — תחת CIO, ה-COO, או ישירות תחת המנכ״ל?</li>
+        <li>מי ה-Business Owner של כל סוכן? מי האחראי לתוצאות?</li>
+        <li>איך מתפצל התקציב בין מרכז ליחידות?</li>
+        <li>איך מתמודדים עם sourcing — Build vs. Buy vs. Partner?</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-list">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>תרשים ארכיטקטורה ב-3 שכבות — Orchestrator, Super, Utility</li>
+        <li>בחירת מבנה CoE לכל אחד מששת הדפוסים שאומץ בארגון</li>
+        <li>תבנית Agent Contract מלא לשימוש בכל יוזמה חדשה</li>
+        <li>RACI Matrix — Business Owner, Tech Owner, Governance Owner, SME</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 7: DATA & TECH FOUNDATIONS ==================== -->
+<section class="page-section" id="data-tech">
+  <div class="container">
+    <span class="section-tag">פרק 7</span>
+    <h2 class="section-title">Data &amp; Technology Foundations — היסודות שאי-אפשר לדלג עליהם</h2>
+    <p class="section-lead">הקלות שבה הספקים מבטיחים "AI עובד מהיום הראשון" מסתירה את האמת: 57% מהמנהלים מצביעים על אינטגרציה למערכות קיימות כסיכון העליון. רק 31% מהארגונים מדווחים על אסטרטגיית פלטפורמה פורמלית. בלי תשתית, אין צמיחה.</p>
+
+    <h3>ששת היסודות הנדרשים</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h3>1. Digital Core מודרני</h3>
+        <p>מערכת ליבה (ERP, CRM, Core Banking) שמודרנית, מודולרית, ושאפשר לחבר אליה. אם המערכת המרכזית נכתבה ב-COBOL ב-1998 — AI לא יציל אותה. צריך לבחור: לעבור ל-SaaS, לעטוף ב-API, או להחליף.</p>
+      </div>
+      <div class="card">
+        <h3>2. שכבת נתונים מאוחדת</h3>
+        <p>Data Fabric / Data Mesh / Lakehouse — לא משנה השם, חשובה המהות. נתונים זמינים, מאופיינים (lineage, ownership, quality), ושאפשר לתת להם API. בישראל זה בעיקר אומר: שילוב נתונים בעברית ובאנגלית, שמירת privacy.</p>
+      </div>
+      <div class="card">
+        <h3>3. שכבת אינטגרציה (API + MCP + A2A)</h3>
+        <p>פרוטוקולים פתוחים — Model Context Protocol, Agent-to-Agent — שמאפשרים לסוכנים לתקשר עם מערכות וביניהם. נטייה ל-MCP-first במקום אינטגרציות נקודה-לנקודה (Point-to-Point).</p>
+      </div>
+      <div class="card">
+        <h3>4. שכבת מודלים גמישה</h3>
+        <p>לא להתקשר עם ספק יחיד. ארכיטקטורה תומכת ב-OpenAI, Anthropic, Google, ספקים פתוחים (Llama, Mistral) ו-SLMs. החלפת מודל חייבת להיות עניין של ימים, לא חודשים.</p>
+      </div>
+      <div class="card">
+        <h3>5. Observability ו-Telemetry מרכזיים</h3>
+        <p>כל קריאת מודל מתועדת. עלות, דיוק, latency, drift — נמדדים בזמן אמת. בלי טלמטריה אין שיפור, אין אופטימיזציה, ואין הוכחת ROI להנהלה.</p>
+      </div>
+      <div class="card">
+        <h3>6. ריבונות וסביבה ישראלית</h3>
+        <p>שאלות שצריך לענות עליהן: איפה הנתונים יושבים? האם ספק הענן מכבד את ההגבלות הרגולטוריות? האם יש Israeli Region? האם המודל מאומן על נתונים שנוסחו ל-Israel? במגזרים כמו בנקאות וביטחון, התשובה לא יכולה להיות "ב-US East".</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">היררכיית הנתונים — מה צריך להיות מוכן לפני כל סוכן</h3>
+    <table class="exec-table">
+      <thead><tr><th>שכבה</th><th>מה כלול</th><th>תנאי מוקדם לסוכן</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Raw / Bronze</strong></td><td>נתונים גולמיים, לוגים, מסמכים בעברית, אימיילים</td><td>קיים, מקוטלג, מאופיין lineage</td></tr>
+        <tr><td><strong>Curated / Silver</strong></td><td>נתונים מנוקים, מאוחדים, מקושרים ל-Master Data</td><td>איכות 95%+, schema יציב, owner מוגדר</td></tr>
+        <tr><td><strong>Semantic / Gold</strong></td><td>Embeddings, knowledge graphs, BI views</td><td>מעודכן בתדירות הנדרשת לסוכן, גישה דרך API</td></tr>
+        <tr><td><strong>Activation</strong></td><td>RAG indices, feature stores, vector DBs</td><td>פר use-case, עם רענון אוטומטי</td></tr>
+      </tbody>
+    </table>
+
+    <div class="exec-box" style="margin-top: 3rem;">
+      <h4>שאלות לבדיקת בשלות תשתית</h4>
+      <ul>
+        <li>איזה אחוז מהמערכות הקריטיות שלנו זמינות דרך API מתועד?</li>
+        <li>האם יש לנו Master Data Management עם בעלים פר domain?</li>
+        <li>איזה אחוז מנתוני הליבה זמינים בפחות מ-200ms ל-Agent?</li>
+        <li>האם יש לנו Vector DB / RAG infrastructure בייצור?</li>
+        <li>האם יש Observability מרכזי לכל קריאות LLM (לא רק לוגים)?</li>
+        <li>האם יש Disaster Recovery לסוכנים — מה קורה אם הספק נופל?</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-list">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>תרשים ארכיטקטורה רפרנס — Digital Core + Data + Integration + Models + Observability</li>
+        <li>Tech Debt Inventory — רשימת המערכות שצריכות מודרניזציה כדי לתמוך בסוכנים</li>
+        <li>Build/Buy/Partner Decision Matrix — לכל שכבה</li>
+        <li>תכנית 12 חודשים לתשתית — מה ייבנה עם הצוות הפנימי, מה דרך שותפים</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 8: GOVERNANCE ==================== -->
+<section class="page-section alt" id="governance">
+  <div class="container">
+    <span class="section-tag">פרק 8</span>
+    <h2 class="section-title">Governance, Risk &amp; Responsible AI — מסגרת לארגון הישראלי</h2>
+    <p class="section-lead">53% מהמנהלים מציינים פרטיות וסייבר כסיכון העליון. רק 21% מהארגונים מדווחים על מודל ממשל בשל לסוכנים אוטונומיים. הפער הזה הוא סיכון מבני. בארגון ישראלי — עם רגולציה של בנק ישראל, רשות שוק ההון, רשות הגנת הפרטיות, ו-EU AI Act בדרך — חוסר ממשל הוא חשיפה כספית ומשפטית.</p>
+
+    <h3>שש שכבות ממשל AI</h3>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-num">1</div>
+        <h3>Risk Tiering</h3>
+        <p>סיווג כל סוכן לפי רמת סיכון: Internal-Read · Internal-Write · External-Read · External-Write · Autonomous. כל רמה דורשת אישורים שונים, מוניטורינג שונה, ובקרות שונות.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">2</div>
+        <h3>Inventory &amp; Ownership</h3>
+        <p>רישום של כל סוכן בייצור: שם, בעלים, סוג, רמת סיכון, KPIs, תאריך עדכון אחרון. ללא רישום — אי-אפשר לנהל. בעלים אישי, לא "הצוות".</p>
+      </div>
+      <div class="card">
+        <div class="card-num">3</div>
+        <h3>Guardrails &amp; Policies</h3>
+        <p>מה מותר לסוכן ומה אסור? Acceptable Use, Data Access, Prompt Injection protection, content safety, Bias monitoring. אכיפה אוטומטית בפלטפורמה, לא הסכמים על נייר.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">4</div>
+        <h3>Evaluation &amp; Testing</h3>
+        <p>Eval Set חי. בדיקות אוטומטיות לפני כל release. Red Teaming תקופתי. Shadow mode לפני go-live. ניטור drift אחרי.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">5</div>
+        <h3>Monitoring &amp; Control Tower</h3>
+        <p>תצוגה מרכזית של כל הסוכנים בייצור — health, accuracy, cost, anomalies. Kill switches זמינים. Incident playbooks מתורגלים.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">6</div>
+        <h3>Governance Forums</h3>
+        <p>AI Council ברמת הנהלה. Risk Committee תקופתי. סקירת launch לסוכנים High-Risk. דיווח לדירקטוריון כל רבעון.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">המטריצה הרגולטורית הישראלית</h3>
+    <table class="exec-table">
+      <thead><tr><th>רגולטור / חוק</th><th>השפעה על AI</th><th>פעולה נדרשת</th></tr></thead>
+      <tbody>
+        <tr><td><strong>בנק ישראל</strong></td><td>הוראת ניהול בנקאי תקין 357A — ניהול סיכוני מודלים, AI אחראי</td><td>Model Risk Management framework, אישור ועדת ניהול סיכונים לכל מודל בייצור</td></tr>
+        <tr><td><strong>חוק הגנת הפרטיות (תיקון 13, 2025)</strong></td><td>תיקון 13 מחזק את חובות הארגון בעיבוד נתונים אישיים. AI = עיבוד מסיבי</td><td>DPIA לכל סוכן שעובד עם נתונים אישיים. Privacy by Design מובנה</td></tr>
+        <tr><td><strong>רשות שוק ההון</strong></td><td>חוזרים על AI ב-Underwriting, claims, robo-advice</td><td>Explainability, אישור underwriting decisions ע״י אדם, audit trail</td></tr>
+        <tr><td><strong>EU AI Act</strong></td><td>חברות שמשרתות אזרחי אירופה — High-Risk כפוף לתאימות</td><td>סיווג כל סוכן לפי EU AI Act tiers. Conformity assessment לסוכנים High-Risk</td></tr>
+        <tr><td><strong>GDPR / CCPA</strong></td><td>זכות הסבר, זכות מחיקה, transfer impact assessments</td><td>Right to explanation, Right to be forgotten — מובנים בארכיטקטורה</td></tr>
+        <tr><td><strong>חוקי סקטור — ביטחוני</strong></td><td>סיווג ביטחוני, איסור עיבוד בענן ציבורי</td><td>Sovereign deployments, Israeli regions, on-prem options</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top: 3rem;">מטריצת סיכון לסוכנים</h3>
+    <table class="exec-table">
+      <thead><tr><th>רמה</th><th>תיאור</th><th>בקרות נדרשות</th></tr></thead>
+      <tbody>
+        <tr><td><span class="level-500">High</span></td><td>סוכן חיצוני שמבצע פעולות, או פנימי שמשפיע על החלטות פיננסיות/קליניות</td><td>אישור AI Council · Red Team · Human in the loop · ניטור 24/7 · audit מלא</td></tr>
+        <tr><td><span class="level-400">Medium-High</span></td><td>סוכן פנימי שמבצע פעולות עם השפעה משמעותית</td><td>אישור CoE · Eval set · ניטור יומי · DPIA אם רלוונטי</td></tr>
+        <tr><td><span class="level-300">Medium</span></td><td>סוכן שירותים פנימיים — HR, IT helpdesk</td><td>אישור Business Owner · SLA · ניטור שבועי</td></tr>
+        <tr><td><span class="level-200">Low</span></td><td>סוכן עוזר אישי לעובדים — Copilot</td><td>Acceptable Use Policy · אכיפת DLP · ניטור אגרגטיבי</td></tr>
+      </tbody>
+    </table>
+
+    <div class="exec-box" style="margin-top: 3rem;">
+      <h4>שאלות הנהלה לממשל</h4>
+      <ul>
+        <li>האם יש לנו רישום מלא של כל הסוכנים בייצור — עם בעלים שמי?</li>
+        <li>מה רמת הסיכון של הסוכן ה"מסוכן" ביותר שלנו? האם הוועדה אישרה?</li>
+        <li>איך נחליט מה לעשות אם סוכן ביצע פעולה שגויה ברמה משמעותית? יש Playbook?</li>
+        <li>איך אנחנו מצליחים לעמוד בדרישת ה-Explainability של רגולציה לאזרחים שזוכים בהחלטה אוטומטית?</li>
+        <li>מה תדירות הדיווח של סיכוני AI לדירקטוריון? רבעוני? חודשי? לפי אירוע?</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-list">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>AI Risk Framework — מסמך אחד 8–12 עמודים, חתום ע״י Risk Committee</li>
+        <li>Agent Inventory — Excel/Notion חי עם כל הסוכנים והבעלים</li>
+        <li>Acceptable Use Policy — מסמך לעובדים, חתום ע״י HR</li>
+        <li>Israeli Regulatory Map — איזה רגולטור משפיע על איזה סוכן</li>
+        <li>Incident Response Playbook — מה לעשות ב-15 דקות הראשונות</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 9: TALENT, CULTURE, CHANGE ==================== -->
+<section class="page-section" id="talent">
+  <div class="container">
+    <span class="section-tag">פרק 9</span>
+    <h2 class="section-title">Talent, Culture &amp; Change Management — היבט שמכריע</h2>
+    <p class="section-lead">84% מהארגונים בעולם לא תכננו מחדש את התפקידים סביב AI. הם הכניסו טכנולוגיה — בלי לשנות איך אנשים עובדים. התוצאה: רישיונות שלא נצרכים, תהליכים שעובדים כפול, וצוותים שמרגישים מאוימים. הפער ההכי גדול ב-AI הוא לא טכנולוגי — הוא אנושי.</p>
+
+    <h3>שלוש מטרות של Talent &amp; Culture ב-AI</h3>
+    <div class="grid-3">
+      <div class="card">
+        <h3>אימוץ — Adoption</h3>
+        <p>מ-15% ל-70% מהעובדים שמשתמשים יומיומית בכלי AI. דורש leadership role modeling, enablement מתמשך, וקהילה פנימית. רישיונות אינם אימוץ — שימוש משמעותי הוא.</p>
+      </div>
+      <div class="card">
+        <h3>שדרוג כישורים — Reskilling</h3>
+        <p>Trailblazers מכשירים 69% מהצוות. Followers — 35% בלבד. הפער הזה הוא נבואת שמיעה: ארגונים שלא מכשירים לא מקבלים תשואה. צריך לעדכן 50–70% מהצוות תוך 18 חודשים.</p>
+      </div>
+      <div class="card">
+        <h3>תפקידים חדשים — New Roles</h3>
+        <p>65% מהמנהלים צופים תפקידים חדשים שיווצרו: Workflow Engineer, Agent Owner, AI Quality Auditor, Prompt Engineer, AI Risk Manager. צריך מסלולי קריירה ברורים.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">מפת תפקידים חדשה בארגון ישראלי</h3>
+    <table class="exec-table">
+      <thead><tr><th>תפקיד חדש</th><th>אחריות</th><th>פרופיל</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Chief AI Officer (CAIO)</strong></td><td>אסטרטגיה, ממשל, פורטפוליו, sponsor להנהלה</td><td>שילוב Business + Tech, ניסיון 10+ שנים, ראייה אסטרטגית</td></tr>
+        <tr><td><strong>Head of AI Engineering</strong></td><td>פלטפורמה, ארכיטקטורה, MLOps, DevOps</td><td>VP-level engineer עם רקע data/ML</td></tr>
+        <tr><td><strong>AI Workflow Designer</strong></td><td>תכנון מחדש של תהליכים סביב Agents</td><td>שילוב Business Analysis + Process Engineering + AI literacy</td></tr>
+        <tr><td><strong>Agent Owner (פר Use Case)</strong></td><td>אחראי לתוצאות עסקיות של סוכן ספציפי</td><td>SME ביחידה העסקית, בעבר ייתכן בכלל Operational manager</td></tr>
+        <tr><td><strong>AI Quality Auditor</strong></td><td>Eval sets, drift monitoring, red teaming</td><td>QA + Data Science + Domain</td></tr>
+        <tr><td><strong>AI Risk &amp; Compliance Officer</strong></td><td>ממשל, ציות, איכות נתונים, פרטיות</td><td>Legal/Compliance + טכנולוגי</td></tr>
+        <tr><td><strong>AI Trainer / Reskilling Lead</strong></td><td>הכשרת הצוות, קהילה פנימית, change</td><td>L&amp;D + AI literacy</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top: 3rem;">תכנית Change Management ב-4 פעימות</h3>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">חודשים 1–3</div>
+          <h4>Awareness &amp; Sponsorship</h4>
+          <p>מנכ״ל וחברי הנהלה מצהירים על האסטרטגיה. כל מנהל יחידה מקיים meeting עם הצוות. שגרירים נבחרים פר יחידה (5–10% מהצוות).</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">חודשים 3–9</div>
+          <h4>Enablement &amp; Skills</h4>
+          <p>הכשרה רוחבית — AI literacy לכלל הצוות. הכשרה ייעודית לתפקידי מפתח. השקת קהילת AI פנימית. שיתוף Use Cases לדוגמה.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">חודשים 6–18</div>
+          <h4>Integration &amp; Workflow Redesign</h4>
+          <p>תפקידים מוגדרים מחדש סביב סוכנים. תהליכים נמדדים ב-KPIs חדשים. ביצועים אישיים משולבים עם AI literacy. סקרי שביעות רצון תקופתיים.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">חודשים 12–24</div>
+          <h4>Institutionalization</h4>
+          <p>AI כחלק מהזהות הארגונית. גיוס לפי AI capabilities. תרבות של ניסוי-תוצאה. ביקור AI הוא חלק מ-onboarding לכל עובד חדש.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-box">
+      <h4>שאלות מרכזיות לדיון הנהלה</h4>
+      <ul>
+        <li>איזה אחוז מהצוות שלנו עבר Education של 8+ שעות ב-AI ב-12 החודשים האחרונים?</li>
+        <li>האם יש מסלול קריירה ברור לעובד שרוצה להתמחות ב-AI אצלנו?</li>
+        <li>מה ההבדל בשכר בין מהנדס data ל-AI Engineer? יש פער שמגן עלינו משוק?</li>
+        <li>איזה אחוז מהמנהלים שלנו מבלים 6+ שעות בשבוע ב-AI literacy?</li>
+        <li>איך אנחנו מתמודדים עם פחד של עובדים מאיבוד תפקיד?</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-list">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>מפת תפקידים חדשים והקיימים שצריכים לשנות</li>
+        <li>תכנית הכשרה 24 חודשים — דרגות, נושאים, יעדים</li>
+        <li>תכנית שגרירי AI פנימיים — מי, היכן, ומה הם עושים</li>
+        <li>סקר baseline של AI literacy בכל הצוות</li>
+        <li>תכנית Communication להנהלה — מה אומרים, מתי, ולמי</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 10: BUSINESS CASE & ROI ==================== -->
+<section class="page-section alt" id="business-case">
+  <div class="container">
+    <span class="section-tag">פרק 10</span>
+    <h2 class="section-title">Business Case &amp; ROI — מ-Intuition ל-Spreadsheet</h2>
+    <p class="section-lead">ניסויים שאי-אפשר להגן עליהם מספרית — לא משקלם. CFOs נמאסו מ-"זה ישתלם". המספר הקריטי שכל יוזמת AI חייבת להציג: <strong>ROI חזוי ב-12 חודשים, מבוסס על נתונים אמיתיים מהארגון</strong>. הכלי כאן מחשב באופן שמתאים לדירקטוריון.</p>
+
+    <div class="roi-calc">
+      <div class="roi-grid">
+        <div>
+          <h3>הזן את הפרמטרים</h3>
+          <p style="font-size: 0.9rem; color: var(--gray-500);">דוגמה: מרכז שירות לקוחות של חברת ביטוח ישראלית בינונית</p>
+
+          <div class="roi-input-group">
+            <label>מספר עובדים בתהליך הנבחר</label>
+            <input type="number" id="roi-employees" value="80" oninput="calcROI()">
+          </div>
+          <div class="roi-input-group">
+            <label>עלות שנתית ממוצעת לעובד (₪, כולל סוציאליות)</label>
+            <input type="number" id="roi-cost" value="280000" oninput="calcROI()">
+          </div>
+          <div class="roi-input-group">
+            <label>אחוז הזמן שניתן לאוטומציה (%)</label>
+            <input type="number" id="roi-automation" value="35" min="5" max="80" oninput="calcROI()">
+          </div>
+          <div class="roi-input-group">
+            <label>שיפור איכות / שביעות רצון (% NPS uplift)</label>
+            <input type="number" id="roi-quality" value="12" min="0" max="50" oninput="calcROI()">
+          </div>
+          <div class="roi-input-group">
+            <label>הכנסה שנתית של היחידה (₪M)</label>
+            <input type="number" id="roi-revenue" value="180" oninput="calcROI()">
+          </div>
+          <div class="roi-input-group">
+            <label>עלות יישום ושנה ראשונה (₪K)</label>
+            <input type="number" id="roi-impl" value="1800" oninput="calcROI()">
+          </div>
+        </div>
+
+        <div class="roi-result">
+          <h4>תוצאות לשנה הראשונה</h4>
+          <div class="roi-big-num"><span id="roi-payback">×3.8</span></div>
+          <p style="font-size: 0.9rem; color: var(--gold-soft); margin-bottom: 1rem;">מכפיל ROI על השקעה</p>
+
+          <div class="roi-line"><span>חיסכון בעלויות עובדים</span><strong id="roi-savings">7.84M ₪</strong></div>
+          <div class="roi-line"><span>תוספת הכנסה מ-quality uplift</span><strong id="roi-uplift">2.16M ₪</strong></div>
+          <div class="roi-line"><span>סה״כ ערך גולמי שנתי</span><strong id="roi-gross">10.0M ₪</strong></div>
+          <div class="roi-line"><span>עלות השקעה כוללת</span><strong>1.8M ₪</strong></div>
+          <div class="roi-line"><span style="color: var(--gold);">תשואה נטו שנה 1</span><strong id="roi-net" style="color: var(--gold);">8.2M ₪</strong></div>
+          <div class="roi-line"><span>חזרה על השקעה</span><strong id="roi-months">2.2 חודשים</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">מסגרת Business Case למנכ״ל ול-CFO</h3>
+    <table class="exec-table">
+      <thead><tr><th>קטגוריה</th><th>שאלה</th><th>איך מחשבים</th></tr></thead>
+      <tbody>
+        <tr><td><strong>חיסכון תפעולי</strong></td><td>כמה שעות אדם נחסכות?</td><td>שעות × עלות לשעה × 220 ימי עבודה × % אוטומציה</td></tr>
+        <tr><td><strong>תוספת הכנסה</strong></td><td>האם יש שיפור conversion, retention, AOV?</td><td>בעיקר חיכוך נמוך → uplift × revenue base</td></tr>
+        <tr><td><strong>הקטנת סיכון</strong></td><td>פחות שגיאות, פחות תביעות, פחות קנסות</td><td>תדירות אירוע × עלות אירוע × % הקטנה</td></tr>
+        <tr><td><strong>שיפור חוויה</strong></td><td>NPS, CSAT, AHT — תאו עליה</td><td>NPS uplift × value per NPS point (לפי תעשייה)</td></tr>
+        <tr><td><strong>זמן שוק</strong></td><td>מהירות פיתוח/חיתום/הוצאת מוצר</td><td>חיסכון בשבועות × עלות פרויקט × פרויקטים בשנה</td></tr>
+        <tr><td><strong>עלויות</strong></td><td>One-time + שנתי שוטף</td><td>פלטפורמה + מודלים + צוות + change + תשתית</td></tr>
+      </tbody>
+    </table>
+
+    <div class="exec-box" style="margin-top: 3rem;">
+      <h4>טריקים לעמידה מול CFO ספקני</h4>
+      <ul>
+        <li><strong>Baseline ידני:</strong> מדדו לפני שאתם בונים. אם אין baseline — אין הוכחה.</li>
+        <li><strong>הסתירות-החששות לחזוי:</strong> תמיד תיתנו 3 תרחישים — Conservative, Base, Stretch. CFOs מעריכים שמרנות.</li>
+        <li><strong>Quick wins בשנה ראשונה:</strong> אם מבטיחים ROI ב-24 חודשים — לא יעניין אף אחד. הראו 12 חודשים.</li>
+        <li><strong>NPS נמדד בש״ח:</strong> תקלות בחישוב = פסילה אוטומטית. תרגמו NPS uplift לערך כספי לפי Benchmark תעשייתי.</li>
+        <li><strong>Hidden costs:</strong> כללו עלות שינוי, עלות training, עלות אינטגרציה, עלות תחזוקה. בלי זה — מספר לא אמין.</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-list">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>Business Case Excel — שבלונה עם 3 תרחישים פר יוזמה</li>
+        <li>מסמך אחד עמוד ל-CFO — Investment / Returns / Payback</li>
+        <li>הגנת המספרים — מצגת 10 שקפים שמתקפת את ההנחות</li>
+        <li>תכנית בקרת ROI חודשית — איך נדע אם זה אכן קורה</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 11: ROADMAP ==================== -->
+<section class="page-section" id="roadmap">
+  <div class="container">
+    <span class="section-tag">פרק 11</span>
+    <h2 class="section-title">מפת דרכים ל-12–24 חודשים</h2>
+    <p class="section-lead">תכנון יותר מ-24 חודשים בעולם AI הוא פעולה לא יעילה. הקצב משתנה מהר מדי. מה שצריך זה <strong>תכנון 24 חודשים עם רביזיה כל 6 חודשים</strong> — מקצב שמאזן בין חזון לרלוונטיות.</p>
+
+    <h3>ארבעת השלבים — Foundation → Scale</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">Q1–Q2 · חודשים 1–6</div>
+          <h4>Foundation · יסודות</h4>
+          <p><strong>מטרה:</strong> להעמיד את ה-Scale-Breaker, להשיק 2–3 Quick Wins, להשקיע ב-AI literacy.</p>
+          <p><strong>אבני דרך:</strong></p>
+          <ul style="margin-right: 1.2rem; font-size: 0.9rem;">
+            <li>אסטרטגיה כתובה, חתומה ע״י הדירקטוריון</li>
+            <li>הקמת AI Council (חודש 2)</li>
+            <li>2 סוכני Employee Enablement חיים (חודש 4)</li>
+            <li>1 סוכן Workplace Services בייצור (חודש 6)</li>
+            <li>40% מהמנהלים עברו AI literacy בסיסית</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">Q3–Q4 · חודשים 7–12</div>
+          <h4>Validate · אימות</h4>
+          <p><strong>מטרה:</strong> הוכחת ROI במספר מקרי שימוש, השקת תהליך core ראשון, מבנה CoE בעבודה.</p>
+          <p><strong>אבני דרך:</strong></p>
+          <ul style="margin-right: 1.2rem; font-size: 0.9rem;">
+            <li>סוכן Core Process ראשון ב-Production (לדוגמה: KYC, תביעות, R2R)</li>
+            <li>הוכחת ROI מצטבר ≥5M ₪ במצטבר</li>
+            <li>הקמת control tower למוניטורינג מרכזי</li>
+            <li>סוכן External Engagement ראשון ב-Pilot</li>
+            <li>70% מהצוות עבר literacy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">Q5–Q6 · חודשים 13–18</div>
+          <h4>Scale · צמיחה</h4>
+          <p><strong>מטרה:</strong> Agent Factory עובד — בנייה, פריסה וניהול של 5+ סוכנים חדשים ברבעון.</p>
+          <p><strong>אבני דרך:</strong></p>
+          <ul style="margin-right: 1.2rem; font-size: 0.9rem;">
+            <li>5+ סוכנים פעילים ביחידות שונות</li>
+            <li>External Engagement בייצור</li>
+            <li>ROI מצטבר ≥20M ₪</li>
+            <li>CoE Federated — יחידות בונות בעצמן</li>
+            <li>סוכן AI-First ראשון ב-MVP</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">Q7–Q8 · חודשים 19–24</div>
+          <h4>Transform · טרנספורמציה</h4>
+          <p><strong>מטרה:</strong> AI שזור ב-DNA הארגוני. תפקידים, תהליכים, ומדדים — הכל מתעדכן.</p>
+          <p><strong>אבני דרך:</strong></p>
+          <ul style="margin-right: 1.2rem; font-size: 0.9rem;">
+            <li>15+ סוכנים בייצור</li>
+            <li>30%+ מהתהליכים תוכננו מחדש</li>
+            <li>ROI מצטבר ≥50M ₪</li>
+            <li>AI-First Capability בייצור</li>
+            <li>הצוות מותג כ-AI-fluent organization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">תרחישי מעבר — שש הדפוסים של צמיחה</h3>
+    <table class="exec-table">
+      <thead><tr><th>דפוס צמיחה</th><th>מתי</th><th>סיכון</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bottom-up</strong></td><td>תרבות מהירה, ארגון פתוח</td><td>תזוזה איטית בשורת הרווח</td></tr>
+        <tr><td><strong>Top-down</strong></td><td>צריך focus, יש 5–10 דומיינים קריטיים</td><td>חוסר אימוץ אם לא מלווה</td></tr>
+        <tr><td><strong>Horizontal</strong></td><td>יש POC מוצלח שניתן לשכפל</td><td>תזוזה איטית בצמיחה</td></tr>
+        <tr><td><strong>End-to-end</strong></td><td>תהליך מקצה לקצה — חיסכון של חודשים לימים</td><td>השקעה גדולה</td></tr>
+        <tr><td><strong>Longitudinal</strong></td><td>צוותים קטנים iterate על Use Case בעל ערך</td><td>תלוי באנשים</td></tr>
+        <tr><td><strong>Leapfrog</strong></td><td>תעשייה מאוימת, צריך reinvent מהיר</td><td>מבוסס על שכנוע מלא של מנכ״ל</td></tr>
+      </tbody>
+    </table>
+
+    <div class="exec-box" style="margin-top: 3rem;">
+      <h4>שאלות הנהלה למפת הדרכים</h4>
+      <ul>
+        <li>איזה דפוס צמיחה מתאים לכל אחד מ-6 דפוסי הסוכנים שבחרנו?</li>
+        <li>איפה אנחנו ב-Q4 הבא, ולא רק "להמשיך עם אותם הניסויים"?</li>
+        <li>מה ה-Hard Gates שמעבירים אותנו משלב לשלב?</li>
+        <li>מה היחס בין "Run" לשגרה ל-"Build" לחדש בתקציב — ובאיזה רבעון זה משתנה?</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-list">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>מפת דרכים ויזואלית 24 חודשים — לדירקטוריון</li>
+        <li>אבני דרך רבעוניות עם בעלים ו-KPIs</li>
+        <li>Gating Criteria — מה נדרש למעבר משלב לשלב</li>
+        <li>תכנית רביזיה חצי-שנתית — מתי, מי, ואיך</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 12: KPI DASHBOARD ==================== -->
+<style>
+/* KPI Dashboard — Boardroom Light Palette (high contrast) */
+#kpis { background: #f5f1e8; }
+#kpis .kpi-dash {
+  background: #ffffff;
+  border: 1px solid #e3dcc9;
+  border-top: 5px solid var(--gold);
+  border-radius: 12px;
+  padding: 2.5rem;
+  color: var(--navy);
+  box-shadow: 0 12px 32px rgba(10,31,68,0.08);
+  margin: 2rem 0;
+}
+#kpis .layer-header {
+  display: flex; align-items: center; gap: 0.8rem;
+  margin: 0 0 1.2rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid #e3dcc9;
+}
+#kpis .layer-header:not(:first-of-type) { margin-top: 2.2rem; }
+#kpis .layer-badge {
+  display: inline-block; padding: 0.2rem 0.7rem;
+  background: var(--navy); color: var(--gold);
+  border-radius: 3px; font-size: 0.7rem; letter-spacing: 0.15em;
+  font-weight: 700;
+}
+#kpis .layer-title {
+  font-family: var(--serif); font-size: 1.1rem; color: var(--navy);
+  font-weight: 700; margin: 0;
+}
+#kpis .kpi-card {
+  background: #fbf9f2;
+  border: 1px solid #e3dcc9;
+  border-right: 3px solid var(--navy);
+  border-radius: 6px;
+  padding: 1.2rem;
+  transition: all 0.2s;
+}
+#kpis .kpi-card:hover { border-right-color: var(--gold); box-shadow: 0 6px 18px rgba(10,31,68,0.1); transform: translateY(-2px); }
+#kpis .kpi-card.warn { border-right-color: var(--orange); background: #fff4e8; }
+#kpis .kpi-card.alert { border-right-color: var(--red); background: #fbeceb; }
+#kpis .kpi-card.success { border-right-color: var(--green); background: #ecf5ed; }
+#kpis .kpi-label {
+  font-size: 0.78rem; color: var(--gray-700);
+  letter-spacing: 0.02em; font-weight: 600;
+  text-transform: none;
+}
+#kpis .kpi-value {
+  font-family: var(--serif); font-size: 2rem;
+  color: var(--navy); font-weight: 800; line-height: 1.1;
+  margin: 0.3rem 0 0.2rem;
+}
+#kpis .kpi-card.warn .kpi-value { color: #8a4118; }
+#kpis .kpi-card.alert .kpi-value { color: var(--red); }
+#kpis .kpi-card.success .kpi-value { color: var(--green); }
+#kpis .kpi-delta {
+  font-size: 0.78rem; font-weight: 600; color: var(--green);
+}
+#kpis .kpi-delta.down { color: var(--red); }
+#kpis .kpi-delta.neutral { color: var(--gray-500); }
+#kpis .kpi-bar-wrap {
+  background: #e3dcc9; height: 6px; border-radius: 3px;
+  margin-top: 0.7rem; overflow: hidden;
+}
+#kpis .kpi-bar {
+  background: linear-gradient(90deg, var(--gold), #b48d3a);
+  height: 100%; border-radius: 3px;
+}
+#kpis .kpi-bar.bar-red { background: linear-gradient(90deg, #c4604a, var(--red)); }
+#kpis .kpi-bar.bar-green { background: linear-gradient(90deg, #5aa66a, var(--green)); }
+#kpis .read-box {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 2rem 2.5rem;
+  margin-top: 2.5rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+#kpis .read-box::before {
+  content: ''; position: absolute; top: 0; right: 0; bottom: 0;
+  width: 6px; background: var(--gold);
+}
+#kpis .read-box h4 {
+  color: var(--gold); font-family: var(--serif);
+  font-size: 1.15rem; margin-bottom: 1rem;
+}
+#kpis .read-box ul { list-style: none; padding: 0; margin: 0; }
+#kpis .read-box li {
+  padding: 0.5rem 0; padding-right: 1.5rem; position: relative;
+  color: rgba(255,255,255,0.95); font-size: 0.95rem;
+  border-bottom: 1px dashed rgba(255,255,255,0.12);
+}
+#kpis .read-box li:last-child { border-bottom: none; }
+#kpis .read-box li::before {
+  content: '◆'; color: var(--gold);
+  position: absolute; right: 0; top: 0.7rem; font-size: 0.65rem;
+}
+#kpis .read-box li strong { color: var(--gold-soft); }
+</style>
+
+<section class="page-section" id="kpis">
+  <div class="container">
+    <span class="section-tag">פרק 12</span>
+    <h2 class="section-title">KPI Dashboard להנהלה</h2>
+    <p class="section-lead">המנכ״ל לא צריך לראות 50 מטריקות. הוא צריך לראות 12 — ולדעת מה לעשות עם כל אחת. הDashboard הבא הוא תבנית חיה, מבוססת על המדדים שעובדים בארגונים ב-Trailblazer mode.</p>
+
+    <div class="kpi-dash">
+      <div class="layer-header">
+        <span class="layer-badge">L1</span>
+        <h3 class="layer-title">Strategic Layer · שכבה אסטרטגית</h3>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card success">
+          <div class="kpi-label">ROI מצטבר מ-AI</div>
+          <div class="kpi-value">18.4M ₪</div>
+          <div class="kpi-delta">▲ +3.2M ברבעון</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar bar-green" style="width: 72%"></div></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">סוכנים בייצור</div>
+          <div class="kpi-value">14</div>
+          <div class="kpi-delta">▲ +4 ברבעון</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar" style="width: 65%"></div></div>
+        </div>
+        <div class="kpi-card warn">
+          <div class="kpi-label">% תהליכים מתוכננים מחדש</div>
+          <div class="kpi-value">28%</div>
+          <div class="kpi-delta">▲ +6% ברבעון</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar" style="width: 28%"></div></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">תקציב AI כ-% מהכנסות</div>
+          <div class="kpi-value">1.5%</div>
+          <div class="kpi-delta neutral">Benchmark 1.7%</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar" style="width: 88%"></div></div>
+        </div>
+      </div>
+
+      <div class="layer-header">
+        <span class="layer-badge">L2</span>
+        <h3 class="layer-title">Operational Layer · שכבה תפעולית</h3>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card success">
+          <div class="kpi-label">דיוק ממוצע סוכנים</div>
+          <div class="kpi-value">94.2%</div>
+          <div class="kpi-delta">▲ +1.1% חודש</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar bar-green" style="width: 94%"></div></div>
+        </div>
+        <div class="kpi-card alert">
+          <div class="kpi-label">% הסלמות לאדם</div>
+          <div class="kpi-value">11%</div>
+          <div class="kpi-delta down">▲ +2% חודש</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar bar-red" style="width: 22%"></div></div>
+        </div>
+        <div class="kpi-card success">
+          <div class="kpi-label">זמן לטרנזקציה (Avg)</div>
+          <div class="kpi-value">42s</div>
+          <div class="kpi-delta">▼ −8s חודש</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar bar-green" style="width: 60%"></div></div>
+        </div>
+        <div class="kpi-card success">
+          <div class="kpi-label">עלות לטרנזקציה</div>
+          <div class="kpi-value">₪0.18</div>
+          <div class="kpi-delta">▼ −30% YoY</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar bar-green" style="width: 75%"></div></div>
+        </div>
+      </div>
+
+      <div class="layer-header">
+        <span class="layer-badge">L3</span>
+        <h3 class="layer-title">People &amp; Risk Layer · שכבת אנשים וסיכונים</h3>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-label">% צוות AI-literate</div>
+          <div class="kpi-value">62%</div>
+          <div class="kpi-delta">▲ +12% רבעון</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar" style="width: 62%"></div></div>
+        </div>
+        <div class="kpi-card success">
+          <div class="kpi-label">DAU של Copilots</div>
+          <div class="kpi-value">68%</div>
+          <div class="kpi-delta">▲ +8% רבעון</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar bar-green" style="width: 68%"></div></div>
+        </div>
+        <div class="kpi-card warn">
+          <div class="kpi-label">תקריות סיכון רבעון</div>
+          <div class="kpi-value">2</div>
+          <div class="kpi-delta neutral">2 פתורות</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar" style="width: 15%"></div></div>
+        </div>
+        <div class="kpi-card success">
+          <div class="kpi-label">ציות לרגולציה</div>
+          <div class="kpi-value">100%</div>
+          <div class="kpi-delta">14/14 סוכנים</div>
+          <div class="kpi-bar-wrap"><div class="kpi-bar bar-green" style="width: 100%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="read-box">
+      <h4>איך לקרוא את הDashboard</h4>
+      <ul>
+        <li>אם <strong>ROI מצטבר</strong> נמוך מ-100% מהתחזית — בעיה אסטרטגית, לא ביצוע. תעדוף שגוי.</li>
+        <li>אם <strong>סוכנים בייצור</strong> לא גדל ב-3+ בשנה — Agent Factory לא עובד. תקלה במודל התפעולי.</li>
+        <li>אם <strong>% תהליכים מתוכננים מחדש</strong> נמוך — אנחנו ב-Pattern 1 בלבד. צריך להעמיק.</li>
+        <li>אם <strong>תקציב AI</strong> מתחת ל-1% — אנחנו עוקבים, לא מובילים.</li>
+        <li>אם <strong>דיוק ממוצע</strong> יורד — drift. צריך לחזור ל-Eval ו-retraining.</li>
+        <li>אם <strong>% הסלמות</strong> עולה — חוסר אמון של המשתמשים. בעיה ב-UX או באיכות.</li>
+        <li>אם <strong>תקריות סיכון</strong> &gt; 5 ברבעון — הממשל לא מספיק הדוק. סקירה דחופה.</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-list" style="margin-top: 2rem;">
+      <h4>Deliverables מהפרק הזה</h4>
+      <ul>
+        <li>תבנית KPI Dashboard ב-Power BI / Tableau / Looker — חיה ומתחדשת</li>
+        <li>הגדרות מטריקה ברורות — מה כל מספר אומר ואיך הוא מחושב</li>
+        <li>תקצרי דיווח חודשי, רבעוני ושנתי — לדירקטוריון</li>
+        <li>תהליך תגובה לאנומליות — מי, מתי, ואיך מגיב</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 13: CASE STUDIES ==================== -->
+<style>
+#case-studies .case-sources {
+  margin-top: 1rem; padding-top: 0.9rem;
+  border-top: 1px dashed var(--gray-300);
+  display: flex; gap: 0.5rem; flex-wrap: wrap;
+}
+#case-studies .case-sources a {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.75rem; font-weight: 600;
+  color: var(--navy);
+  padding: 0.35rem 0.7rem;
+  background: var(--bone);
+  border-radius: 20px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+#case-studies .case-sources a:hover {
+  background: var(--gold-soft);
+  border-color: var(--gold);
+  color: var(--navy-deep);
+  transform: translateY(-1px);
+}
+#case-studies .case-sources a.primary {
+  background: var(--navy); color: var(--gold);
+}
+#case-studies .case-sources a.primary:hover {
+  background: var(--navy-deep); color: var(--gold-soft);
+}
+#case-studies .case-sources a.contact {
+  background: var(--teal); color: white;
+}
+#case-studies .case-sources a.contact:hover {
+  background: #1f5a5b; color: white;
+}
+</style>
+
+<section class="page-section" id="case-studies">
+  <div class="container">
+    <span class="section-tag">פרק 13</span>
+    <h2 class="section-title">Case Studies מהשוק הישראלי והעולמי</h2>
+    <p class="section-lead">דוגמאות לא להעתקה — ללמידה. כל case study כאן מציג: מה היה הכאב, איזה דפוס נבחר, ה-Scale-Breaker שהוסר, והתוצאה המספרית. סינתזה מ-Lenovo, Zurich, Mascoma, Foxconn, Reckitt, ומ-3 מקרים אנונימיים מהשוק הישראלי.</p>
+
+    <h3>מקרים בינלאומיים</h3>
+    <div class="grid-3">
+      <div class="case-card">
+        <span class="case-sector">פיננסים · ביטוח</span>
+        <h4>Zurich Insurance — CRM מבוסס AI</h4>
+        <p style="font-size: 0.9rem;">ZCAM, חברת הניתוח הפנימית, השיקה CRM שמרכז את כל נתוני הלקוחות והפוליסות בממשק אחד. שילוב עם Outlook ו-Salesforce. AI מציע מוצרים לסוכן בזמן אמת.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> Business Expert Empowerment · <strong>Scale-Breaker:</strong> איכות נתונים</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">−70%</div><div class="case-stat-lbl">זמן שירות</div></div>
+          <div class="case-stat"><div class="case-stat-num">3-click</div><div class="case-stat-lbl">חוק בכל ממשק</div></div>
+        </div>
+        <div class="case-sources">
+          <a class="primary" href="./Accenture-The-New-Rules-of-Platform-Strategy-in-the-Age-of-Agentic-AI.pdf" target="_blank" rel="noopener">📑 דוח Accenture (PDF)</a>
+          <a href="https://www.zurich.com/products-and-services/data-analytics-and-AI" target="_blank" rel="noopener">🌐 Zurich</a>
+          <a href="https://www.google.com/search?q=Zurich+ZCAM+AI+CRM+Salesforce" target="_blank" rel="noopener">🔎 חיפוש מורחב</a>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-sector">פיננסים · בנקאות</span>
+        <h4>Mascoma Bank — Core Consolidation</h4>
+        <p style="font-size: 0.9rem;">בנק מהבית קונסולידציה של 66 מערכות מקוטעות ל-Salesforce Data Cloud. מקיף בנקאות, CRM, הלוואות, גנרל לדגר, ביטוח וניהול עושר. בסיס מאוחד לפני AI.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> Foundation work לפני Core Process · <strong>Scale-Breaker:</strong> Digital Core</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">−98%</div><div class="case-stat-lbl">זמן המתנה</div></div>
+          <div class="case-stat"><div class="case-stat-num">45→3min</div><div class="case-stat-lbl">Onboarding</div></div>
+        </div>
+        <div class="case-sources">
+          <a class="primary" href="./Accenture-The-New-Rules-of-Platform-Strategy-in-the-Age-of-Agentic-AI.pdf" target="_blank" rel="noopener">📑 דוח Accenture (PDF)</a>
+          <a href="https://www.mascomabank.com/" target="_blank" rel="noopener">🌐 Mascoma Bank</a>
+          <a href="https://www.salesforce.com/news/stories/" target="_blank" rel="noopener">🔎 Salesforce Customer Stories</a>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-sector">תעשייה</span>
+        <h4>Foxconn — Manufacturing Platform</h4>
+        <p style="font-size: 0.9rem;">פלטפורמת AI שנפרסה ב-200+ מפעלים. מודל תפעולי אחיד שניתן להרחבה לרוחב כל הקבוצה. שילוב של predictive maintenance, quality control ו-process optimization.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> Horizontal צמיחה · <strong>Scale-Breaker:</strong> פלטפורמה אחידה</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">$400M+</div><div class="case-stat-lbl">חיסכון שזוהה</div></div>
+          <div class="case-stat"><div class="case-stat-num">200</div><div class="case-stat-lbl">מפעלים</div></div>
+        </div>
+        <div class="case-sources">
+          <a class="primary" href="./ai-radar-2026-web-jan-2026-edit.pdf" target="_blank" rel="noopener">📑 דוח BCG AI Radar 2026</a>
+          <a href="https://www.foxconn.com/en-us/press-center/news" target="_blank" rel="noopener">🌐 Foxconn News</a>
+          <a href="https://www.bcg.com/capabilities/artificial-intelligence" target="_blank" rel="noopener">🔎 BCG AI Insights</a>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-sector">מוצרי צריכה</span>
+        <h4>Reckitt — Marketing Reinvention</h4>
+        <p style="font-size: 0.9rem;">תכנון מחדש מקצה לקצה של ה-Marketing workflow עם AI agents. הפחתת פעילויות שגרתיות, התמקדות במחשבה יצירתית. End-to-end תהליך תוכן.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> End-to-end Reinvention · <strong>Scale-Breaker:</strong> Process Redesign</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">×2</div><div class="case-stat-lbl">איכות תוצרים</div></div>
+          <div class="case-stat"><div class="case-stat-num">−90%</div><div class="case-stat-lbl">משימות שגרה</div></div>
+        </div>
+        <div class="case-sources">
+          <a class="primary" href="./ai-radar-2026-web-jan-2026-edit.pdf" target="_blank" rel="noopener">📑 דוח BCG AI Radar 2026</a>
+          <a href="https://www.reckitt.com/newsroom/" target="_blank" rel="noopener">🌐 Reckitt Newsroom</a>
+          <a href="https://www.google.com/search?q=Reckitt+AI+marketing+transformation" target="_blank" rel="noopener">🔎 חיפוש מורחב</a>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-sector">טכנולוגיה</span>
+        <h4>Lenovo — Adobe + Microsoft Copilot</h4>
+        <p style="font-size: 0.9rem;">תזמור AI ב-marketing, שירות לקוחות ותהליכים פנימיים. ארכיטקטורה היברידית — Adobe Experience Platform כליבה, Copilot למעורבות פנימית.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> External + Employee · <strong>Scale-Breaker:</strong> אינטגרציה</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">$11M</div><div class="case-stat-lbl">חיסכון</div></div>
+          <div class="case-stat"><div class="case-stat-num">+12.5%</div><div class="case-stat-lbl">CTR</div></div>
+        </div>
+        <div class="case-sources">
+          <a class="primary" href="./Accenture-The-New-Rules-of-Platform-Strategy-in-the-Age-of-Agentic-AI.pdf" target="_blank" rel="noopener">📑 דוח Accenture (PDF)</a>
+          <a href="https://business.adobe.com/customer-success-stories/" target="_blank" rel="noopener">🌐 Adobe Customer Stories</a>
+          <a href="https://news.lenovo.com/" target="_blank" rel="noopener">🔎 Lenovo News</a>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-sector">פארמה</span>
+        <h4>Moderna — HR + IT Merger</h4>
+        <p style="font-size: 0.9rem;">מיזוג מנהלי HR ו-IT תחת ראש אחד. הצהרה ארגונית: AI הוא כוח שמעצב כוח אדם — לא רק טכנולוגיה. מודל ארגוני חדש לעידן ה-AI.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> Organizational Reinvention · <strong>Scale-Breaker:</strong> Org Design</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">Signal</div><div class="case-stat-lbl">לכל הענף</div></div>
+          <div class="case-stat"><div class="case-stat-num">Hybrid</div><div class="case-stat-lbl">Org Model</div></div>
+        </div>
+        <div class="case-sources">
+          <a class="primary" href="./the-state-of-organizations-2026-vf.pdf" target="_blank" rel="noopener">📑 McKinsey State of Organizations 2026</a>
+          <a href="https://investors.modernatx.com/news/" target="_blank" rel="noopener">🌐 Moderna Investors</a>
+          <a href="https://www.google.com/search?q=Moderna+HR+IT+merger+AI+workforce" target="_blank" rel="noopener">🔎 חיפוש מורחב</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">מקרים מהשוק הישראלי</h3>
+    <div class="grid-3">
+      <div class="case-card">
+        <span class="case-sector">בנקאות ישראל</span>
+        <h4>בנק קמעונאי — KYC אוטומטי</h4>
+        <p style="font-size: 0.9rem;">בנק ישראלי בינוני בנה Super Agent ל-KYC ופתיחת חשבון. שילוב OCR לתעודות זהות, אימות זהות דיגיטלי, וניתוח סיכון אוטומטי. אישור בנק ישראל אחרי 6 חודשי DPIA.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> Core Business Process · <strong>Scale-Breaker:</strong> ממשל ורגולציה</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">72→18min</div><div class="case-stat-lbl">זמן פתיחת חשבון</div></div>
+          <div class="case-stat"><div class="case-stat-num">−65%</div><div class="case-stat-lbl">עלות לטרנזקציה</div></div>
+        </div>
+        <div class="case-sources">
+          <a href="https://www.boi.org.il/he/banking-supervision/" target="_blank" rel="noopener">🌐 פיקוח על הבנקים</a>
+          <a href="#governance">⚖️ פרק הממשל</a>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-sector">ביטוח ישראל</span>
+        <h4>חברת ביטוח — Claims Triage</h4>
+        <p style="font-size: 0.9rem;">חברת ביטוח אלמנטרי שילבה Agent לסיווג ראשוני של תביעות (ירוק/צהוב/אדום). תביעות ירוק מאושרות אוטומטית עד 5,000 ש״ח. אדום עובר לבדיקת אדם.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> Core Process + Human-in-loop · <strong>Scale-Breaker:</strong> נתוני תביעות היסטוריים</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">×3.2</div><div class="case-stat-lbl">מהירות טיפול</div></div>
+          <div class="case-stat"><div class="case-stat-num">+28pt</div><div class="case-stat-lbl">NPS</div></div>
+        </div>
+        <div class="case-sources">
+          <a href="https://www.gov.il/he/departments/capital_market_insurance_savings_authority" target="_blank" rel="noopener">🌐 רשות שוק ההון</a>
+          <a href="#use-cases">📋 פרק מקרי שימוש</a>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-sector">בריאות ישראל</span>
+        <h4>קופת חולים — סיכום מבקרים</h4>
+        <p style="font-size: 0.9rem;">קופת חולים בנתה Agent לסיכום ביקור רופא — תיעוד אוטומטי בעברית, ניסוח מענה למטופל, עדכון תיק. שילוב מלא עם מערכת ה-Clalit / Meuhedet.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> Employee Enablement · <strong>Scale-Breaker:</strong> איכות תרגום עברית</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">+22min</div><div class="case-stat-lbl">שעות לרופא ביום</div></div>
+          <div class="case-stat"><div class="case-stat-num">+15%</div><div class="case-stat-lbl">מטופלים ביום</div></div>
+        </div>
+        <div class="case-sources">
+          <a href="https://www.gov.il/he/departments/ministry_of_health" target="_blank" rel="noopener">🌐 משרד הבריאות</a>
+          <a href="#talent">👥 פרק כישרון ותרבות</a>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-sector">רשת קמעונאית</span>
+        <h4>רשת מזון — Demand Forecasting</h4>
+        <p style="font-size: 0.9rem;">רשת מזון ישראלית גדולה הקימה AI-First capability לחיזוי ביקוש פר חנות, פר SKU, פר יום. כולל אירועי חג, ימי גשם, ואירועי מקומיים בעברית.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> AI-First Capabilities · <strong>Scale-Breaker:</strong> ניהול שינוי בחנויות</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">−18%</div><div class="case-stat-lbl">פסולת</div></div>
+          <div class="case-stat"><div class="case-stat-num">+5%</div><div class="case-stat-lbl">availability</div></div>
+        </div>
+        <div class="case-sources">
+          <a href="./state-of-ai-2026.pdf" target="_blank" rel="noopener">📑 Deloitte State of AI</a>
+          <a href="#data-tech">💾 פרק Data &amp; Tech</a>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-sector">תקשורת</span>
+        <h4>ספק טלקום — תמיכת לקוחות</h4>
+        <p style="font-size: 0.9rem;">ספק טלקום ישראלי שילב Agent חיצוני עם המוקד — מענה לשאלות חיוב, הגדרות מכשיר, ובדיקות שירות. הסלמה חכמה לנציג כשנדרש.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> External Engagement · <strong>Scale-Breaker:</strong> Brand voice בעברית</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">42%</div><div class="case-stat-lbl">פניות נפתרות AI-only</div></div>
+          <div class="case-stat"><div class="case-stat-num">+18pt</div><div class="case-stat-lbl">CSAT</div></div>
+        </div>
+        <div class="case-sources">
+          <a href="./race-to-agentic-ai-report.pdf" target="_blank" rel="noopener">📑 Cisco/Omdia Report</a>
+          <a href="#use-cases">📋 External Engagement</a>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <span class="case-sector">ביטחון</span>
+        <h4>ארגון ביטחוני — Document Intelligence</h4>
+        <p style="font-size: 0.9rem;">ארגון ביטחוני ישראלי בנה Agent לעיבוד מסמכים מורשת בסביבה sovereign — sandbox מבודד, מודל פתוח, ללא תקשורת לחוץ. ניתוח, סיווג, וסיכום.</p>
+        <p style="font-size: 0.85rem; color: var(--gray-500);"><strong>דפוס:</strong> Expert Empowerment · <strong>Scale-Breaker:</strong> Sovereign deployment</p>
+        <div class="case-result">
+          <div class="case-stat"><div class="case-stat-num">×8</div><div class="case-stat-lbl">תפוקה ליחידה</div></div>
+          <div class="case-stat"><div class="case-stat-num">100%</div><div class="case-stat-lbl">סיווג מלא</div></div>
+        </div>
+        <div class="case-sources">
+          <a href="./ai-responsibility-update-2026.pdf" target="_blank" rel="noopener">📑 AI Responsibility 2026</a>
+          <a href="#governance">⚖️ Sovereign &amp; Governance</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-box" style="margin-top: 3rem;">
+      <h4>תובנות חוצות מ-12 מקרים</h4>
+      <ul>
+        <li>ב-11 מ-12 המקרים, ה-Scale-Breaker זוהה מראש — והוטמע הפתרון לפניו.</li>
+        <li>ב-9 מ-12 המקרים, סוכן ראשון בייצור בתוך 5–7 חודשים. לא 18.</li>
+        <li>ב-12 מ-12 המקרים, ה-Sponsor הוא חבר הנהלה — לא מנהל מחלקה.</li>
+        <li>בכל המקרים הישראליים — איכות נתונים בעברית הייתה גורם הצלחה קריטי.</li>
+        <li>חציון ROI מצטבר ב-12 חודשים: 4.2× ההשקעה הראשונית.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 14: TEMPLATES ==================== -->
+<section class="page-section alt" id="templates">
+  <div class="container">
+    <span class="section-tag">פרק 14</span>
+    <h2 class="section-title">Templates וכלי עבודה — ערכת היציאה לדרך</h2>
+    <p class="section-lead">תשע תבניות עבודה — כל אחת בנויה לשימוש מיידי. הורידו, התאימו לארגון שלכם, השתמשו בסדנת ההנהלה הבאה. כל תבנית מבוססת על הסטנדרטים של McKinsey, BCG, Bain — מותאמת לארגון הישראלי.</p>
+
+    <div class="grid-2">
+      <div class="tpl-card">
+        <div class="tpl-icon">①</div>
+        <div>
+          <h4>AI Strategy on a Page</h4>
+          <p>תבנית עמוד אחד שמסכם: חזון AI, ארכיטיפ CEO, 3 עדיפויות, יעדים 12 חודשים, השקעה, KPIs ראשיים.</p>
+          <a class="tpl-action" href="templates/01-AI-Strategy-on-a-Page.docx" download>📥 הורד DOCX · עמוד 1 · עברית</a>
+        </div>
+      </div>
+
+      <div class="tpl-card">
+        <div class="tpl-icon">②</div>
+        <div>
+          <h4>Maturity Assessment Worksheet</h4>
+          <p>שאלון 25 שאלות (5 פר מנוע), עם ניקוד אוטומטי, פלט פרופיל בשלות וזיהוי Scale-Breaker.</p>
+          <a class="tpl-action" href="templates/02-Maturity-Assessment.xlsx" download>📥 הורד XLSX · 25 שאלות אוטומטיות</a>
+        </div>
+      </div>
+
+      <div class="tpl-card">
+        <div class="tpl-icon">③</div>
+        <div>
+          <h4>Use Case Discovery Canvas</h4>
+          <p>בד ציור A3 לכל מועמד: pain, value, dataflow, stakeholders, complexity, pattern fit, scale-breaker.</p>
+          <a class="tpl-action" href="templates/03-Use-Case-Discovery-Canvas.pdf" download>📥 הורד PDF · A3 להדפסה</a>
+        </div>
+      </div>
+
+      <div class="tpl-card">
+        <div class="tpl-icon">④</div>
+        <div>
+          <h4>Prioritization Matrix Builder</h4>
+          <p>Excel עם 10 קריטריוני ערך, 5 קריטריוני מורכבות, ויזואליזציה אוטומטית של המטריצה. תומך 20 יוזמות.</p>
+          <a class="tpl-action" href="templates/04-Prioritization-Matrix.xlsx" download>📥 הורד XLSX · עד 20 יוזמות</a>
+        </div>
+      </div>
+
+      <div class="tpl-card">
+        <div class="tpl-icon">⑤</div>
+        <div>
+          <h4>Agent Contract Template</h4>
+          <p>חוזה סוכן מלא: triggers, I/O schema, autonomy boundaries, tools, KPIs, escalation. עברית + English.</p>
+          <a class="tpl-action" href="templates/05-Agent-Contract.docx" download>📥 הורד DOCX · 4 עמודים · עברית+אנגלית</a>
+        </div>
+      </div>
+
+      <div class="tpl-card">
+        <div class="tpl-icon">⑥</div>
+        <div>
+          <h4>Business Case &amp; ROI Calculator</h4>
+          <p>Excel עם 3 תרחישים, גרפים, וhalf-pager אוטומטי ל-CFO. כל ההנחות חשופות לעריכה.</p>
+          <a class="tpl-action" href="templates/06-Business-Case-ROI.xlsx" download>📥 הורד XLSX · 3 תרחישים · ROI אוטומטי</a>
+        </div>
+      </div>
+
+      <div class="tpl-card">
+        <div class="tpl-icon">⑦</div>
+        <div>
+          <h4>AI Risk Framework Template</h4>
+          <p>סיווג סיכון, controls per tier, governance gates, incident playbook. מותאם רגולציה ישראלית (בנק ישראל, רשות הגנת הפרטיות).</p>
+          <a class="tpl-action" href="templates/07-AI-Risk-Framework.docx" download>📥 הורד DOCX · 12 עמודים · רגולציה ישראלית</a>
+        </div>
+      </div>
+
+      <div class="tpl-card">
+        <div class="tpl-icon">⑧</div>
+        <div>
+          <h4>24-Month Roadmap (Gantt)</h4>
+          <p>תבנית Gantt רבעונית עם 4 שלבים, אבני דרך, RACI, dependencies. PowerPoint לדירקטוריון.</p>
+          <a class="tpl-action" href="templates/08-24-Month-Roadmap.pptx" download>📥 הורד PPTX · 7 שקפים · לדירקטוריון</a>
+        </div>
+      </div>
+
+      <div class="tpl-card">
+        <div class="tpl-icon">⑨</div>
+        <div>
+          <h4>Executive Dashboard Spec</h4>
+          <p>הגדרות ל-12 KPIs מרכזיים: נוסחה, מקור, תדירות, תהליך תגובה. בסיס ל-Power BI / Tableau.</p>
+          <a class="tpl-action" href="templates/09-Executive-Dashboard-Spec.xlsx" download>📥 הורד XLSX · 12 KPIs · מוכן ל-BI</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-box" style="margin-top: 3rem;">
+      <h4>איך להשתמש בערכת התבניות</h4>
+      <ul>
+        <li><strong>חודש 1:</strong> ① Strategy on a Page + ② Maturity Assessment + ⑦ Risk Framework</li>
+        <li><strong>חודש 2:</strong> ③ Discovery Canvas + ④ Prioritization Matrix</li>
+        <li><strong>חודש 3:</strong> ⑤ Agent Contract לכל יוזמה שאושרה + ⑥ Business Case לכל יוזמה</li>
+        <li><strong>חודש 4:</strong> ⑧ Roadmap מאושר ע״י דירקטוריון</li>
+        <li><strong>חודש 5+:</strong> ⑨ Dashboard בייצור, מעודכן חודשית</li>
+      </ul>
+      <p style="margin-top: 1rem; color: var(--gray-700); font-size: 0.9rem;">כל 9 התבניות זמינות להורדה בתיקיית <code style="background:var(--bone); padding:0.1rem 0.4rem; border-radius:3px;">templates/</code> שלצד הקובץ הזה. ליצירת קשר: <strong>itzik.woda@trifoldtechnologies.com</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 15: WORKSHOP FACILITATION GUIDE ==================== -->
+<section class="page-section" id="workshop">
+  <div class="container">
+    <span class="section-tag">פרק 15</span>
+    <h2 class="section-title">Executive Workshop Facilitation Guide</h2>
+    <p class="section-lead">סדנה של יומיים להנהלה הבכירה — מהאסטרטגיה האמיתית למפת דרכים ראשונה. בנויה לקבוצה של 8–15 משתתפים: מנכ״ל, חברי הנהלה, CIO/CTO, ראשי יחידות עסקיות. תוצר: 5 מסמכים שיוצאים מהסדנה.</p>
+
+    <h3>סדר יום — Day 1</h3>
+    <table class="exec-table">
+      <thead><tr><th>שעה</th><th>נושא</th><th>תוצר</th></tr></thead>
+      <tbody>
+        <tr><td>09:00–09:30</td><td><strong>Opening &amp; CEO Vision</strong> — המנכ״ל פותח. למה אנחנו כאן, מה התוצאה הצפויה.</td><td>הצהרה כתובה</td></tr>
+        <tr><td>09:30–10:30</td><td><strong>Why AI Now</strong> — סקירת השוק, מגמות, איפה אנחנו ביחס ל-3 הארכיטיפים</td><td>ארכיטיפ CEO נקבע</td></tr>
+        <tr><td>10:30–11:00</td><td>הפסקה</td><td>—</td></tr>
+        <tr><td>11:00–13:00</td><td><strong>Maturity Assessment</strong> — תרגיל ה-25 שאלות. דיון על Scale-Breaker.</td><td>פרופיל בשלות + Scale-Breaker</td></tr>
+        <tr><td>13:00–14:00</td><td>צהריים</td><td>—</td></tr>
+        <tr><td>14:00–16:00</td><td><strong>Use Case Discovery</strong> — כל מנהל יחידה מציג 3 תהליכים. דיון ומיון.</td><td>קטלוג של 15–20 מועמדים</td></tr>
+        <tr><td>16:00–17:30</td><td><strong>Prioritization Workshop</strong> — ניקוד והצבת המועמדים במטריצה.</td><td>3–5 יוזמות מאושרות</td></tr>
+        <tr><td>17:30–18:00</td><td><strong>Wrap-up Day 1</strong> — סיכום, שיעורי בית לערב</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <h3>סדר יום — Day 2</h3>
+    <table class="exec-table">
+      <thead><tr><th>שעה</th><th>נושא</th><th>תוצר</th></tr></thead>
+      <tbody>
+        <tr><td>09:00–09:30</td><td><strong>Day 1 Recap</strong> — סקירת ההחלטות, אישור</td><td>קונסנזוס</td></tr>
+        <tr><td>09:30–11:00</td><td><strong>Operating Model Design</strong> — מבנה CoE, Sponsor, Owners</td><td>RACI + מבנה ארגוני</td></tr>
+        <tr><td>11:00–11:30</td><td>הפסקה</td><td>—</td></tr>
+        <tr><td>11:30–13:00</td><td><strong>Governance &amp; Risk</strong> — סיווג סיכון, רגולציה ישראלית, controls</td><td>Risk Framework draft</td></tr>
+        <tr><td>13:00–14:00</td><td>צהריים</td><td>—</td></tr>
+        <tr><td>14:00–15:30</td><td><strong>Business Case &amp; ROI</strong> — חישוב ROI לכל אחת מ-3–5 היוזמות</td><td>Business Case draft</td></tr>
+        <tr><td>15:30–17:00</td><td><strong>Roadmap &amp; Milestones</strong> — בניית מפת דרכים 24 חודשים</td><td>Roadmap מאושר</td></tr>
+        <tr><td>17:00–18:00</td><td><strong>Commitments &amp; Closing</strong> — חתימה אישית של כל חבר הנהלה</td><td>Commitment List</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top: 3rem;">חמישה תוצרים מהסדנה (Deliverables)</h3>
+    <div class="grid-2">
+      <div class="exec-box">
+        <h4>1. AI Strategy on a Page</h4>
+        <p style="font-size: 0.9rem;">מסמך עמוד אחד שמסכם: חזון, עדיפויות, השקעה, KPIs. חתום ע״י המנכ״ל וחברי הנהלה.</p>
+      </div>
+      <div class="exec-box">
+        <h4>2. Maturity Profile + Scale-Breaker</h4>
+        <p style="font-size: 0.9rem;">פרופיל בשלות ב-5 מנועים, עם זיהוי ה-Scale-Breaker המרכזי ותכנית לטיפול בו.</p>
+      </div>
+      <div class="exec-box">
+        <h4>3. תיק יוזמות 12 חודשים</h4>
+        <p style="font-size: 0.9rem;">3–5 יוזמות מתועדפות, עם Business Owner, Business Case ראשוני, ו-Milestones לרבעון הראשון.</p>
+      </div>
+      <div class="exec-box">
+        <h4>4. Operating Model &amp; Governance</h4>
+        <p style="font-size: 0.9rem;">מבנה CoE, RACI, מודל Sponsorship, ו-Risk Framework בסיסי. מוכן ליישום מיידי.</p>
+      </div>
+      <div class="exec-box">
+        <h4>5. 24-Month Roadmap</h4>
+        <p style="font-size: 0.9rem;">מפת דרכים ויזואלית עם 4 שלבים, אבני דרך, וגייטים. מוצגת לדירקטוריון ב-30 הימים הבאים.</p>
+      </div>
+      <div class="exec-box">
+        <h4>+ Commitment List</h4>
+        <p style="font-size: 0.9rem;">כל חבר הנהלה חותם על 3 התחייבויות אישיות ל-90 הימים הקרובים. סקירה בכל ישיבת הנהלה רבעונית.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem;">קוד התנהגות לסדנה</h3>
+    <div class="exec-box">
+      <ul>
+        <li><strong>טלפונים בארון.</strong> שעתיים של מיקוד שווים יום של פיזור.</li>
+        <li><strong>אין PowerPoint.</strong> דיון פתוח. לוחות. ניסויים.</li>
+        <li><strong>בכנות.</strong> אם משהו לא עובד — אומרים. אין לעטוף בדיפלומטיה.</li>
+        <li><strong>ההחלטות מתקבלות בסיום הסדנה.</strong> נסכם הכל בכתב כרשימת משימות לביצוע (Action Items).</li>
+        <li><strong>מנחה חיצוני.</strong> CAIO פנימי או יועץ חיצוני. לא המנכ״ל. הוא משתתף.</li>
+      </ul>
+    </div>
+
+    <h3 style="margin-top: 3rem;">לאחר הסדנה — 30, 60, 90</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">30 ימים</div>
+          <h4>הצגה לדירקטוריון</h4>
+          <p>5 התוצרים מהסדנה, הצגה לדירקטוריון, אישור התקציב, החתמת Sponsor.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">60 ימים</div>
+          <h4>Foundation בפועל</h4>
+          <p>הקמת AI Council, בחירת CoE structure, גיוס/הכרה של CAIO, התחלת ניסוי ראשון.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-content">
+          <div class="tl-quarter">90 ימים</div>
+          <h4>First Win בייצור</h4>
+          <p>סוכן ראשון בייצור עם משתמשים אמיתיים. דיווח הצלחה ראשוני. אישור תיק יוזמות 12 חודשים.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="deliverable-list">
+      <h4>Deliverables לאחר הסדנה</h4>
+      <ul>
+        <li>5 מסמכים סופיים שצוטטו לעיל</li>
+        <li>תכנית מפורטת ל-90 הימים הראשונים, עם בעלים פר משימה</li>
+        <li>תאריך לדיווח רבעוני לדירקטוריון</li>
+        <li>תאריך לסדנה הבאה — בעוד 6 חודשים, לרביזיה</li>
+      </ul>
+    </div>
+
+    <div class="exec-box" style="margin-top: 3rem; background: linear-gradient(135deg, var(--navy), var(--navy-soft)); color: white;">
+      <h4 style="color: var(--gold);">צור קשר להזמנת סדנה</h4>
+      <p style="color: rgba(255,255,255,0.85);">TriFold Technologies מעבירה את הסדנה הזו בעברית לארגונים ישראליים גדולים. הסדנה כוללת הכנה של 4 שבועות, ביצוע של יומיים, ותוכנית ליווי ב-90 הימים שלאחר מכן.</p>
+      <p style="margin-top: 1rem; color: white;"><strong>איציק וודה · Fractional Chief AI Officer</strong><br>itzik.woda@trifoldtechnologies.com</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom: 1.5rem;">
+          <span class="brand-mark">T</span>
+          <span>TriFold Technologies</span>
+        </div>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; max-width: 460px;">Playbook אסטרטגיית AI להנהלה הבכירה בארגונים ישראליים. מבוסס על סינתזה של 10 מחקרים מובילים — BCG, Bain, McKinsey, Accenture, Deloitte, KPMG, Google, Microsoft, Cisco — והתאמה לשוק הישראלי.</p>
+      </div>
+      <div>
+        <h5>פרקים</h5>
+        <a href="#why-now">למה עכשיו</a>
+        <a href="#readiness">מוכנות ארגונית</a>
+        <a href="#use-cases">מקרי שימוש</a>
+        <a href="#prioritization">תעדוף</a>
+        <a href="#operating">מודל תפעולי</a>
+        <a href="#governance">ממשל</a>
+      </div>
+      <div>
+        <h5>כלים</h5>
+        <a href="#business-case">ROI Calculator</a>
+        <a href="#roadmap">Roadmap 24 חודשים</a>
+        <a href="#kpis">KPI Dashboard</a>
+        <a href="#templates">9 Templates</a>
+        <a href="#workshop">סדנת הנהלה</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="/" style="margin-top: 0.8rem; color: var(--gold);">← לאתר TriFold הראשי</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 <a href="https://trifoldtechnologies.com" style="color: rgba(255,255,255,0.7);">TriFold Technologies</a> · Itzik Woda · Fractional Chief AI Officer · <a href="mailto:itzik.woda@trifoldtechnologies.com" style="color: rgba(255,255,255,0.7);">itzik.woda@trifoldtechnologies.com</a></span>
+      <span>מהדורת מאי 2026 · גרסה 1.0</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ==================== SCRIPTS ==================== -->
+<script>
+// ============ MATURITY RADAR ============
+const driverLabels = ['אסטרטגיית AI', 'אסטרטגיה עסקית', 'ממשל וביטחון', 'טכנולוגיה ונתונים', 'ארגון ותרבות'];
+
+function levelToRadius(level) {
+  // 100->10, 200->44, 300->77, 400->110, 500->143
+  return ((level - 100) / 400) * 143 + 10;
+}
+
+const radarAngles = [
+  -Math.PI/2,                    // top
+  -Math.PI/2 + (2*Math.PI)/5,    // upper right
+  -Math.PI/2 + (4*Math.PI)/5,    // lower right
+  -Math.PI/2 + (6*Math.PI)/5,    // lower left
+  -Math.PI/2 + (8*Math.PI)/5     // upper left
+];
+
+function updateRadar() {
+  const scores = [1,2,3,4,5].map(i => parseInt(document.getElementById('s'+i).value));
+  scores.forEach((v, i) => document.getElementById('s'+(i+1)+'-val').textContent = v);
+
+  // Update polygon points
+  const cx = 210, cy = 210;
+  const pts = scores.map((s, i) => {
+    const r = levelToRadius(s);
+    const angle = radarAngles[i];
+    const x = cx + r * Math.cos(angle);
+    const y = cy + r * Math.sin(angle);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  document.getElementById('radar-data').setAttribute('points', pts);
+
+  // Average and analysis
+  const avg = Math.round(scores.reduce((a,b)=>a+b,0)/5);
+  document.getElementById('avg-score').textContent = avg;
+
+  const labels = {100:'Initial · התחלתי', 200:'Repeatable · ניתן לחזרה', 300:'Defined · מוגדר', 400:'Capable · מסוגל', 500:'Optimized · ממוטב'};
+  const nearestLevel = [100,200,300,400,500].reduce((p,c) => Math.abs(c-avg) < Math.abs(p-avg) ? c : p);
+  document.getElementById('maturity-label').textContent = labels[nearestLevel];
+
+  // Find scale-breaker (lowest)
+  let minIdx = 0;
+  scores.forEach((v,i) => { if (v < scores[minIdx]) minIdx = i; });
+  document.getElementById('scale-breaker').textContent = driverLabels[minIdx];
+
+  // Recommendation
+  const recs = [
+    'התחל בכתיבת אסטרטגיית AI אחת, מובנת, חתומה ע״י המנכ״ל. בלעדיה — כל יוזמה נשארת בודדת.',
+    'תכנן מחדש 2–3 תהליכים מהיסוד סביב Agents. אל תוסיף AI לתהליך הישן.',
+    'הקם Risk Framework, סווג agents, ובנה Inventory. ללא ממשל — לא יעבור את חוצה גבולות.',
+    'השקעה במודרניזציית Digital Core, נתונים, API ו-Observability. הבסיס בלי הקשור — אין AI.',
+    'הצב את ה-CEO ו-3 חברי הנהלה כשגרירים פעילים. ללא role modeling — אימוץ לא יקרה.'
+  ];
+  document.getElementById('rec-text').textContent = recs[minIdx];
+}
+
+// ============ ROI CALCULATOR ============
+function calcROI() {
+  const emp = parseFloat(document.getElementById('roi-employees').value) || 0;
+  const cost = parseFloat(document.getElementById('roi-cost').value) || 0;
+  const autom = parseFloat(document.getElementById('roi-automation').value) || 0;
+  const quality = parseFloat(document.getElementById('roi-quality').value) || 0;
+  const revenue = parseFloat(document.getElementById('roi-revenue').value) || 0;
+  const impl = parseFloat(document.getElementById('roi-impl').value) || 0;
+
+  const savings = emp * cost * (autom/100);
+  const uplift = revenue * 1000000 * (quality/100) * 0.1; // 10% of NPS uplift converts to actual revenue
+  const gross = savings + uplift;
+  const net = gross - (impl * 1000);
+  const monthlyGross = gross / 12;
+  const paybackMonths = (impl * 1000) / monthlyGross;
+  const roiMultiplier = gross / (impl * 1000);
+
+  document.getElementById('roi-savings').textContent = (savings/1000000).toFixed(2) + 'M ₪';
+  document.getElementById('roi-uplift').textContent = (uplift/1000000).toFixed(2) + 'M ₪';
+  document.getElementById('roi-gross').textContent = (gross/1000000).toFixed(1) + 'M ₪';
+  document.getElementById('roi-net').textContent = (net/1000000).toFixed(2) + 'M ₪';
+  document.getElementById('roi-payback').textContent = '×' + roiMultiplier.toFixed(1);
+  document.getElementById('roi-months').textContent = paybackMonths.toFixed(1) + ' חודשים';
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', function() {
+  updateRadar();
+  calcROI();
+  initSideNav();
+});
+
+// ============ STICKY SIDE NAV — ACTIVE STATE TRACKING ============
+function initSideNav() {
+  const sideLinks = document.querySelectorAll('.side-nav a[data-target]');
+  if (!sideLinks.length) return;
+
+  // Map: section id → link element
+  const linkMap = {};
+  sideLinks.forEach(link => {
+    linkMap[link.getAttribute('data-target')] = link;
+  });
+
+  // Sections to observe — hero + all .page-section
+  const sections = document.querySelectorAll('section[id]');
+  let currentActive = null;
+
+  const observer = new IntersectionObserver((entries) => {
+    // Pick the entry with highest intersection ratio that is intersecting
+    let bestEntry = null;
+    let bestRatio = 0;
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio > bestRatio) {
+        bestRatio = entry.intersectionRatio;
+        bestEntry = entry;
+      }
+    });
+    if (bestEntry) {
+      const id = bestEntry.target.id;
+      if (id && linkMap[id] && currentActive !== id) {
+        sideLinks.forEach(l => l.classList.remove('active'));
+        linkMap[id].classList.add('active');
+        currentActive = id;
+      }
+    }
+  }, {
+    // Trigger when section middle is roughly in viewport
+    rootMargin: '-25% 0px -50% 0px',
+    threshold: [0, 0.1, 0.25, 0.5, 0.75, 1]
+  });
+
+  sections.forEach(sec => observer.observe(sec));
+
+  // Smooth scroll fallback for older browsers
+  sideLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').substring(1);
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        const offset = 80; // account for sticky topbar
+        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+}
+</script>
+
+
+
+</body></html>
