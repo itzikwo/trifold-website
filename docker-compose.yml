@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: trifold-website
+    restart: unless-stopped
+    ports:
+      # External (host bridge 172.17.0.1) : Internal (container nginx port 80)
+      # The reverse proxy in elest.io targets 172.17.0.1:3000
+      - "3000:80"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:80/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
