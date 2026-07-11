@@ -1,2047 +1,1009 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">TriFold Technologies | השותף האסטרטגי שלכם ל-AI</title>
-    <meta name="description" id="page-description" content="איציק וודה | TriFold Technologies - לא עוד יועץ AI. אחריות מלאה מקצה לקצה על יישום AI בארגון שלכם. מאסטרטגיה עד production עם ROI מדיד. ללא vendor lock-in.">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-    <!-- Open Graph / Social -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://trifoldtechnologies.com/">
-    <meta property="og:title" content="TriFold Technologies | השותף האסטרטגי שלכם ל-AI">
-    <meta property="og:description" content="איציק וודה | TriFold Technologies - לא עוד יועץ AI. אחריות מלאה מקצה לקצה על יישום AI בארגון שלכם. מאסטרטגיה עד production עם ROI מדיד. ללא vendor lock-in.">
-    <meta property="og:image" content="https://trifoldtechnologies.com/og-image.png">
-    <meta property="og:locale" content="he_IL">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="TriFold Technologies | השותף האסטרטגי שלכם ל-AI">
-    <meta name="twitter:description" content="איציק וודה | TriFold Technologies - לא עוד יועץ AI. אחריות מלאה מקצה לקצה על יישום AI בארגון שלכם. מאסטרטגיה עד production עם ROI מדיד. ללא vendor lock-in.">
-    <meta name="twitter:image" content="https://trifoldtechnologies.com/og-image.png">
-
-    <!-- Additional SEO -->
-    <meta name="author" content="Itzik Woda">
-    <meta name="keywords" content="AI consulting, AI implementation, CAIO, AI strategy, Israel, יועץ AI, יישום AI, אסטרטגיית AI">
-    <link rel="canonical" href="https://trifoldtechnologies.com/">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a365d;
-            --primary-light: #2c5282;
-            --accent: #3182ce;
-            --accent-light: #4299e1;
-            --success: #38a169;
-            --danger: #e53e3e;
-            --text: #1a202c;
-            --text-light: #4a5568;
-            --text-lighter: #595f6d;
-            --bg: #ffffff;
-            --bg-alt: #f7fafc;
-            --bg-dark: #edf2f7;
-            --border: #e2e8f0;
-        }
-
-        /* Skip to content link */
-        .skip-link {
-            position: absolute;
-            top: -100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 0 0 8px 8px;
-            z-index: 10000;
-            font-weight: 600;
-            text-decoration: none;
-            transition: top 0.2s;
-        }
-        .skip-link:focus {
-            top: 0;
-        }
-
-        /* Screen reader only text */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0,0,0,0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Heebo', sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: var(--bg);
-        }
-
-        /* Loading state */
-        body.loading .dynamic-content {
-            opacity: 0;
-        }
-
-        body:not(.loading) .dynamic-content {
-            opacity: 1;
-            transition: opacity 0.3s ease;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            text-decoration: none;
-        }
-
-        .logo img {
-            height: 200px;
-            width: auto;
-        }
-
-        nav {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        /* Global focus-visible styles (WCAG 2.4.7) */
-        a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
-            outline: 3px solid var(--accent);
-            outline-offset: 2px;
-        }
-        a:focus:not(:focus-visible), button:focus:not(:focus-visible) {
-            outline: none;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-large {
-            padding: 16px 32px;
-            font-size: 1.1rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 240px 0 100px;
-            background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%);
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 2.75rem;
-            font-weight: 800;
-            line-height: 1.2;
-            color: var(--primary);
-            margin-bottom: 24px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        /* Problem Section */
-        .problem {
-            padding: 100px 0;
-            background: var(--bg);
-        }
-
-        .problem-story {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .problem-story p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 24px;
-        }
-
-        .problem-story .highlight {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            padding: 24px;
-            background: var(--bg-alt);
-            border-radius: 12px;
-            border-right: 4px solid var(--accent);
-        }
-
-        /* Solution Section */
-        .solution {
-            padding: 100px 0;
-            background: var(--bg-alt);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 64px;
-        }
-
-        .section-header h2 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 16px;
-        }
-
-        .section-header p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .intro-box {
-            max-width: 800px;
-            margin: 0 auto 64px;
-            padding: 40px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-        }
-
-        .intro-box p {
-            font-size: 1.15rem;
-            color: var(--text);
-            margin-bottom: 16px;
-        }
-
-        .intro-box p:last-child {
-            margin-bottom: 0;
-        }
-
-        .comparison {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 32px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .comparison-card {
-            padding: 32px;
-            border-radius: 16px;
-            background: white;
-        }
-
-        .comparison-card.negative {
-            border: 2px solid var(--danger);
-        }
-
-        .comparison-card.positive {
-            border: 2px solid var(--success);
-        }
-
-        .comparison-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 24px;
-            color: var(--text);
-        }
-
-        .comparison-card ul {
-            list-style: none;
-        }
-
-        .comparison-card li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 16px;
-            font-size: 1rem;
-            color: var(--text-light);
-        }
-
-        .comparison-card li:last-child {
-            margin-bottom: 0;
-        }
-
-        .icon-x {
-            color: var(--danger);
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .icon-check {
-            color: var(--success);
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        /* Process Section */
-        .process {
-            padding: 100px 0;
-            background: var(--bg);
-        }
-
-        .process-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 48px;
-        }
-
-        .step {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 32px;
-            align-items: start;
-        }
-
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background: var(--accent);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 800;
-            flex-shrink: 0;
-        }
-
-        .step-content {
-            background: var(--bg-alt);
-            padding: 32px;
-            border-radius: 16px;
-        }
-
-        .step-content h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .step-content .step-subtitle {
-            font-size: 1.1rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
-        .step-content p {
-            color: var(--text-light);
-            margin-bottom: 16px;
-        }
-
-        .step-content ul {
-            list-style: none;
-            margin-bottom: 16px;
-        }
-
-        .step-content li {
-            padding: 8px 0;
-            color: var(--text-light);
-            padding-right: 24px;
-            position: relative;
-        }
-
-        .step-content li::before {
-            content: "•";
-            color: var(--accent);
-            position: absolute;
-            right: 0;
-            font-weight: bold;
-        }
-
-        .step-result {
-            background: white;
-            padding: 16px 20px;
-            border-radius: 8px;
-            border-right: 3px solid var(--success);
-            color: var(--text);
-            font-weight: 500;
-        }
-
-        /* Fit Section */
-        .fit {
-            padding: 100px 0;
-            background: var(--bg-alt);
-        }
-
-        .fit-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 48px;
-        }
-
-        .fit-card {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-        }
-
-        .fit-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .fit-card.positive h3 {
-            color: var(--success);
-        }
-
-        .fit-card.negative h3 {
-            color: var(--danger);
-        }
-
-        .fit-card ul {
-            list-style: none;
-        }
-
-        .fit-card li {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-            color: var(--text-light);
-        }
-
-        .fit-card li:last-child {
-            border-bottom: none;
-        }
-
-        /* Why Section */
-        .why {
-            padding: 100px 0;
-            background: var(--primary);
-            color: white;
-        }
-
-        .why .section-header h2 {
-            color: white;
-        }
-
-        .why .section-header p {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-        }
-
-        .why-card {
-            background: rgba(255,255,255,0.1);
-            padding: 32px;
-            border-radius: 16px;
-            text-align: center;
-        }
-
-        .why-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 16px;
-            color: var(--accent-light);
-        }
-
-        .why-card p {
-            color: rgba(255,255,255,0.9);
-            line-height: 1.8;
-        }
-
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
-            background: var(--bg);
-        }
-
-        .cta-box {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            background: var(--bg-alt);
-            padding: 64px;
-            border-radius: 24px;
-        }
-
-        .cta-box h2 {
-            font-size: 2.25rem;
-            color: var(--primary);
-            margin-bottom: 24px;
-        }
-
-        .cta-box > p {
-            font-size: 1.15rem;
-            color: var(--text-light);
-            margin-bottom: 32px;
-        }
-
-        .cta-benefits {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            text-align: right;
-            margin-bottom: 40px;
-        }
-
-        .cta-benefit {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            background: white;
-            border-radius: 8px;
-        }
-
-        .cta-benefit .icon-check {
-            font-size: 1.25rem;
-        }
-
-        .cta-closing {
-            font-size: 1.15rem;
-            color: var(--text-light);
-            margin-bottom: 32px;
-        }
-
-        /* Trifold Explanation */
-        .trifold {
-            padding: 80px 0;
-            background: var(--bg-alt);
-        }
-
-        .trifold-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .trifold-content h2 {
-            font-size: 1.75rem;
-            color: var(--primary);
-            margin-bottom: 24px;
-        }
-
-        .trifold-content p {
-            color: var(--text-light);
-            margin-bottom: 16px;
-            font-size: 1.1rem;
-        }
-
-        .trifold-pillars {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin: 40px 0;
-        }
-
-        .pillar {
-            background: white;
-            padding: 24px;
-            border-radius: 12px;
-            border-top: 4px solid var(--accent);
-        }
-
-        .pillar h4 {
-            color: var(--primary);
-            margin-bottom: 8px;
-        }
-
-        .pillar p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
-        }
-
-        .trifold-tagline {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-top: 24px;
-        }
-
-        /* Accessibility Statement */
-        .a11y-statement {
-            padding: 80px 0;
-            background: var(--bg);
-        }
-        .a11y-statement-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .a11y-statement-content h2 {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 24px;
-            text-align: center;
-        }
-        .a11y-statement-content h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-top: 32px;
-            margin-bottom: 12px;
-        }
-        .a11y-statement-content p {
-            color: var(--text-light);
-            margin-bottom: 16px;
-            line-height: 1.8;
-        }
-        .a11y-statement-content ul {
-            list-style: none;
-            margin-bottom: 20px;
-        }
-        .a11y-statement-content li {
-            padding: 6px 0;
-            padding-right: 24px;
-            position: relative;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-        .a11y-statement-content li::before {
-            content: "✓";
-            color: var(--success);
-            position: absolute;
-            right: 0;
-            font-weight: bold;
-        }
-        .a11y-contact-box {
-            background: var(--bg-alt);
-            border-radius: 12px;
-            padding: 24px 32px;
-            margin-top: 24px;
-            border-right: 4px solid var(--accent);
-        }
-        .a11y-contact-box p {
-            margin-bottom: 8px;
-        }
-        .a11y-contact-box a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .a11y-contact-box a:hover {
-            text-decoration: underline;
-        }
-        .a11y-update-date {
-            font-size: 0.9rem;
-            color: var(--text-lighter);
-            margin-top: 24px;
-            text-align: center;
-        }
-
-        /* Legal Pages (Privacy Policy & Terms) */
-        .legal-section {
-            padding: 80px 0 60px;
-            background: var(--bg);
-            border-top: 1px solid var(--border);
-        }
-        .legal-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .legal-content h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 24px;
-            text-align: center;
-        }
-        .legal-content h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-top: 28px;
-            margin-bottom: 10px;
-        }
-        .legal-content p {
-            color: var(--text-light);
-            margin-bottom: 14px;
-            line-height: 1.9;
-        }
-        .legal-content ul {
-            list-style: none;
-            margin-bottom: 16px;
-        }
-        .legal-content li {
-            padding: 4px 0;
-            padding-right: 22px;
-            position: relative;
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-        .legal-content li::before {
-            content: "•";
-            color: var(--accent);
-            position: absolute;
-            right: 0;
-            font-weight: bold;
-        }
-        .legal-update-date {
-            font-size: 0.9rem;
-            color: var(--text-lighter);
-            margin-top: 28px;
-            text-align: center;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 64px 0 32px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 48px;
-        }
-
-        .footer-info h3 {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
-
-        .footer-info .tagline {
-            color: var(--accent-light);
-            font-size: 1.1rem;
-            margin-bottom: 24px;
-        }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .footer-contact a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: color 0.2s;
-        }
-
-        .footer-contact a:hover {
-            color: var(--accent-light);
-        }
-
-        .footer-bottom {
-            padding-top: 32px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary);
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .hero h1 {
-                font-size: 2.25rem;
-            }
-
-            .comparison {
-                grid-template-columns: 1fr;
-            }
-
-            .fit-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .why-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .trifold-pillars {
-                grid-template-columns: 1fr;
-            }
-
-            .step {
-                grid-template-columns: 1fr;
-            }
-
-            .step-number {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-
-            .cta-benefits {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 32px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                right: 0;
-                left: 0;
-                background: rgba(255,255,255,0.98);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                padding: 16px 24px;
-                gap: 16px;
-                border-bottom: 1px solid var(--border);
-                box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            }
-
-            nav.mobile-open {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .logo img {
-                height: 80px;
-            }
-
-            .hero {
-                padding: 140px 0 80px;
-            }
-
-            .hero h1 {
-                font-size: 1.875rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-            }
-
-            .hero-cta .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .section-header h2 {
-                font-size: 1.75rem;
-            }
-
-            .cta-box {
-                padding: 40px 24px;
-            }
-
-            .problem, .solution, .process, .fit, .why, .cta {
-                padding: 64px 0;
-            }
-        }
-
-        /* ===== Accessibility Widget Styles ===== */
-        .a11y-trigger {
-            position: fixed;
-            bottom: 24px;
-            left: 24px;
-            width: 56px;
-            height: 56px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-            transition: transform 0.2s, background 0.2s;
-            font-size: 1.6rem;
-            line-height: 1;
-        }
-        .a11y-trigger:hover { transform: scale(1.1); background: var(--primary-light); }
-        .a11y-trigger:focus { outline: 3px solid var(--accent-light); outline-offset: 2px; }
-        .a11y-trigger svg { width: 28px; height: 28px; fill: currentColor; }
-
-        .a11y-panel {
-            position: fixed;
-            bottom: 90px;
-            left: 24px;
-            width: 320px;
-            max-height: 80vh;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-            z-index: 9998;
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            direction: rtl;
-        }
-        .a11y-panel.open { display: flex; }
-        .a11y-panel-header {
-            background: var(--primary);
-            color: white;
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .a11y-panel-header h3 { font-size: 1.1rem; margin: 0; }
-        .a11y-panel-close {
-            background: none; border: none; color: white; font-size: 1.4rem;
-            cursor: pointer; padding: 0; line-height: 1;
-        }
-        .a11y-panel-body {
-            padding: 16px 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .a11y-btn {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            background: var(--bg-alt);
-            border: 2px solid transparent;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--text);
-            transition: all 0.15s;
-            text-align: right;
-        }
-        .a11y-btn:hover { border-color: var(--accent); background: #ebf8ff; }
-        .a11y-btn.active { border-color: var(--accent); background: #ebf8ff; }
-        .a11y-btn .a11y-icon { font-size: 1.3rem; flex-shrink: 0; width: 28px; text-align: center; }
-        .a11y-reset {
-            margin-top: 6px;
-            padding: 10px;
-            background: none;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            transition: all 0.15s;
-        }
-        .a11y-reset:hover { background: #fed7d7; color: var(--danger); border-color: var(--danger); }
-
-        /* Accessibility applied classes */
-        body.a11y-large-text { font-size: 120% !important; }
-        body.a11y-xlarge-text { font-size: 140% !important; }
-        body.a11y-high-contrast * {
-            color: #000 !important;
-            background-color: #fff !important;
-            border-color: #000 !important;
-        }
-        body.a11y-high-contrast .why,
-        body.a11y-high-contrast footer,
-        body.a11y-high-contrast .a11y-panel-header {
-            color: #fff !important;
-            background-color: #000 !important;
-        }
-        body.a11y-high-contrast .why * { color: #fff !important; }
-        body.a11y-high-contrast footer * { color: #fff !important; }
-        body.a11y-high-contrast a { color: #0000EE !important; text-decoration: underline !important; }
-        body.a11y-grayscale > *:not(#a11yPanel) { filter: grayscale(1); }
-        body.a11y-links-underline a { text-decoration: underline !important; }
-        body.a11y-big-cursor, body.a11y-big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M4 4l16 40 6-16 16-6z' fill='%23000' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") 4 4, auto !important; }
-        body.a11y-highlight-focus *:focus {
-            outline: 3px solid #ff6600 !important;
-            outline-offset: 3px !important;
-        }
-        body.a11y-line-height * { line-height: 2.2 !important; }
-        body.a11y-letter-spacing * { letter-spacing: 0.12em !important; word-spacing: 0.2em !important; }
-        body.a11y-stop-animations *, body.a11y-stop-animations *::before, body.a11y-stop-animations *::after {
-            animation: none !important;
-            transition: none !important;
-            scroll-behavior: auto !important;
-        }
-
-        @media (max-width: 768px) {
-            .a11y-panel {
-                width: calc(100vw - 48px);
-                bottom: 90px;
-                left: 24px;
-            }
-        }
-
-        /* Legal Modal */
-        .legal-modal-overlay {
-          display: none;
-          position: fixed;
-          top: 0; left: 0;
-          width: 100%; height: 100%;
-          background: rgba(0,0,0,0.6);
-          z-index: 9000;
-          justify-content: center;
-          align-items: flex-start;
-          padding: 40px 20px;
-          overflow-y: auto;
-          box-sizing: border-box;
-        }
-        .legal-modal-overlay.active { display: flex; }
-        .legal-modal-box {
-          background: #fff;
-          border-radius: 12px;
-          max-width: 800px;
-          width: 100%;
-          max-height: 85vh;
-          overflow-y: auto;
-          padding: 48px 40px;
-          position: relative;
-          box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-          margin: auto;
-          direction: rtl;
-        }
-        .legal-modal-close {
-          position: sticky;
-          top: 0;
-          float: left;
-          background: var(--primary);
-          color: white;
-          border: none;
-          border-radius: 50%;
-          width: 36px; height: 36px;
-          font-size: 20px;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1;
-          margin-bottom: 16px;
-        }
-        .legal-modal-close:hover { background: var(--primary-light); }
-        .legal-modal-box h2 {
-          font-size: 1.8rem; font-weight: 800;
-          color: var(--primary); margin-bottom: 24px; text-align: center;
-        }
-        .legal-modal-box h3 {
-          font-size: 1.1rem; font-weight: 700;
-          color: var(--primary); margin-top: 24px; margin-bottom: 10px;
-        }
-        .legal-modal-box p { color: var(--text-light); line-height: 1.8; margin-bottom: 14px; }
-        .legal-modal-box ul { list-style: none; margin-bottom: 16px; padding-right: 0; }
-        .legal-modal-box li { padding: 5px 20px 5px 0; position: relative; color: var(--text-light); line-height: 1.7; }
-        .legal-modal-box li::before { content: '✓'; position: absolute; right: 0; color: var(--accent); font-weight: 700; }
-        @media (max-width: 768px) {
-          .legal-modal-box { padding: 32px 20px; }
-        }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TriFold Technologies — Fractional CAIO | Closing the alignment gap</title>
+<meta name="description" content="Most enterprises already have the AI tools, the licenses, and a few pilots. What they don't have is agreement between the business, data and IT, and governance. A fractional CAIO closes that alignment gap — strategy, governance, and delivery without the full-time hire." />
+<meta name="author" content="Itzik Woda — TriFold Technologies" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The fractional CAIO's real job: closing the alignment gap" />
+<meta property="og:description" content="The tools are bought. The licenses are paid. And most of the organization still barely touches AI. The problem was never the technology — it's alignment. That gap is what a fractional CAIO is hired to close." />
+<meta property="og:site_name" content="TriFold Technologies" />
+
+<!-- Fonts: Google-Fonts stand-ins per design system (Playfair Display / Anton / Hanken Grotesk) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+
+<!-- Lucide icons (CDN) per design system -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<style>
+/* ─────────────────────────────────────────────────────────────
+   TriFold Design System tokens (inlined from tokens/*.css)
+   Editorial light-mode SaaS. Warm off-white canvas, near-black
+   type, a single soft mint accent used sparingly (~6 per page).
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Base palette */
+  --canvas:      #F1F1EF;
+  --surface:     #FFFFFF;
+  --ink:         #141414;
+  /* --ink-muted darkened from the design's #8C8C8C to meet WCAG 2.1 AA (4.5:1)
+     for normal-size body text on both the white cards AND the off-white canvas. */
+  --ink-muted:   #6A6A6A;
+  --hairline:    #E6E6E4;
+  --mint:        #B9E5E2;  /* pale mint — FILLS only (pills, cards, bars, rails) */
+  --mint-deep:   #8FD4CF;  /* deeper mint — chart data / non-text accents        */
+  --mint-wash:   #E7F5F3;
+  /* --mint-ink: darkened teal from the same hue, used wherever mint appears as
+     TEXT/glyphs (hero accent word, %/× units, step numbers, link hover, brand
+     dot). The pale mint fails contrast as text; this passes AA (4.5:1 on canvas). */
+  --mint-ink:    #256E68;
+  --amber:       #F2B84B;
+
+  /* Type */
+  --font-serif-display: 'Playfair Display', Georgia, serif;
+  --font-condensed:     'Anton', 'Arial Narrow', sans-serif;
+  --font-sans:          'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+
+  /* Layout */
+  --container: 1200px;
+  --gutter:    max(1.25rem, 6vw);
+
+  /* Radii */
+  --radius-inset: 12px;
+  --radius-card:  16px;
+  --radius-pill:  999px;
+
+  /* Shadows — barely-there elevation */
+  --shadow-soft:  0 1px 2px rgba(20,20,20,0.03), 0 18px 40px rgba(20,20,20,0.04);
+  --shadow-raise: 0 2px 4px rgba(20,20,20,0.04), 0 28px 60px rgba(20,20,20,0.07);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--mint-ink); }
+img { max-width: 100%; display: block; }
+h1, h2, h3, p { margin: 0; }
+button { font-family: inherit; }
+
+.wrap { max-width: var(--container); margin: 0 auto; }
+
+/* Reveal-on-scroll */
+.reveal { opacity: 0; transform: translateY(24px);
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
+.reveal.in { opacity: 1; transform: none; }
+
+/* Accessibility: skip link (WCAG 2.4.1 Bypass Blocks) */
+.skip-link {
+  position: absolute; left: 16px; top: -60px; z-index: 100;
+  background: var(--ink); color: #fff; padding: 10px 18px;
+  border-radius: 0 0 12px 12px; font-weight: 500; font-size: 14px;
+  transition: top .2s;
+}
+.skip-link:focus { top: 0; color: #fff; }
+
+/* Accessibility: always-visible keyboard focus (WCAG 2.4.7 Focus Visible) */
+:focus-visible { outline: 3px solid var(--mint-ink); outline-offset: 3px; border-radius: 6px; }
+/* inset the outline where the control lives inside an overflow-clipped card */
+.acc-btn:focus-visible, .faq-btn:focus-visible { outline-offset: -3px; }
+
+/* Accessibility: honour reduced-motion — no reveal animation, no smooth scroll
+   (WCAG 2.3.3 / a hedge so content is never left hidden by a stalled animation) */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* Floaty hero icons */
+@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@media (prefers-reduced-motion: no-preference) {
+  .float-ico { animation: floaty 6s ease-in-out infinite; }
+}
+
+/* ── Pills / buttons ─────────────────────────────────────────── */
+.pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--font-sans); font-weight: 500; line-height: 1;
+  border-radius: var(--radius-pill); cursor: pointer; white-space: nowrap;
+  border: 1px solid transparent;
+  transition: transform .16s var(--ease-out), box-shadow .28s, background .2s, color .2s;
+}
+.pill:active { transform: scale(0.98); }
+.pill--sm { padding: 0.5rem 1rem;   font-size: 13px; }
+.pill--md { padding: 0.7rem 1.4rem; font-size: 15px; }
+.pill--lg { padding: 0.85rem 1.7rem; font-size: 16px; }
+.pill--primary { background: var(--mint); color: var(--ink); }
+.pill--primary:hover { color: var(--ink); box-shadow: var(--shadow-soft); }
+.pill--outline { background: var(--surface); color: var(--ink); border-color: var(--hairline); }
+.pill--dark    { background: var(--ink); color: #fff; border-color: var(--ink); }
+.pill--dark:hover { color: #fff; }
+.pill--block { width: 100%; }
+
+/* ── Eyebrow ─────────────────────────────────────────────────── */
+.eyebrow {
+  display: inline-flex; align-items: center; font-family: var(--font-sans);
+  font-weight: 500; font-size: 13px; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill); padding: 6px 14px;
+}
+
+/* ── Section head ────────────────────────────────────────────── */
+.section-head {
+  display: flex; flex-direction: column; gap: 16px; align-items: center;
+  text-align: center; max-width: 640px; margin: 0 auto 56px;
+}
+.section-head h2 {
+  font-family: var(--font-sans); font-weight: 500; font-size: 42px;
+  line-height: 1.12; letter-spacing: -0.015em; color: var(--ink); text-wrap: balance;
+}
+.section-head p {
+  font-family: var(--font-sans); font-size: 17px; line-height: 1.6;
+  color: var(--ink-muted); max-width: 52ch;
+}
+
+/* ── Nav ─────────────────────────────────────────────────────── */
+.nav {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 24px var(--gutter);
+}
+.brand { font-family: var(--font-sans); font-weight: 600; font-size: 21px;
+  letter-spacing: -0.02em; color: var(--ink); }
+.brand .dot { color: var(--mint-ink); }
+.nav-links {
+  display: flex; gap: 4px; background: rgba(255,255,255,0.6);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border: 1px solid var(--hairline); border-radius: var(--radius-pill); padding: 5px;
+}
+.nav-links a {
+  font-family: var(--font-sans); font-size: 13.5px; font-weight: 500; cursor: pointer;
+  padding: 8px 16px; border-radius: var(--radius-pill); border: none;
+  background: transparent; color: var(--ink); transition: background .2s, color .2s;
+}
+.nav-links a.active { background: var(--ink); color: #fff; }
+.nav-cta { display: inline-flex; }
+
+/* ── Hero ────────────────────────────────────────────────────── */
+.hero { position: relative; padding: 150px var(--gutter) 80px; overflow: hidden; }
+.hero-support {
+  position: absolute; top: 455px; right: var(--gutter); max-width: 230px;
+  font-family: var(--font-sans); font-size: 15px; line-height: 1.6;
+  color: var(--ink-muted); text-align: left; z-index: 6;
+}
+.hero-head { text-align: center; position: relative; z-index: 5; }
+.hero-serif {
+  font-family: var(--font-serif-display); font-style: italic; font-size: 46px;
+  color: var(--ink); font-weight: 500; line-height: 1.1;
+}
+.hero-loud {
+  margin: 4px 0 0; font-family: var(--font-condensed);
+  font-size: clamp(5rem, 15vw, 12rem); line-height: 0.86; letter-spacing: -0.02em;
+  color: var(--ink); text-transform: uppercase; font-weight: 400;
+}
+.hero-serif .mint { color: var(--mint-ink); }
+
+.hero-figure { position: relative; z-index: 4; width: 300px; height: 300px; margin: 34px auto 0; }
+.hero-figure .photo {
+  width: 100%; height: 100%; border-radius: 20px; object-fit: cover;
+  filter: grayscale(1) contrast(1.05); background: var(--canvas);
+}
+.hero-card {
+  position: absolute; bottom: -18px; right: -70px; width: 190px;
+  background: var(--mint); border-radius: var(--radius-card); padding: 16px;
+  box-shadow: var(--shadow-raise);
+}
+.hero-card .label { font-family: var(--font-sans); font-size: 12px; color: var(--ink); opacity: .7; }
+.hero-card .big { font-family: var(--font-sans); font-weight: 600; font-size: 30px; color: var(--ink); line-height: 1.1; }
+.hero-card .big small { font-size: 15px; font-weight: 600; }
+.hero-card .bars { display: flex; align-items: flex-end; gap: 5px; height: 42px; margin-top: 8px; }
+.hero-card .bars > span { flex: 1; background: rgba(20,20,20,.35); border-radius: 3px; }
+
+.float-ico { position: absolute; z-index: 3; }
+.ico-tile {
+  width: 100%; height: 100%; background: var(--surface);
+  box-shadow: var(--shadow-soft); border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+}
+.ico-tile > span {
+  width: 58%; height: 58%; border-radius: 14px; background: var(--mint);
+  box-shadow: inset 0 -6px 12px rgba(0,0,0,0.06);
+}
+
+/* ── Logo / source bar ───────────────────────────────────────── */
+.logobar {
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 0 var(--gutter) 40px; flex-wrap: wrap;
+}
+.logobar .lead { font-family: var(--font-sans); font-size: 13.5px; color: var(--ink-muted);
+  line-height: 1.5; max-width: 220px; }
+.logobar .logos { display: flex; gap: 40px; flex-wrap: wrap; align-items: center; }
+.logobar .logos span {
+  font-family: var(--font-sans); font-weight: 600; font-size: 18px;
+  color: var(--ink-muted); letter-spacing: -0.01em;  /* readable: these are cited sources, not faint decoration */
+}
+
+/* ── Generic section ─────────────────────────────────────────── */
+.section { padding: 120px var(--gutter); }
+.section--tight-top { padding-top: 0; }
+
+/* ── Bento (four planes) ─────────────────────────────────────── */
+.bento { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.cell {
+  display: flex; flex-direction: column; background: var(--surface);
+  border: 1px solid var(--hairline); border-radius: var(--radius-card); overflow: hidden;
+  box-shadow: var(--shadow-soft); transition: transform .28s, box-shadow .28s;
+}
+.cell:hover { transform: translateY(-2px); box-shadow: var(--shadow-raise); }
+.cell .mockwrap {
+  margin: 20px 20px 0; height: 200px; background: var(--canvas);
+  border: 1px solid var(--hairline); border-radius: var(--radius-inset); overflow: hidden;
+}
+.cell .body { padding: 20px; }
+.cell .rule { height: 1px; background: var(--hairline); margin-bottom: 16px; }
+.cell h3 { font-family: var(--font-sans); font-weight: 500; font-size: 19px; color: var(--ink); margin-bottom: 6px; }
+.cell p { font-family: var(--font-sans); font-size: 14.5px; line-height: 1.6; color: var(--ink-muted); }
+
+/* Mock illustrations */
+.mock { width: 100%; height: 100%; padding: 22px; display: flex; align-items: center; justify-content: center; }
+.mock-flow { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.mock-flow .row { display: flex; align-items: center; gap: 10px; }
+.mock-flow .dot { width: 26px; height: 26px; border-radius: 8px; background: var(--hairline); }
+.mock-flow .row.on .dot { background: var(--mint); }
+.mock-flow .bar { height: 8px; border-radius: 4px; background: var(--hairline); }
+.mock-flow .row.on .bar { background: var(--mint-deep); }
+.mock-avatars { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.mock-avatars .stack { display: flex; }
+.mock-avatars .av { width: 34px; height: 34px; border-radius: 999px; background: #dcdcda; border: 2px solid #fff; }
+.mock-avatars .av + .av { margin-left: -8px; }
+.mock-avatars .av.on { background: var(--mint); }
+.mock-avatars .cap { width: 120px; height: 8px; border-radius: 4px; background: var(--hairline); }
+.mock-chart { display: flex; align-items: flex-end; gap: 8px; height: 70%; }
+.mock-chart .col { width: 16px; border-radius: 4px; background: #dcdcda; }
+.mock-chart .col.on { background: var(--mint-deep); }
+.mock-line { width: 100%; height: 100%; }
+
+/* ── How it works (3-up steps) ───────────────────────────────── */
+.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.step {
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft); padding: 24px; display: flex; flex-direction: column; gap: 18px;
+}
+.step .panel {
+  height: 150px; background: var(--canvas); border: 1px solid var(--hairline);
+  border-radius: var(--radius-inset); display: flex; align-items: flex-start; padding: 16px;
+}
+.step .panel span { font-family: var(--font-sans); font-weight: 600; font-size: 15px; color: var(--mint-ink); }
+.step h3 { font-family: var(--font-sans); font-weight: 500; font-size: 19px; color: var(--ink); margin-bottom: 6px; }
+.step p { font-family: var(--font-sans); font-size: 14.5px; line-height: 1.6; color: var(--ink-muted); }
+
+/* ── Governance (accordion + stat) ───────────────────────────── */
+.gov-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.accordion { display: flex; flex-direction: column; gap: 12px; }
+.acc-item {
+  position: relative; background: var(--surface); border: 1px solid var(--hairline);
+  border-radius: var(--radius-card); overflow: hidden; transition: box-shadow .28s;
+}
+.acc-item.open { box-shadow: var(--shadow-soft); }
+.acc-item .rail {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--mint-deep);
+  opacity: 0; transition: opacity .28s;
+}
+.acc-item.open .rail { opacity: 1; }
+.acc-btn {
+  width: 100%; display: flex; align-items: center; gap: 12px; padding: 20px 22px;
+  background: transparent; border: none; cursor: pointer; text-align: left;
+}
+.acc-btn .t { flex: 1; font-family: var(--font-sans); font-weight: 500; font-size: 17px; color: var(--ink); }
+.acc-plus {
+  display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
+  border-radius: 999px; background: var(--ink); color: #fff; transition: transform .28s; flex-shrink: 0;
+}
+.acc-item.open .acc-plus { transform: rotate(45deg); }
+.acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .28s; }
+.acc-item.open .acc-panel { grid-template-rows: 1fr; }
+.acc-panel > div { overflow: hidden; }
+.acc-panel p { padding: 0 22px 20px; font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--ink-muted); }
+.stat-card {
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft); padding: 28px;
+}
+.stat-card .cap { font-family: var(--font-sans); font-size: 13.5px; color: var(--ink-muted); }
+.stat-card .num { font-family: var(--font-sans); font-weight: 600; font-size: 52px; color: var(--ink);
+  letter-spacing: -0.01em; line-height: 1.1; }
+.stat-card .num small { font-size: 24px; color: var(--mint-ink); font-weight: 600; }
+.stat-card .sub { font-family: var(--font-sans); font-size: 13.5px; color: var(--ink-muted); margin-bottom: 20px; }
+.stat-card .chartbox { height: 160px; }
+
+/* ── Stats row (4-up) ────────────────────────────────────────── */
+.stats { display: grid; grid-template-columns: repeat(4,1fr); }
+.stat { text-align: center; padding: 0 20px; }
+.stat + .stat { border-left: 1px solid var(--hairline); }
+.stat .v { font-family: var(--font-sans); font-weight: 600; font-size: 52px; color: var(--ink);
+  line-height: 1; letter-spacing: -0.01em; }
+.stat .v sup { color: var(--mint-ink); font-size: 0.5em; vertical-align: super; }
+.stat .l { font-family: var(--font-sans); font-size: 13px; color: var(--ink-muted); margin-top: 10px;
+  max-width: 20ch; margin-inline: auto; line-height: 1.45; }
+
+/* ── Pull-quotes grid ────────────────────────────────────────── */
+.quotes { display: grid; grid-template-columns: repeat(3,1fr); grid-auto-rows: 1fr; gap: 18px; }
+.quote {
+  display: flex; flex-direction: column; gap: 14px; background: var(--surface);
+  border: 1px solid var(--hairline); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft); padding: 24px;
+}
+.quote p { font-family: var(--font-sans); font-size: 15.5px; line-height: 1.55; color: var(--ink); }
+.quote .who { margin-top: auto; }
+.quote .who .a { font-family: var(--font-sans); font-weight: 500; font-size: 14px; color: var(--ink); }
+.quote .who .r { font-family: var(--font-sans); font-size: 12.5px; color: var(--ink-muted); }
+.portrait { grid-row: span 2; border-radius: var(--radius-card); overflow: hidden;
+  position: relative; min-height: 260px; background: var(--canvas); border: 1px solid var(--hairline); }
+.portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+.portrait .tag {
+  position: absolute; left: 16px; bottom: 16px; background: rgba(255,255,255,.9);
+  border-radius: 10px; padding: 8px 12px; font-family: var(--font-sans);
+}
+.portrait .tag .a { font-weight: 600; font-size: 14px; color: var(--ink); }
+.portrait .tag .r { font-size: 12px; color: var(--ink-muted); }
+
+/* ── Engagements (pricing structure, no invented prices) ─────── */
+.plans { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 18px; align-items: center; }
+.plan {
+  display: flex; flex-direction: column; gap: 20px; padding: 32px; background: var(--surface);
+  border: 1px solid var(--hairline); border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+}
+.plan.rec { background: var(--mint); border-color: transparent; box-shadow: var(--shadow-raise);
+  transform: scale(1.03); }
+.plan .name { font-family: var(--font-sans); font-weight: 500; font-size: 19px; color: var(--ink); }
+.plan .price { display: flex; align-items: baseline; gap: 6px; }
+.plan .price .amt { font-family: var(--font-sans); font-weight: 600; font-size: 34px; color: var(--ink);
+  letter-spacing: -0.01em; line-height: 1.05; }
+.plan .price .per { font-family: var(--font-sans); font-size: 15px; color: var(--ink-muted); }
+.plan.rec .price .per { color: var(--ink); }
+.plan .desc { font-family: var(--font-sans); font-size: 14.5px; line-height: 1.55; color: var(--ink-muted); }
+.plan.rec .desc { color: var(--ink); }
+.plan .divide { height: 1px; background: var(--hairline); }
+.plan.rec .divide { background: rgba(20,20,20,.12); }
+.plan ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; flex: 1; }
+.plan li { display: flex; gap: 10px; font-family: var(--font-sans); font-size: 14.5px; color: var(--ink-muted); }
+.plan.rec li { color: var(--ink); }
+.plan .tick { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px;
+  flex-shrink: 0; border-radius: 999px; margin-top: 2px; background: var(--mint); color: var(--ink); }
+.plan.rec .tick { background: var(--surface); }
+
+/* ── FAQ ─────────────────────────────────────────────────────── */
+.faq { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item { background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-card);
+  overflow: hidden; transition: box-shadow .28s; }
+.faq-item.open { box-shadow: var(--shadow-soft); }
+.faq-btn { width: 100%; display: flex; align-items: center; gap: 16px; padding: 20px 24px;
+  background: transparent; border: none; cursor: pointer; text-align: left; }
+.faq-btn .n { font-family: var(--font-sans); font-size: 14px; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+.faq-btn .q { flex: 1; font-family: var(--font-sans); font-weight: 500; font-size: 17px; color: var(--ink); }
+.faq-plus { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px;
+  border-radius: 999px; background: var(--ink); color: #fff; transition: transform .28s; flex-shrink: 0; }
+.faq-item.open .faq-plus { transform: rotate(45deg); }
+.faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .28s; }
+.faq-item.open .faq-panel { grid-template-rows: 1fr; }
+.faq-panel > div { overflow: hidden; }
+.faq-panel p { padding: 0 24px 20px 64px; font-family: var(--font-sans); font-size: 15.5px; line-height: 1.6; color: var(--ink-muted); }
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.footer { position: relative; background: var(--canvas); padding-top: 80px; overflow: hidden; }
+.footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; padding: 0 var(--gutter); }
+.footer-top .about { max-width: 320px; }
+.footer-top .about p { font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--ink-muted); margin-top: 12px; }
+.footer-cols { display: flex; gap: 64px; flex-wrap: wrap; }
+.footer-cols .col { display: flex; flex-direction: column; gap: 12px; }
+.footer-cols .col .h { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink); }
+.footer-cols .col a { font-family: var(--font-sans); font-size: 14px; color: var(--ink-muted); }
+.footer-cta { display: flex; align-items: center; justify-content: center; gap: 24px;
+  margin: 48px auto 0; padding: 0 var(--gutter); }
+.footer-cta .line { flex: 1; height: 1px; background: var(--hairline); }
+.footer-legal { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  margin: 40px auto 0; padding: 0 var(--gutter); font-family: var(--font-sans); font-size: 12.5px; color: var(--ink-muted); }
+.footer-legal a { color: var(--ink-muted); }
+.footer-legal .links { display: flex; gap: 20px; }
+.footer-word { font-family: var(--font-condensed); font-size: clamp(4rem, 20vw, 17rem); line-height: 0.8;
+  text-align: center; color: #e4e4e1; text-transform: uppercase; letter-spacing: -0.03em;
+  margin-top: 30px; margin-bottom: -4%; user-select: none; font-weight: 400; }
+
+/* ── Accessibility widget ────────────────────────────────────────
+   Ported verbatim from the live TriFold site and re-skinned to the
+   editorial palette. Fully self-contained — no third-party script,
+   no external requests; preferences persist via localStorage.        */
+.a11y-trigger {
+  position: fixed; bottom: 24px; left: 24px; width: 56px; height: 56px;
+  background: var(--ink); color: #fff; border: none; border-radius: 50%;
+  cursor: pointer; z-index: 9999; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(20,20,20,0.22); transition: transform .2s, background .2s;
+}
+.a11y-trigger:hover { transform: scale(1.08); background: #2a2a2a; }
+.a11y-trigger svg { width: 28px; height: 28px; fill: currentColor; }
+.a11y-panel {
+  position: fixed; bottom: 90px; left: 24px; width: 320px; max-height: 80vh;
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(20,20,20,0.18); z-index: 9998; display: none;
+  flex-direction: column; overflow: hidden; direction: rtl;
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Heebo', Arial, sans-serif;
+}
+.a11y-panel.open { display: flex; }
+.a11y-panel-header { background: var(--ink); color: #fff; padding: 16px 20px;
+  display: flex; justify-content: space-between; align-items: center; }
+.a11y-panel-header h3 { font-size: 1.1rem; margin: 0; font-weight: 600; color: #fff; }
+.a11y-panel-close { background: none; border: none; color: #fff; font-size: 1.4rem;
+  cursor: pointer; padding: 0; line-height: 1; }
+.a11y-panel-body { padding: 16px 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.a11y-btn { display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+  background: var(--canvas); border: 2px solid transparent; border-radius: 10px; cursor: pointer;
+  font-family: inherit; font-size: 0.95rem; font-weight: 500; color: var(--ink);
+  transition: border-color .15s, background .15s; text-align: right; }
+.a11y-btn:hover, .a11y-btn.active { border-color: var(--mint-ink); background: #E7F5F3; }
+.a11y-btn .a11y-icon { font-size: 1.3rem; flex-shrink: 0; width: 28px; text-align: center; }
+.a11y-reset { margin-top: 6px; padding: 10px; background: none; border: 1px solid var(--hairline);
+  border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.9rem; color: var(--ink-muted);
+  transition: all .15s; }
+.a11y-reset:hover { background: #f6e9e9; color: #8a1c1c; border-color: #8a1c1c; }
+/* Applied-preference classes (palette-independent) */
+/* Text size — this design sets font sizes in px, so scaling body font-size alone
+   does nothing. `zoom` reflows and scales the real px content. Applied to the
+   content regions (not the fixed widget, so its own controls stay put). */
+body.a11y-large-text nav.nav,
+body.a11y-large-text main,
+body.a11y-large-text footer.footer { zoom: 1.15; }
+body.a11y-xlarge-text nav.nav,
+body.a11y-xlarge-text main,
+body.a11y-xlarge-text footer.footer { zoom: 1.30; }
+body.a11y-high-contrast * { color: #000 !important; background-color: #fff !important; border-color: #000 !important; }
+body.a11y-high-contrast footer, body.a11y-high-contrast .a11y-panel-header { color: #fff !important; background-color: #000 !important; }
+body.a11y-high-contrast footer * { color: #fff !important; }
+body.a11y-high-contrast a { color: #0000EE !important; text-decoration: underline !important; }
+body.a11y-grayscale > *:not(#a11yPanel) { filter: grayscale(1); }
+body.a11y-links-underline a { text-decoration: underline !important; }
+body.a11y-big-cursor, body.a11y-big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M4 4l16 40 6-16 16-6z' fill='%23000' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") 4 4, auto !important; }
+body.a11y-highlight-focus *:focus { outline: 3px solid #ff6600 !important; outline-offset: 3px !important; }
+body.a11y-line-height * { line-height: 2.2 !important; }
+body.a11y-letter-spacing * { letter-spacing: 0.12em !important; word-spacing: 0.2em !important; }
+body.a11y-stop-animations *, body.a11y-stop-animations *::before, body.a11y-stop-animations *::after {
+  animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+@media (max-width: 768px) { .a11y-panel { width: calc(100vw - 48px); } }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 920px) {
+  .nav-links { display: none; }
+  .hero { padding-top: 120px; }
+  .hero-serif { font-size: 34px; }
+  .hero-support { position: static; max-width: 420px; margin: 28px auto 0; text-align: center; }
+  .hero-card { right: -20px; }
+  .bento, .steps, .gov-grid, .quotes, .plans { grid-template-columns: 1fr; }
+  .plan.rec { transform: none; }
+  .portrait { grid-row: auto; min-height: 320px; }
+  .stats { grid-template-columns: 1fr 1fr; gap: 32px 0; }
+  .stat:nth-child(3) { border-left: none; }
+  .section { padding: 80px var(--gutter); }
+}
+@media (max-width: 520px) {
+  .stats { grid-template-columns: 1fr; }
+  .stat + .stat { border-left: none; }
+  .section-head h2 { font-size: 32px; }
+  .footer-top { flex-direction: column; }
+}
+</style>
+
+<!-- Without JavaScript, reveal-animated sections and the collapsed accordion/FAQ
+     panels would hide their content. This guarantees all content stays reachable. -->
+<noscript><style>
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .acc-panel, .faq-panel { grid-template-rows: 1fr !important; }
+  .acc-plus, .faq-plus { display: none !important; }
+</style></noscript>
+
+<!-- ─────────────────────────────────────────────────────────────────────────
+     ACCESSIBILITY WIDGET: TriFold's own self-contained widget is embedded at the
+     end of <body> (trigger + panel + script). No third-party service is used —
+     preferences persist via localStorage; there are no external requests.
+     Note: the widget is an ADD-ON. Real IS 5568 / WCAG 2.1 AA conformance comes
+     from the native remediation in this page + the linked accessibility statement.
+     ───────────────────────────────────────────────────────────────────────── -->
+
 </head>
-<body class="loading">
-    <!-- Skip to content link (WCAG 2.4.1) -->
-    <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+<body>
 
-    <!-- Noscript fallback -->
-    <noscript>
-        <div style="padding: 40px; text-align: center; font-family: sans-serif; direction: rtl;">
-            <h1>TriFold Technologies</h1>
-            <p>לצפייה מלאה באתר יש להפעיל JavaScript בדפדפן.</p>
-            <p>ליצירת קשר: <a href="tel:052-8544775">052-8544775</a> | <a href="mailto:contact@trifoldtechnologies.com">contact@trifoldtechnologies.com</a></p>
-        </div>
-    </noscript>
+<!-- Skip link — first focusable element (WCAG 2.4.1) -->
+<a class="skip-link" href="#maincontent">Skip to content</a>
 
-    <!-- Header -->
-    <header role="banner">
-        <div class="header-content">
-            <a href="#" class="logo" id="logo"><img src="/logo.svg" alt="TriFold Technologies" height="200"></a>
-            <nav id="main-nav" role="navigation" aria-label="ניווט ראשי">
-                <a href="#problem" id="nav-problem">הבעיה</a>
-                <a href="#solution" id="nav-solution">הפתרון</a>
-                <a href="#process" id="nav-process">איך זה עובד</a>
-                <a href="#fit" id="nav-fit">למי מתאים</a>
-                <a href="/ai-strategy-playbook/" id="nav-playbook">Playbook</a>
-                <a href="https://wa.me/972528544775?text=בוא נדבר" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="nav-cta"><span lang="en">Chat on WhatsApp</span> <span class="sr-only">(נפתח בחלון חדש)</span></a>
-            </nav>
-            <button class="mobile-menu-btn" aria-label="פתיחת תפריט ניווט" aria-expanded="false" aria-controls="main-nav">☰</button>
-        </div>
-    </header>
+<!-- ── NAV ────────────────────────────────────────────────────── -->
+<nav class="nav" aria-label="Primary">
+  <a href="#top" class="brand" aria-label="TriFold Technologies — home">TriFold<span class="dot" aria-hidden="true">.</span></a>
+  <div class="nav-links" id="navlinks">
+    <a href="#top" class="active" aria-current="page">Home</a>
+    <a href="#gap">The Gap</a>
+    <a href="#work">The Work</a>
+    <a href="#engagements">Engagements</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://trifoldtechnologies.com/ai-strategy-playbook/">Playbook</a>
+  </div>
+  <a class="pill pill--primary pill--md nav-cta" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Diagnostic%20call">Book a diagnostic call</a>
+</nav>
 
-    <!-- Main content -->
-    <main id="main-content">
+<main id="maincontent">
 
-    <!-- Hero -->
-    <section class="hero" aria-label="מבוא">
-        <div class="container">
-            <div class="hero-content dynamic-content">
-                <h1 id="hero-title"></h1>
-                <p class="hero-subtitle" id="hero-subtitle"></p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary btn-large" id="hero-cta-primary"></a>
-                    <a href="#process" class="btn btn-secondary btn-large" id="hero-cta-secondary"></a>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- ── HERO ───────────────────────────────────────────────────── -->
+<header class="hero" id="top">
+  <p class="hero-support">
+    Most enterprises already have the tools, the licenses, and a few pilots. What they don't have is agreement — between the business, data and IT, and governance.
+  </p>
 
-    <!-- Playbook Spotlight Banner -->
-    <section class="playbook-spotlight">
-        <div class="container">
-            <a href="/ai-strategy-playbook/" class="playbook-banner">
-                <div class="playbook-banner-tag">חדש · מאי 2026</div>
-                <div class="playbook-banner-content">
-                    <h2>פלייבוק להנהלה הבכירה: מאסטרטגיה למערכת פועלת</h2>
-                    <p>15 פרקים · 9 תבניות עבודה להורדה · כלי הערכת בשלות אינטראקטיבי · מחשבון ROI · מבוסס על סינתזה של 10 דוחות מובילים — BCG, Bain, McKinsey, Accenture, Deloitte, KPMG, Google, Microsoft, Cisco.</p>
-                </div>
-                <div class="playbook-banner-cta">
-                    <span class="playbook-banner-btn">פתח את ה-Playbook ←</span>
-                    <span class="playbook-banner-meta">קריאה חופשית · ללא הרשמה</span>
-                </div>
-            </a>
-        </div>
-    </section>
+  <div class="hero-head">
+    <div class="hero-serif">The real job is closing the</div>
+    <h1 class="hero-loud">Alignment&nbsp;Gap</h1>
+    <div class="hero-serif">not the <span class="mint">technology</span> gap</div>
+  </div>
 
-    <style>
-    .playbook-spotlight {
-        padding: 40px 0 0;
-        background: var(--bg);
-    }
-    .playbook-banner {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 32px;
-        align-items: center;
-        background: linear-gradient(135deg, #0a1f44 0%, #1a3160 100%);
-        color: white;
-        padding: 36px 40px;
-        border-radius: 20px;
-        text-decoration: none;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 12px 32px rgba(10, 31, 68, 0.15);
-        border: 1px solid rgba(200, 165, 88, 0.3);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .playbook-banner::before {
-        content: "";
-        position: absolute;
-        top: 0; right: 0; bottom: 0;
-        width: 6px;
-        background: linear-gradient(180deg, #c8a558 0%, #e6cf95 100%);
-    }
-    .playbook-banner::after {
-        content: "";
-        position: absolute;
-        top: -50%; left: -10%;
-        width: 400px; height: 400px;
-        background: radial-gradient(circle, rgba(200, 165, 88, 0.18) 0%, transparent 70%);
-        pointer-events: none;
-    }
-    .playbook-banner:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 48px rgba(10, 31, 68, 0.25);
-        border-color: #c8a558;
-    }
-    .playbook-banner-tag {
-        position: absolute;
-        top: 20px; left: 28px;
-        background: #c8a558;
-        color: #0a1f44;
-        padding: 6px 14px;
-        border-radius: 30px;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-        z-index: 2;
-    }
-    .playbook-banner-content {
-        position: relative;
-        z-index: 1;
-    }
-    .playbook-banner-content h2 {
-        font-size: 1.7rem;
-        font-weight: 800;
-        color: #c8a558;
-        margin-bottom: 12px;
-        line-height: 1.3;
-    }
-    .playbook-banner-content p {
-        color: rgba(255, 255, 255, 0.88);
-        font-size: 1rem;
-        line-height: 1.7;
-        margin: 0;
-    }
-    .playbook-banner-cta {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        position: relative;
-        z-index: 1;
-    }
-    .playbook-banner-btn {
-        background: #c8a558;
-        color: #0a1f44;
-        padding: 14px 28px;
-        border-radius: 8px;
-        font-weight: 700;
-        font-size: 1rem;
-        white-space: nowrap;
-        transition: all 0.25s;
-    }
-    .playbook-banner:hover .playbook-banner-btn {
-        background: #e6cf95;
-        transform: translateX(-4px);
-    }
-    .playbook-banner-meta {
-        font-size: 0.78rem;
-        color: rgba(255, 255, 255, 0.6);
-    }
-    @media (max-width: 768px) {
-        .playbook-banner {
-            grid-template-columns: 1fr;
-            padding: 60px 24px 28px;
-            gap: 20px;
-            text-align: center;
-        }
-        .playbook-banner-content h2 {
-            font-size: 1.35rem;
-        }
-        .playbook-banner-content p {
-            font-size: 0.95rem;
-        }
-        .playbook-banner-tag {
-            top: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    }
-    </style>
-
-    <!-- Problem -->
-    <section class="problem" id="problem" aria-label="הבעיה">
-        <div class="container">
-            <div class="problem-story dynamic-content" id="problem-content">
-                <!-- Populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution -->
-    <section class="solution" id="solution" aria-label="הפתרון">
-        <div class="container dynamic-content">
-            <div class="section-header">
-                <h2 id="solution-title"></h2>
-                <p id="solution-subtitle"></p>
-            </div>
-
-            <div class="intro-box">
-                <p id="solution-intro"></p>
-            </div>
-
-            <div class="comparison">
-                <div class="comparison-card negative">
-                    <h3 id="solution-negative-title"></h3>
-                    <ul id="solution-negative-list">
-                        <!-- Populated by JavaScript -->
-                    </ul>
-                </div>
-                <div class="comparison-card positive">
-                    <h3 id="solution-positive-title"></h3>
-                    <ul id="solution-positive-list">
-                        <!-- Populated by JavaScript -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process -->
-    <section class="process" id="process" aria-label="תהליך העבודה">
-        <div class="container dynamic-content">
-            <div class="section-header">
-                <h2 id="process-title"></h2>
-            </div>
-
-            <div class="process-steps" id="process-steps">
-                <!-- Populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Fit Section -->
-    <section class="fit" id="fit" aria-label="למי מתאים">
-        <div class="container dynamic-content">
-            <div class="section-header">
-                <h2 id="fit-title"></h2>
-            </div>
-
-            <div class="fit-grid">
-                <div class="fit-card positive">
-                    <h3><span class="icon-check">✓</span> <span id="fit-positive-title"></span></h3>
-                    <ul id="fit-positive-list">
-                        <!-- Populated by JavaScript -->
-                    </ul>
-                </div>
-                <div class="fit-card negative">
-                    <h3><span class="icon-x">✗</span> <span id="fit-negative-title"></span></h3>
-                    <ul id="fit-negative-list">
-                        <!-- Populated by JavaScript -->
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Section -->
-    <section class="why" aria-label="למה אנחנו">
-        <div class="container dynamic-content">
-            <div class="section-header">
-                <h2 id="why-title"></h2>
-            </div>
-
-            <div class="why-grid" id="why-cards">
-                <!-- Populated by JavaScript -->
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="contact" aria-label="יצירת קשר">
-        <div class="container">
-            <div class="cta-box dynamic-content">
-                <h2 id="cta-title"></h2>
-                <p id="cta-description"></p>
-                <div class="cta-benefits" id="cta-benefits">
-                    <!-- Populated by JavaScript -->
-                </div>
-                <p class="cta-closing" id="cta-closing"></p>
-                <a href="" class="btn btn-primary btn-large" id="cta-button"></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trifold Explanation -->
-    <section class="trifold" aria-label="מי אנחנו">
-        <div class="container">
-            <div class="trifold-content dynamic-content">
-                <h2 id="trifold-title"></h2>
-                <p id="trifold-intro"></p>
-                <div class="trifold-pillars" id="trifold-pillars">
-                    <!-- Populated by JavaScript -->
-                </div>
-                <p id="trifold-outro"></p>
-                <p class="trifold-tagline" id="trifold-tagline"></p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Accessibility Statement — hidden, opens as modal -->
-    <section class="a11y-statement" id="accessibility" style="display:none">
-        <div class="container">
-            <div class="a11y-statement-content">
-                <h2>הצהרת נגישות</h2>
-
-                <p>חברת TriFold Technologies מחויבת להנגשת האתר לאנשים עם מוגבלויות, ופועלת לשיפור חוויית השימוש עבור כלל המשתמשים. אנו שואפים לעמוד בדרישות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013, ובהתאם לתקן הישראלי (ת"י 5568) המבוסס על הנחיות WCAG 2.1 ברמה AA.</p>
-
-                <h3>התאמות הנגישות שבוצעו באתר</h3>
-                <ul>
-                    <li>קישור "דלג לתוכן הראשי" לניווט מהיר עבור משתמשי מקלדת וקוראי מסך</li>
-                    <li>תמיכה מלאה בכיוון טקסט RTL (ימין לשמאל) לקריאה נוחה בעברית</li>
-                    <li>מבנה סמנטי תקין עם כותרות היררכיות (H1-H4), אזורי ציון דרך (landmarks), ותגיות <span lang="en">ARIA</span> לניווט קל</li>
-                    <li>תמיכה מלאה בניווט באמצעות מקלדת בלבד, כולל סימון מיקוד נראה (<span lang="en">focus-visible</span>)</li>
-                    <li>תוסף נגישות מובנה המאפשר: הגדלת טקסט, ניגודיות גבוהה, גווני אפור, הדגשת קישורים, סמן גדול, הדגשת מיקוד, מרווח שורות ואותיות, ועצירת אנימציות</li>
-                    <li>תגיות <span lang="en">alt</span> לתמונות ו-<span lang="en">aria-label</span> לאלמנטים אינטראקטיביים</li>
-                    <li>ניגודיות צבעים מספקת בין טקסט לרקע (יחס 4.5:1 לפחות)</li>
-                    <li>עיצוב רספונסיבי המותאם לכל סוגי המכשירים, כולל תפריט מובייל נגיש</li>
-                    <li>סימון שפת טקסט באנגלית (<span lang="en">lang="en"</span>) עבור קוראי מסך</li>
-                    <li>אפשרות סגירת תפריט הנגישות באמצעות מקש <span lang="en">Escape</span></li>
-                    <li>שמירת העדפות נגישות בין ביקורים באתר</li>
-                    <li>הודעת <span lang="en">noscript</span> חלופית למשתמשים ללא <span lang="en">JavaScript</span></li>
-                </ul>
-
-                <h3>טכנולוגיות נגישות</h3>
-                <p>האתר נבנה תוך שימוש בתקני HTML5 סמנטי, CSS עם תמיכה ב-RTL, ותוסף נגישות מובנה שפותח בהתאמה לצרכי האתר. האתר תומך בדפדפנים המובילים: Chrome, Firefox, Safari ו-Edge.</p>
-
-                <h3>פנייה בנושא נגישות</h3>
-                <p>אם נתקלתם בבעיית נגישות באתר, או שיש לכם הצעות לשיפור הנגישות, אנא פנו אלינו:</p>
-
-                <div class="a11y-contact-box">
-                    <p><strong>רכז נגישות:</strong> איציק וודה</p>
-                    <p><strong>טלפון:</strong> <a href="tel:052-8544775">052-8544775</a></p>
-                    <p><strong>דוא"ל:</strong> <a href="mailto:contact@trifoldtechnologies.com">contact@trifoldtechnologies.com</a></p>
-                    <p>אנו מתחייבים לטפל בכל פנייה בנושא נגישות תוך 7 ימי עסקים.</p>
-                </div>
-
-                <p class="a11y-update-date">הצהרה זו עודכנה לאחרונה בתאריך: פברואר 2026</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Privacy Policy — hidden, opens as modal -->
-    <section class="legal-section" id="privacy" aria-label="מדיניות פרטיות" style="display:none">
-        <div class="container">
-            <div class="legal-content">
-                <h2>מדיניות פרטיות</h2>
-
-                <p>חברת <span lang="en">TriFold Technologies</span> (להלן: "החברה") מכבדת את פרטיותם של המשתמשים באתר <span lang="en">trifoldtechnologies.com</span> (להלן: "האתר"). מדיניות פרטיות זו מפרטת את האופן שבו החברה אוספת, משתמשת ומגינה על מידע אישי של המשתמשים, בהתאם לחוק הגנת הפרטיות, התשמ"א-1981 ותקנותיו.</p>
-
-                <h3>1. מידע שאנו אוספים</h3>
-                <p>האתר עשוי לאסוף את סוגי המידע הבאים:</p>
-                <ul>
-                    <li><strong>מידע שנמסר מרצון:</strong> שם, כתובת דוא"ל, מספר טלפון ופרטים נוספים שתמסרו בעת יצירת קשר דרך האתר או באמצעות <span lang="en">WhatsApp</span></li>
-                    <li><strong>מידע טכני:</strong> כתובת <span lang="en">IP</span>, סוג דפדפן, מערכת הפעלה, עמודים שנצפו ומשך ביקור – הנאסף באמצעות כלים אנליטיים</li>
-                    <li><strong>עוגיות (<span lang="en">Cookies</span>):</strong> האתר משתמש בעוגיות טכניות לצורך שמירת העדפות נגישות ותפקוד תקין של האתר</li>
-                </ul>
-
-                <h3>2. מטרות השימוש במידע</h3>
-                <p>המידע שנאסף ישמש אך ורק למטרות הבאות:</p>
-                <ul>
-                    <li>מענה לפניות ובקשות ליצירת קשר</li>
-                    <li>שיפור חוויית המשתמש באתר</li>
-                    <li>ניתוח סטטיסטי אנונימי של דפוסי גלישה</li>
-                    <li>עמידה בדרישות חוקיות ורגולטוריות</li>
-                </ul>
-
-                <h3>3. שיתוף מידע עם צדדים שלישיים</h3>
-                <p>החברה לא תמכור, תשכיר או תעביר מידע אישי לצדדים שלישיים, למעט במקרים הבאים:</p>
-                <ul>
-                    <li>ספקי שירות הפועלים מטעם החברה (כגון שירותי אחסון אתרים) המחויבים לשמירת סודיות</li>
-                    <li>כאשר נדרש על פי דין, צו בית משפט או דרישה של רשות מוסמכת</li>
-                    <li>במקרה של מחלוקת משפטית בין המשתמש לחברה</li>
-                </ul>
-
-                <h3>4. אבטחת מידע</h3>
-                <p>החברה נוקטת באמצעי אבטחה סבירים ומקובלים להגנה על המידע האישי, לרבות שימוש בפרוטוקול <span lang="en">HTTPS</span> מוצפן. עם זאת, אין אפשרות להבטיח הגנה מוחלטת מפני חדירות בלתי מורשות.</p>
-
-                <h3>5. זכויות המשתמש</h3>
-                <p>בהתאם לחוק הגנת הפרטיות, כל משתמש זכאי:</p>
-                <ul>
-                    <li>לעיין במידע אישי המוחזק אודותיו</li>
-                    <li>לבקש תיקון או מחיקה של מידע אישי</li>
-                    <li>להתנגד לשימוש במידע למטרות שיווק ישיר</li>
-                    <li>לבקש העברת המידע לגורם אחר</li>
-                </ul>
-                <p>לצורך מימוש זכויות אלה, ניתן לפנות אלינו בכתובת: <a href="mailto:contact@trifoldtechnologies.com">contact@trifoldtechnologies.com</a></p>
-
-                <h3>6. קישורים חיצוניים</h3>
-                <p>האתר עשוי לכלול קישורים לאתרים חיצוניים (כגון <span lang="en">WhatsApp</span>). החברה אינה אחראית למדיניות הפרטיות או לתוכן של אתרים אלה ומומלץ לעיין במדיניות הפרטיות שלהם בנפרד.</p>
-
-                <h3>7. שינויים במדיניות</h3>
-                <p>החברה שומרת לעצמה את הזכות לעדכן מדיניות פרטיות זו מעת לעת. שינויים מהותיים יפורסמו באתר. המשך השימוש באתר לאחר עדכון המדיניות מהווה הסכמה לשינויים.</p>
-
-                <h3>8. יצירת קשר</h3>
-                <p>לשאלות או בקשות בנושא פרטיות, ניתן לפנות אלינו:</p>
-                <p><strong>דוא"ל:</strong> <a href="mailto:contact@trifoldtechnologies.com">contact@trifoldtechnologies.com</a><br>
-                <strong>טלפון:</strong> <a href="tel:052-8544775">052-8544775</a></p>
-
-                <p class="legal-update-date">מדיניות זו עודכנה לאחרונה בתאריך: פברואר 2026</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Terms of Use — hidden, opens as modal -->
-    <section class="legal-section" id="terms" aria-label="תנאי שימוש" style="display:none">
-        <div class="container">
-            <div class="legal-content">
-                <h2>תנאי שימוש</h2>
-
-                <p>ברוכים הבאים לאתר <span lang="en">TriFold Technologies</span> (להלן: "האתר"). השימוש באתר כפוף לתנאי שימוש אלה. עצם הגלישה באתר מהווה הסכמה לתנאים המפורטים להלן. אם אינכם מסכימים לתנאים אלה, אנא הימנעו מהשימוש באתר.</p>
-
-                <h3>1. תיאור השירות</h3>
-                <p>האתר משמש כאתר תדמית ומידע עבור חברת <span lang="en">TriFold Technologies</span>, העוסקת בייעוץ ויישום פתרונות בינה מלאכותית (<span lang="en">AI</span>) לארגונים. האתר מספק מידע כללי על שירותי החברה ואמצעי ליצירת קשר.</p>
-
-                <h3>2. קניין רוחני</h3>
-                <p>כל התכנים באתר, לרבות טקסטים, עיצובים, לוגו, גרפיקה ותמונות, הם רכושה הבלעדי של החברה ומוגנים על פי חוקי זכויות יוצרים וקניין רוחני. אין להעתיק, לשכפל, להפיץ, לפרסם או לעשות שימוש מסחרי בתכני האתר ללא הסכמה מפורשת בכתב מהחברה.</p>
-
-                <h3>3. שימוש מותר</h3>
-                <p>השימוש באתר מותר למטרות אישיות ולא מסחריות בלבד. המשתמש מתחייב:</p>
-                <ul>
-                    <li>לא לעשות שימוש באתר לכל מטרה בלתי חוקית</li>
-                    <li>לא לנסות לחדור למערכות האתר או לפגוע בתפקודו</li>
-                    <li>לא להעביר תוכן פוגעני, מטעה או מפר זכויות צדדים שלישיים</li>
-                    <li>לא לאסוף מידע על משתמשים אחרים ללא הסכמתם</li>
-                </ul>
-
-                <h3>4. הגבלת אחריות</h3>
-                <p>המידע באתר מוגש "כפי שהוא" (<span lang="en">As Is</span>) ומיועד למטרות מידע כלליות בלבד. החברה אינה מתחייבת לדיוק, שלמות או עדכניות המידע באתר. החברה לא תישא באחריות לכל נזק ישיר או עקיף הנובע מהשימוש באתר או מחוסר היכולת להשתמש בו, לרבות:</p>
-                <ul>
-                    <li>נזקים הנובעים משגיאות או אי-דיוקים בתוכן</li>
-                    <li>הפסדים עסקיים או אובדן רווחים</li>
-                    <li>נזקים הנובעים מגישה בלתי מורשית לשרתי האתר</li>
-                    <li>נזקים הנובעים מווירוסים או קוד זדוני</li>
-                </ul>
-
-                <h3>5. קישורים לאתרים חיצוניים</h3>
-                <p>האתר עשוי לכלול קישורים לאתרים ושירותים של צדדים שלישיים (כגון <span lang="en">WhatsApp</span>). קישורים אלה מסופקים לנוחות המשתמש בלבד. החברה אינה אחראית לתוכנם, למדיניות הפרטיות שלהם או לזמינותם של אתרים חיצוניים.</p>
-
-                <h3>6. יצירת קשר ומסירת מידע</h3>
-                <p>בעת יצירת קשר עם החברה באמצעות האתר או <span lang="en">WhatsApp</span>, המשתמש מאשר כי המידע שנמסר הוא מדויק ונמסר מרצון חופשי. החברה תטפל בפניות בהתאם למדיניות הפרטיות שלה.</p>
-
-                <h3>7. שינויים בתנאי השימוש</h3>
-                <p>החברה שומרת לעצמה את הזכות לשנות את תנאי השימוש בכל עת וללא הודעה מוקדמת. המשך השימוש באתר לאחר עדכון התנאים מהווה הסכמה לשינויים.</p>
-
-                <h3>8. דין חל וסמכות שיפוט</h3>
-                <p>תנאי שימוש אלה כפופים לדיני מדינת ישראל בלבד. סמכות השיפוט הבלעדית בכל עניין הנובע מתנאים אלה או מהשימוש באתר תהיה לבתי המשפט המוסמכים בתל אביב-יפו.</p>
-
-                <h3>9. יצירת קשר</h3>
-                <p>לשאלות בנוגע לתנאי השימוש, ניתן לפנות אלינו:</p>
-                <p><strong>דוא"ל:</strong> <a href="mailto:contact@trifoldtechnologies.com">contact@trifoldtechnologies.com</a><br>
-                <strong>טלפון:</strong> <a href="tel:052-8544775">052-8544775</a></p>
-
-                <p class="legal-update-date">תנאים אלה עודכנו לאחרונה בתאריך: פברואר 2026</p>
-            </div>
-        </div>
-    </section>
-
-    </main><!-- end main-content -->
-
-    <!-- Footer -->
-    <footer role="contentinfo">
-        <div class="container">
-            <div class="footer-content dynamic-content">
-                <div class="footer-info">
-                    <h3 id="footer-name"></h3>
-                    <p class="tagline" id="footer-tagline"></p>
-                    <div class="footer-contact">
-                        <a href="" id="footer-phone"></a>
-                        <a href="" id="footer-email"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p id="footer-copyright"></p>
-                <p style="margin-top: 8px;"><a href="#accessibility" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem;">הצהרת נגישות</a> | <a href="#privacy" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem;">מדיניות פרטיות</a> | <a href="#terms" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem;">תנאי שימוש</a></p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Legal Modal Overlay -->
-    <div id="legal-modal-overlay" class="legal-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
-      <div class="legal-modal-box">
-        <button class="legal-modal-close" id="legal-modal-close-btn" aria-label="סגור">✕</button>
-        <div id="legal-modal-content"></div>
+  <div class="hero-figure">
+    <img class="photo" src="itzik-woda.jpg" alt="Itzik Woda, founder of TriFold Technologies" />
+    <div class="hero-card">
+      <div class="label">Still in production after 3 yrs</div>
+      <div class="big">2<small>× likely</small></div>
+      <div class="bars">
+        <span style="height:40%"></span><span style="height:66%"></span><span style="height:52%"></span><span style="height:88%"></span>
       </div>
     </div>
+  </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Load and render content
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const response = await fetch('content.json');
-                const content = await response.json();
-                renderContent(content);
-                document.body.classList.remove('loading');
-            } catch (error) {
-                console.error('Error loading content:', error);
-                // Fallback - show page anyway
-                document.body.classList.remove('loading');
-            }
+  <!-- floating glossy 3D-icon placeholders -->
+  <div class="float-ico" style="top:16%;left:16%;width:66px;height:66px;animation-delay:0s"><div class="ico-tile"><span></span></div></div>
+  <div class="float-ico" style="top:26%;right:15%;width:78px;height:78px;animation-delay:.15s"><div class="ico-tile"><span></span></div></div>
+  <div class="float-ico" style="top:58%;left:11%;width:58px;height:58px;animation-delay:.3s"><div class="ico-tile"><span></span></div></div>
+  <div class="float-ico" style="top:78%;right:6%;width:62px;height:62px;animation-delay:.22s"><div class="ico-tile"><span></span></div></div>
+</header>
 
-            // Hide legal sections and open them as modals from footer links
-            const legalOverlay = document.getElementById('legal-modal-overlay');
-            const legalContent = document.getElementById('legal-modal-content');
-            const legalCloseBtn = document.getElementById('legal-modal-close-btn');
+<!-- ── SOURCE BAR ─────────────────────────────────────────────── -->
+<div class="logobar">
+  <div class="lead">Grounded in 2026 research on where AI actually stalls</div>
+  <div class="logos">
+    <span>PwC — 29th Global CEO Survey</span>
+    <span>IBM — 2026 CEO Study</span>
+  </div>
+</div>
 
-            function openLegalModal(sectionId) {
-              const section = document.getElementById(sectionId);
-              if (!section) return;
-              const container = section.querySelector('.container');
-              const innerDiv = container ? container.children[0] : null;
-              if (innerDiv) legalContent.innerHTML = innerDiv.innerHTML;
-              legalOverlay.classList.add('active');
-              document.body.style.overflow = 'hidden';
-              legalCloseBtn.focus();
-            }
+<!-- ── THE GAP (four planes) ──────────────────────────────────── -->
+<section class="section reveal" id="gap">
+  <div class="section-head">
+    <span class="eyebrow">Where it stalls</span>
+    <h2>Four groups that rarely agree</h2>
+    <p>AI stalls in the space between the business, the data owners, IT, and whoever holds governance and risk. Each is doing its job. A pilot can ignore all of it. A production system cannot.</p>
+  </div>
+  <div class="wrap bento">
+    <article class="cell">
+      <div class="mockwrap"><div class="mock"><svg class="mock-line" viewBox="0 0 200 90"><polyline points="0,70 40,55 80,62 120,32 160,40 200,14" fill="none" stroke="var(--mint-deep)" stroke-width="3"/><circle cx="120" cy="32" r="5" fill="var(--mint-deep)"/><rect x="108" y="8" width="52" height="18" rx="5" fill="#141414"/></svg></div></div>
+      <div class="body"><div class="rule"></div><h3>The business</h3><p>Wants an outcome and a date — and will happily pick a use case the data underneath can't actually support.</p></div>
+    </article>
+    <article class="cell">
+      <div class="mockwrap"><div class="mock"><div class="mock-flow"><div class="row"><span class="dot"></span><span class="bar" style="width:44%"></span></div><div class="row on"><span class="dot"></span><span class="bar" style="width:62%"></span></div><div class="row"><span class="dot"></span><span class="bar" style="width:44%"></span></div></div></div></div>
+      <div class="body"><div class="rule"></div><h3>Data owners</h3><p>Know what the systems can support and what the data really looks like beneath the dashboard.</p></div>
+    </article>
+    <article class="cell">
+      <div class="mockwrap"><div class="mock"><div class="mock-avatars"><div class="stack"><span class="av"></span><span class="av on"></span><span class="av"></span><span class="av"></span></div><span class="cap"></span></div></div></div>
+      <div class="body"><div class="rule"></div><h3>IT</h3><p>Won't put a model anywhere near production without security answers no one has written down yet.</p></div>
+    </article>
+    <article class="cell">
+      <div class="mockwrap"><div class="mock"><div class="mock-chart"><span class="col" style="height:40%"></span><span class="col" style="height:62%"></span><span class="col" style="height:48%"></span><span class="col" style="height:80%"></span><span class="col" style="height:58%"></span><span class="col on" style="height:92%"></span></div></div></div>
+      <div class="body"><div class="rule"></div><h3>Governance &amp; risk</h3><p>Knows what you're allowed to do with the data — and what happens if a model gets it wrong.</p></div>
+    </article>
+  </div>
+</section>
 
-            function closeLegalModal() {
-              legalOverlay.classList.remove('active');
-              document.body.style.overflow = '';
-            }
+<!-- ── THE WORK (three parts) ─────────────────────────────────── -->
+<section class="section section--tight-top reveal" id="work">
+  <div class="section-head">
+    <span class="eyebrow">The work</span>
+    <h2>Three parts, most of it unglamorous</h2>
+  </div>
+  <div class="wrap steps">
+    <article class="step">
+      <div class="panel"><span>(01)</span></div>
+      <div><h3>Diagnose</h3><p>Sit with each function and find the two or three places where AI changes the output and all four planes can realistically agree.</p></div>
+    </article>
+    <article class="step">
+      <div class="panel"><span>(02)</span></div>
+      <div><h3>Align</h3><p>Define the AI-assisted workflow, the human review steps, the data the model may see, the guardrails — and who owns the result.</p></div>
+    </article>
+    <article class="step">
+      <div class="panel"><span>(03)</span></div>
+      <div><h3>Measure</h3><p>Own the metrics — time saved, output quality, error rates, cost per unit — and keep re-checking as the models change.</p></div>
+    </article>
+  </div>
+</section>
 
-            legalCloseBtn.addEventListener('click', closeLegalModal);
-            legalOverlay.addEventListener('click', (e) => { if (e.target === legalOverlay) closeLegalModal(); });
-            document.addEventListener('keydown', (e) => {
-              if (e.key === 'Escape' && legalOverlay.classList.contains('active')) closeLegalModal();
-            });
-
-            document.querySelectorAll('.footer-bottom a[href="#accessibility"], .footer-bottom a[href="#privacy"], .footer-bottom a[href="#terms"]')
-              .forEach(link => {
-                link.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  openLegalModal(link.getAttribute('href').replace('#', ''));
-                });
-              });
-        });
-
-        function renderContent(content) {
-            // Meta
-            if (content.meta) {
-                document.getElementById('page-title').textContent = content.meta.title;
-                document.getElementById('page-description').setAttribute('content', content.meta.description);
-            }
-
-            // Header
-            if (content.header) {
-                if (content.header.nav) {
-                    setText('nav-problem', content.header.nav.problem);
-                    setText('nav-solution', content.header.nav.solution);
-                    setText('nav-process', content.header.nav.process);
-                    setText('nav-fit', content.header.nav.fit);
-                    // Preserve lang and sr-only spans for accessibility
-                    var navCta = document.getElementById('nav-cta');
-                    if (navCta && content.header.nav.cta) {
-                        navCta.innerHTML = '<span lang="en">' + escapeHtml(content.header.nav.cta) + '</span> <span class="sr-only">(נפתח בחלון חדש)</span>';
-                    }
-                }
-            }
-
-            // Hero
-            if (content.hero) {
-                setHtml('hero-title', formatText(content.hero.title));
-                setText('hero-subtitle', content.hero.subtitle);
-                setText('hero-cta-primary', content.hero.ctaPrimary);
-                setText('hero-cta-secondary', content.hero.ctaSecondary);
-            }
-
-            // Problem
-            if (content.problem) {
-                const problemContent = document.getElementById('problem-content');
-                let html = '';
-                content.problem.paragraphs.forEach(p => {
-                    html += `<p>${escapeHtml(p)}</p>`;
-                });
-                html += `<p class="highlight">${escapeHtml(content.problem.highlight)}</p>`;
-                problemContent.innerHTML = html;
-            }
-
-            // Solution
-            if (content.solution) {
-                setText('solution-title', content.solution.title);
-                setText('solution-subtitle', content.solution.subtitle);
-                setHtml('solution-intro', `<strong>${content.solution.intro.split(' - ')[0]}</strong> - ${content.solution.intro.split(' - ')[1] || ''}`);
-
-                setText('solution-negative-title', content.solution.negative.title);
-                renderList('solution-negative-list', content.solution.negative.items, 'x');
-
-                setText('solution-positive-title', content.solution.positive.title);
-                renderList('solution-positive-list', content.solution.positive.items, 'check');
-            }
-
-            // Process
-            if (content.process) {
-                setText('process-title', content.process.title);
-                renderProcessSteps(content.process.steps);
-            }
-
-            // Fit
-            if (content.fit) {
-                setText('fit-title', content.fit.title);
-                setText('fit-positive-title', content.fit.positive.title);
-                renderSimpleList('fit-positive-list', content.fit.positive.items);
-                setText('fit-negative-title', content.fit.negative.title);
-                renderSimpleList('fit-negative-list', content.fit.negative.items);
-            }
-
-            // Why
-            if (content.why) {
-                setText('why-title', content.why.title);
-                renderWhyCards(content.why.cards);
-            }
-
-            // CTA
-            if (content.cta) {
-                setText('cta-title', content.cta.title);
-                setHtml('cta-description', formatText(content.cta.description));
-                renderCtaBenefits(content.cta.benefits);
-                setHtml('cta-closing', formatText(content.cta.closing));
-                setText('cta-button', content.cta.button);
-
-                // Set WhatsApp link
-                document.getElementById('cta-button').href = 'https://wa.me/972528544775?text=בוא נדבר';
-                document.getElementById('cta-button').target = '_blank';
-                document.getElementById('cta-button').rel = 'noopener noreferrer';
-            }
-
-            // Trifold
-            if (content.trifold) {
-                setText('trifold-title', content.trifold.title);
-                setText('trifold-intro', content.trifold.intro);
-                renderTrifoldPillars(content.trifold.pillars);
-                setText('trifold-outro', content.trifold.outro);
-                setText('trifold-tagline', content.trifold.tagline);
-            }
-
-            // Footer
-            if (content.footer) {
-                setText('footer-name', content.footer.name);
-                setText('footer-tagline', content.footer.tagline);
-
-                const phoneEl = document.getElementById('footer-phone');
-                phoneEl.href = `tel:${content.footer.phone}`;
-                phoneEl.innerHTML = `📱 ${content.footer.phone}`;
-
-                const emailEl = document.getElementById('footer-email');
-                emailEl.href = `mailto:${content.footer.email}`;
-                emailEl.innerHTML = `✉️ ${content.footer.email}`;
-
-                setText('footer-copyright', content.footer.copyright);
-            }
-        }
-
-        // Helper functions
-        function setText(id, text) {
-            const el = document.getElementById(id);
-            if (el && text) el.textContent = text;
-        }
-
-        function setHtml(id, html) {
-            const el = document.getElementById(id);
-            if (el && html) el.innerHTML = html;
-        }
-
-        function formatText(text) {
-            if (!text) return '';
-            return escapeHtml(text).replace(/\n/g, '<br>');
-        }
-
-        function escapeHtml(text) {
-            if (!text) return '';
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        function renderList(containerId, items, iconType) {
-            const container = document.getElementById(containerId);
-            if (!container || !items) return;
-
-            const iconClass = iconType === 'x' ? 'icon-x' : 'icon-check';
-            const iconChar = iconType === 'x' ? '✗' : '✓';
-
-            container.innerHTML = items.map(item =>
-                `<li><span class="${iconClass}">${iconChar}</span> ${escapeHtml(item)}</li>`
-            ).join('');
-        }
-
-        function renderSimpleList(containerId, items) {
-            const container = document.getElementById(containerId);
-            if (!container || !items) return;
-
-            container.innerHTML = items.map(item =>
-                `<li>${escapeHtml(item)}</li>`
-            ).join('');
-        }
-
-        function renderProcessSteps(steps) {
-            const container = document.getElementById('process-steps');
-            if (!container || !steps) return;
-
-            container.innerHTML = steps.map((step, index) => {
-                const descParts = step.description.split('\n\n');
-                const descHtml = descParts.map(p => `<p>${escapeHtml(p)}</p>`).join('');
-                const itemsHtml = step.items.map(item => `<li>${escapeHtml(item)}</li>`).join('');
-                const resultHtml = step.result ? `<div class="step-result">${escapeHtml(step.result)}</div>` : '';
-
-                return `
-                    <div class="step">
-                        <div class="step-number">${index + 1}</div>
-                        <div class="step-content">
-                            <h3>${escapeHtml(step.title)}</h3>
-                            <p class="step-subtitle">${escapeHtml(step.subtitle)}</p>
-                            ${descHtml}
-                            <ul>${itemsHtml}</ul>
-                            ${resultHtml}
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function renderWhyCards(cards) {
-            const container = document.getElementById('why-cards');
-            if (!container || !cards) return;
-
-            container.innerHTML = cards.map(card => `
-                <div class="why-card">
-                    <h3>${escapeHtml(card.title)}</h3>
-                    <p>${escapeHtml(card.description)}</p>
-                </div>
-            `).join('');
-        }
-
-        function renderCtaBenefits(benefits) {
-            const container = document.getElementById('cta-benefits');
-            if (!container || !benefits) return;
-
-            container.innerHTML = benefits.map(benefit => `
-                <div class="cta-benefit">
-                    <span class="icon-check">✓</span>
-                    ${escapeHtml(benefit)}
-                </div>
-            `).join('');
-        }
-
-        function renderTrifoldPillars(pillars) {
-            const container = document.getElementById('trifold-pillars');
-            if (!container || !pillars) return;
-
-            container.innerHTML = pillars.map(pillar => `
-                <div class="pillar">
-                    <h4>${escapeHtml(pillar.title)}</h4>
-                    <p>${escapeHtml(pillar.description)}</p>
-                </div>
-            `).join('');
-        }
-
-        // Mobile menu toggle
-        (function() {
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            const nav = document.getElementById('main-nav');
-            if (menuBtn && nav) {
-                menuBtn.addEventListener('click', function() {
-                    const isOpen = nav.classList.toggle('mobile-open');
-                    menuBtn.setAttribute('aria-expanded', isOpen);
-                    menuBtn.setAttribute('aria-label', isOpen ? 'סגירת תפריט ניווט' : 'פתיחת תפריט ניווט');
-                    menuBtn.textContent = isOpen ? '✕' : '☰';
-                });
-                // Close mobile menu when a nav link is clicked
-                nav.querySelectorAll('a').forEach(function(link) {
-                    link.addEventListener('click', function() {
-                        nav.classList.remove('mobile-open');
-                        menuBtn.setAttribute('aria-expanded', 'false');
-                        menuBtn.setAttribute('aria-label', 'פתיחת תפריט ניווט');
-                        menuBtn.textContent = '☰';
-                    });
-                });
-            }
-        })();
-    </script>
-
-    <!-- Accessibility Widget -->
-    <button class="a11y-trigger" id="a11yTrigger" aria-label="תפריט נגישות" title="נגישות">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.5 8.5L16 22h-2.5l-1.5-4-1.5 4H8l2.5-4.5L9 9H3V7h18v2z"/></svg>
-    </button>
-
-    <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="הגדרות נגישות">
-        <div class="a11y-panel-header">
-            <h3>♿ נגישות</h3>
-            <button class="a11y-panel-close" id="a11yClose" aria-label="סגור תפריט נגישות">✕</button>
-        </div>
-        <div class="a11y-panel-body">
-            <button class="a11y-btn" data-a11y="font-up"><span class="a11y-icon">🔤</span>הגדלת טקסט</button>
-            <button class="a11y-btn" data-a11y="high-contrast"><span class="a11y-icon">◑</span>ניגודיות גבוהה</button>
-            <button class="a11y-btn" data-a11y="grayscale"><span class="a11y-icon">🌑</span>גווני אפור</button>
-            <button class="a11y-btn" data-a11y="links-underline"><span class="a11y-icon">🔗</span>הדגשת קישורים</button>
-            <button class="a11y-btn" data-a11y="big-cursor"><span class="a11y-icon">🖱️</span>סמן גדול</button>
-            <button class="a11y-btn" data-a11y="highlight-focus"><span class="a11y-icon">🎯</span>הדגשת מיקוד</button>
-            <button class="a11y-btn" data-a11y="line-height"><span class="a11y-icon">↕️</span>מרווח שורות</button>
-            <button class="a11y-btn" data-a11y="letter-spacing"><span class="a11y-icon">↔️</span>מרווח אותיות</button>
-            <button class="a11y-btn" data-a11y="stop-animations"><span class="a11y-icon">⏸️</span>עצירת אנימציות</button>
-            <button class="a11y-reset" id="a11yReset">🔄 איפוס הגדרות נגישות</button>
-        </div>
+<!-- ── WHY NOT THE CIO (accordion + stat) ─────────────────────── -->
+<section class="section reveal">
+  <div class="section-head">
+    <span class="eyebrow">Why not the CIO</span>
+    <h2>The platform can't close it alone</h2>
+  </div>
+  <div class="wrap gov-grid">
+    <div class="accordion" id="accordion">
+      <div class="acc-item open">
+        <span class="rail"></span>
+        <button class="acc-btn"><span class="t">A capable CIO owns the technical side</span><span class="acc-plus"><i data-lucide="plus" style="width:14px;height:14px"></i></span></button>
+        <div class="acc-panel"><div><p>Infrastructure, integrations, security posture, the data platforms it runs on. That work is real, and it's solvable.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <span class="rail"></span>
+        <button class="acc-btn"><span class="t">But the mandate stops there</span><span class="acc-plus"><i data-lucide="plus" style="width:14px;height:14px"></i></span></button>
+        <div class="acc-panel"><div><p>The CIO can't change how finance builds its reports, how operations runs its day, or what a regulated function decides to automate. Those teams don't report to them.</p></div></div>
+      </div>
+      <div class="acc-item">
+        <span class="rail"></span>
+        <button class="acc-btn"><span class="t">And the vendor only sells capability</span><span class="acc-plus"><i data-lucide="plus" style="width:14px;height:14px"></i></span></button>
+        <div class="acc-panel"><div><p>A platform vendor won't sit with your compliance lead to decide which of your processes an agent is permitted to touch. That's not what a licence buys.</p></div></div>
+      </div>
     </div>
+    <div class="stat-card">
+      <div class="cap">Organizations with a Chief AI Officer</div>
+      <div class="num">76<small>%</small></div>
+      <div class="sub">up from 26% a year earlier — IBM 2026 CEO Study</div>
+      <div class="chartbox"><div class="mock"><div class="mock-chart"><span class="col" style="height:26%"></span><span class="col" style="height:44%"></span><span class="col" style="height:52%"></span><span class="col" style="height:64%"></span><span class="col" style="height:76%"></span><span class="col on" style="height:92%"></span></div></div></div>
+    </div>
+  </div>
+</section>
 
-    <script>
-    (function() {
-        const trigger = document.getElementById('a11yTrigger');
-        const panel = document.getElementById('a11yPanel');
-        const closeBtn = document.getElementById('a11yClose');
-        const resetBtn = document.getElementById('a11yReset');
-        const STORAGE_KEY = 'trifold_a11y';
+<!-- ── STATS ──────────────────────────────────────────────────── -->
+<section class="section section--tight-top reveal">
+  <div class="wrap stats">
+    <div class="stat"><div class="v">1&thinsp;in&thinsp;8</div><div class="l">CEOs report AI delivered both lower cost and higher revenue (PwC, 2026)</div></div>
+    <div class="stat"><div class="v">76<sup>%</sup></div><div class="l">of organizations now have a Chief AI Officer, up from 26%</div></div>
+    <div class="stat"><div class="v">2<sup>×</sup></div><div class="l">more likely to still be in production after three years, under a CAIO</div></div>
+    <div class="stat"><div class="v">44<sup>%</sup></div><div class="l">of prototypes reach full production, up from 36% (IBM)</div></div>
+  </div>
+</section>
 
-        let fontLevel = 0; // 0=normal, 1=large, 2=xlarge
+<!-- ── FROM THE ESSAY (pull-quotes) ───────────────────────────── -->
+<section class="section section--tight-top reveal">
+  <div class="section-head">
+    <span class="eyebrow">In practice</span>
+    <h2>The argument, in a few lines</h2>
+  </div>
+  <div class="wrap quotes">
+    <div class="quote"><p>None of these are technology failures. They're alignment failures — and they show up as a stalled project.</p><div class="who"><div class="a">On the gap</div><div class="r">Where AI stalls</div></div></div>
+    <div class="quote"><p>Adoption is not a motivation problem. It's four functions that have never agreed on what the AI-assisted work looks like.</p><div class="who"><div class="a">On adoption</div><div class="r">Why "just use AI" fails</div></div></div>
+    <div class="portrait">
+      <img src="itzik-woda.jpg" alt="Itzik Woda, TriFold Technologies" />
+      <div class="tag"><div class="a">Itzik Woda</div><div class="r">TriFold Technologies</div></div>
+    </div>
+    <div class="quote"><p>A use case the business loves but the data can't feed is not an opportunity. It's a future stalled project.</p><div class="who"><div class="a">On use cases</div><div class="r">Choosing the real ones</div></div></div>
+    <div class="quote"><p>Closing the gap needs someone with the standing to get finance, operations, IT, data, and governance to agree.</p><div class="who"><div class="a">On the mandate</div><div class="r">It isn't an infra job</div></div></div>
+    <div class="quote"><p>The goal isn't to stay indispensable. It's to stay useful — keeping the four planes aligned as everything changes.</p><div class="who"><div class="a">On staying useful</div><div class="r">Why fractional lasts</div></div></div>
+  </div>
+</section>
 
-        // Load saved preferences
-        function loadPrefs() {
-            try {
-                const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-                if (saved.fontLevel) { fontLevel = saved.fontLevel; applyFontLevel(); }
-                if (saved.toggles) {
-                    saved.toggles.forEach(function(key) {
-                        document.body.classList.add('a11y-' + key);
-                        const btn = document.querySelector('[data-a11y="' + key + '"]');
-                        if (btn) btn.classList.add('active');
-                    });
-                }
-            } catch(e) {}
-        }
+<!-- ── ENGAGEMENTS ────────────────────────────────────────────── -->
+<section class="section reveal" id="engagements">
+  <div class="section-head">
+    <span class="eyebrow">Engagements</span>
+    <h2>Start small, scale with the work</h2>
+    <p>Executive ownership at the level you need now — and it grows as you mature. No full-time hire before the business case exists.</p>
+  </div>
+  <div class="plans">
+    <article class="plan">
+      <div class="name">Diagnostic</div>
+      <div class="price"><span class="amt">Fixed scope</span></div>
+      <p class="desc">A short engagement that names exactly where the alignment breaks.</p>
+      <div class="divide"></div>
+      <ul>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Interviews across all four planes</span></li>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>A map of where AI actually stalls</span></li>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Two or three use cases that can ship</span></li>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>A clear go / no-go on each</span></li>
+      </ul>
+      <a class="pill pill--dark pill--block pill--md" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Diagnostic%20call">Book a diagnostic call</a>
+    </article>
+    <article class="plan rec">
+      <div class="name">Fractional CAIO</div>
+      <div class="price"><span class="amt">Monthly</span><span class="per">retainer</span></div>
+      <p class="desc">Ongoing executive ownership across strategy, governance, and delivery.</p>
+      <div class="divide"></div>
+      <ul>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Everything in the diagnostic</span></li>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Operating model &amp; guardrails per use case</span></li>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Business, data, IT &amp; governance kept aligned</span></li>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Board-ready measurement</span></li>
+      </ul>
+      <a class="pill pill--outline pill--block pill--md" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Fractional%20CAIO%20engagement">Start here</a>
+    </article>
+    <article class="plan">
+      <div class="name">Scale</div>
+      <div class="price"><span class="amt">Custom</span></div>
+      <p class="desc">As the program matures — new models, new regs, new leaders — the planes stay aligned.</p>
+      <div class="divide"></div>
+      <ul>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Model &amp; use-case map kept current</span></li>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Build-vs-buy and new-model calls</span></li>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Responsible-AI framework upkeep</span></li>
+        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>On call as you grow</span></li>
+      </ul>
+      <a class="pill pill--dark pill--block pill--md" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Scaling%20the%20AI%20program">Let's talk</a>
+    </article>
+  </div>
+</section>
 
-        function savePrefs() {
-            const toggles = [];
-            document.querySelectorAll('.a11y-btn.active').forEach(function(btn) {
-                const key = btn.dataset.a11y;
-                if (key && key !== 'font-up') toggles.push(key);
-            });
-            localStorage.setItem(STORAGE_KEY, JSON.stringify({ fontLevel: fontLevel, toggles: toggles }));
-        }
+<!-- ── FAQ ────────────────────────────────────────────────────── -->
+<section class="section section--tight-top reveal" id="faq">
+  <div class="section-head">
+    <span class="eyebrow">FAQ</span>
+    <h2>Questions, answered</h2>
+  </div>
+  <div class="faq" id="faqlist">
+    <div class="faq-item">
+      <button class="faq-btn"><span class="n">01</span><span class="q">What does a fractional CAIO actually do, day to day?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
+      <div class="faq-panel"><div><p>Three things: keep the AI use-case map and model choices current; oversee deployments and responsible-AI review; and get business, data, IT, and governance to agree on specific use cases — then own whether adoption turns into measurable output. Most organizations underestimate that third part.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn"><span class="n">02</span><span class="q">How is this different from an AI consultant who builds tools?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
+      <div class="faq-panel"><div><p>A consultant builds something and leaves when the scope is done. A fractional CAIO owns the outcome over time — whether the thing gets used, whether it produces the business result, and whether it keeps its value as the organization and the models change. That needs a seat at leadership meetings and standing relationships across functions.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn"><span class="n">03</span><span class="q">When do we need a CAIO instead of just giving AI to the CIO?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
+      <div class="faq-panel"><div><p>When the block is alignment, not infrastructure. If the tools are in place and almost no one uses them consistently, that's a business and governance problem. A CIO owns the systems and infrastructure well; getting finance, operations, and a regulated function to agree on how AI changes their work sits outside that mandate.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn"><span class="n">04</span><span class="q">The tools are already bought — why is nothing changing?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
+      <div class="faq-panel"><div><p>Because adoption isn't a motivation problem. It's four functions that have never sat in one room and agreed on what the AI-assisted version of the work looks like, who owns it, and what the guardrails are. Buying a better platform rarely helps, because the thing that stalled was never the technology.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn"><span class="n">05</span><span class="q">Why fractional instead of a full-time Chief AI Officer?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
+      <div class="faq-panel"><div><p>Hiring a full-time CAIO before the business case exists usually creates more problems than it solves — the role turns theoretical and the budget scatters across pilots that never consolidate. Fractional gives you executive ownership at the level you need now, and it scales as you mature.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-btn"><span class="n">06</span><span class="q">Isn't the best consultant one who makes himself unnecessary?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
+      <div class="faq-panel"><div><p>It sounds right and it rarely fits how organizations actually move. Strategy shifts, leaders change, regulations move, the models improve, the data grows. The value isn't disappearing after the first win — it's staying close enough to keep the four planes aligned as all of that changes. The goal isn't to stay indispensable; it's to stay useful.</p></div></div>
+    </div>
+  </div>
+</section>
 
-        function applyFontLevel() {
-            document.body.classList.remove('a11y-large-text', 'a11y-xlarge-text');
-            var btn = document.querySelector('[data-a11y="font-up"]');
-            if (fontLevel === 1) { document.body.classList.add('a11y-large-text'); if (btn) btn.classList.add('active'); }
-            else if (fontLevel >= 2) { document.body.classList.add('a11y-xlarge-text'); if (btn) btn.classList.add('active'); }
-            else { if (btn) btn.classList.remove('active'); }
-        }
+</main>
 
-        // Toggle panel
-        trigger.addEventListener('click', function() {
-            var isOpen = panel.classList.toggle('open');
-            trigger.setAttribute('aria-expanded', isOpen);
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="wrap footer-top">
+    <div class="about">
+      <a href="#top" class="brand">TriFold<span class="dot">.</span></a>
+      <p>Fractional CAIO services — closing the alignment gap between the business, data and IT, and governance, so AI reaches production and stays there.</p>
+    </div>
+    <div class="footer-cols">
+      <div class="col">
+        <span class="h">Company</span>
+        <a href="#top">About</a>
+        <a href="/ai-strategy-playbook/">AI Strategy Playbook</a>
+        <a href="/accessibility.html">Accessibility · נגישות</a>
+        <a href="mailto:itzik.woda@trifoldtechnologies.com">Contact</a>
+      </div>
+      <div class="col">
+        <span class="h">Engagements</span>
+        <a href="#work">Diagnostic</a>
+        <a href="#gap">Governance</a>
+        <a href="#engagements">Delivery</a>
+      </div>
+      <div class="col">
+        <span class="h">Itzik Woda</span>
+        <a href="tel:+972528544775">052-8544775</a>
+        <a href="mailto:itzik.woda@trifoldtechnologies.com">itzik.woda@trifoldtechnologies.com</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-cta">
+    <div class="line"></div>
+    <a class="pill pill--primary pill--lg" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Diagnostic%20call">Book a diagnostic call</a>
+    <div class="line"></div>
+  </div>
+  <div class="wrap footer-legal">
+    <span>© 2026 TriFold Technologies</span>
+    <span class="links"><a href="/accessibility.html">Accessibility</a><a href="#top">Privacy</a><a href="#top">Terms</a></span>
+  </div>
+  <div aria-hidden="true" class="footer-word">TriFold&nbsp;AI</div>
+</footer>
+
+<script>
+(function () {
+  var uid = 0;
+
+  /* Accordion (single-open) — Governance + FAQ share the same toggle logic.
+     Wires WCAG 4.1.2 state: aria-expanded on the trigger, aria-controls -> panel,
+     and a labelled region so screen readers announce open/closed. */
+  function wireAccordion(scopeSel, itemSel, panelSel, groupLabel) {
+    var scope = document.querySelector(scopeSel);
+    if (!scope) return;
+    var items = Array.prototype.slice.call(scope.querySelectorAll(itemSel));
+    scope.setAttribute('role', 'region');
+    scope.setAttribute('aria-label', groupLabel);
+    items.forEach(function (item) {
+      var btn = item.querySelector('button');
+      var panel = item.querySelector(panelSel);
+      var pid = 'acc-panel-' + (++uid);
+      panel.id = pid;
+      panel.setAttribute('role', 'region');
+      btn.setAttribute('aria-controls', pid);
+      var open = item.classList.contains('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.addEventListener('click', function () {
+        var wasOpen = item.classList.contains('open');
+        items.forEach(function (i) {
+          i.classList.remove('open');
+          i.querySelector('button').setAttribute('aria-expanded', 'false');
         });
-        closeBtn.addEventListener('click', function() {
-            panel.classList.remove('open');
-            trigger.setAttribute('aria-expanded', 'false');
+        if (!wasOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+      });
+    });
+  }
+  wireAccordion('#accordion', '.acc-item', '.acc-panel', 'Why the CIO and the platform can’t close it alone');
+  wireAccordion('#faqlist', '.faq-item', '.faq-panel', 'Frequently asked questions');
+
+  /* Nav active state — click + scroll spy, mirrored into aria-current */
+  var links = Array.prototype.slice.call(document.querySelectorAll('#navlinks a'));
+  function setActive(el) {
+    links.forEach(function (l) { l.classList.remove('active'); l.removeAttribute('aria-current'); });
+    if (el) { el.classList.add('active'); el.setAttribute('aria-current', 'page'); }
+  }
+  links.forEach(function (a) { a.addEventListener('click', function () { setActive(a); }); });
+  var sections = links.map(function (a) {
+    var href = a.getAttribute('href');
+    // Only in-page (#…) links participate in scroll-spy; external links (e.g. the
+    // Playbook) return null so querySelector never gets a full URL and throws.
+    return href && href.charAt(0) === '#' ? document.querySelector(href) : null;
+  });
+  var spy = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var i = sections.indexOf(e.target);
+      if (i >= 0) setActive(links[i]);
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(function (s) { if (s) spy.observe(s); });
+
+  /* Reveal-on-scroll (respect reduced-motion: reveal immediately) */
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var reveal = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function (el) { reveal.observe(el); });
+  }
+
+  /* Hide purely-decorative graphics from assistive tech (WCAG 1.1.1) */
+  document.querySelectorAll('.float-ico, .mockwrap, .chartbox, .hero-card .bars, .step .panel span')
+    .forEach(function (el) { el.setAttribute('aria-hidden', 'true'); });
+
+  /* Lucide glyphs — render, then mark the decorative SVGs hidden + unfocusable */
+  if (window.lucide) window.lucide.createIcons();
+  document.querySelectorAll('svg.lucide, [data-lucide]').forEach(function (svg) {
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+  });
+})();
+</script>
+
+<!-- ── Accessibility widget (self-contained; copied & re-skinned from trifoldtechnologies.com) ── -->
+<button class="a11y-trigger" id="a11yTrigger" aria-label="תפריט נגישות · Accessibility menu" title="נגישות" aria-expanded="false" aria-controls="a11yPanel" aria-haspopup="dialog">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.5 8.5L16 22h-2.5l-1.5-4-1.5 4H8l2.5-4.5L9 9H3V7h18v2z"/></svg>
+</button>
+<div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="הגדרות נגישות">
+  <div class="a11y-panel-header">
+    <h3>♿ נגישות</h3>
+    <button class="a11y-panel-close" id="a11yClose" aria-label="סגור תפריט נגישות">✕</button>
+  </div>
+  <div class="a11y-panel-body">
+    <button class="a11y-btn" data-a11y="font-up"><span class="a11y-icon" aria-hidden="true">🔤</span>הגדלת טקסט</button>
+    <button class="a11y-btn" data-a11y="high-contrast"><span class="a11y-icon" aria-hidden="true">◑</span>ניגודיות גבוהה</button>
+    <button class="a11y-btn" data-a11y="grayscale"><span class="a11y-icon" aria-hidden="true">🌑</span>גווני אפור</button>
+    <button class="a11y-btn" data-a11y="links-underline"><span class="a11y-icon" aria-hidden="true">🔗</span>הדגשת קישורים</button>
+    <button class="a11y-btn" data-a11y="big-cursor"><span class="a11y-icon" aria-hidden="true">🖱️</span>סמן גדול</button>
+    <button class="a11y-btn" data-a11y="highlight-focus"><span class="a11y-icon" aria-hidden="true">🎯</span>הדגשת מיקוד</button>
+    <button class="a11y-btn" data-a11y="line-height"><span class="a11y-icon" aria-hidden="true">↕️</span>מרווח שורות</button>
+    <button class="a11y-btn" data-a11y="letter-spacing"><span class="a11y-icon" aria-hidden="true">↔️</span>מרווח אותיות</button>
+    <button class="a11y-btn" data-a11y="stop-animations"><span class="a11y-icon" aria-hidden="true">⏸️</span>עצירת אנימציות</button>
+    <button class="a11y-reset" id="a11yReset">🔄 איפוס הגדרות נגישות</button>
+  </div>
+</div>
+<script>
+(function() {
+  const trigger = document.getElementById('a11yTrigger');
+  const panel = document.getElementById('a11yPanel');
+  const closeBtn = document.getElementById('a11yClose');
+  const resetBtn = document.getElementById('a11yReset');
+  const STORAGE_KEY = 'trifold_a11y';
+  let fontLevel = 0; // 0=normal, 1=large, 2=xlarge
+
+  function loadPrefs() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      if (saved.fontLevel) { fontLevel = saved.fontLevel; applyFontLevel(); }
+      if (saved.toggles) {
+        saved.toggles.forEach(function(key) {
+          document.body.classList.add('a11y-' + key);
+          const btn = document.querySelector('[data-a11y="' + key + '"]');
+          if (btn) btn.classList.add('active');
         });
+      }
+    } catch(e) {}
+  }
+  function savePrefs() {
+    const toggles = [];
+    document.querySelectorAll('.a11y-btn.active').forEach(function(btn) {
+      const key = btn.dataset.a11y;
+      if (key && key !== 'font-up') toggles.push(key);
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ fontLevel: fontLevel, toggles: toggles }));
+  }
+  function applyFontLevel() {
+    document.body.classList.remove('a11y-large-text', 'a11y-xlarge-text');
+    var btn = document.querySelector('[data-a11y="font-up"]');
+    if (fontLevel === 1) { document.body.classList.add('a11y-large-text'); if (btn) btn.classList.add('active'); }
+    else if (fontLevel >= 2) { document.body.classList.add('a11y-xlarge-text'); if (btn) btn.classList.add('active'); }
+    else { if (btn) btn.classList.remove('active'); }
+  }
 
-        // Close on click outside
-        document.addEventListener('click', function(e) {
-            if (!panel.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
-                panel.classList.remove('open');
-                trigger.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        // Close on Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && panel.classList.contains('open')) {
-                panel.classList.remove('open');
-                trigger.focus();
-            }
-        });
-
-        // Handle button clicks
-        document.querySelectorAll('.a11y-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var key = btn.dataset.a11y;
-                if (key === 'font-up') {
-                    fontLevel = (fontLevel + 1) % 3;
-                    applyFontLevel();
-                } else {
-                    btn.classList.toggle('active');
-                    document.body.classList.toggle('a11y-' + key);
-                }
-                savePrefs();
-            });
-        });
-
-        // Reset
-        resetBtn.addEventListener('click', function() {
-            fontLevel = 0;
-            document.body.className = document.body.className.split(' ').filter(function(c) { return !c.startsWith('a11y-'); }).join(' ');
-            document.querySelectorAll('.a11y-btn.active').forEach(function(b) { b.classList.remove('active'); });
-            localStorage.removeItem(STORAGE_KEY);
-        });
-
-        loadPrefs();
-    })();
-    </script>
-
-
+  trigger.addEventListener('click', function() {
+    var isOpen = panel.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', isOpen);
+  });
+  closeBtn.addEventListener('click', function() {
+    panel.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('click', function(e) {
+    if (!panel.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
+      panel.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && panel.classList.contains('open')) {
+      panel.classList.remove('open');
+      trigger.focus();
+    }
+  });
+  document.querySelectorAll('.a11y-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = btn.dataset.a11y;
+      if (key === 'font-up') {
+        fontLevel = (fontLevel + 1) % 3;
+        applyFontLevel();
+      } else {
+        btn.classList.toggle('active');
+        document.body.classList.toggle('a11y-' + key);
+      }
+      savePrefs();
+    });
+  });
+  resetBtn.addEventListener('click', function() {
+    fontLevel = 0;
+    document.body.className = document.body.className.split(' ').filter(function(c) { return !c.startsWith('a11y-'); }).join(' ');
+    document.querySelectorAll('.a11y-btn.active').forEach(function(b) { b.classList.remove('active'); });
+    localStorage.removeItem(STORAGE_KEY);
+  });
+  loadPrefs();
+})();
+</script>
 </body>
 </html>
