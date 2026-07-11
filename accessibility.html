@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>הצהרת נגישות · Accessibility Statement — TriFold Technologies</title>
+<meta name="description" content="הצהרת הנגישות של אתר TriFold Technologies — עמידה בתקן ישראלי 5568 ובהנחיות WCAG 2.1 רמה AA. Accessibility statement for the TriFold Technologies website (IS 5568 / WCAG 2.1 AA)." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..600&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --canvas: #F1F1EF; --surface: #FFFFFF; --ink: #141414;
+  --ink-muted: #5F5F5F;               /* AA-safe secondary text */
+  --hairline: #E6E6E4; --mint: #B9E5E2; --mint-ink: #256E68;
+  --font-en: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-he: 'Heebo', system-ui, -apple-system, sans-serif;
+  --shadow-soft: 0 1px 2px rgba(20,20,20,0.03), 0 18px 40px rgba(20,20,20,0.04);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--canvas); color: var(--ink);
+  font-family: var(--font-he); -webkit-font-smoothing: antialiased; line-height: 1.65; }
+:lang(en) { font-family: var(--font-en); }
+a { color: var(--mint-ink); }
+:focus-visible { outline: 3px solid var(--mint-ink); outline-offset: 3px; border-radius: 6px; }
+
+.skip-link { position: absolute; inset-inline-start: 16px; top: -60px; z-index: 10;
+  background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 0 0 12px 12px;
+  font-weight: 500; transition: top .2s; text-decoration: none; }
+.skip-link:focus { top: 0; }
+
+.page { max-width: 820px; margin: 0 auto; padding: clamp(24px, 6vw, 72px) max(1.25rem, 5vw); }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  flex-wrap: wrap; margin-bottom: 40px; }
+.brand { font-family: var(--font-en); font-weight: 600; font-size: 21px; letter-spacing: -0.02em;
+  color: var(--ink); text-decoration: none; }
+.brand .dot { color: var(--mint-ink); }
+.home-link { font-size: 14px; font-weight: 500; text-decoration: none; }
+.lang-switch { display: flex; gap: 8px; margin-bottom: 32px; }
+.lang-switch a { font-size: 13.5px; font-weight: 500; text-decoration: none; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: 999px; padding: 7px 15px; }
+
+.card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px;
+  box-shadow: var(--shadow-soft); padding: clamp(22px, 4vw, 40px); }
+.doc + .doc { margin-top: 28px; }
+.doc[lang="en"] { direction: ltr; text-align: left; }
+
+h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 6px; }
+.subtitle { color: var(--ink-muted); font-size: 16px; margin: 0 0 8px; }
+.updated { color: var(--ink-muted); font-size: 13.5px; margin: 0 0 24px; }
+h2 { font-size: 20px; line-height: 1.25; margin: 30px 0 10px; }
+p { margin: 0 0 14px; }
+ul { margin: 0 0 14px; padding-inline-start: 22px; }
+li { margin-bottom: 7px; }
+.contact { background: var(--canvas); border: 1px solid var(--hairline); border-radius: 12px;
+  padding: 18px 20px; margin: 18px 0; }
+.contact .role { font-weight: 600; margin-bottom: 6px; }
+.contact a { font-weight: 500; }
+.hr { height: 1px; background: var(--hairline); border: 0; margin: 40px 0; }
+strong { font-weight: 600; }
+
+/* ── Accessibility widget (same self-contained widget as the homepage) ── */
+.a11y-trigger { position: fixed; bottom: 24px; left: 24px; width: 56px; height: 56px;
+  background: var(--ink); color: #fff; border: none; border-radius: 50%; cursor: pointer;
+  z-index: 9999; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(20,20,20,0.22); transition: transform .2s, background .2s; }
+.a11y-trigger:hover { transform: scale(1.08); background: #2a2a2a; }
+.a11y-trigger svg { width: 28px; height: 28px; fill: currentColor; }
+.a11y-panel { position: fixed; bottom: 90px; left: 24px; width: 320px; max-height: 80vh;
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(20,20,20,0.18); z-index: 9998; display: none;
+  flex-direction: column; overflow: hidden; direction: rtl;
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Heebo', Arial, sans-serif; }
+.a11y-panel.open { display: flex; }
+.a11y-panel-header { background: var(--ink); color: #fff; padding: 16px 20px;
+  display: flex; justify-content: space-between; align-items: center; }
+.a11y-panel-header h3 { font-size: 1.1rem; margin: 0; font-weight: 600; color: #fff; }
+.a11y-panel-close { background: none; border: none; color: #fff; font-size: 1.4rem;
+  cursor: pointer; padding: 0; line-height: 1; }
+.a11y-panel-body { padding: 16px 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.a11y-btn { display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+  background: var(--canvas); border: 2px solid transparent; border-radius: 10px; cursor: pointer;
+  font-family: inherit; font-size: 0.95rem; font-weight: 500; color: var(--ink);
+  transition: border-color .15s, background .15s; text-align: right; }
+.a11y-btn:hover, .a11y-btn.active { border-color: var(--mint-ink); background: #E7F5F3; }
+.a11y-btn .a11y-icon { font-size: 1.3rem; flex-shrink: 0; width: 28px; text-align: center; }
+.a11y-reset { margin-top: 6px; padding: 10px; background: none; border: 1px solid var(--hairline);
+  border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.9rem; color: var(--ink-muted); transition: all .15s; }
+.a11y-reset:hover { background: #f6e9e9; color: #8a1c1c; border-color: #8a1c1c; }
+/* Text size — px-based layout, so scale the content region with zoom (not the fixed widget). */
+body.a11y-large-text .page { zoom: 1.15; }
+body.a11y-xlarge-text .page { zoom: 1.30; }
+body.a11y-high-contrast * { color: #000 !important; background-color: #fff !important; border-color: #000 !important; }
+body.a11y-high-contrast .a11y-panel-header { color: #fff !important; background-color: #000 !important; }
+body.a11y-high-contrast a { color: #0000EE !important; text-decoration: underline !important; }
+body.a11y-grayscale > *:not(#a11yPanel) { filter: grayscale(1); }
+body.a11y-links-underline a { text-decoration: underline !important; }
+body.a11y-big-cursor, body.a11y-big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M4 4l16 40 6-16 16-6z' fill='%23000' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") 4 4, auto !important; }
+body.a11y-highlight-focus *:focus { outline: 3px solid #ff6600 !important; outline-offset: 3px !important; }
+body.a11y-line-height * { line-height: 2.2 !important; }
+body.a11y-letter-spacing * { letter-spacing: 0.12em !important; word-spacing: 0.2em !important; }
+body.a11y-stop-animations *, body.a11y-stop-animations *::before, body.a11y-stop-animations *::after {
+  animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+@media (max-width: 768px) { .a11y-panel { width: calc(100vw - 48px); } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">דלג לתוכן / Skip to content</a>
+
+<div class="page" id="content">
+  <div class="topbar">
+    <a class="brand" href="/index.html">TriFold<span class="dot" aria-hidden="true">.</span></a>
+    <a class="home-link" href="/index.html">חזרה לדף הבית · Back to home</a>
+  </div>
+
+  <nav class="lang-switch" aria-label="Language">
+    <a href="#he" lang="he">עברית</a>
+    <a href="#en" lang="en">English</a>
+  </nav>
+
+  <!-- ─────────────────────────── HEBREW (primary) ─────────────────────────── -->
+  <article class="doc card" lang="he" dir="rtl" id="he">
+    <h1>הצהרת נגישות</h1>
+    <p class="subtitle">אתר TriFold Technologies — שירותי CAIO במיקור חוץ (Fractional CAIO)</p>
+    <p class="updated">עודכן לאחרונה: 11 ביולי 2026</p>
+
+    <p>
+      חברת TriFold Technologies רואה חשיבות רבה במתן שירות שוויוני לכלל הלקוחות
+      ומשקיעה מאמצים בהנגשת האתר, כך שיהיה זמין ונוח לשימוש עבור אנשים עם מוגבלות.
+    </p>
+
+    <h2>רמת ההנגשה ותקן</h2>
+    <p>
+      אתר זה נבנה ותוחזק כך שיעמוד בדרישות <strong>תקנות שוויון זכויות לאנשים עם
+      מוגבלות (התאמות נגישות לשירות), התשע"ג–2013</strong> ובהתאם ל<strong>תקן
+      הישראלי ת"י 5568</strong> להנגשת תכנים באינטרנט, המאמץ את הנחיות
+      <strong>WCAG 2.0/2.1 ברמה AA</strong> של ארגון ה‑W3C.
+    </p>
+
+    <h2>מה נעשה באתר לצורך הנגשה</h2>
+    <ul>
+      <li>מבנה סמנטי ותקין (אזורי ניווט, תוכן ראשי וכותרות מדורגות) לניווט באמצעות טכנולוגיות מסייעות.</li>
+      <li>ניתן להפעיל את כל הרכיבים האינטראקטיביים (תפריטים, שאלות ותשובות, מפוחיות) באמצעות המקלדת בלבד.</li>
+      <li>קישור "דלג לתוכן" וסימון מוקד (focus) ברור ונראה בעת ניווט במקלדת.</li>
+      <li>ניגודיות צבעים העומדת ביחס של 4.5:1 לפחות עבור טקסט רגיל.</li>
+      <li>טקסט חלופי לתמונות משמעותיות, והסתרת גרפיקה עיטורית מקוראי מסך.</li>
+      <li>התאמת התנהגות האתר להעדפת "צמצום תנועה" (prefers-reduced-motion) של המשתמש.</li>
+      <li>התוכן נשאר נגיש וזמין גם כאשר JavaScript אינו פעיל.</li>
+    </ul>
+
+    <h2>רכיב הנגשה (Widget)</h2>
+    <p>
+      ייתכן שיוטמע באתר רכיב הנגשה חיצוני המאפשר התאמות תצוגה (כגון הגדלת טקסט,
+      ניגודיות והדגשת קישורים). רכיב זה מהווה תוספת בלבד; ההנגשה המהותית מבוססת על
+      התאמת קוד האתר עצמו לתקן.
+    </p>
+
+    <h2>מגבלות ידועות</h2>
+    <p>
+      אנו פועלים לשיפור מתמיד של נגישות האתר. יחד עם זאת, ייתכנו רכיבים שטרם הונגשו
+      במלואם — למשל תמונות ואיורים המשמשים כרכיבי מציין מקום (placeholder), קבצים
+      להורדה (כגון מסמכי PDF) ותכנים של צד שלישי. אם נתקלתם ברכיב שאינו נגיש,
+      נשמח שתפנו אלינו ונטפל בכך בהקדם.
+    </p>
+
+    <h2>פנייה בנושא נגישות</h2>
+    <p>
+      אם נתקלתם בבעיית נגישות באתר, או שברצונכם לבקש התאמה, ניתן לפנות לרכז הנגישות
+      שלנו. נשתדל להשיב לפנייתכם בהקדם האפשרי.
+    </p>
+    <div class="contact">
+      <div class="role">רכז הנגישות — איציק וודה</div>
+      <div>טלפון: <a href="tel:+972528544775" dir="ltr">052-8544775</a></div>
+      <div>דוא"ל: <a href="mailto:itzik.woda@trifoldtechnologies.com?subject=%D7%A0%D7%92%D7%99%D7%A9%D7%95%D7%AA%20%D7%90%D7%AA%D7%A8">itzik.woda@trifoldtechnologies.com</a></div>
+    </div>
+
+    <p style="color:var(--ink-muted);font-size:13.5px;margin-top:8px">
+      בעת הפנייה מומלץ לציין את כתובת העמוד שבו נתקלתם בבעיה, את סוג הבעיה, ואת סוג
+      הדפדפן והטכנולוגיה המסייעת שבהם השתמשתם — כדי שנוכל לטפל ביעילות.
+    </p>
+  </article>
+
+  <!-- ─────────────────────────── ENGLISH ─────────────────────────── -->
+  <article class="doc card" lang="en" dir="ltr" id="en">
+    <h1>Accessibility Statement</h1>
+    <p class="subtitle">TriFold Technologies website — Fractional CAIO services</p>
+    <p class="updated">Last updated: 11 July 2026</p>
+
+    <p>
+      TriFold Technologies is committed to providing an equal, inclusive service to all
+      of its clients, and invests ongoing effort in making this website available and
+      comfortable to use for people with disabilities.
+    </p>
+
+    <h2>Conformance level &amp; standard</h2>
+    <p>
+      This website is built and maintained to meet the requirements of Israel's
+      <strong>Equal Rights for Persons with Disabilities (Service Accessibility)
+      Regulations, 2013</strong>, in line with <strong>Israeli Standard IS 5568</strong>
+      for web content accessibility, which adopts the W3C's
+      <strong>WCAG 2.0 / 2.1 Level AA</strong> guidelines.
+    </p>
+
+    <h2>What we have done</h2>
+    <ul>
+      <li>Correct semantic structure (landmarks, a main-content region, and ranked headings) for navigation with assistive technology.</li>
+      <li>All interactive components (navigation, FAQ, accordions) are fully operable by keyboard alone.</li>
+      <li>A "skip to content" link and a clearly visible focus indicator during keyboard navigation.</li>
+      <li>Colour contrast of at least 4.5:1 for normal-size text.</li>
+      <li>Alternative text for meaningful images, and decorative graphics hidden from screen readers.</li>
+      <li>Respect for the user's "reduced motion" preference (prefers-reduced-motion).</li>
+      <li>Content remains reachable and available even when JavaScript is disabled.</li>
+    </ul>
+
+    <h2>Accessibility widget</h2>
+    <p>
+      An optional third-party accessibility widget (allowing display adjustments such as
+      larger text, higher contrast, and link highlighting) may be embedded on the site.
+      Such a widget is an add-on only — the substantive accessibility of this site comes
+      from the site's own code being built to the standard.
+    </p>
+
+    <h2>Known limitations</h2>
+    <p>
+      We work to continuously improve the accessibility of the site. Even so, some
+      elements may not yet be fully accessible — for example placeholder images and
+      illustrations, downloadable files (such as PDF documents), and third-party content.
+      If you come across an element that is not accessible, please contact us and we will
+      address it as soon as we can.
+    </p>
+
+    <h2>Contact us about accessibility</h2>
+    <p>
+      If you encounter an accessibility problem on the site, or would like to request an
+      adjustment, you can contact our accessibility coordinator. We will do our best to
+      respond as quickly as possible.
+    </p>
+    <div class="contact">
+      <div class="role">Accessibility coordinator — Itzik Woda</div>
+      <div>Phone: <a href="tel:+972528544775">052-8544775</a> (+972-52-8544775)</div>
+      <div>Email: <a href="mailto:itzik.woda@trifoldtechnologies.com?subject=Website%20accessibility">itzik.woda@trifoldtechnologies.com</a></div>
+    </div>
+
+    <p style="color:var(--ink-muted);font-size:13.5px;margin-top:8px">
+      When contacting us, it helps to include the address of the page where the problem
+      occurred, a description of the problem, and the browser and assistive technology you
+      were using — so we can resolve it efficiently.
+    </p>
+  </article>
+
+  <hr class="hr" />
+  <p style="text-align:center;color:var(--ink-muted);font-size:13px">
+    © 2026 TriFold Technologies · <a href="/index.html">Back to home</a>
+  </p>
+</div>
+
+<!-- ── Accessibility widget (self-contained; same as homepage) ── -->
+<button class="a11y-trigger" id="a11yTrigger" aria-label="תפריט נגישות · Accessibility menu" title="נגישות" aria-expanded="false" aria-controls="a11yPanel" aria-haspopup="dialog">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.5 8.5L16 22h-2.5l-1.5-4-1.5 4H8l2.5-4.5L9 9H3V7h18v2z"/></svg>
+</button>
+<div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="הגדרות נגישות">
+  <div class="a11y-panel-header">
+    <h3>♿ נגישות</h3>
+    <button class="a11y-panel-close" id="a11yClose" aria-label="סגור תפריט נגישות">✕</button>
+  </div>
+  <div class="a11y-panel-body">
+    <button class="a11y-btn" data-a11y="font-up"><span class="a11y-icon" aria-hidden="true">🔤</span>הגדלת טקסט</button>
+    <button class="a11y-btn" data-a11y="high-contrast"><span class="a11y-icon" aria-hidden="true">◑</span>ניגודיות גבוהה</button>
+    <button class="a11y-btn" data-a11y="grayscale"><span class="a11y-icon" aria-hidden="true">🌑</span>גווני אפור</button>
+    <button class="a11y-btn" data-a11y="links-underline"><span class="a11y-icon" aria-hidden="true">🔗</span>הדגשת קישורים</button>
+    <button class="a11y-btn" data-a11y="big-cursor"><span class="a11y-icon" aria-hidden="true">🖱️</span>סמן גדול</button>
+    <button class="a11y-btn" data-a11y="highlight-focus"><span class="a11y-icon" aria-hidden="true">🎯</span>הדגשת מיקוד</button>
+    <button class="a11y-btn" data-a11y="line-height"><span class="a11y-icon" aria-hidden="true">↕️</span>מרווח שורות</button>
+    <button class="a11y-btn" data-a11y="letter-spacing"><span class="a11y-icon" aria-hidden="true">↔️</span>מרווח אותיות</button>
+    <button class="a11y-btn" data-a11y="stop-animations"><span class="a11y-icon" aria-hidden="true">⏸️</span>עצירת אנימציות</button>
+    <button class="a11y-reset" id="a11yReset">🔄 איפוס הגדרות נגישות</button>
+  </div>
+</div>
+<script>
+(function() {
+  const trigger = document.getElementById('a11yTrigger');
+  const panel = document.getElementById('a11yPanel');
+  const closeBtn = document.getElementById('a11yClose');
+  const resetBtn = document.getElementById('a11yReset');
+  const STORAGE_KEY = 'trifold_a11y';
+  let fontLevel = 0;
+  function loadPrefs() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      if (saved.fontLevel) { fontLevel = saved.fontLevel; applyFontLevel(); }
+      if (saved.toggles) {
+        saved.toggles.forEach(function(key) {
+          document.body.classList.add('a11y-' + key);
+          const btn = document.querySelector('[data-a11y="' + key + '"]');
+          if (btn) btn.classList.add('active');
+        });
+      }
+    } catch(e) {}
+  }
+  function savePrefs() {
+    const toggles = [];
+    document.querySelectorAll('.a11y-btn.active').forEach(function(btn) {
+      const key = btn.dataset.a11y;
+      if (key && key !== 'font-up') toggles.push(key);
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ fontLevel: fontLevel, toggles: toggles }));
+  }
+  function applyFontLevel() {
+    document.body.classList.remove('a11y-large-text', 'a11y-xlarge-text');
+    var btn = document.querySelector('[data-a11y="font-up"]');
+    if (fontLevel === 1) { document.body.classList.add('a11y-large-text'); if (btn) btn.classList.add('active'); }
+    else if (fontLevel >= 2) { document.body.classList.add('a11y-xlarge-text'); if (btn) btn.classList.add('active'); }
+    else { if (btn) btn.classList.remove('active'); }
+  }
+  trigger.addEventListener('click', function() {
+    var isOpen = panel.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', isOpen);
+  });
+  closeBtn.addEventListener('click', function() {
+    panel.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('click', function(e) {
+    if (!panel.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
+      panel.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && panel.classList.contains('open')) {
+      panel.classList.remove('open');
+      trigger.focus();
+    }
+  });
+  document.querySelectorAll('.a11y-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = btn.dataset.a11y;
+      if (key === 'font-up') { fontLevel = (fontLevel + 1) % 3; applyFontLevel(); }
+      else { btn.classList.toggle('active'); document.body.classList.toggle('a11y-' + key); }
+      savePrefs();
+    });
+  });
+  resetBtn.addEventListener('click', function() {
+    fontLevel = 0;
+    document.body.className = document.body.className.split(' ').filter(function(c) { return !c.startsWith('a11y-'); }).join(' ');
+    document.querySelectorAll('.a11y-btn.active').forEach(function(b) { b.classList.remove('active'); });
+    localStorage.removeItem(STORAGE_KEY);
+  });
+  loadPrefs();
+})();
+</script>
+</body>
+</html>
