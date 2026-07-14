@@ -76,6 +76,7 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 a { color: var(--ink); text-decoration: none; }
 a:hover { color: var(--mint-ink); }
@@ -489,9 +490,14 @@ body.a11y-stop-animations *, body.a11y-stop-animations *::before, body.a11y-stop
 /* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 920px) {
   .nav-links { display: none; }
-  .hero { padding-top: 120px; }
+  /* The support copy is absolutely positioned beside the hero on desktop, so it sits
+     first in source order. Once it goes static it must not precede the headline. */
+  .hero { padding-top: 120px; display: flex; flex-direction: column; }
+  .hero-head { order: 1; }
+  .hero-support { order: 2; position: static; max-width: 420px;
+    margin: 28px auto 0; text-align: center; }
+  .hero-figure { order: 3; }
   .hero-serif { font-size: 34px; }
-  .hero-support { position: static; max-width: 420px; margin: 28px auto 0; text-align: center; }
   .hero-card { right: -20px; }
   .bento, .steps, .gov-grid, .quotes, .plans { grid-template-columns: 1fr; }
   .plan.rec { transform: none; }
@@ -500,11 +506,79 @@ body.a11y-stop-animations *, body.a11y-stop-animations *::before, body.a11y-stop
   .stat:nth-child(3) { border-left: none; }
   .section { padding: 80px var(--gutter); }
 }
-@media (max-width: 520px) {
-  .stats { grid-template-columns: 1fr; }
+@media (max-width: 640px) {
+  /* The floating icon tiles are absolutely positioned against the hero and land
+     on top of the headline and the photo once the hero narrows. Decorative — drop them. */
+  .float-ico { display: none; }
+
+  .nav { padding: 16px var(--gutter); }
+  .brand { font-size: 19px; }
+  /* the full-size CTA + brand no longer fit one row — shrink to the small pill */
+  .nav-cta { padding: 0.5rem 0.9rem; font-size: 13px; }
+
+  .hero { padding: 96px var(--gutter) 56px; }
+  /* the base clamp floors at 5rem, which makes the unbreakable "Alignment Gap"
+     wider than a phone and clips it. Below 640 the headline is purely vw-driven. */
+  .hero-loud { font-size: 13vw; }
+  .hero-serif { font-size: 26px; }
+  .hero-support { margin-top: 24px; font-size: 14.5px; }
+
+  /* keep the figure + its overlapping stat card inside the viewport */
+  .hero-figure { width: 100%; max-width: 260px; height: 260px; }
+  .hero-card { width: 150px; right: -8px; bottom: -14px; padding: 12px; }
+  .hero-card .big { font-size: 24px; }
+  .hero-card .big small { font-size: 13px; }
+  .hero-card .bars { height: 32px; }
+
+  .logobar { gap: 16px; padding-bottom: 32px; }
+  .logobar .lead, .logobar .logos { max-width: none; }
+  .logobar .logos { gap: 8px 24px; }
+  .logobar .logos span { font-size: 16px; }
+
+  .section { padding: 64px var(--gutter); }
+  .section-head { margin-bottom: 40px; gap: 12px; }
+  .section-head h2 { font-size: 30px; }
+  .section-head p { font-size: 16px; }
+
+  .stats { grid-template-columns: 1fr; gap: 28px 0; }
+  .stat { padding: 0; }
   .stat + .stat { border-left: none; }
-  .section-head h2 { font-size: 32px; }
-  .footer-top { flex-direction: column; }
+  .stat .v { font-size: 44px; }
+
+  /* the panel is a tall empty plate holding only the step number — stacked, it's
+     150px of dead scroll per card */
+  .step { padding: 20px; gap: 12px; }
+  .step .panel { height: auto; padding: 10px 14px; }
+
+  /* the mock illustrations are decorative; keep them, but not at full desktop height */
+  .cell .mockwrap { height: 150px; margin: 16px 16px 0; }
+  .cell .body { padding: 16px; }
+
+  .gov-grid { gap: 24px; }
+  .acc-btn { padding: 16px 18px; gap: 10px; }
+  .acc-btn .t { font-size: 15.5px; }
+  .acc-panel p { padding: 0 18px 18px; }
+  .stat-card { padding: 22px; }
+  .stat-card .num { font-size: 42px; }
+
+  .plan { padding: 24px; }
+  .portrait { min-height: 260px; }
+
+  .faq-btn { padding: 16px 18px; gap: 12px; }
+  .faq-btn .q { font-size: 15.5px; }
+  /* the 64px indent lines answers up under the desktop question text; on a phone
+     it just eats half the reading width */
+  .faq-panel p { padding: 0 18px 18px; font-size: 15px; }
+
+  .footer { padding-top: 56px; }
+  .footer-top { flex-direction: column; gap: 32px; }
+  .footer-cols { gap: 28px; }
+  /* footer links were ~18px tall — under the 24px minimum touch target */
+  .footer-cols .col { gap: 2px; }
+  .footer-cols .col a, .footer-legal .links a { display: inline-block; padding: 5px 0; }
+  .footer-cta { flex-direction: column; gap: 16px; margin-top: 36px; }
+  .footer-cta .line { width: 100%; flex: none; }
+  .footer-legal { flex-direction: column; gap: 8px; }
 }
 </style>
 
