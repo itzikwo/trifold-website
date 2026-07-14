@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>תנאי שימוש · Terms of Use — TriFold Technologies</title>
+<meta name="description" content="תנאי השימוש באתר TriFold Technologies — שימוש בתכנים, בכלי ההערכה ובתבניות, קניין רוחני והגבלת אחריות. Terms of use for the TriFold Technologies website." />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..600&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --canvas: #F1F1EF; --surface: #FFFFFF; --ink: #141414;
+  --ink-muted: #5F5F5F;               /* AA-safe secondary text */
+  --hairline: #E6E6E4; --mint: #B9E5E2; --mint-ink: #256E68;
+  --font-en: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+  --font-he: 'Heebo', system-ui, -apple-system, sans-serif;
+  --shadow-soft: 0 1px 2px rgba(20,20,20,0.03), 0 18px 40px rgba(20,20,20,0.04);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--canvas); color: var(--ink);
+  font-family: var(--font-he); -webkit-font-smoothing: antialiased; line-height: 1.65; }
+:lang(en) { font-family: var(--font-en); }
+a { color: var(--mint-ink); }
+:focus-visible { outline: 3px solid var(--mint-ink); outline-offset: 3px; border-radius: 6px; }
+
+.skip-link { position: absolute; inset-inline-start: 16px; top: -60px; z-index: 10;
+  background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 0 0 12px 12px;
+  font-weight: 500; transition: top .2s; text-decoration: none; }
+.skip-link:focus { top: 0; }
+
+.page { max-width: 820px; margin: 0 auto; padding: clamp(24px, 6vw, 72px) max(1.25rem, 5vw); }
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  flex-wrap: wrap; margin-bottom: 40px; }
+.brand { font-family: var(--font-en); font-weight: 600; font-size: 21px; letter-spacing: -0.02em;
+  color: var(--ink); text-decoration: none; }
+.brand .dot { color: var(--mint-ink); }
+.home-link { font-size: 14px; font-weight: 500; text-decoration: none; }
+.lang-switch { display: flex; gap: 8px; margin-bottom: 32px; }
+.lang-switch a { font-size: 13.5px; font-weight: 500; text-decoration: none; color: var(--ink);
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: 999px; padding: 7px 15px; }
+
+.card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px;
+  box-shadow: var(--shadow-soft); padding: clamp(22px, 4vw, 40px); }
+.doc + .doc { margin-top: 28px; }
+.doc[lang="en"] { direction: ltr; text-align: left; }
+
+h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 6px; }
+.subtitle { color: var(--ink-muted); font-size: 16px; margin: 0 0 8px; }
+.updated { color: var(--ink-muted); font-size: 13.5px; margin: 0 0 24px; }
+h2 { font-size: 20px; line-height: 1.25; margin: 30px 0 10px; }
+p { margin: 0 0 14px; }
+ul { margin: 0 0 14px; padding-inline-start: 22px; }
+li { margin-bottom: 7px; }
+.contact { background: var(--canvas); border: 1px solid var(--hairline); border-radius: 12px;
+  padding: 18px 20px; margin: 18px 0; }
+.contact .role { font-weight: 600; margin-bottom: 6px; }
+.contact a { font-weight: 500; }
+.hr { height: 1px; background: var(--hairline); border: 0; margin: 40px 0; }
+strong { font-weight: 600; }
+
+/* Callout — used for the two clauses people most need to actually read */
+.note { background: #E7F5F3; border: 1px solid var(--mint); border-radius: 12px;
+  padding: 16px 20px; margin: 18px 0; }
+
+/* ── Accessibility widget (same self-contained widget as the homepage) ── */
+.a11y-trigger { position: fixed; bottom: 24px; left: 24px; width: 56px; height: 56px;
+  background: var(--ink); color: #fff; border: none; border-radius: 50%; cursor: pointer;
+  z-index: 9999; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(20,20,20,0.22); transition: transform .2s, background .2s; }
+.a11y-trigger:hover { transform: scale(1.08); background: #2a2a2a; }
+.a11y-trigger svg { width: 28px; height: 28px; fill: currentColor; }
+.a11y-panel { position: fixed; bottom: 90px; left: 24px; width: 320px; max-height: 80vh;
+  background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(20,20,20,0.18); z-index: 9998; display: none;
+  flex-direction: column; overflow: hidden; direction: rtl;
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Heebo', Arial, sans-serif; }
+.a11y-panel.open { display: flex; }
+.a11y-panel-header { background: var(--ink); color: #fff; padding: 16px 20px;
+  display: flex; justify-content: space-between; align-items: center; }
+.a11y-panel-header h3 { font-size: 1.1rem; margin: 0; font-weight: 600; color: #fff; }
+.a11y-panel-close { background: none; border: none; color: #fff; font-size: 1.4rem;
+  cursor: pointer; padding: 0; line-height: 1; }
+.a11y-panel-body { padding: 16px 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+.a11y-btn { display: flex; align-items: center; gap: 12px; padding: 12px 16px;
+  background: var(--canvas); border: 2px solid transparent; border-radius: 10px; cursor: pointer;
+  font-family: inherit; font-size: 0.95rem; font-weight: 500; color: var(--ink);
+  transition: border-color .15s, background .15s; text-align: right; }
+.a11y-btn:hover, .a11y-btn.active { border-color: var(--mint-ink); background: #E7F5F3; }
+.a11y-btn .a11y-icon { font-size: 1.3rem; flex-shrink: 0; width: 28px; text-align: center; }
+.a11y-reset { margin-top: 6px; padding: 10px; background: none; border: 1px solid var(--hairline);
+  border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.9rem; color: var(--ink-muted); transition: all .15s; }
+.a11y-reset:hover { background: #f6e9e9; color: #8a1c1c; border-color: #8a1c1c; }
+/* Text size — px-based layout, so scale the content region with zoom (not the fixed widget). */
+body.a11y-large-text .page { zoom: 1.15; }
+body.a11y-xlarge-text .page { zoom: 1.30; }
+body.a11y-high-contrast * { color: #000 !important; background-color: #fff !important; border-color: #000 !important; }
+body.a11y-high-contrast .a11y-panel-header { color: #fff !important; background-color: #000 !important; }
+body.a11y-high-contrast a { color: #0000EE !important; text-decoration: underline !important; }
+body.a11y-grayscale > *:not(#a11yPanel) { filter: grayscale(1); }
+body.a11y-links-underline a { text-decoration: underline !important; }
+body.a11y-big-cursor, body.a11y-big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M4 4l16 40 6-16 16-6z' fill='%23000' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") 4 4, auto !important; }
+body.a11y-highlight-focus *:focus { outline: 3px solid #ff6600 !important; outline-offset: 3px !important; }
+body.a11y-line-height * { line-height: 2.2 !important; }
+body.a11y-letter-spacing * { letter-spacing: 0.12em !important; word-spacing: 0.2em !important; }
+body.a11y-stop-animations *, body.a11y-stop-animations *::before, body.a11y-stop-animations *::after {
+  animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+@media (max-width: 768px) { .a11y-panel { width: calc(100vw - 48px); } }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">דלג לתוכן / Skip to content</a>
+
+<div class="page" id="content">
+  <div class="topbar">
+    <a class="brand" href="/index.html">TriFold<span class="dot" aria-hidden="true">.</span></a>
+    <a class="home-link" href="/index.html">חזרה לדף הבית · Back to home</a>
+  </div>
+
+  <nav class="lang-switch" aria-label="Language">
+    <a href="#he" lang="he">עברית</a>
+    <a href="#en" lang="en">English</a>
+  </nav>
+
+  <!-- ─────────────────────────── HEBREW (primary) ─────────────────────────── -->
+  <article class="doc card" lang="he" dir="rtl" id="he">
+    <h1>תנאי שימוש</h1>
+    <p class="subtitle">אתר TriFold Technologies — שירותי CAIO במיקור חוץ (Fractional CAIO)</p>
+    <p class="updated">עודכן לאחרונה: 14 ביולי 2026</p>
+
+    <p>
+      תנאים אלה מסדירים את השימוש באתר <strong>trifoldtechnologies.com</strong> ובכל
+      התכנים והכלים המוצעים בו. הגלישה באתר והשימוש בתכניו מהווים הסכמה לתנאים אלה.
+      אם אינכם מסכימים להם, אנא הימנעו משימוש באתר.
+    </p>
+    <p>
+      התנאים מנוסחים בלשון זכר מטעמי נוחות בלבד, ומתייחסים לכל המגדרים כאחד.
+    </p>
+
+    <h2>מפעיל האתר</h2>
+    <p>
+      האתר מופעל על ידי <strong>איציק וודה</strong>, עוסק מורשה
+      <strong dir="ltr">027998772</strong>, הפועל תחת השם המסחרי
+      <strong>TriFold Technologies</strong>, ת.ד. 3012, קדימה-צורן 6093722
+      (להלן: "<strong>מפעיל האתר</strong>" או "<strong>אנחנו</strong>").
+    </p>
+
+    <h2>מהות האתר — מידע כללי בלבד</h2>
+    <div class="note">
+      <p style="margin:0">
+        <strong>התכנים באתר הם מידע כללי ואינם ייעוץ מקצועי.</strong> אין לראות בהם
+        תחליף לייעוץ פרטני — עסקי, טכנולוגי, משפטי, חשבונאי, פיננסי או רגולטורי —
+        המותאם לנסיבות הספציפיות של הארגון שלכם. כל הסתמכות על התכנים היא באחריותכם
+        הבלעדית.
+      </p>
+    </div>
+    <p>
+      האתר מציג מידע על שירותי TriFold Technologies, תובנות מקצועיות ונתוני מחקר
+      פומביים בתחום ה‑AI. הנתונים והסטטיסטיקות המובאים באתר מיוחסים למקורותיהם (כגון
+      סקרי PwC ו‑IBM), משקפים מציאות משתנה, ואינם מהווים הבטחה או התחייבות לתוצאה
+      כלשהי בארגון שלכם.
+    </p>
+
+    <h2>כלי ההערכה והמחשבונים</h2>
+    <div class="note">
+      <p style="margin:0">
+        <strong>המחשבונים באתר מפיקים אומדנים להמחשה בלבד.</strong> מחשבון ה‑ROI, שאלון
+        הבשלות וכלים דומים מבוססים על הנתונים שאתם מזינים ועל הנחות כלליות. התוצאה
+        <strong>אינה תחזית, אינה הערכה כלכלית ואינה הבטחה להחזר השקעה</strong>, ואין
+        להסתמך עליה לצורך קבלת החלטות עסקיות או השקעה.
+      </p>
+    </div>
+    <p>
+      החישובים מתבצעים כולם בדפדפן שלכם. הנתונים שאתם מזינים אינם נשלחים אלינו ואינם
+      נשמרים אצלנו, כמפורט ב<a href="/privacy.html">מדיניות הפרטיות</a>.
+    </p>
+
+    <h2>אין ביצירת קשר משום התקשרות</h2>
+    <p>
+      גלישה באתר, הורדת חומרים או פנייה אלינו בדוא"ל או בטלפון <strong>אינן יוצרות
+      יחסי לקוח–יועץ ואינן מהוות התקשרות בהסכם</strong>. התקשרות עסקית עם TriFold
+      Technologies נוצרת אך ורק בהסכם בכתב חתום בין הצדדים, המגדיר את היקף השירות,
+      התמורה והאחריות.
+    </p>
+
+    <h2>קניין רוחני</h2>
+    <p>
+      מלוא זכויות הקניין הרוחני באתר — לרבות הטקסטים, העיצוב, המבנה, קוד המקור, הסימן
+      המסחרי והשם "TriFold Technologies", וכן ה‑AI Strategy Playbook והתבניות הנלוות —
+      שייכות למפעיל האתר, אלא אם צוין אחרת.
+    </p>
+    <p>
+      אין להעתיק, לשכפל, להפיץ, לפרסם, למכור, לתרגם או ליצור יצירות נגזרות מתכני האתר,
+      כולם או חלקם, ללא אישור מראש ובכתב — למעט שימוש הוגן וציטוט מקובל תוך מתן קרדיט
+      וקישור למקור.
+    </p>
+    <p>
+      מחקרים, דוחות וסימנים מסחריים של צדדים שלישיים המוזכרים באתר (כגון PwC, IBM,
+      BCG, McKinsey ו‑Accenture) הם רכושם של בעליהם, ומוזכרים לצורכי הפניה וייחוס
+      מקורות בלבד. אין באזכורם משום קשר, חסות או המלצה מצדם.
+    </p>
+
+    <h2>תבניות וחומרים להורדה</h2>
+    <p>
+      תבניות וקבצים המוצעים להורדה באתר ניתנים לכם ברישיון <strong>מוגבל, אישי ובלתי
+      בלעדי</strong>, לשימוש פנים‑ארגוני בלבד. אין למכור אותם, להפיצם מחדש, להציעם
+      כשירות לצד שלישי או להסיר מהם סימני ייחוס. הקבצים ניתנים כמות שהם (AS IS), ללא
+      אחריות להתאמתם לצורך מסוים.
+    </p>
+
+    <h2>שימוש אסור</h2>
+    <ul>
+      <li>איסוף אוטומטי של תכנים (scraping, crawling) או כריית מידע בהיקף חריג.</li>
+      <li>ניסיון לפגוע בזמינות האתר, באבטחתו או בשלמות הנתונים שבו.</li>
+      <li>שימוש בתכנים באופן שעלול להטעות לגבי זהותכם או לגבי קשר לכאורה עם TriFold Technologies.</li>
+      <li>כל שימוש בלתי חוקי או המנוגד לתנאים אלה.</li>
+    </ul>
+
+    <h2>קישורים לאתרים חיצוניים</h2>
+    <p>
+      האתר עשוי לכלול קישורים לאתרים ולמסמכים של צדדים שלישיים. אין לנו שליטה על
+      תוכנם, זמינותם או מדיניות הפרטיות שלהם, ואיננו נושאים באחריות להם. הקישור אינו
+      מהווה המלצה או אישור לתוכן שאליו הוא מפנה.
+    </p>
+
+    <h2>זמינות האתר והיעדר אחריות</h2>
+    <p>
+      האתר ניתן לשימוש <strong>כמות שהוא (AS IS)</strong>. איננו מתחייבים שהאתר יפעל
+      ברציפות וללא תקלות, שיהיה נקי משגיאות, או שהתכנים יהיו מעודכנים ומדויקים בכל עת.
+      אנו רשאים לשנות, להשעות או להפסיק את פעילות האתר או כל חלק ממנו, בכל עת וללא
+      הודעה מוקדמת.
+    </p>
+
+    <h2>הגבלת אחריות</h2>
+    <p>
+      במידה המרבית המותרת על פי דין, מפעיל האתר לא יישא באחריות לכל נזק — ישיר, עקיף,
+      תוצאתי, מיוחד או כלכלי, לרבות אובדן רווחים, אובדן נתונים או פגיעה במוניטין —
+      שייגרם כתוצאה מהשימוש באתר, מהסתמכות על תכניו או על תוצרי הכלים שבו, או מאי‑יכולת
+      להשתמש בו.
+    </p>
+
+    <h2>פרטיות ונגישות</h2>
+    <p>
+      השימוש באתר כפוף גם ל<a href="/privacy.html">מדיניות הפרטיות</a> שלנו. פרטים על
+      נגישות האתר ודרכי פנייה בנושא מופיעים ב<a href="/accessibility.html">הצהרת
+      הנגישות</a>.
+    </p>
+
+    <h2>שינויים בתנאים</h2>
+    <p>
+      אנו רשאים לעדכן תנאים אלה מעת לעת. הנוסח המעודכן יפורסם בעמוד זה ותאריך העדכון
+      שבראשו ישתנה בהתאם. המשך השימוש באתר לאחר עדכון מהווה הסכמה לנוסח המעודכן.
+    </p>
+
+    <h2>דין וסמכות שיפוט</h2>
+    <p>
+      על תנאים אלה יחולו <strong>דיני מדינת ישראל</strong> בלבד. סמכות השיפוט הבלעדית
+      בכל עניין הנוגע להם תהא נתונה לבתי המשפט המוסמכים
+      <strong>במחוז תל אביב-יפו</strong>.
+    </p>
+
+    <h2>יצירת קשר</h2>
+    <div class="contact">
+      <div class="role">TriFold Technologies — איציק וודה</div>
+      <div>טלפון: <a href="tel:+972528544775" dir="ltr">052-8544775</a></div>
+      <div>דוא"ל: <a href="mailto:itzik.woda@trifoldtechnologies.com?subject=%D7%AA%D7%A0%D7%90%D7%99%20%D7%A9%D7%99%D7%9E%D7%95%D7%A9">itzik.woda@trifoldtechnologies.com</a></div>
+      <div>כתובת: ת.ד. 3012, קדימה-צורן 6093722</div>
+    </div>
+  </article>
+
+  <!-- ─────────────────────────── ENGLISH ─────────────────────────── -->
+  <article class="doc card" lang="en" dir="ltr" id="en">
+    <h1>Terms of Use</h1>
+    <p class="subtitle">TriFold Technologies website — Fractional CAIO services</p>
+    <p class="updated">Last updated: 14 July 2026</p>
+
+    <p>
+      These terms govern your use of <strong>trifoldtechnologies.com</strong> and of all
+      content and tools offered on it. By browsing the site and using its content, you
+      agree to these terms. If you do not agree to them, please do not use the site.
+    </p>
+
+    <h2>Site operator</h2>
+    <p>
+      This site is operated by <strong>Itzik Woda</strong>, a licensed sole proprietor
+      (עוסק מורשה) no. <strong>027998772</strong>, trading as
+      <strong>TriFold Technologies</strong>, P.O. Box 3012, Kadima-Zoran 6093722, Israel
+      (the "<strong>operator</strong>" or "<strong>we</strong>").
+    </p>
+
+    <h2>Nature of the site — general information only</h2>
+    <div class="note">
+      <p style="margin:0">
+        <strong>The content on this site is general information, not professional
+        advice.</strong> It is not a substitute for tailored business, technological,
+        legal, accounting, financial, or regulatory advice suited to your organisation's
+        specific circumstances. Any reliance you place on it is at your sole risk.
+      </p>
+    </div>
+    <p>
+      The site presents information about TriFold Technologies' services, professional
+      insight, and publicly available research on AI. The figures and statistics shown are
+      attributed to their sources (such as the PwC and IBM surveys), reflect a changing
+      reality, and are not a promise or undertaking of any particular outcome in your
+      organisation.
+    </p>
+
+    <h2>Assessment tools and calculators</h2>
+    <div class="note">
+      <p style="margin:0">
+        <strong>The calculators on this site produce illustrative estimates only.</strong>
+        The ROI calculator, maturity assessment, and similar tools are based on the figures
+        you enter and on generic assumptions. Their output is <strong>not a forecast, not a
+        financial valuation, and not a promise of return on investment</strong>, and must
+        not be relied upon for business or investment decisions.
+      </p>
+    </div>
+    <p>
+      All calculations run entirely in your own browser. The figures you enter are never
+      sent to us and are not stored by us, as described in our
+      <a href="/privacy.html">Privacy Policy</a>.
+    </p>
+
+    <h2>Contacting us does not create an engagement</h2>
+    <p>
+      Browsing the site, downloading materials, or contacting us by email or phone
+      <strong>does not create a client–adviser relationship and does not constitute a
+      contract</strong>. A business engagement with TriFold Technologies arises only under
+      a signed written agreement between the parties, setting out scope, fees, and
+      responsibilities.
+    </p>
+
+    <h2>Intellectual property</h2>
+    <p>
+      All intellectual property rights in the site — including its text, design, structure,
+      source code, the "TriFold Technologies" name and mark, and the AI Strategy Playbook
+      and its accompanying templates — belong to the operator, unless stated otherwise.
+    </p>
+    <p>
+      You may not copy, reproduce, distribute, publish, sell, translate, or create
+      derivative works from the site's content, in whole or in part, without prior written
+      permission — other than fair use and customary quotation with attribution and a link
+      to the source.
+    </p>
+    <p>
+      Third-party research, reports, and trademarks referenced on the site (such as PwC,
+      IBM, BCG, McKinsey, and Accenture) are the property of their respective owners and
+      are cited for reference and attribution only. Such references do not imply any
+      affiliation, sponsorship, or endorsement by those parties.
+    </p>
+
+    <h2>Templates and downloadable materials</h2>
+    <p>
+      Templates and files offered for download are provided to you under a
+      <strong>limited, personal, non-exclusive licence</strong>, for internal use within
+      your own organisation only. You may not sell them, redistribute them, offer them as a
+      service to third parties, or remove attribution from them. They are provided AS IS,
+      with no warranty of fitness for any particular purpose.
+    </p>
+
+    <h2>Prohibited use</h2>
+    <ul>
+      <li>Automated harvesting of content (scraping, crawling) or data mining at abnormal scale.</li>
+      <li>Attempting to harm the site's availability, its security, or the integrity of its data.</li>
+      <li>Using the content in a way that misrepresents your identity or implies a connection with TriFold Technologies.</li>
+      <li>Any unlawful use, or use contrary to these terms.</li>
+    </ul>
+
+    <h2>Links to external sites</h2>
+    <p>
+      The site may contain links to third-party websites and documents. We have no control
+      over their content, availability, or privacy practices, and accept no responsibility
+      for them. A link does not constitute a recommendation or endorsement of the material
+      it points to.
+    </p>
+
+    <h2>Availability and disclaimer of warranties</h2>
+    <p>
+      The site is provided <strong>AS IS</strong>. We do not warrant that it will operate
+      continuously or without fault, that it will be free of errors, or that its content
+      will be current and accurate at all times. We may change, suspend, or discontinue the
+      site or any part of it at any time and without prior notice.
+    </p>
+
+    <h2>Limitation of liability</h2>
+    <p>
+      To the fullest extent permitted by law, the operator shall not be liable for any
+      damage — direct, indirect, consequential, special, or economic, including loss of
+      profits, loss of data, or harm to reputation — arising from use of the site, from
+      reliance on its content or on the output of its tools, or from any inability to use it.
+    </p>
+
+    <h2>Privacy and accessibility</h2>
+    <p>
+      Your use of the site is also subject to our <a href="/privacy.html">Privacy Policy</a>.
+      Details of the site's accessibility and how to raise an accessibility issue appear in
+      our <a href="/accessibility.html">Accessibility Statement</a>.
+    </p>
+
+    <h2>Changes to these terms</h2>
+    <p>
+      We may update these terms from time to time. The updated version will be published on
+      this page and the date at the top will change accordingly. Continued use of the site
+      after an update constitutes acceptance of the updated version.
+    </p>
+
+    <h2>Governing law and jurisdiction</h2>
+    <p>
+      These terms are governed exclusively by <strong>the laws of the State of Israel</strong>.
+      Exclusive jurisdiction over any matter arising from them lies with the competent courts
+      of the <strong>Tel Aviv-Yafo District</strong>.
+    </p>
+
+    <h2>Contact</h2>
+    <div class="contact">
+      <div class="role">TriFold Technologies — Itzik Woda</div>
+      <div>Phone: <a href="tel:+972528544775">052-8544775</a> (+972-52-8544775)</div>
+      <div>Email: <a href="mailto:itzik.woda@trifoldtechnologies.com?subject=Terms%20of%20Use">itzik.woda@trifoldtechnologies.com</a></div>
+      <div>Address: P.O. Box 3012, Kadima-Zoran 6093722, Israel</div>
+    </div>
+  </article>
+
+  <hr class="hr" />
+  <p style="text-align:center;color:var(--ink-muted);font-size:13px">
+    © 2026 TriFold Technologies · <a href="/index.html">Back to home</a> ·
+    <a href="/privacy.html">Privacy · פרטיות</a> ·
+    <a href="/accessibility.html">Accessibility · נגישות</a>
+  </p>
+</div>
+
+<!-- ── Accessibility widget (self-contained; same as homepage) ── -->
+<button class="a11y-trigger" id="a11yTrigger" aria-label="תפריט נגישות · Accessibility menu" title="נגישות" aria-expanded="false" aria-controls="a11yPanel" aria-haspopup="dialog">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.5 8.5L16 22h-2.5l-1.5-4-1.5 4H8l2.5-4.5L9 9H3V7h18v2z"/></svg>
+</button>
+<div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="הגדרות נגישות">
+  <div class="a11y-panel-header">
+    <h3>♿ נגישות</h3>
+    <button class="a11y-panel-close" id="a11yClose" aria-label="סגור תפריט נגישות">✕</button>
+  </div>
+  <div class="a11y-panel-body">
+    <button class="a11y-btn" data-a11y="font-up"><span class="a11y-icon" aria-hidden="true">🔤</span>הגדלת טקסט</button>
+    <button class="a11y-btn" data-a11y="high-contrast"><span class="a11y-icon" aria-hidden="true">◑</span>ניגודיות גבוהה</button>
+    <button class="a11y-btn" data-a11y="grayscale"><span class="a11y-icon" aria-hidden="true">🌑</span>גווני אפור</button>
+    <button class="a11y-btn" data-a11y="links-underline"><span class="a11y-icon" aria-hidden="true">🔗</span>הדגשת קישורים</button>
+    <button class="a11y-btn" data-a11y="big-cursor"><span class="a11y-icon" aria-hidden="true">🖱️</span>סמן גדול</button>
+    <button class="a11y-btn" data-a11y="highlight-focus"><span class="a11y-icon" aria-hidden="true">🎯</span>הדגשת מיקוד</button>
+    <button class="a11y-btn" data-a11y="line-height"><span class="a11y-icon" aria-hidden="true">↕️</span>מרווח שורות</button>
+    <button class="a11y-btn" data-a11y="letter-spacing"><span class="a11y-icon" aria-hidden="true">↔️</span>מרווח אותיות</button>
+    <button class="a11y-btn" data-a11y="stop-animations"><span class="a11y-icon" aria-hidden="true">⏸️</span>עצירת אנימציות</button>
+    <button class="a11y-reset" id="a11yReset">🔄 איפוס הגדרות נגישות</button>
+  </div>
+</div>
+<script>
+(function() {
+  const trigger = document.getElementById('a11yTrigger');
+  const panel = document.getElementById('a11yPanel');
+  const closeBtn = document.getElementById('a11yClose');
+  const resetBtn = document.getElementById('a11yReset');
+  const STORAGE_KEY = 'trifold_a11y';
+  let fontLevel = 0;
+  function loadPrefs() {
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      if (saved.fontLevel) { fontLevel = saved.fontLevel; applyFontLevel(); }
+      if (saved.toggles) {
+        saved.toggles.forEach(function(key) {
+          document.body.classList.add('a11y-' + key);
+          const btn = document.querySelector('[data-a11y="' + key + '"]');
+          if (btn) btn.classList.add('active');
+        });
+      }
+    } catch(e) {}
+  }
+  function savePrefs() {
+    const toggles = [];
+    document.querySelectorAll('.a11y-btn.active').forEach(function(btn) {
+      const key = btn.dataset.a11y;
+      if (key && key !== 'font-up') toggles.push(key);
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ fontLevel: fontLevel, toggles: toggles }));
+  }
+  function applyFontLevel() {
+    document.body.classList.remove('a11y-large-text', 'a11y-xlarge-text');
+    var btn = document.querySelector('[data-a11y="font-up"]');
+    if (fontLevel === 1) { document.body.classList.add('a11y-large-text'); if (btn) btn.classList.add('active'); }
+    else if (fontLevel >= 2) { document.body.classList.add('a11y-xlarge-text'); if (btn) btn.classList.add('active'); }
+    else { if (btn) btn.classList.remove('active'); }
+  }
+  trigger.addEventListener('click', function() {
+    var isOpen = panel.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', isOpen);
+  });
+  closeBtn.addEventListener('click', function() {
+    panel.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('click', function(e) {
+    if (!panel.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
+      panel.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && panel.classList.contains('open')) {
+      panel.classList.remove('open');
+      trigger.focus();
+    }
+  });
+  document.querySelectorAll('.a11y-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = btn.dataset.a11y;
+      if (key === 'font-up') { fontLevel = (fontLevel + 1) % 3; applyFontLevel(); }
+      else { btn.classList.toggle('active'); document.body.classList.toggle('a11y-' + key); }
+      savePrefs();
+    });
+  });
+  resetBtn.addEventListener('click', function() {
+    fontLevel = 0;
+    document.body.className = document.body.className.split(' ').filter(function(c) { return !c.startsWith('a11y-'); }).join(' ');
+    document.querySelectorAll('.a11y-btn.active').forEach(function(b) { b.classList.remove('active'); });
+    localStorage.removeItem(STORAGE_KEY);
+  });
+  loadPrefs();
+})();
+</script>
+</body>
+</html>
