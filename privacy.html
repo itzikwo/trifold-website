@@ -1,515 +1,205 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>מדיניות פרטיות · Privacy Policy — TriFold Technologies</title>
-<meta name="description" content="מדיניות הפרטיות של אתר TriFold Technologies — בהתאם לחוק הגנת הפרטיות, התשמ&quot;א–1981 ולתיקון 13. Privacy policy for the TriFold Technologies website (Israeli Protection of Privacy Law, Amendment 13)." />
-<meta name="robots" content="index, follow" />
-<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<title>Privacy policy · מדיניות פרטיות — TriFold Technologies</title>
+<meta name="description" content="Privacy policy for the TriFold Technologies website — Israeli Protection of Privacy Law, Amendment 13. No forms, no cookies, no tracking. מדיניות פרטיות." />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..800;1,300..600&family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-:root {
-  --canvas: #F1F1EF; --surface: #FFFFFF; --ink: #141414;
-  --ink-muted: #5F5F5F;               /* AA-safe secondary text */
-  --hairline: #E6E6E4; --mint: #B9E5E2; --mint-ink: #256E68;
-  --font-en: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
-  --font-he: 'Heebo', system-ui, -apple-system, sans-serif;
-  --shadow-soft: 0 1px 2px rgba(20,20,20,0.03), 0 18px 40px rgba(20,20,20,0.04);
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; background: var(--canvas); color: var(--ink);
-  font-family: var(--font-he); -webkit-font-smoothing: antialiased; line-height: 1.65; }
-:lang(en) { font-family: var(--font-en); }
-a { color: var(--mint-ink); }
-:focus-visible { outline: 3px solid var(--mint-ink); outline-offset: 3px; border-radius: 6px; }
-
-.skip-link { position: absolute; inset-inline-start: 16px; top: -60px; z-index: 10;
-  background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 0 0 12px 12px;
-  font-weight: 500; transition: top .2s; text-decoration: none; }
-.skip-link:focus { top: 0; }
-
-.page { max-width: 820px; margin: 0 auto; padding: clamp(24px, 6vw, 72px) max(1.25rem, 5vw); }
-.topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px;
-  flex-wrap: wrap; margin-bottom: 40px; }
-.brand { font-family: var(--font-en); font-weight: 600; font-size: 21px; letter-spacing: -0.02em;
-  color: var(--ink); text-decoration: none; }
-.brand .dot { color: var(--mint-ink); }
-.home-link { font-size: 14px; font-weight: 500; text-decoration: none; }
-.lang-switch { display: flex; gap: 8px; margin-bottom: 32px; }
-.lang-switch a { font-size: 13.5px; font-weight: 500; text-decoration: none; color: var(--ink);
-  background: var(--surface); border: 1px solid var(--hairline); border-radius: 999px; padding: 7px 15px; }
-
-.card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px;
-  box-shadow: var(--shadow-soft); padding: clamp(22px, 4vw, 40px); }
-.doc + .doc { margin-top: 28px; }
-.doc[lang="en"] { direction: ltr; text-align: left; }
-
-h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.15; letter-spacing: -0.015em; margin: 0 0 6px; }
-.subtitle { color: var(--ink-muted); font-size: 16px; margin: 0 0 8px; }
-.updated { color: var(--ink-muted); font-size: 13.5px; margin: 0 0 24px; }
-h2 { font-size: 20px; line-height: 1.25; margin: 30px 0 10px; }
-p { margin: 0 0 14px; }
-ul { margin: 0 0 14px; padding-inline-start: 22px; }
-li { margin-bottom: 7px; }
-.contact { background: var(--canvas); border: 1px solid var(--hairline); border-radius: 12px;
-  padding: 18px 20px; margin: 18px 0; }
-.contact .role { font-weight: 600; margin-bottom: 6px; }
-.contact a { font-weight: 500; }
-.hr { height: 1px; background: var(--hairline); border: 0; margin: 40px 0; }
-strong { font-weight: 600; }
-
-/* Callout for the "we don't do this" facts — the most useful part of this policy */
-.note { background: #E7F5F3; border: 1px solid var(--mint); border-radius: 12px;
-  padding: 16px 20px; margin: 18px 0; }
-
-/* ── Accessibility widget (same self-contained widget as the homepage) ── */
-.a11y-trigger { position: fixed; bottom: 24px; left: 24px; width: 56px; height: 56px;
-  background: var(--ink); color: #fff; border: none; border-radius: 50%; cursor: pointer;
-  z-index: 9999; display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 16px rgba(20,20,20,0.22); transition: transform .2s, background .2s; }
-.a11y-trigger:hover { transform: scale(1.08); background: #2a2a2a; }
-.a11y-trigger svg { width: 28px; height: 28px; fill: currentColor; }
-.a11y-panel { position: fixed; bottom: 90px; left: 24px; width: 320px; max-height: 80vh;
-  background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(20,20,20,0.18); z-index: 9998; display: none;
-  flex-direction: column; overflow: hidden; direction: rtl;
-  font-family: system-ui, -apple-system, 'Segoe UI', 'Heebo', Arial, sans-serif; }
-.a11y-panel.open { display: flex; }
-.a11y-panel-header { background: var(--ink); color: #fff; padding: 16px 20px;
-  display: flex; justify-content: space-between; align-items: center; }
-.a11y-panel-header h3 { font-size: 1.1rem; margin: 0; font-weight: 600; color: #fff; }
-.a11y-panel-close { background: none; border: none; color: #fff; font-size: 1.4rem;
-  cursor: pointer; padding: 0; line-height: 1; }
-.a11y-panel-body { padding: 16px 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-.a11y-btn { display: flex; align-items: center; gap: 12px; padding: 12px 16px;
-  background: var(--canvas); border: 2px solid transparent; border-radius: 10px; cursor: pointer;
-  font-family: inherit; font-size: 0.95rem; font-weight: 500; color: var(--ink);
-  transition: border-color .15s, background .15s; text-align: right; }
-.a11y-btn:hover, .a11y-btn.active { border-color: var(--mint-ink); background: #E7F5F3; }
-.a11y-btn .a11y-icon { font-size: 1.3rem; flex-shrink: 0; width: 28px; text-align: center; }
-.a11y-reset { margin-top: 6px; padding: 10px; background: none; border: 1px solid var(--hairline);
-  border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.9rem; color: var(--ink-muted); transition: all .15s; }
-.a11y-reset:hover { background: #f6e9e9; color: #8a1c1c; border-color: #8a1c1c; }
-/* Text size — px-based layout, so scale the content region with zoom (not the fixed widget). */
-body.a11y-large-text .page { zoom: 1.15; }
-body.a11y-xlarge-text .page { zoom: 1.30; }
-body.a11y-high-contrast * { color: #000 !important; background-color: #fff !important; border-color: #000 !important; }
-body.a11y-high-contrast .a11y-panel-header { color: #fff !important; background-color: #000 !important; }
-body.a11y-high-contrast a { color: #0000EE !important; text-decoration: underline !important; }
-body.a11y-grayscale > *:not(#a11yPanel) { filter: grayscale(1); }
-body.a11y-links-underline a { text-decoration: underline !important; }
-body.a11y-big-cursor, body.a11y-big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M4 4l16 40 6-16 16-6z' fill='%23000' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") 4 4, auto !important; }
-body.a11y-highlight-focus *:focus { outline: 3px solid #ff6600 !important; outline-offset: 3px !important; }
-body.a11y-line-height * { line-height: 2.2 !important; }
-body.a11y-letter-spacing * { letter-spacing: 0.12em !important; word-spacing: 0.2em !important; }
-body.a11y-stop-animations *, body.a11y-stop-animations *::before, body.a11y-stop-animations *::after {
-  animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-@media (max-width: 768px) { .a11y-panel { width: calc(100vw - 48px); } }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-<a class="skip-link" href="#content">דלג לתוכן / Skip to content</a>
+<a class="skip-link" href="#content">Skip to content</a>
+<div id="site">
 
-<div class="page" id="content">
-  <div class="topbar">
-    <a class="brand" href="/index.html">TriFold<span class="dot" aria-hidden="true">.</span></a>
-    <a class="home-link" href="/index.html">חזרה לדף הבית · Back to home</a>
-  </div>
-
-  <nav class="lang-switch" aria-label="Language">
-    <a href="#he" lang="he">עברית</a>
-    <a href="#en" lang="en">English</a>
-  </nav>
-
-  <!-- ─────────────────────────── HEBREW (primary) ─────────────────────────── -->
-  <article class="doc card" lang="he" dir="rtl" id="he">
-    <h1>מדיניות פרטיות</h1>
-    <p class="subtitle">אתר TriFold Technologies — שירותי CAIO במיקור חוץ (Fractional CAIO)</p>
-    <p class="updated">עודכן לאחרונה: 14 ביולי 2026</p>
-
-    <p>
-      מדיניות זו מסבירה איזה מידע נאסף בעת השימוש באתר זה, לאיזו מטרה, ומה נעשה בו —
-      בהתאם ל<strong>חוק הגנת הפרטיות, התשמ"א–1981</strong>, לרבות <strong>תיקון 13</strong>
-      לחוק (שנכנס לתוקף באוגוסט 2025).
-    </p>
-
-    <div class="note">
-      <p style="margin:0">
-        <strong>בקצרה:</strong> באתר זה <strong>אין טפסים ואין איסוף פרטים</strong>. אין בו
-        עוגיות (cookies), אין כלי אנליטיקה, ואין פיקסלים פרסומיים או מעקב אחר גולשים.
-        יצירת הקשר נעשית באמצעות קישורי דוא"ל וטלפון ישירים בלבד.
-      </p>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand" aria-label="TriFold Technologies — home">
+        <span class="brand-logo"><img src="/assets/logo.svg" alt="TriFold Technologies" /></span>
+        <img class="brand-mascot" src="/assets/mascot-head.png" alt="" aria-hidden="true" />
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/services.html">Services</a>
+        <a class="nav-link" href="/about.html">About</a>
+        <a class="nav-link" href="/contact.html">Contact</a>
+        <a class="btn btn-primary btn-sm" href="https://cal.com/itzik-woda/30min" target="_blank" rel="noopener">Book an intro call →</a>
+      </nav>
     </div>
+  </header>
 
-    <h2>מי אחראי על המידע (מנהל המאגר)</h2>
-    <p>
-      בעל האתר והאחראי על המידע הוא <strong>איציק וודה</strong>, עוסק מורשה, הפועל תחת
-      השם המסחרי <strong>TriFold Technologies</strong>.
-    </p>
-    <ul>
-      <li>מספר עוסק מורשה: <strong dir="ltr">027998772</strong></li>
-      <li>כתובת למשלוח דואר: <strong>ת.ד. 3012, קדימה-צורן 6093722</strong></li>
-      <li>דוא"ל לפניות בנושא פרטיות: <a href="mailto:itzik.woda@trifoldtechnologies.com?subject=%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA">itzik.woda@trifoldtechnologies.com</a></li>
-    </ul>
+  <main id="content">
+    <section class="page-hero band-panel">
+      <div class="wrap-narrow" style="padding: 72px 24px 56px;">
+        <div class="eyebrow">Protection of Privacy Law · Amendment 13</div>
+        <h1 style="font-family: var(--f-display); font-weight: 800; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.04; letter-spacing: -0.03em; margin: 14px 0 0;">Privacy policy</h1>
+        <p style="font-size: 17px; line-height: 1.6; color: var(--muted); margin: 16px 0 0;">TriFold Technologies website — Fractional CAIO services. Last updated: 14 July 2026.</p>
+      </div>
+    </section>
 
-    <h2>איזה מידע נאסף</h2>
-    <p>
-      <strong>מידע שאתם מוסרים ביוזמתכם.</strong> באתר אין טופס יצירת קשר. כל לחצני
-      הפנייה באתר פותחים את תוכנת הדוא"ל או את הטלפון שלכם. אם תבחרו לפנות אלינו כך,
-      נקבל את הפרטים שבחרתם למסור — בדרך כלל <strong>שם, כתובת דוא"ל או מספר טלפון,
-      ותוכן הפנייה</strong>. מסירת הפרטים היא וולונטרית לחלוטין; אינכם חייבים למסור
-      אותם, ואי-מסירתם אינה מונעת מכם לגלוש באתר.
-    </p>
-    <p>
-      <strong>מידע טכני (לוגים).</strong> כמו בכל אתר אינטרנט, שרת האחסון רושם נתוני
-      שימוש טכניים: <strong>כתובת IP, סוג הדפדפן ומערכת ההפעלה, מועד הפנייה והעמודים
-      שנטענו</strong>. מידע זה משמש לתפעול האתר ולאבטחתו בלבד, ואינו משמש לזיהוי אישי
-      או לפילוח גולשים.
-    </p>
-    <p>
-      <strong>העדפות נגישות.</strong> רכיב הנגישות שומר את ההעדפות שבחרתם (למשל גודל
-      טקסט או ניגודיות) באחסון המקומי של הדפדפן (localStorage), תחת המפתח
-      <code>trifold_a11y</code>. מידע זה <strong>נשמר במכשיר שלכם בלבד, אינו נשלח אלינו
-      ואינו מגיע לשום צד שלישי</strong>. ניתן למחוק אותו בכל רגע בלחיצה על "איפוס
-      הגדרות נגישות" ברכיב, או בניקוי נתוני הדפדפן.
-    </p>
+    <section class="wrap-narrow legal" style="padding: 48px 24px 20px;">
+      <div class="callout"><strong>In short:</strong> this site has no forms and collects no personal details. It uses no cookies, no analytics, and no advertising or tracking pixels. Getting in touch happens through direct email, phone, and the booking calendar only.</div>
 
-    <h2>עוגיות (cookies) וכלי מעקב</h2>
-    <p>
-      <strong>האתר אינו עושה שימוש בעוגיות, בכלי אנליטיקה או בפיקסלים לצורכי פרסום או
-      מעקב.</strong> לא מתבצע פרופיילינג, אין העברת מידע לרשתות פרסום, ואין שיתוף מידע
-      עם פלטפורמות מדיה חברתית. משום כך גם אין באתר "באנר עוגיות" — אין למה להסכים.
-    </p>
+      <h2>Who is responsible for the data</h2>
+      <p style="margin-bottom: 14px;">The owner of this site and the party responsible for the data is Itzik Woda, a licensed sole proprietor (עוסק מורשה) trading as TriFold Technologies.</p>
+      <ul>
+        <li>Business registration number: 027998772</li>
+        <li>Postal address: P.O. Box 3012, Kadima-Zoran 6093722, Israel</li>
+        <li>Privacy contact: <a href="mailto:itzik.woda@trifoldtechnologies.com?subject=Privacy">itzik.woda@trifoldtechnologies.com</a></li>
+      </ul>
 
-    <h2>שירותי צד שלישי</h2>
-    <p>
-      כדי להציג את האתר נטענים משאבים משרתים חיצוניים. עצם הטעינה חושפת בפניהם את
-      <strong>כתובת ה‑IP שלכם</strong> ופרטי דפדפן בסיסיים, בהתאם למדיניות הפרטיות שלהם:
-    </p>
-    <ul>
-      <li><strong>Google Fonts</strong> (Google LLC) — טעינת הגופנים המשמשים באתר.</li>
-      <li><strong>unpkg / Cloudflare</strong> — טעינת ספריית האייקונים המשמשת בעמוד הבית.</li>
-      <li><strong>ספק האחסון (Elest.io)</strong> — אירוח האתר ורישום לוגים טכניים כאמור לעיל.</li>
-    </ul>
-    <p>
-      חלק מספקים אלה מפעילים שרתים <strong>מחוץ לישראל</strong>, ולכן ייתכן שהמידע הטכני
-      האמור יעובד או יאוחסן מחוץ לגבולות המדינה.
-    </p>
+      <h2>What information is collected</h2>
+      <p style="margin-bottom: 14px;"><strong>Information you provide voluntarily.</strong> There is no contact form on this site. Calls to action open your own email client, phone dialler, or the booking calendar. If you choose to contact us, we receive whatever details you decide to send — typically your name, email address or phone number, and the content of your message. Providing these details is entirely voluntary.</p>
+      <p style="margin-bottom: 14px;"><strong>Technical information (server logs).</strong> As with any website, the hosting server records technical usage data: IP address, browser and operating system, timestamp, and the pages requested. This is used solely to operate and secure the site, not to identify you personally or to profile visitors.</p>
+      <p><strong>Accessibility preferences.</strong> The accessibility widget stores the preferences you select in your browser’s local storage, under the key <span class="mono">trifold-a11y</span>. This data stays on your own device, is never sent to us, and never reaches any third party. You can erase it at any time with the widget’s reset button, or by clearing your browser data.</p>
 
-    <h2>למה משמש המידע</h2>
-    <ul>
-      <li>מענה לפניות שיזמתם וניהול קשר עסקי שוטף מולכם.</li>
-      <li>תפעול האתר, תחזוקתו ואבטחתו.</li>
-      <li>עמידה בחובות חוקיות החלות עלינו (למשל חובות ניהול ספרים ודיווח).</li>
-    </ul>
-    <p>
-      המידע <strong>אינו נמכר, אינו מושכר ואינו מועבר לצדדים שלישיים</strong> לצורכי
-      שיווק. העברת מידע תיעשה רק לספקי שירות הפועלים מטעמנו (כגון ספק האחסון וספק
-      הדוא"ל), או אם נידרש לכך על פי דין או צו שיפוטי.
-    </p>
+      <h2>Cookies and tracking</h2>
+      <p>This site does not use cookies, analytics tools, or advertising and tracking pixels. No profiling takes place, no data is passed to ad networks, and nothing is shared with social media platforms. That is also why you will not see a cookie banner here — there is nothing to consent to.</p>
 
-    <h2>דיוור ופרסום</h2>
-    <p>
-      נכון למועד עדכון מדיניות זו, <strong>איננו מנהלים רשימת תפוצה ואיננו שולחים דיוור
-      שיווקי</strong>. אם נתחיל בכך בעתיד, הדבר ייעשה רק לאחר קבלת הסכמה נפרדת ומפורשת
-      מכם מראש, ובכל הודעה תיכלל אפשרות הסרה פשוטה, בהתאם לסעיף 30א לחוק התקשורת
-      (בזק ושידורים).
-    </p>
+      <h2>Third-party services</h2>
+      <p style="margin-bottom: 14px;">To display the site, some resources are loaded from external servers. Loading them exposes your IP address and basic browser details to those providers, subject to their own privacy policies:</p>
+      <ul>
+        <li>Google Fonts (Google LLC) — serves the typefaces used on the site.</li>
+        <li>Cal.com — powers the booking calendar embedded on the Contact page and the booking links.</li>
+        <li>Our hosting provider — hosts the site and records the technical logs described above.</li>
+      </ul>
+      <p style="margin-top: 14px;">Some of these providers operate servers outside Israel, so the technical information above may be processed or stored abroad.</p>
 
-    <h2>משך שמירת המידע</h2>
-    <p>
-      פניות דוא"ל נשמרות למשך הזמן הנדרש לטיפול בפנייה ולניהול הקשר העסקי, ולאחר מכן
-      למשך התקופה הנדרשת על פי דין. לוגים טכניים נשמרים לתקופה קצרה בלבד לצורכי אבטחה
-      ותפעול.
-    </p>
+      <h2>How the information is used</h2>
+      <ul>
+        <li>To answer enquiries you initiate and to manage our ongoing business relationship.</li>
+        <li>To operate, maintain and secure the website.</li>
+        <li>To meet legal obligations that apply to us, such as bookkeeping and reporting duties.</li>
+      </ul>
+      <p style="margin-top: 14px;">Your information is never sold, rented, or passed to third parties for marketing purposes. It is shared only with service providers acting on our behalf, or where we are required to do so by law or court order.</p>
 
-    <h2>אבטחת מידע</h2>
-    <p>
-      האתר מוגש בתעבורה מוצפנת (HTTPS). אנו נוקטים אמצעים סבירים להגנה על המידע המצוי
-      ברשותנו מפני גישה, שימוש או גילוי בלתי מורשים, לרבות הגבלת הגישה למידע לבעלי
-      הרשאה בלבד. עם זאת, אין באפשרותנו להבטיח חסינות מוחלטת מפני חדירה, ולכן איננו
-      ממליצים למסור מידע רגיש בהודעות דוא"ל.
-    </p>
+      <h2>Marketing and mailing lists</h2>
+      <p>As of the date of this policy, we do not operate a mailing list and do not send marketing messages. Should that change, it will only happen after you give separate, explicit, prior consent, and every message will carry a simple unsubscribe option, as required by section 30A of the Communications Law.</p>
 
-    <h2>הזכויות שלכם</h2>
-    <p>על פי חוק הגנת הפרטיות עומדות לכם הזכויות הבאות ביחס למידע שנמסר לנו:</p>
-    <ul>
-      <li><strong>זכות עיון</strong> — לבקש לעיין במידע המוחזק אודותיכם (סעיף 13 לחוק).</li>
-      <li><strong>זכות תיקון</strong> — לבקש לתקן מידע שאינו נכון, שלם, ברור או מעודכן (סעיף 14 לחוק).</li>
-      <li><strong>זכות מחיקה</strong> — לבקש את מחיקת המידע, בכפוף לחובות שמירה על פי דין.</li>
-    </ul>
-    <p>
-      למימוש הזכויות ניתן לפנות אלינו בפרטים שלהלן. נשיב לפנייתכם בתוך פרק הזמן הקבוע
-      בחוק.
-    </p>
+      <h2>How long information is kept</h2>
+      <p>Email enquiries are retained for as long as needed to handle the enquiry and manage the business relationship, and thereafter for any period required by law. Technical logs are kept only briefly, for security and operational purposes.</p>
 
-    <h2>פנייה בנושא פרטיות</h2>
-    <div class="contact">
-      <div class="role">אחראי הגנת הפרטיות — איציק וודה</div>
-      <div>טלפון: <a href="tel:+972528544775" dir="ltr">052-8544775</a></div>
-      <div>דוא"ל: <a href="mailto:itzik.woda@trifoldtechnologies.com?subject=%D7%A4%D7%A8%D7%98%D7%99%D7%95%D7%AA">itzik.woda@trifoldtechnologies.com</a></div>
+      <h2>Data security</h2>
+      <p>The site is served over encrypted connections (HTTPS). We take reasonable measures to protect the information in our possession against unauthorised access, use, or disclosure, including restricting access to authorised persons only. That said, no system can be guaranteed impenetrable, and we therefore recommend that you do not send sensitive information by email.</p>
+
+      <h2>Your rights</h2>
+      <ul>
+        <li>Right of access — to request to review the information held about you (section 13).</li>
+        <li>Right of correction — to request correction of information that is inaccurate, incomplete, unclear, or out of date (section 14).</li>
+        <li>Right of erasure — to request deletion of the information, subject to legal retention duties.</li>
+      </ul>
+      <p style="margin-top: 14px;">To exercise these rights, contact us using the details below. We will respond within the period prescribed by law.</p>
+
+      <h2>Privacy contact</h2>
+      <div class="info-grid">
+        <div class="info-card"><div class="lbl">PRIVACY CONTACT</div><div class="val">Itzik Woda</div></div>
+        <a class="info-card" href="tel:+972528544775"><div class="lbl">PHONE</div><div class="val">052-8544775</div></a>
+        <a class="info-card" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Privacy"><div class="lbl">EMAIL</div><div class="val">itzik.woda@trifoldtechnologies.com</div></a>
+      </div>
+
+      <h2>Changes to this policy</h2>
+      <p>We may update this policy from time to time — for example if forms or measurement tools are added to the site. The updated policy will be published on this page and the date at the top will change accordingly.</p>
+    </section>
+
+    <section class="wrap-narrow legal legal-rtl-block rtl" dir="rtl" style="padding: 40px 24px 80px;">
+      <h2 style="font-weight: 800; font-size: clamp(28px, 3.2vw, 40px); margin: 0 0 8px;">מדיניות פרטיות</h2>
+      <p style="margin: 0 0 24px;">אתר TriFold Technologies — שירותי CAIO במיקור חוץ. עודכן לאחרונה: 14 ביולי 2026.</p>
+      <p style="line-height: 1.85;">מדיניות זו מסבירה איזה מידע נאסף בעת השימוש באתר זה, לאיזו מטרה, ומה נעשה בו — בהתאם לחוק הגנת הפרטיות, התשמ"א–1981, לרבות תיקון 13 לחוק.</p>
+      <div class="callout" style="margin-top: 20px; line-height: 1.8;"><strong>בקצרה:</strong> באתר זה אין טפסים ואין איסוף פרטים. אין בו עוגיות (cookies), אין כלי אנליטיקה, ואין פיקסלים פרסומיים או מעקב אחר גולשים. יצירת הקשר נעשית באמצעות קישורי דוא"ל, טלפון ויומן הזימונים בלבד.</div>
+      <h3>מי אחראי על המידע</h3>
+      <p style="line-height: 1.85; margin-bottom: 10px;">בעל האתר והאחראי על המידע הוא איציק וודה, עוסק מורשה, הפועל תחת השם המסחרי TriFold Technologies.</p>
+      <ul style="line-height: 1.85;">
+        <li>מספר עוסק מורשה: 027998772</li>
+        <li>כתובת למשלוח דואר: ת.ד. 3012, קדימה-צורן 6093722</li>
+        <li>דוא"ל לפניות בנושא פרטיות: <a href="mailto:itzik.woda@trifoldtechnologies.com">itzik.woda@trifoldtechnologies.com</a></li>
+      </ul>
+      <h3>איזה מידע נאסף</h3>
+      <p style="line-height: 1.85; margin-bottom: 12px;"><strong>מידע שאתם מוסרים ביוזמתכם.</strong> באתר אין טופס יצירת קשר. לחצני הפנייה פותחים את תוכנת הדוא"ל, את הטלפון או את יומן הזימונים. אם תבחרו לפנות אלינו, נקבל את הפרטים שבחרתם למסור — בדרך כלל שם, כתובת דוא"ל או מספר טלפון, ותוכן הפנייה. מסירת הפרטים היא וולונטרית לחלוטין.</p>
+      <p style="line-height: 1.85; margin-bottom: 12px;"><strong>מידע טכני (לוגים).</strong> כמו בכל אתר אינטרנט, שרת האחסון רושם נתוני שימוש טכניים: כתובת IP, סוג הדפדפן ומערכת ההפעלה, מועד הפנייה והעמודים שנטענו. מידע זה משמש לתפעול האתר ולאבטחתו בלבד.</p>
+      <p style="line-height: 1.85;"><strong>העדפות נגישות.</strong> רכיב הנגישות שומר את ההעדפות שבחרתם באחסון המקומי של הדפדפן (localStorage), תחת המפתח trifold-a11y. מידע זה נשמר במכשיר שלכם בלבד, אינו נשלח אלינו ואינו מגיע לשום צד שלישי. ניתן למחוק אותו בכל רגע בלחיצה על "איפוס" ברכיב.</p>
+      <h3>עוגיות וכלי מעקב</h3>
+      <p style="line-height: 1.85;">האתר אינו עושה שימוש בעוגיות, בכלי אנליטיקה או בפיקסלים לצורכי פרסום או מעקב. לא מתבצע פרופיילינג, אין העברת מידע לרשתות פרסום, ואין שיתוף מידע עם פלטפורמות מדיה חברתית. משום כך גם אין באתר "באנר עוגיות" — אין למה להסכים.</p>
+      <h3>שירותי צד שלישי</h3>
+      <p style="line-height: 1.85; margin-bottom: 10px;">כדי להציג את האתר נטענים משאבים משרתים חיצוניים. עצם הטעינה חושפת בפניהם את כתובת ה‑IP שלכם ופרטי דפדפן בסיסיים, בהתאם למדיניות הפרטיות שלהם:</p>
+      <ul style="line-height: 1.85;">
+        <li>Google Fonts (Google LLC) — טעינת הגופנים המשמשים באתר.</li>
+        <li>Cal.com — יומן הזימונים המוטמע בעמוד יצירת הקשר.</li>
+        <li>ספק האחסון — אירוח האתר ורישום לוגים טכניים כאמור לעיל.</li>
+      </ul>
+      <p style="line-height: 1.85; margin-top: 12px;">חלק מספקים אלה מפעילים שרתים מחוץ לישראל, ולכן ייתכן שהמידע הטכני האמור יעובד או יאוחסן מחוץ לגבולות המדינה.</p>
+      <h3>למה משמש המידע</h3>
+      <ul style="line-height: 1.85;">
+        <li>מענה לפניות שיזמתם וניהול קשר עסקי שוטף מולכם.</li>
+        <li>תפעול האתר, תחזוקתו ואבטחתו.</li>
+        <li>עמידה בחובות חוקיות החלות עלינו.</li>
+      </ul>
+      <p style="line-height: 1.85; margin-top: 12px;">המידע אינו נמכר, אינו מושכר ואינו מועבר לצדדים שלישיים לצורכי שיווק. העברת מידע תיעשה רק לספקי שירות הפועלים מטעמנו, או אם נידרש לכך על פי דין או צו שיפוטי.</p>
+      <h3>דיוור ופרסום</h3>
+      <p style="line-height: 1.85;">נכון למועד עדכון מדיניות זו, איננו מנהלים רשימת תפוצה ואיננו שולחים דיוור שיווקי. אם נתחיל בכך בעתיד, הדבר ייעשה רק לאחר קבלת הסכמה נפרדת ומפורשת מכם מראש, ובכל הודעה תיכלל אפשרות הסרה פשוטה, בהתאם לסעיף 30א לחוק התקשורת.</p>
+      <h3>משך שמירת המידע ואבטחתו</h3>
+      <p style="line-height: 1.85;">פניות דוא"ל נשמרות למשך הזמן הנדרש לטיפול בפנייה ולניהול הקשר העסקי, ולאחר מכן למשך התקופה הנדרשת על פי דין. לוגים טכניים נשמרים לתקופה קצרה בלבד. האתר מוגש בתעבורה מוצפנת (HTTPS) ואנו נוקטים אמצעים סבירים להגנה על המידע, אך איננו ממליצים למסור מידע רגיש בהודעות דוא"ל.</p>
+      <h3>הזכויות שלכם</h3>
+      <ul style="line-height: 1.85;">
+        <li>זכות עיון — לבקש לעיין במידע המוחזק אודותיכם (סעיף 13 לחוק).</li>
+        <li>זכות תיקון — לבקש לתקן מידע שאינו נכון, שלם, ברור או מעודכן (סעיף 14 לחוק).</li>
+        <li>זכות מחיקה — לבקש את מחיקת המידע, בכפוף לחובות שמירה על פי דין.</li>
+      </ul>
+      <h3>פנייה בנושא פרטיות</h3>
+      <p style="line-height: 1.85;">אחראי הגנת הפרטיות — איציק וודה. טלפון: <a href="tel:+972528544775">052-8544775</a>. דוא"ל: <a href="mailto:itzik.woda@trifoldtechnologies.com">itzik.woda@trifoldtechnologies.com</a>. אנו רשאים לעדכן מדיניות זו מעת לעת; המדיניות המעודכנת תפורסם בעמוד זה.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <span class="footer-brand">
+        <span class="brand-logo"><img src="/assets/logo.svg" alt="TriFold Technologies" /></span>
+        <img class="brand-mascot" src="/assets/mascot-head.png" alt="" aria-hidden="true" />
+      </span>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/accessibility.html">Accessibility statement</a>
+        <a href="/privacy.html">Privacy policy</a>
+        <a href="/terms.html">Terms of use</a>
+      </nav>
+      <div class="footer-legal">
+        <span>TriFold Technologies · Owned and run by Itzik Woda · Israel</span>
+        <span>Built to IS 5568 · WCAG 2.1 AA</span>
+      </div>
     </div>
-
-    <h2>שינויים במדיניות</h2>
-    <p>
-      אנו רשאים לעדכן מדיניות זו מעת לעת, למשל אם ייווספו לאתר טפסים או כלי מדידה.
-      המדיניות המעודכנת תפורסם בעמוד זה, ותאריך העדכון שבראשו ישתנה בהתאם. מומלץ לעיין
-      בעמוד זה מדי פעם.
-    </p>
-  </article>
-
-  <!-- ─────────────────────────── ENGLISH ─────────────────────────── -->
-  <article class="doc card" lang="en" dir="ltr" id="en">
-    <h1>Privacy Policy</h1>
-    <p class="subtitle">TriFold Technologies website — Fractional CAIO services</p>
-    <p class="updated">Last updated: 14 July 2026</p>
-
-    <p>
-      This policy explains what information is collected when you use this website, for
-      what purpose, and what is done with it — in accordance with Israel's
-      <strong>Protection of Privacy Law, 1981</strong>, including <strong>Amendment 13</strong>,
-      which came into force in August 2025.
-    </p>
-
-    <div class="note">
-      <p style="margin:0">
-        <strong>In short:</strong> this site has <strong>no forms and collects no personal
-        details</strong>. It uses no cookies, no analytics, and no advertising or tracking
-        pixels. Getting in touch happens through direct email and phone links only.
-      </p>
-    </div>
-
-    <h2>Who is responsible for the data (database controller)</h2>
-    <p>
-      The owner of this site and the party responsible for the data is
-      <strong>Itzik Woda</strong>, a licensed sole proprietor (עוסק מורשה) trading as
-      <strong>TriFold Technologies</strong>.
-    </p>
-    <ul>
-      <li>Business registration number (עוסק מורשה): <strong>027998772</strong></li>
-      <li>Postal address: <strong>P.O. Box 3012, Kadima-Zoran 6093722, Israel</strong></li>
-      <li>Privacy contact: <a href="mailto:itzik.woda@trifoldtechnologies.com?subject=Privacy">itzik.woda@trifoldtechnologies.com</a></li>
-    </ul>
-
-    <h2>What information is collected</h2>
-    <p>
-      <strong>Information you provide voluntarily.</strong> There is no contact form on
-      this site. Every call-to-action opens your own email client or phone dialler. If you
-      choose to contact us that way, we receive whatever details you decide to send —
-      typically your <strong>name, email address or phone number, and the content of your
-      message</strong>. Providing these details is entirely voluntary; you are under no
-      obligation to provide them, and not doing so does not prevent you from using the site.
-    </p>
-    <p>
-      <strong>Technical information (server logs).</strong> As with any website, the
-      hosting server records technical usage data: <strong>IP address, browser and
-      operating system, timestamp, and the pages requested</strong>. This is used solely to
-      operate and secure the site, and not to identify you personally or to profile visitors.
-    </p>
-    <p>
-      <strong>Accessibility preferences.</strong> The accessibility widget stores the
-      preferences you select (such as text size or contrast) in your browser's local
-      storage, under the key <code>trifold_a11y</code>. This data <strong>stays on your own
-      device, is never sent to us, and never reaches any third party</strong>. You can
-      erase it at any time using the widget's "reset" button, or by clearing your browser
-      data.
-    </p>
-
-    <h2>Cookies and tracking</h2>
-    <p>
-      <strong>This site does not use cookies, analytics tools, or advertising and tracking
-      pixels.</strong> No profiling takes place, no data is passed to ad networks, and
-      nothing is shared with social media platforms. That is also why you will not see a
-      cookie banner here — there is nothing to consent to.
-    </p>
-
-    <h2>Third-party services</h2>
-    <p>
-      To display the site, some resources are loaded from external servers. Loading them
-      exposes your <strong>IP address</strong> and basic browser details to those providers,
-      subject to their own privacy policies:
-    </p>
-    <ul>
-      <li><strong>Google Fonts</strong> (Google LLC) — serves the typefaces used on the site.</li>
-      <li><strong>unpkg / Cloudflare</strong> — serves the icon library used on the home page.</li>
-      <li><strong>Our hosting provider (Elest.io)</strong> — hosts the site and records the technical logs described above.</li>
-    </ul>
-    <p>
-      Some of these providers operate servers <strong>outside Israel</strong>, so the
-      technical information above may be processed or stored abroad.
-    </p>
-
-    <h2>How the information is used</h2>
-    <ul>
-      <li>To answer enquiries you initiate and to manage our ongoing business relationship.</li>
-      <li>To operate, maintain and secure the website.</li>
-      <li>To meet legal obligations that apply to us (such as bookkeeping and reporting duties).</li>
-    </ul>
-    <p>
-      Your information is <strong>never sold, rented, or passed to third parties</strong>
-      for marketing purposes. It is shared only with service providers acting on our behalf
-      (such as our hosting and email providers), or where we are required to do so by law
-      or court order.
-    </p>
-
-    <h2>Marketing and mailing lists</h2>
-    <p>
-      As of the date of this policy, <strong>we do not operate a mailing list and do not
-      send marketing messages</strong>. Should that change, it will only happen after you
-      give separate, explicit, prior consent, and every message will carry a simple
-      unsubscribe option, as required by section 30A of the Communications Law.
-    </p>
-
-    <h2>How long information is kept</h2>
-    <p>
-      Email enquiries are retained for as long as needed to handle the enquiry and manage
-      the business relationship, and thereafter for any period required by law. Technical
-      logs are kept only briefly, for security and operational purposes.
-    </p>
-
-    <h2>Data security</h2>
-    <p>
-      The site is served over encrypted connections (HTTPS). We take reasonable measures to
-      protect the information in our possession against unauthorised access, use, or
-      disclosure, including restricting access to authorised persons only. That said, no
-      system can be guaranteed impenetrable, and we therefore recommend that you do not send
-      sensitive information by email.
-    </p>
-
-    <h2>Your rights</h2>
-    <p>Under the Protection of Privacy Law you have the following rights regarding information you have given us:</p>
-    <ul>
-      <li><strong>Right of access</strong> — to request to review the information held about you (section 13).</li>
-      <li><strong>Right of correction</strong> — to request correction of information that is inaccurate, incomplete, unclear, or out of date (section 14).</li>
-      <li><strong>Right of erasure</strong> — to request deletion of the information, subject to legal retention duties.</li>
-    </ul>
-    <p>
-      To exercise these rights, please contact us using the details below. We will respond
-      within the period prescribed by law.
-    </p>
-
-    <h2>Privacy contact</h2>
-    <div class="contact">
-      <div class="role">Privacy contact — Itzik Woda</div>
-      <div>Phone: <a href="tel:+972528544775">052-8544775</a> (+972-52-8544775)</div>
-      <div>Email: <a href="mailto:itzik.woda@trifoldtechnologies.com?subject=Privacy">itzik.woda@trifoldtechnologies.com</a></div>
-    </div>
-
-    <h2>Changes to this policy</h2>
-    <p>
-      We may update this policy from time to time — for example if forms or measurement
-      tools are added to the site. The updated policy will be published on this page and the
-      date at the top will change accordingly. We suggest revisiting this page occasionally.
-    </p>
-  </article>
-
-  <hr class="hr" />
-  <p style="text-align:center;color:var(--ink-muted);font-size:13px">
-    © 2026 TriFold Technologies · <a href="/index.html">Back to home</a> ·
-    <a href="/terms.html">Terms · תנאי שימוש</a> ·
-    <a href="/accessibility.html">Accessibility · נגישות</a>
-  </p>
+  </footer>
 </div>
 
-<!-- ── Accessibility widget (self-contained; same as homepage) ── -->
-<button class="a11y-trigger" id="a11yTrigger" aria-label="תפריט נגישות · Accessibility menu" title="נגישות" aria-expanded="false" aria-controls="a11yPanel" aria-haspopup="dialog">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.5 8.5L16 22h-2.5l-1.5-4-1.5 4H8l2.5-4.5L9 9H3V7h18v2z"/></svg>
-</button>
-<div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="הגדרות נגישות">
-  <div class="a11y-panel-header">
-    <h3>♿ נגישות</h3>
-    <button class="a11y-panel-close" id="a11yClose" aria-label="סגור תפריט נגישות">✕</button>
+<div class="a11y-dock">
+  <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Accessibility options">
+    <div class="a11y-panel-head">
+      <span class="t">Accessibility · נגישות</span>
+      <button type="button" class="a11y-close" id="a11yClose" aria-label="Close accessibility panel">✕</button>
+    </div>
+    <div class="a11y-grid">
+      <button type="button" class="a11y-opt" data-flag="font" aria-pressed="false"><span class="ico" aria-hidden="true">🔤</span><span class="lab">Larger text</span></button>
+      <button type="button" class="a11y-opt" data-flag="contrast" aria-pressed="false"><span class="ico" aria-hidden="true">◑</span><span class="lab">High contrast</span></button>
+      <button type="button" class="a11y-opt" data-flag="gray" aria-pressed="false"><span class="ico" aria-hidden="true">🌑</span><span class="lab">Greyscale</span></button>
+      <button type="button" class="a11y-opt" data-flag="links" aria-pressed="false"><span class="ico" aria-hidden="true">🔗</span><span class="lab">Highlight links</span></button>
+      <button type="button" class="a11y-opt" data-flag="cursor" aria-pressed="false"><span class="ico" aria-hidden="true">🖱️</span><span class="lab">Big cursor</span></button>
+      <button type="button" class="a11y-opt" data-flag="focus" aria-pressed="false"><span class="ico" aria-hidden="true">🎯</span><span class="lab">Focus outline</span></button>
+      <button type="button" class="a11y-opt" data-flag="lines" aria-pressed="false"><span class="ico" aria-hidden="true">↕️</span><span class="lab">Line spacing</span></button>
+      <button type="button" class="a11y-opt" data-flag="spacing" aria-pressed="false"><span class="ico" aria-hidden="true">↔️</span><span class="lab">Letter spacing</span></button>
+      <button type="button" class="a11y-opt" data-flag="motion" aria-pressed="false"><span class="ico" aria-hidden="true">⏸️</span><span class="lab">Stop animation</span></button>
+    </div>
+    <div class="a11y-foot">
+      <button type="button" class="a11y-reset" id="a11yReset">Reset · איפוס</button>
+      <a href="/accessibility.html">Accessibility statement · הצהרת נגישות</a>
+    </div>
   </div>
-  <div class="a11y-panel-body">
-    <button class="a11y-btn" data-a11y="font-up"><span class="a11y-icon" aria-hidden="true">🔤</span>הגדלת טקסט</button>
-    <button class="a11y-btn" data-a11y="high-contrast"><span class="a11y-icon" aria-hidden="true">◑</span>ניגודיות גבוהה</button>
-    <button class="a11y-btn" data-a11y="grayscale"><span class="a11y-icon" aria-hidden="true">🌑</span>גווני אפור</button>
-    <button class="a11y-btn" data-a11y="links-underline"><span class="a11y-icon" aria-hidden="true">🔗</span>הדגשת קישורים</button>
-    <button class="a11y-btn" data-a11y="big-cursor"><span class="a11y-icon" aria-hidden="true">🖱️</span>סמן גדול</button>
-    <button class="a11y-btn" data-a11y="highlight-focus"><span class="a11y-icon" aria-hidden="true">🎯</span>הדגשת מיקוד</button>
-    <button class="a11y-btn" data-a11y="line-height"><span class="a11y-icon" aria-hidden="true">↕️</span>מרווח שורות</button>
-    <button class="a11y-btn" data-a11y="letter-spacing"><span class="a11y-icon" aria-hidden="true">↔️</span>מרווח אותיות</button>
-    <button class="a11y-btn" data-a11y="stop-animations"><span class="a11y-icon" aria-hidden="true">⏸️</span>עצירת אנימציות</button>
-    <button class="a11y-reset" id="a11yReset">🔄 איפוס הגדרות נגישות</button>
-  </div>
+  <button type="button" class="a11y-fab" id="a11yFab" aria-label="Accessibility options · אפשרויות נגישות" aria-expanded="false">♿</button>
 </div>
-<script>
-(function() {
-  const trigger = document.getElementById('a11yTrigger');
-  const panel = document.getElementById('a11yPanel');
-  const closeBtn = document.getElementById('a11yClose');
-  const resetBtn = document.getElementById('a11yReset');
-  const STORAGE_KEY = 'trifold_a11y';
-  let fontLevel = 0;
-  function loadPrefs() {
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      if (saved.fontLevel) { fontLevel = saved.fontLevel; applyFontLevel(); }
-      if (saved.toggles) {
-        saved.toggles.forEach(function(key) {
-          document.body.classList.add('a11y-' + key);
-          const btn = document.querySelector('[data-a11y="' + key + '"]');
-          if (btn) btn.classList.add('active');
-        });
-      }
-    } catch(e) {}
-  }
-  function savePrefs() {
-    const toggles = [];
-    document.querySelectorAll('.a11y-btn.active').forEach(function(btn) {
-      const key = btn.dataset.a11y;
-      if (key && key !== 'font-up') toggles.push(key);
-    });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ fontLevel: fontLevel, toggles: toggles }));
-  }
-  function applyFontLevel() {
-    document.body.classList.remove('a11y-large-text', 'a11y-xlarge-text');
-    var btn = document.querySelector('[data-a11y="font-up"]');
-    if (fontLevel === 1) { document.body.classList.add('a11y-large-text'); if (btn) btn.classList.add('active'); }
-    else if (fontLevel >= 2) { document.body.classList.add('a11y-xlarge-text'); if (btn) btn.classList.add('active'); }
-    else { if (btn) btn.classList.remove('active'); }
-  }
-  trigger.addEventListener('click', function() {
-    var isOpen = panel.classList.toggle('open');
-    trigger.setAttribute('aria-expanded', isOpen);
-  });
-  closeBtn.addEventListener('click', function() {
-    panel.classList.remove('open');
-    trigger.setAttribute('aria-expanded', 'false');
-  });
-  document.addEventListener('click', function(e) {
-    if (!panel.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
-      panel.classList.remove('open');
-      trigger.setAttribute('aria-expanded', 'false');
-    }
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && panel.classList.contains('open')) {
-      panel.classList.remove('open');
-      trigger.focus();
-    }
-  });
-  document.querySelectorAll('.a11y-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var key = btn.dataset.a11y;
-      if (key === 'font-up') { fontLevel = (fontLevel + 1) % 3; applyFontLevel(); }
-      else { btn.classList.toggle('active'); document.body.classList.toggle('a11y-' + key); }
-      savePrefs();
-    });
-  });
-  resetBtn.addEventListener('click', function() {
-    fontLevel = 0;
-    document.body.className = document.body.className.split(' ').filter(function(c) { return !c.startsWith('a11y-'); }).join(' ');
-    document.querySelectorAll('.a11y-btn.active').forEach(function(b) { b.classList.remove('active'); });
-    localStorage.removeItem(STORAGE_KEY);
-  });
-  loadPrefs();
-})();
-</script>
+
+<script src="/a11y.js"></script>
 </body>
 </html>

@@ -1,5 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" rx="20" fill="#1a365d"/>
-  <text x="50" y="68" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="white" text-anchor="middle">T</text>
-  <text x="62" y="68" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#3182ce" text-anchor="middle">F</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="TriFold Technologies">
+  <title>TriFold Technologies</title>
+  <rect width="100" height="100" rx="24" fill="#0A1435"/>
+  <!-- Lightning bolt echoing the mascot's shades — brand blue on navy -->
+  <path d="M56 16 L30 54 L47 54 L42 84 L72 44 L53 44 Z" fill="#1B62FF" stroke="#6E9BFF" stroke-width="1.5" stroke-linejoin="round"/>
 </svg>

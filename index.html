@@ -3,1083 +3,189 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TriFold Technologies — Fractional CAIO | Closing the alignment gap</title>
-<meta name="description" content="Most enterprises already have the AI tools, the licenses, and a few pilots. What they don't have is agreement between the business, data and IT, and governance. A fractional CAIO closes that alignment gap — strategy, governance, and delivery without the full-time hire." />
+<title>TriFold Technologies — Fractional Chief AI Officer</title>
+<meta name="description" content="TriFold Technologies helps mid-to-large enterprises move AI out of pilots and into production. Senior AI leadership — a fractional Chief AI Officer — without the full-time hire." />
 <meta name="author" content="Itzik Woda — TriFold Technologies" />
-<link rel="icon" href="favicon.svg" type="image/svg+xml" />
-
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="The fractional CAIO's real job: closing the alignment gap" />
-<meta property="og:description" content="The tools are bought. The licenses are paid. And most of the organization still barely touches AI. The problem was never the technology — it's alignment. That gap is what a fractional CAIO is hired to close." />
+<meta property="og:title" content="Your AI pilots worked. So why is nothing in production?" />
+<meta property="og:description" content="A fractional Chief AI Officer who moves AI out of pilots and into systems that run inside the business. English and Hebrew." />
 <meta property="og:site_name" content="TriFold Technologies" />
-
-<!-- Fonts: Google-Fonts stand-ins per design system (Playfair Display / Anton / Hanken Grotesk) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:ital,wght@0,300..800;1,300..700&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
-
-<!-- Lucide icons (CDN) per design system -->
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-
-<style>
-/* ─────────────────────────────────────────────────────────────
-   TriFold Design System tokens (inlined from tokens/*.css)
-   Editorial light-mode SaaS. Warm off-white canvas, near-black
-   type, a single soft mint accent used sparingly (~6 per page).
-   ───────────────────────────────────────────────────────────── */
-:root {
-  /* Base palette */
-  --canvas:      #F1F1EF;
-  --surface:     #FFFFFF;
-  --ink:         #141414;
-  /* --ink-muted darkened from the design's #8C8C8C to meet WCAG 2.1 AA (4.5:1)
-     for normal-size body text on both the white cards AND the off-white canvas. */
-  --ink-muted:   #6A6A6A;
-  --hairline:    #E6E6E4;
-  --mint:        #B9E5E2;  /* pale mint — FILLS only (pills, cards, bars, rails) */
-  --mint-deep:   #8FD4CF;  /* deeper mint — chart data / non-text accents        */
-  --mint-wash:   #E7F5F3;
-  /* --mint-ink: darkened teal from the same hue, used wherever mint appears as
-     TEXT/glyphs (hero accent word, %/× units, step numbers, link hover, brand
-     dot). The pale mint fails contrast as text; this passes AA (4.5:1 on canvas). */
-  --mint-ink:    #256E68;
-  --amber:       #F2B84B;
-
-  /* Type */
-  --font-serif-display: 'Playfair Display', Georgia, serif;
-  --font-condensed:     'Anton', 'Arial Narrow', sans-serif;
-  --font-sans:          'Hanken Grotesk', system-ui, -apple-system, sans-serif;
-
-  /* Layout */
-  --container: 1200px;
-  --gutter:    max(1.25rem, 6vw);
-
-  /* Radii */
-  --radius-inset: 12px;
-  --radius-card:  16px;
-  --radius-pill:  999px;
-
-  /* Shadows — barely-there elevation */
-  --shadow-soft:  0 1px 2px rgba(20,20,20,0.03), 0 18px 40px rgba(20,20,20,0.04);
-  --shadow-raise: 0 2px 4px rgba(20,20,20,0.04), 0 28px 60px rgba(20,20,20,0.07);
-
-  /* Motion */
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--canvas);
-  color: var(--ink);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
-}
-a { color: var(--ink); text-decoration: none; }
-a:hover { color: var(--mint-ink); }
-img { max-width: 100%; display: block; }
-h1, h2, h3, p { margin: 0; }
-button { font-family: inherit; }
-
-.wrap { max-width: var(--container); margin: 0 auto; }
-
-/* Reveal-on-scroll */
-.reveal { opacity: 0; transform: translateY(24px);
-  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out); }
-.reveal.in { opacity: 1; transform: none; }
-
-/* Accessibility: skip link (WCAG 2.4.1 Bypass Blocks) */
-.skip-link {
-  position: absolute; left: 16px; top: -60px; z-index: 100;
-  background: var(--ink); color: #fff; padding: 10px 18px;
-  border-radius: 0 0 12px 12px; font-weight: 500; font-size: 14px;
-  transition: top .2s;
-}
-.skip-link:focus { top: 0; color: #fff; }
-
-/* Accessibility: always-visible keyboard focus (WCAG 2.4.7 Focus Visible) */
-:focus-visible { outline: 3px solid var(--mint-ink); outline-offset: 3px; border-radius: 6px; }
-/* inset the outline where the control lives inside an overflow-clipped card */
-.acc-btn:focus-visible, .faq-btn:focus-visible { outline-offset: -3px; }
-
-/* Accessibility: honour reduced-motion — no reveal animation, no smooth scroll
-   (WCAG 2.3.3 / a hedge so content is never left hidden by a stalled animation) */
-@media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
-  html { scroll-behavior: auto; }
-}
-
-/* Floaty hero icons */
-@keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-@media (prefers-reduced-motion: no-preference) {
-  .float-ico { animation: floaty 6s ease-in-out infinite; }
-}
-
-/* ── Pills / buttons ─────────────────────────────────────────── */
-.pill {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  font-family: var(--font-sans); font-weight: 500; line-height: 1;
-  border-radius: var(--radius-pill); cursor: pointer; white-space: nowrap;
-  border: 1px solid transparent;
-  transition: transform .16s var(--ease-out), box-shadow .28s, background .2s, color .2s;
-}
-.pill:active { transform: scale(0.98); }
-.pill--sm { padding: 0.5rem 1rem;   font-size: 13px; }
-.pill--md { padding: 0.7rem 1.4rem; font-size: 15px; }
-.pill--lg { padding: 0.85rem 1.7rem; font-size: 16px; }
-.pill--primary { background: var(--mint); color: var(--ink); }
-.pill--primary:hover { color: var(--ink); box-shadow: var(--shadow-soft); }
-.pill--outline { background: var(--surface); color: var(--ink); border-color: var(--hairline); }
-.pill--dark    { background: var(--ink); color: #fff; border-color: var(--ink); }
-.pill--dark:hover { color: #fff; }
-.pill--block { width: 100%; }
-
-/* ── Eyebrow ─────────────────────────────────────────────────── */
-.eyebrow {
-  display: inline-flex; align-items: center; font-family: var(--font-sans);
-  font-weight: 500; font-size: 13px; color: var(--ink);
-  background: var(--surface); border: 1px solid var(--hairline);
-  border-radius: var(--radius-pill); padding: 6px 14px;
-}
-
-/* ── Section head ────────────────────────────────────────────── */
-.section-head {
-  display: flex; flex-direction: column; gap: 16px; align-items: center;
-  text-align: center; max-width: 640px; margin: 0 auto 56px;
-}
-.section-head h2 {
-  font-family: var(--font-sans); font-weight: 500; font-size: 42px;
-  line-height: 1.12; letter-spacing: -0.015em; color: var(--ink); text-wrap: balance;
-}
-.section-head p {
-  font-family: var(--font-sans); font-size: 17px; line-height: 1.6;
-  color: var(--ink-muted); max-width: 52ch;
-}
-
-/* ── Nav ─────────────────────────────────────────────────────── */
-.nav {
-  position: absolute; top: 0; left: 0; right: 0; z-index: 20;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 24px var(--gutter);
-}
-.brand { font-family: var(--font-sans); font-weight: 600; font-size: 21px;
-  letter-spacing: -0.02em; color: var(--ink); }
-.brand .dot { color: var(--mint-ink); }
-.nav-links {
-  display: flex; gap: 4px; background: rgba(255,255,255,0.6);
-  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-  border: 1px solid var(--hairline); border-radius: var(--radius-pill); padding: 5px;
-}
-.nav-links a {
-  font-family: var(--font-sans); font-size: 13.5px; font-weight: 500; cursor: pointer;
-  padding: 8px 16px; border-radius: var(--radius-pill); border: none;
-  background: transparent; color: var(--ink); transition: background .2s, color .2s;
-}
-.nav-links a.active { background: var(--ink); color: #fff; }
-.nav-cta { display: inline-flex; }
-
-/* ── Hero ────────────────────────────────────────────────────── */
-.hero { position: relative; padding: 150px var(--gutter) 80px; overflow: hidden; }
-.hero-support {
-  position: absolute; top: 455px; right: var(--gutter); max-width: 230px;
-  font-family: var(--font-sans); font-size: 15px; line-height: 1.6;
-  color: var(--ink-muted); text-align: left; z-index: 6;
-}
-.hero-head { text-align: center; position: relative; z-index: 5; }
-.hero-serif {
-  font-family: var(--font-serif-display); font-style: italic; font-size: 46px;
-  color: var(--ink); font-weight: 500; line-height: 1.1;
-}
-.hero-loud {
-  margin: 4px 0 0; font-family: var(--font-condensed);
-  font-size: clamp(5rem, 15vw, 12rem); line-height: 0.86; letter-spacing: -0.02em;
-  color: var(--ink); text-transform: uppercase; font-weight: 400;
-}
-.hero-serif .mint { color: var(--mint-ink); }
-
-.hero-figure { position: relative; z-index: 4; width: 300px; height: 300px; margin: 34px auto 0; }
-.hero-figure .photo {
-  width: 100%; height: 100%; border-radius: 20px; object-fit: cover;
-  filter: grayscale(1) contrast(1.05); background: var(--canvas);
-}
-.hero-card {
-  position: absolute; bottom: -18px; right: -70px; width: 190px;
-  background: var(--mint); border-radius: var(--radius-card); padding: 16px;
-  box-shadow: var(--shadow-raise);
-}
-.hero-card .label { font-family: var(--font-sans); font-size: 12px; color: var(--ink); opacity: .7; }
-.hero-card .big { font-family: var(--font-sans); font-weight: 600; font-size: 30px; color: var(--ink); line-height: 1.1; }
-.hero-card .big small { font-size: 15px; font-weight: 600; }
-.hero-card .bars { display: flex; align-items: flex-end; gap: 5px; height: 42px; margin-top: 8px; }
-.hero-card .bars > span { flex: 1; background: rgba(20,20,20,.35); border-radius: 3px; }
-
-.float-ico { position: absolute; z-index: 3; }
-.ico-tile {
-  width: 100%; height: 100%; background: var(--surface);
-  box-shadow: var(--shadow-soft); border-radius: 16px;
-  display: flex; align-items: center; justify-content: center;
-}
-.ico-tile > span {
-  width: 58%; height: 58%; border-radius: 14px; background: var(--mint);
-  box-shadow: inset 0 -6px 12px rgba(0,0,0,0.06);
-}
-
-/* ── Logo / source bar ───────────────────────────────────────── */
-.logobar {
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 0 var(--gutter) 40px; flex-wrap: wrap;
-}
-.logobar .lead { font-family: var(--font-sans); font-size: 13.5px; color: var(--ink-muted);
-  line-height: 1.5; max-width: 220px; }
-.logobar .logos { display: flex; gap: 40px; flex-wrap: wrap; align-items: center; }
-.logobar .logos span {
-  font-family: var(--font-sans); font-weight: 600; font-size: 18px;
-  color: var(--ink-muted); letter-spacing: -0.01em;  /* readable: these are cited sources, not faint decoration */
-}
-
-/* ── Generic section ─────────────────────────────────────────── */
-.section { padding: 120px var(--gutter); }
-.section--tight-top { padding-top: 0; }
-
-/* ── Bento (four planes) ─────────────────────────────────────── */
-.bento { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.cell {
-  display: flex; flex-direction: column; background: var(--surface);
-  border: 1px solid var(--hairline); border-radius: var(--radius-card); overflow: hidden;
-  box-shadow: var(--shadow-soft); transition: transform .28s, box-shadow .28s;
-}
-.cell:hover { transform: translateY(-2px); box-shadow: var(--shadow-raise); }
-.cell .mockwrap {
-  margin: 20px 20px 0; height: 200px; background: var(--canvas);
-  border: 1px solid var(--hairline); border-radius: var(--radius-inset); overflow: hidden;
-}
-.cell .body { padding: 20px; }
-.cell .rule { height: 1px; background: var(--hairline); margin-bottom: 16px; }
-.cell h3 { font-family: var(--font-sans); font-weight: 500; font-size: 19px; color: var(--ink); margin-bottom: 6px; }
-.cell p { font-family: var(--font-sans); font-size: 14.5px; line-height: 1.6; color: var(--ink-muted); }
-
-/* Mock illustrations */
-.mock { width: 100%; height: 100%; padding: 22px; display: flex; align-items: center; justify-content: center; }
-.mock-flow { display: flex; flex-direction: column; gap: 10px; width: 100%; }
-.mock-flow .row { display: flex; align-items: center; gap: 10px; }
-.mock-flow .dot { width: 26px; height: 26px; border-radius: 8px; background: var(--hairline); }
-.mock-flow .row.on .dot { background: var(--mint); }
-.mock-flow .bar { height: 8px; border-radius: 4px; background: var(--hairline); }
-.mock-flow .row.on .bar { background: var(--mint-deep); }
-.mock-avatars { display: flex; flex-direction: column; gap: 12px; align-items: center; }
-.mock-avatars .stack { display: flex; }
-.mock-avatars .av { width: 34px; height: 34px; border-radius: 999px; background: #dcdcda; border: 2px solid #fff; }
-.mock-avatars .av + .av { margin-left: -8px; }
-.mock-avatars .av.on { background: var(--mint); }
-.mock-avatars .cap { width: 120px; height: 8px; border-radius: 4px; background: var(--hairline); }
-.mock-chart { display: flex; align-items: flex-end; gap: 8px; height: 70%; }
-.mock-chart .col { width: 16px; border-radius: 4px; background: #dcdcda; }
-.mock-chart .col.on { background: var(--mint-deep); }
-.mock-line { width: 100%; height: 100%; }
-
-/* ── How it works (3-up steps) ───────────────────────────────── */
-.steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-.step {
-  background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-card);
-  box-shadow: var(--shadow-soft); padding: 24px; display: flex; flex-direction: column; gap: 18px;
-}
-.step .panel {
-  height: 150px; background: var(--canvas); border: 1px solid var(--hairline);
-  border-radius: var(--radius-inset); display: flex; align-items: flex-start; padding: 16px;
-}
-.step .panel span { font-family: var(--font-sans); font-weight: 600; font-size: 15px; color: var(--mint-ink); }
-.step h3 { font-family: var(--font-sans); font-weight: 500; font-size: 19px; color: var(--ink); margin-bottom: 6px; }
-.step p { font-family: var(--font-sans); font-size: 14.5px; line-height: 1.6; color: var(--ink-muted); }
-
-/* ── Governance (accordion + stat) ───────────────────────────── */
-.gov-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-.accordion { display: flex; flex-direction: column; gap: 12px; }
-.acc-item {
-  position: relative; background: var(--surface); border: 1px solid var(--hairline);
-  border-radius: var(--radius-card); overflow: hidden; transition: box-shadow .28s;
-}
-.acc-item.open { box-shadow: var(--shadow-soft); }
-.acc-item .rail {
-  position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--mint-deep);
-  opacity: 0; transition: opacity .28s;
-}
-.acc-item.open .rail { opacity: 1; }
-.acc-btn {
-  width: 100%; display: flex; align-items: center; gap: 12px; padding: 20px 22px;
-  background: transparent; border: none; cursor: pointer; text-align: left;
-}
-.acc-btn .t { flex: 1; font-family: var(--font-sans); font-weight: 500; font-size: 17px; color: var(--ink); }
-.acc-plus {
-  display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px;
-  border-radius: 999px; background: var(--ink); color: #fff; transition: transform .28s; flex-shrink: 0;
-}
-.acc-item.open .acc-plus { transform: rotate(45deg); }
-.acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .28s; }
-.acc-item.open .acc-panel { grid-template-rows: 1fr; }
-.acc-panel > div { overflow: hidden; }
-.acc-panel p { padding: 0 22px 20px; font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--ink-muted); }
-.stat-card {
-  background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-card);
-  box-shadow: var(--shadow-soft); padding: 28px;
-}
-.stat-card .cap { font-family: var(--font-sans); font-size: 13.5px; color: var(--ink-muted); }
-.stat-card .num { font-family: var(--font-sans); font-weight: 600; font-size: 52px; color: var(--ink);
-  letter-spacing: -0.01em; line-height: 1.1; }
-.stat-card .num small { font-size: 24px; color: var(--mint-ink); font-weight: 600; }
-.stat-card .sub { font-family: var(--font-sans); font-size: 13.5px; color: var(--ink-muted); margin-bottom: 20px; }
-.stat-card .chartbox { height: 160px; }
-
-/* ── Stats row (4-up) ────────────────────────────────────────── */
-.stats { display: grid; grid-template-columns: repeat(4,1fr); }
-.stat { text-align: center; padding: 0 20px; }
-.stat + .stat { border-left: 1px solid var(--hairline); }
-.stat .v { font-family: var(--font-sans); font-weight: 600; font-size: 52px; color: var(--ink);
-  line-height: 1; letter-spacing: -0.01em; }
-.stat .v sup { color: var(--mint-ink); font-size: 0.5em; vertical-align: super; }
-.stat .l { font-family: var(--font-sans); font-size: 13px; color: var(--ink-muted); margin-top: 10px;
-  max-width: 20ch; margin-inline: auto; line-height: 1.45; }
-
-/* ── Pull-quotes grid ────────────────────────────────────────── */
-.quotes { display: grid; grid-template-columns: repeat(3,1fr); grid-auto-rows: 1fr; gap: 18px; }
-.quote {
-  display: flex; flex-direction: column; gap: 14px; background: var(--surface);
-  border: 1px solid var(--hairline); border-radius: var(--radius-card);
-  box-shadow: var(--shadow-soft); padding: 24px;
-}
-.quote p { font-family: var(--font-sans); font-size: 15.5px; line-height: 1.55; color: var(--ink); }
-.quote .who { margin-top: auto; }
-.quote .who .a { font-family: var(--font-sans); font-weight: 500; font-size: 14px; color: var(--ink); }
-.quote .who .r { font-family: var(--font-sans); font-size: 12.5px; color: var(--ink-muted); }
-.portrait { grid-row: span 2; border-radius: var(--radius-card); overflow: hidden;
-  position: relative; min-height: 260px; background: var(--canvas); border: 1px solid var(--hairline); }
-.portrait img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
-.portrait .tag {
-  position: absolute; left: 16px; bottom: 16px; background: rgba(255,255,255,.9);
-  border-radius: 10px; padding: 8px 12px; font-family: var(--font-sans);
-}
-.portrait .tag .a { font-weight: 600; font-size: 14px; color: var(--ink); }
-.portrait .tag .r { font-size: 12px; color: var(--ink-muted); }
-
-/* ── Engagements (pricing structure, no invented prices) ─────── */
-.plans { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 18px; align-items: center; }
-.plan {
-  display: flex; flex-direction: column; gap: 20px; padding: 32px; background: var(--surface);
-  border: 1px solid var(--hairline); border-radius: var(--radius-card);
-  box-shadow: var(--shadow-soft);
-}
-.plan.rec { background: var(--mint); border-color: transparent; box-shadow: var(--shadow-raise);
-  transform: scale(1.03); }
-.plan .name { font-family: var(--font-sans); font-weight: 500; font-size: 19px; color: var(--ink); }
-.plan .price { display: flex; align-items: baseline; gap: 6px; }
-.plan .price .amt { font-family: var(--font-sans); font-weight: 600; font-size: 34px; color: var(--ink);
-  letter-spacing: -0.01em; line-height: 1.05; }
-.plan .price .per { font-family: var(--font-sans); font-size: 15px; color: var(--ink-muted); }
-.plan.rec .price .per { color: var(--ink); }
-.plan .desc { font-family: var(--font-sans); font-size: 14.5px; line-height: 1.55; color: var(--ink-muted); }
-.plan.rec .desc { color: var(--ink); }
-.plan .divide { height: 1px; background: var(--hairline); }
-.plan.rec .divide { background: rgba(20,20,20,.12); }
-.plan ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; flex: 1; }
-.plan li { display: flex; gap: 10px; font-family: var(--font-sans); font-size: 14.5px; color: var(--ink-muted); }
-.plan.rec li { color: var(--ink); }
-.plan .tick { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px;
-  flex-shrink: 0; border-radius: 999px; margin-top: 2px; background: var(--mint); color: var(--ink); }
-.plan.rec .tick { background: var(--surface); }
-
-/* ── FAQ ─────────────────────────────────────────────────────── */
-.faq { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
-.faq-item { background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-card);
-  overflow: hidden; transition: box-shadow .28s; }
-.faq-item.open { box-shadow: var(--shadow-soft); }
-.faq-btn { width: 100%; display: flex; align-items: center; gap: 16px; padding: 20px 24px;
-  background: transparent; border: none; cursor: pointer; text-align: left; }
-.faq-btn .n { font-family: var(--font-sans); font-size: 14px; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
-.faq-btn .q { flex: 1; font-family: var(--font-sans); font-weight: 500; font-size: 17px; color: var(--ink); }
-.faq-plus { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px;
-  border-radius: 999px; background: var(--ink); color: #fff; transition: transform .28s; flex-shrink: 0; }
-.faq-item.open .faq-plus { transform: rotate(45deg); }
-.faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .28s; }
-.faq-item.open .faq-panel { grid-template-rows: 1fr; }
-.faq-panel > div { overflow: hidden; }
-.faq-panel p { padding: 0 24px 20px 64px; font-family: var(--font-sans); font-size: 15.5px; line-height: 1.6; color: var(--ink-muted); }
-
-/* ── Footer ──────────────────────────────────────────────────── */
-.footer { position: relative; background: var(--canvas); padding-top: 80px; overflow: hidden; }
-.footer-top { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; padding: 0 var(--gutter); }
-.footer-top .about { max-width: 320px; }
-.footer-top .about p { font-family: var(--font-sans); font-size: 15px; line-height: 1.6; color: var(--ink-muted); margin-top: 12px; }
-.footer-cols { display: flex; gap: 64px; flex-wrap: wrap; }
-.footer-cols .col { display: flex; flex-direction: column; gap: 12px; }
-.footer-cols .col .h { font-family: var(--font-sans); font-weight: 500; font-size: 13px; color: var(--ink); }
-.footer-cols .col a { font-family: var(--font-sans); font-size: 14px; color: var(--ink-muted); }
-.footer-cta { display: flex; align-items: center; justify-content: center; gap: 24px;
-  margin: 48px auto 0; padding: 0 var(--gutter); }
-.footer-cta .line { flex: 1; height: 1px; background: var(--hairline); }
-.footer-legal { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-  margin: 40px auto 0; padding: 0 var(--gutter); font-family: var(--font-sans); font-size: 12.5px; color: var(--ink-muted); }
-.footer-legal a { color: var(--ink-muted); }
-.footer-legal .links { display: flex; gap: 20px; }
-.footer-word { font-family: var(--font-condensed); font-size: clamp(4rem, 20vw, 17rem); line-height: 0.8;
-  text-align: center; color: #e4e4e1; text-transform: uppercase; letter-spacing: -0.03em;
-  margin-top: 30px; margin-bottom: -4%; user-select: none; font-weight: 400; }
-
-/* ── Accessibility widget ────────────────────────────────────────
-   Ported verbatim from the live TriFold site and re-skinned to the
-   editorial palette. Fully self-contained — no third-party script,
-   no external requests; preferences persist via localStorage.        */
-.a11y-trigger {
-  position: fixed; bottom: 24px; left: 24px; width: 56px; height: 56px;
-  background: var(--ink); color: #fff; border: none; border-radius: 50%;
-  cursor: pointer; z-index: 9999; display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 16px rgba(20,20,20,0.22); transition: transform .2s, background .2s;
-}
-.a11y-trigger:hover { transform: scale(1.08); background: #2a2a2a; }
-.a11y-trigger svg { width: 28px; height: 28px; fill: currentColor; }
-.a11y-panel {
-  position: fixed; bottom: 90px; left: 24px; width: 320px; max-height: 80vh;
-  background: var(--surface); border: 1px solid var(--hairline); border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(20,20,20,0.18); z-index: 9998; display: none;
-  flex-direction: column; overflow: hidden; direction: rtl;
-  font-family: system-ui, -apple-system, 'Segoe UI', 'Heebo', Arial, sans-serif;
-}
-.a11y-panel.open { display: flex; }
-.a11y-panel-header { background: var(--ink); color: #fff; padding: 16px 20px;
-  display: flex; justify-content: space-between; align-items: center; }
-.a11y-panel-header h3 { font-size: 1.1rem; margin: 0; font-weight: 600; color: #fff; }
-.a11y-panel-close { background: none; border: none; color: #fff; font-size: 1.4rem;
-  cursor: pointer; padding: 0; line-height: 1; }
-.a11y-panel-body { padding: 16px 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-.a11y-btn { display: flex; align-items: center; gap: 12px; padding: 12px 16px;
-  background: var(--canvas); border: 2px solid transparent; border-radius: 10px; cursor: pointer;
-  font-family: inherit; font-size: 0.95rem; font-weight: 500; color: var(--ink);
-  transition: border-color .15s, background .15s; text-align: right; }
-.a11y-btn:hover, .a11y-btn.active { border-color: var(--mint-ink); background: #E7F5F3; }
-.a11y-btn .a11y-icon { font-size: 1.3rem; flex-shrink: 0; width: 28px; text-align: center; }
-.a11y-reset { margin-top: 6px; padding: 10px; background: none; border: 1px solid var(--hairline);
-  border-radius: 8px; cursor: pointer; font-family: inherit; font-size: 0.9rem; color: var(--ink-muted);
-  transition: all .15s; }
-.a11y-reset:hover { background: #f6e9e9; color: #8a1c1c; border-color: #8a1c1c; }
-/* Applied-preference classes (palette-independent) */
-/* Text size — this design sets font sizes in px, so scaling body font-size alone
-   does nothing. `zoom` reflows and scales the real px content. Applied to the
-   content regions (not the fixed widget, so its own controls stay put). */
-body.a11y-large-text nav.nav,
-body.a11y-large-text main,
-body.a11y-large-text footer.footer { zoom: 1.15; }
-body.a11y-xlarge-text nav.nav,
-body.a11y-xlarge-text main,
-body.a11y-xlarge-text footer.footer { zoom: 1.30; }
-body.a11y-high-contrast * { color: #000 !important; background-color: #fff !important; border-color: #000 !important; }
-body.a11y-high-contrast footer, body.a11y-high-contrast .a11y-panel-header { color: #fff !important; background-color: #000 !important; }
-body.a11y-high-contrast footer * { color: #fff !important; }
-body.a11y-high-contrast a { color: #0000EE !important; text-decoration: underline !important; }
-body.a11y-grayscale > *:not(#a11yPanel) { filter: grayscale(1); }
-body.a11y-links-underline a { text-decoration: underline !important; }
-body.a11y-big-cursor, body.a11y-big-cursor * { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M4 4l16 40 6-16 16-6z' fill='%23000' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E") 4 4, auto !important; }
-body.a11y-highlight-focus *:focus { outline: 3px solid #ff6600 !important; outline-offset: 3px !important; }
-body.a11y-line-height * { line-height: 2.2 !important; }
-body.a11y-letter-spacing * { letter-spacing: 0.12em !important; word-spacing: 0.2em !important; }
-body.a11y-stop-animations *, body.a11y-stop-animations *::before, body.a11y-stop-animations *::after {
-  animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-@media (max-width: 768px) { .a11y-panel { width: calc(100vw - 48px); } }
-
-/* ── Responsive ──────────────────────────────────────────────── */
-@media (max-width: 920px) {
-  .nav-links { display: none; }
-  /* The support copy is absolutely positioned beside the hero on desktop, so it sits
-     first in source order. Once it goes static it must not precede the headline. */
-  .hero { padding-top: 120px; display: flex; flex-direction: column; }
-  .hero-head { order: 1; }
-  .hero-support { order: 2; position: static; max-width: 420px;
-    margin: 28px auto 0; text-align: center; }
-  .hero-figure { order: 3; }
-  .hero-serif { font-size: 34px; }
-  .hero-card { right: -20px; }
-  .bento, .steps, .gov-grid, .quotes, .plans { grid-template-columns: 1fr; }
-  .plan.rec { transform: none; }
-  .portrait { grid-row: auto; min-height: 320px; }
-  .stats { grid-template-columns: 1fr 1fr; gap: 32px 0; }
-  .stat:nth-child(3) { border-left: none; }
-  .section { padding: 80px var(--gutter); }
-}
-@media (max-width: 640px) {
-  /* The floating icon tiles are absolutely positioned against the hero and land
-     on top of the headline and the photo once the hero narrows. Decorative — drop them. */
-  .float-ico { display: none; }
-
-  .nav { padding: 16px var(--gutter); }
-  .brand { font-size: 19px; }
-  /* the full-size CTA + brand no longer fit one row — shrink to the small pill */
-  .nav-cta { padding: 0.5rem 0.9rem; font-size: 13px; }
-
-  .hero { padding: 96px var(--gutter) 56px; }
-  /* the base clamp floors at 5rem, which makes the unbreakable "Alignment Gap"
-     wider than a phone and clips it. Below 640 the headline is purely vw-driven. */
-  .hero-loud { font-size: 13vw; }
-  .hero-serif { font-size: 26px; }
-  .hero-support { margin-top: 24px; font-size: 14.5px; }
-
-  /* keep the figure + its overlapping stat card inside the viewport */
-  .hero-figure { width: 100%; max-width: 260px; height: 260px; }
-  .hero-card { width: 150px; right: -8px; bottom: -14px; padding: 12px; }
-  .hero-card .big { font-size: 24px; }
-  .hero-card .big small { font-size: 13px; }
-  .hero-card .bars { height: 32px; }
-
-  .logobar { gap: 16px; padding-bottom: 32px; }
-  .logobar .lead, .logobar .logos { max-width: none; }
-  .logobar .logos { gap: 8px 24px; }
-  .logobar .logos span { font-size: 16px; }
-
-  .section { padding: 64px var(--gutter); }
-  .section-head { margin-bottom: 40px; gap: 12px; }
-  .section-head h2 { font-size: 30px; }
-  .section-head p { font-size: 16px; }
-
-  .stats { grid-template-columns: 1fr; gap: 28px 0; }
-  .stat { padding: 0; }
-  .stat + .stat { border-left: none; }
-  .stat .v { font-size: 44px; }
-
-  /* the panel is a tall empty plate holding only the step number — stacked, it's
-     150px of dead scroll per card */
-  .step { padding: 20px; gap: 12px; }
-  .step .panel { height: auto; padding: 10px 14px; }
-
-  /* the mock illustrations are decorative; keep them, but not at full desktop height */
-  .cell .mockwrap { height: 150px; margin: 16px 16px 0; }
-  .cell .body { padding: 16px; }
-
-  .gov-grid { gap: 24px; }
-  .acc-btn { padding: 16px 18px; gap: 10px; }
-  .acc-btn .t { font-size: 15.5px; }
-  .acc-panel p { padding: 0 18px 18px; }
-  .stat-card { padding: 22px; }
-  .stat-card .num { font-size: 42px; }
-
-  .plan { padding: 24px; }
-  .portrait { min-height: 260px; }
-
-  .faq-btn { padding: 16px 18px; gap: 12px; }
-  .faq-btn .q { font-size: 15.5px; }
-  /* the 64px indent lines answers up under the desktop question text; on a phone
-     it just eats half the reading width */
-  .faq-panel p { padding: 0 18px 18px; font-size: 15px; }
-
-  .footer { padding-top: 56px; }
-  .footer-top { flex-direction: column; gap: 32px; }
-  .footer-cols { gap: 28px; }
-  /* footer links were ~18px tall — under the 24px minimum touch target */
-  .footer-cols .col { gap: 2px; }
-  .footer-cols .col a, .footer-legal .links a { display: inline-block; padding: 5px 0; }
-  .footer-cta { flex-direction: column; gap: 16px; margin-top: 36px; }
-  .footer-cta .line { width: 100%; flex: none; }
-  .footer-legal { flex-direction: column; gap: 8px; }
-}
-</style>
-
-<!-- Without JavaScript, reveal-animated sections and the collapsed accordion/FAQ
-     panels would hide their content. This guarantees all content stays reachable. -->
-<noscript><style>
-  .reveal { opacity: 1 !important; transform: none !important; }
-  .acc-panel, .faq-panel { grid-template-rows: 1fr !important; }
-  .acc-plus, .faq-plus { display: none !important; }
-</style></noscript>
-
-<!-- ─────────────────────────────────────────────────────────────────────────
-     ACCESSIBILITY WIDGET: TriFold's own self-contained widget is embedded at the
-     end of <body> (trigger + panel + script). No third-party service is used —
-     preferences persist via localStorage; there are no external requests.
-     Note: the widget is an ADD-ON. Real IS 5568 / WCAG 2.1 AA conformance comes
-     from the native remediation in this page + the linked accessibility statement.
-     ───────────────────────────────────────────────────────────────────────── -->
-
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
+<a class="skip-link" href="#content">Skip to content</a>
+<div id="site">
 
-<!-- Skip link — first focusable element (WCAG 2.4.1) -->
-<a class="skip-link" href="#maincontent">Skip to content</a>
+  <header class="site-header">
+    <div class="inner">
+      <a href="/" class="brand" aria-label="TriFold Technologies — home">
+        <span class="brand-logo"><img src="/assets/logo.svg" alt="TriFold Technologies" /></span>
+        <img class="brand-mascot" src="/assets/mascot-head.png" alt="" aria-hidden="true" />
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a class="nav-link" href="/" aria-current="page">Home</a>
+        <a class="nav-link" href="/services.html">Services</a>
+        <a class="nav-link" href="/about.html">About</a>
+        <a class="nav-link" href="/contact.html">Contact</a>
+        <a class="btn btn-primary btn-sm" href="https://cal.com/itzik-woda/30min" target="_blank" rel="noopener">Book an intro call →</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- ── NAV ────────────────────────────────────────────────────── -->
-<nav class="nav" aria-label="Primary">
-  <a href="#top" class="brand" aria-label="TriFold Technologies — home">TriFold<span class="dot" aria-hidden="true">.</span></a>
-  <div class="nav-links" id="navlinks">
-    <a href="#top" class="active" aria-current="page">Home</a>
-    <a href="#gap">The Gap</a>
-    <a href="#work">The Work</a>
-    <a href="#engagements">Engagements</a>
-    <a href="#faq">FAQ</a>
-    <a href="https://trifoldtechnologies.com/ai-strategy-playbook/">Playbook</a>
-  </div>
-  <a class="pill pill--primary pill--md nav-cta" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Diagnostic%20call">Book a diagnostic call</a>
-</nav>
+  <main id="content">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow eyebrow-lg">Fractional Chief AI Officer</div>
+        <h1 class="hero-h1">Your AI pilots worked. <span class="accent">So why is nothing in production?</span></h1>
+        <div class="accent-bar"></div>
+        <p class="lead">TriFold Technologies helps mid-to-large enterprises move AI out of pilots and presentations and into systems that run inside the business. Senior AI leadership, without the full-time hire.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="https://cal.com/itzik-woda/30min" target="_blank" rel="noopener">Book an intro call →</a>
+          <a class="btn-link-underline" href="/services.html">See how it works</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="/assets/mascot.png" alt="TriFold mascot" />
+      </div>
+    </section>
 
-<main id="maincontent">
+    <section class="wrap section">
+      <div class="eyebrow">The problem</div>
+      <h2 class="h2" style="max-width: 16ch;">The gap is rarely the technology</h2>
+      <div class="two-col">
+        <p class="prose">Executives know AI matters. Teams run pilots. Very little reaches production. After three decades in enterprise technology, most recently at the Data &amp; AI team of IBM Israel, I watched this pattern repeat across pharma, financing, insurance, hospitality, and media.</p>
+        <p class="prose">The blocker is almost never the model. It is alignment between the business, the data and IT teams, and governance. Three folds: business, data and IT, governance. Line them up and AI ships. Leave one out and you get demos.</p>
+      </div>
+      <div class="fold-grid">
+        <div class="card fold-card"><div class="kicker">FOLD 01</div><div class="fold-name">Business</div></div>
+        <div class="card fold-card"><div class="kicker">FOLD 02</div><div class="fold-name">Data and IT</div></div>
+        <div class="card fold-card"><div class="kicker">FOLD 03</div><div class="fold-name">Governance</div></div>
+      </div>
+    </section>
 
-<!-- ── HERO ───────────────────────────────────────────────────── -->
-<header class="hero" id="top">
-  <p class="hero-support">
-    Most enterprises already have the tools, the licenses, and a few pilots. What they don't have is agreement — between the business, data and IT, and governance.
-  </p>
+    <section class="wrap section-tight">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; align-items: start;">
+        <div>
+          <div class="eyebrow eyebrow-lg">What you get</div>
+          <p style="font-size: 20px; line-height: 1.55; color: var(--ink); margin: 16px 0 0; font-weight: 500; text-wrap: pretty;">A fractional Chief AI Officer who owns the AI agenda a few days a month and works directly with your executives and your technical teams:</p>
+          <a href="/services.html" style="display: inline-block; margin-top: 24px; font-weight: 700; font-size: 16px;">Full services →</a>
+        </div>
+        <div class="num-list">
+          <div class="num-row"><span class="n">01</span><span class="t">AI strategy and a clear, prioritized roadmap</span></div>
+          <div class="num-row"><span class="n">02</span><span class="t">Governance and responsible AI frameworks</span></div>
+          <div class="num-row"><span class="n">03</span><span class="t">Hands-on architecture and implementation guidance</span></div>
+          <div class="num-row"><span class="n">04</span><span class="t">Vendor and build-vs-buy decisions</span></div>
+          <div class="num-row"><span class="n">05</span><span class="t">Internal capability building, so your team gets stronger every quarter</span></div>
+        </div>
+      </div>
+    </section>
 
-  <div class="hero-head">
-    <div class="hero-serif">The real job is closing the</div>
-    <h1 class="hero-loud">Alignment&nbsp;Gap</h1>
-    <div class="hero-serif">not the <span class="mint">technology</span> gap</div>
-  </div>
+    <section class="band-dark" style="margin-top: 40px;">
+      <div class="wrap" style="padding-top: 84px; padding-bottom: 84px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px;">
+        <div>
+          <div class="eyebrow">Why fractional</div>
+          <h2 class="h2" style="font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.02em;">Seniority when you need it, not headcount you can’t justify yet</h2>
+        </div>
+        <div>
+          <p class="prose">Most organizations are still early in AI adoption. Hiring a full-time Chief AI Officer before the business case exists tends to backfire: the role turns theoretical, expectations outrun execution, and the budget drifts.</p>
+          <p class="prose" style="margin-top: 20px;">The fractional model gives you the seniority when you need it, at a fraction of the cost, and hands more ownership to your own people as they grow into it.</p>
+        </div>
+      </div>
+    </section>
 
-  <div class="hero-figure">
-    <img class="photo" src="itzik-woda.jpg" alt="Itzik Woda, founder of TriFold Technologies" />
-    <div class="hero-card">
-      <div class="label">Still in production after 3 yrs</div>
-      <div class="big">2<small>× likely</small></div>
-      <div class="bars">
-        <span style="height:40%"></span><span style="height:66%"></span><span style="height:52%"></span><span style="height:88%"></span>
+    <section class="wrap section">
+      <div class="eyebrow">Proof</div>
+      <h2 class="h2" style="margin-bottom: 34px;">The work in practice</h2>
+      <div class="proof-grid">
+        <div class="proof-card">Designed the AI architecture and governance model for a large IT organization, moving it from scattered experiments to structured initiatives.</div>
+        <div class="proof-card">Ran AI strategy with the IT leadership of a leading hospitality group, tying use cases to measurable business value.</div>
+        <div class="proof-card">Helped enterprise technology teams work out when RAG is actually required and when it isn’t, cutting unnecessary infrastructure.</div>
+        <div class="proof-highlight">
+          <div class="stat">80%</div>
+          <div style="margin-top: 14px;">A pharmaceutical distribution group. AI discovery, then a voice AI agent built and shipped into the contact center. It handles 80% of incoming calls on its own, and the human agents keep the 20% that genuinely need a person. In production, taking real calls.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" style="padding-top: 20px; padding-bottom: 80px;">
+      <div class="tint-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; align-items: center;">
+        <div>
+          <div class="eyebrow">Who it’s for</div>
+          <p style="font-size: 19px; line-height: 1.6; color: var(--ink); margin: 16px 0 0; text-wrap: pretty;">Mid-to-large Israeli and American enterprises, typically 500 to 5,000 employees, in pharma, banking and finance, insurance, hospitality, media, logistics, and retail. I work in English and Hebrew.</p>
+        </div>
+        <div class="tag-row">
+          <span class="tag">Pharma</span>
+          <span class="tag">Banking &amp; finance</span>
+          <span class="tag">Insurance</span>
+          <span class="tag">Hospitality</span>
+          <span class="tag">Media</span>
+          <span class="tag">Logistics</span>
+          <span class="tag">Retail</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-dark">
+      <div class="wrap-1000" style="padding-top: 96px; padding-bottom: 96px; text-align: center;">
+        <h2 class="h2" style="font-size: clamp(30px, 4vw, 52px); line-height: 1.06;">You have pilots. <span style="color: var(--blue-soft);">Let’s talk about production.</span></h2>
+        <p class="prose" style="margin: 24px auto 0; max-width: 620px;">A 30-minute intro call. No sales deck. We’ll talk about where your AI effort actually stands and what it would take to get it running.</p>
+        <a class="btn btn-primary btn-lg" style="margin-top: 34px;" href="https://cal.com/itzik-woda/30min" target="_blank" rel="noopener">Book an intro call →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <span class="footer-brand">
+        <span class="brand-logo"><img src="/assets/logo.svg" alt="TriFold Technologies" /></span>
+        <img class="brand-mascot" src="/assets/mascot-head.png" alt="" aria-hidden="true" />
+      </span>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/services.html">Services</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/accessibility.html">Accessibility statement</a>
+        <a href="/privacy.html">Privacy policy</a>
+        <a href="/terms.html">Terms of use</a>
+      </nav>
+      <div class="footer-legal">
+        <span>TriFold Technologies · Owned and run by Itzik Woda · Israel</span>
+        <span>Built to IS 5568 · WCAG 2.1 AA</span>
       </div>
     </div>
-  </div>
-
-  <!-- floating glossy 3D-icon placeholders -->
-  <div class="float-ico" style="top:16%;left:16%;width:66px;height:66px;animation-delay:0s"><div class="ico-tile"><span></span></div></div>
-  <div class="float-ico" style="top:26%;right:15%;width:78px;height:78px;animation-delay:.15s"><div class="ico-tile"><span></span></div></div>
-  <div class="float-ico" style="top:58%;left:11%;width:58px;height:58px;animation-delay:.3s"><div class="ico-tile"><span></span></div></div>
-  <div class="float-ico" style="top:78%;right:6%;width:62px;height:62px;animation-delay:.22s"><div class="ico-tile"><span></span></div></div>
-</header>
-
-<!-- ── SOURCE BAR ─────────────────────────────────────────────── -->
-<div class="logobar">
-  <div class="lead">Grounded in 2026 research on where AI actually stalls</div>
-  <div class="logos">
-    <span>PwC — 29th Global CEO Survey</span>
-    <span>IBM — 2026 CEO Study</span>
-  </div>
+  </footer>
 </div>
 
-<!-- ── THE GAP (four planes) ──────────────────────────────────── -->
-<section class="section reveal" id="gap">
-  <div class="section-head">
-    <span class="eyebrow">Where it stalls</span>
-    <h2>Four groups that rarely agree</h2>
-    <p>AI stalls in the space between the business, the data owners, IT, and whoever holds governance and risk. Each is doing its job. A pilot can ignore all of it. A production system cannot.</p>
-  </div>
-  <div class="wrap bento">
-    <article class="cell">
-      <div class="mockwrap"><div class="mock"><svg class="mock-line" viewBox="0 0 200 90"><polyline points="0,70 40,55 80,62 120,32 160,40 200,14" fill="none" stroke="var(--mint-deep)" stroke-width="3"/><circle cx="120" cy="32" r="5" fill="var(--mint-deep)"/><rect x="108" y="8" width="52" height="18" rx="5" fill="#141414"/></svg></div></div>
-      <div class="body"><div class="rule"></div><h3>The business</h3><p>Wants an outcome and a date — and will happily pick a use case the data underneath can't actually support.</p></div>
-    </article>
-    <article class="cell">
-      <div class="mockwrap"><div class="mock"><div class="mock-flow"><div class="row"><span class="dot"></span><span class="bar" style="width:44%"></span></div><div class="row on"><span class="dot"></span><span class="bar" style="width:62%"></span></div><div class="row"><span class="dot"></span><span class="bar" style="width:44%"></span></div></div></div></div>
-      <div class="body"><div class="rule"></div><h3>Data owners</h3><p>Know what the systems can support and what the data really looks like beneath the dashboard.</p></div>
-    </article>
-    <article class="cell">
-      <div class="mockwrap"><div class="mock"><div class="mock-avatars"><div class="stack"><span class="av"></span><span class="av on"></span><span class="av"></span><span class="av"></span></div><span class="cap"></span></div></div></div>
-      <div class="body"><div class="rule"></div><h3>IT</h3><p>Won't put a model anywhere near production without security answers no one has written down yet.</p></div>
-    </article>
-    <article class="cell">
-      <div class="mockwrap"><div class="mock"><div class="mock-chart"><span class="col" style="height:40%"></span><span class="col" style="height:62%"></span><span class="col" style="height:48%"></span><span class="col" style="height:80%"></span><span class="col" style="height:58%"></span><span class="col on" style="height:92%"></span></div></div></div>
-      <div class="body"><div class="rule"></div><h3>Governance &amp; risk</h3><p>Knows what you're allowed to do with the data — and what happens if a model gets it wrong.</p></div>
-    </article>
-  </div>
-</section>
-
-<!-- ── THE WORK (three parts) ─────────────────────────────────── -->
-<section class="section section--tight-top reveal" id="work">
-  <div class="section-head">
-    <span class="eyebrow">The work</span>
-    <h2>Three parts, most of it unglamorous</h2>
-  </div>
-  <div class="wrap steps">
-    <article class="step">
-      <div class="panel"><span>(01)</span></div>
-      <div><h3>Diagnose</h3><p>Sit with each function and find the two or three places where AI changes the output and all four planes can realistically agree.</p></div>
-    </article>
-    <article class="step">
-      <div class="panel"><span>(02)</span></div>
-      <div><h3>Align</h3><p>Define the AI-assisted workflow, the human review steps, the data the model may see, the guardrails — and who owns the result.</p></div>
-    </article>
-    <article class="step">
-      <div class="panel"><span>(03)</span></div>
-      <div><h3>Measure</h3><p>Own the metrics — time saved, output quality, error rates, cost per unit — and keep re-checking as the models change.</p></div>
-    </article>
-  </div>
-</section>
-
-<!-- ── WHY NOT THE CIO (accordion + stat) ─────────────────────── -->
-<section class="section reveal">
-  <div class="section-head">
-    <span class="eyebrow">Why not the CIO</span>
-    <h2>The platform can't close it alone</h2>
-  </div>
-  <div class="wrap gov-grid">
-    <div class="accordion" id="accordion">
-      <div class="acc-item open">
-        <span class="rail"></span>
-        <button class="acc-btn"><span class="t">A capable CIO owns the technical side</span><span class="acc-plus"><i data-lucide="plus" style="width:14px;height:14px"></i></span></button>
-        <div class="acc-panel"><div><p>Infrastructure, integrations, security posture, the data platforms it runs on. That work is real, and it's solvable.</p></div></div>
-      </div>
-      <div class="acc-item">
-        <span class="rail"></span>
-        <button class="acc-btn"><span class="t">But the mandate stops there</span><span class="acc-plus"><i data-lucide="plus" style="width:14px;height:14px"></i></span></button>
-        <div class="acc-panel"><div><p>The CIO can't change how finance builds its reports, how operations runs its day, or what a regulated function decides to automate. Those teams don't report to them.</p></div></div>
-      </div>
-      <div class="acc-item">
-        <span class="rail"></span>
-        <button class="acc-btn"><span class="t">And the vendor only sells capability</span><span class="acc-plus"><i data-lucide="plus" style="width:14px;height:14px"></i></span></button>
-        <div class="acc-panel"><div><p>A platform vendor won't sit with your compliance lead to decide which of your processes an agent is permitted to touch. That's not what a licence buys.</p></div></div>
-      </div>
+<div class="a11y-dock">
+  <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Accessibility options">
+    <div class="a11y-panel-head">
+      <span class="t">Accessibility · נגישות</span>
+      <button type="button" class="a11y-close" id="a11yClose" aria-label="Close accessibility panel">✕</button>
     </div>
-    <div class="stat-card">
-      <div class="cap">Organizations with a Chief AI Officer</div>
-      <div class="num">76<small>%</small></div>
-      <div class="sub">up from 26% a year earlier — IBM 2026 CEO Study</div>
-      <div class="chartbox"><div class="mock"><div class="mock-chart"><span class="col" style="height:26%"></span><span class="col" style="height:44%"></span><span class="col" style="height:52%"></span><span class="col" style="height:64%"></span><span class="col" style="height:76%"></span><span class="col on" style="height:92%"></span></div></div></div>
+    <div class="a11y-grid">
+      <button type="button" class="a11y-opt" data-flag="font" aria-pressed="false"><span class="ico" aria-hidden="true">🔤</span><span class="lab">Larger text</span></button>
+      <button type="button" class="a11y-opt" data-flag="contrast" aria-pressed="false"><span class="ico" aria-hidden="true">◑</span><span class="lab">High contrast</span></button>
+      <button type="button" class="a11y-opt" data-flag="gray" aria-pressed="false"><span class="ico" aria-hidden="true">🌑</span><span class="lab">Greyscale</span></button>
+      <button type="button" class="a11y-opt" data-flag="links" aria-pressed="false"><span class="ico" aria-hidden="true">🔗</span><span class="lab">Highlight links</span></button>
+      <button type="button" class="a11y-opt" data-flag="cursor" aria-pressed="false"><span class="ico" aria-hidden="true">🖱️</span><span class="lab">Big cursor</span></button>
+      <button type="button" class="a11y-opt" data-flag="focus" aria-pressed="false"><span class="ico" aria-hidden="true">🎯</span><span class="lab">Focus outline</span></button>
+      <button type="button" class="a11y-opt" data-flag="lines" aria-pressed="false"><span class="ico" aria-hidden="true">↕️</span><span class="lab">Line spacing</span></button>
+      <button type="button" class="a11y-opt" data-flag="spacing" aria-pressed="false"><span class="ico" aria-hidden="true">↔️</span><span class="lab">Letter spacing</span></button>
+      <button type="button" class="a11y-opt" data-flag="motion" aria-pressed="false"><span class="ico" aria-hidden="true">⏸️</span><span class="lab">Stop animation</span></button>
+    </div>
+    <div class="a11y-foot">
+      <button type="button" class="a11y-reset" id="a11yReset">Reset · איפוס</button>
+      <a href="/accessibility.html">Accessibility statement · הצהרת נגישות</a>
     </div>
   </div>
-</section>
-
-<!-- ── STATS ──────────────────────────────────────────────────── -->
-<section class="section section--tight-top reveal">
-  <div class="wrap stats">
-    <div class="stat"><div class="v">1&thinsp;in&thinsp;8</div><div class="l">CEOs report AI delivered both lower cost and higher revenue (PwC, 2026)</div></div>
-    <div class="stat"><div class="v">76<sup>%</sup></div><div class="l">of organizations now have a Chief AI Officer, up from 26%</div></div>
-    <div class="stat"><div class="v">2<sup>×</sup></div><div class="l">more likely to still be in production after three years, under a CAIO</div></div>
-    <div class="stat"><div class="v">44<sup>%</sup></div><div class="l">of prototypes reach full production, up from 36% (IBM)</div></div>
-  </div>
-</section>
-
-<!-- ── FROM THE ESSAY (pull-quotes) ───────────────────────────── -->
-<section class="section section--tight-top reveal">
-  <div class="section-head">
-    <span class="eyebrow">In practice</span>
-    <h2>The argument, in a few lines</h2>
-  </div>
-  <div class="wrap quotes">
-    <div class="quote"><p>None of these are technology failures. They're alignment failures — and they show up as a stalled project.</p><div class="who"><div class="a">On the gap</div><div class="r">Where AI stalls</div></div></div>
-    <div class="quote"><p>Adoption is not a motivation problem. It's four functions that have never agreed on what the AI-assisted work looks like.</p><div class="who"><div class="a">On adoption</div><div class="r">Why "just use AI" fails</div></div></div>
-    <div class="portrait">
-      <img src="itzik-woda.jpg" alt="Itzik Woda, TriFold Technologies" />
-      <div class="tag"><div class="a">Itzik Woda</div><div class="r">TriFold Technologies</div></div>
-    </div>
-    <div class="quote"><p>A use case the business loves but the data can't feed is not an opportunity. It's a future stalled project.</p><div class="who"><div class="a">On use cases</div><div class="r">Choosing the real ones</div></div></div>
-    <div class="quote"><p>Closing the gap needs someone with the standing to get finance, operations, IT, data, and governance to agree.</p><div class="who"><div class="a">On the mandate</div><div class="r">It isn't an infra job</div></div></div>
-    <div class="quote"><p>The goal isn't to stay indispensable. It's to stay useful — keeping the four planes aligned as everything changes.</p><div class="who"><div class="a">On staying useful</div><div class="r">Why fractional lasts</div></div></div>
-  </div>
-</section>
-
-<!-- ── ENGAGEMENTS ────────────────────────────────────────────── -->
-<section class="section reveal" id="engagements">
-  <div class="section-head">
-    <span class="eyebrow">Engagements</span>
-    <h2>Start small, scale with the work</h2>
-    <p>Executive ownership at the level you need now — and it grows as you mature. No full-time hire before the business case exists.</p>
-  </div>
-  <div class="plans">
-    <article class="plan">
-      <div class="name">Diagnostic</div>
-      <div class="price"><span class="amt">Fixed scope</span></div>
-      <p class="desc">A short engagement that names exactly where the alignment breaks.</p>
-      <div class="divide"></div>
-      <ul>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Interviews across all four planes</span></li>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>A map of where AI actually stalls</span></li>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Two or three use cases that can ship</span></li>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>A clear go / no-go on each</span></li>
-      </ul>
-      <a class="pill pill--dark pill--block pill--md" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Diagnostic%20call">Book a diagnostic call</a>
-    </article>
-    <article class="plan rec">
-      <div class="name">Fractional CAIO</div>
-      <div class="price"><span class="amt">Monthly</span><span class="per">retainer</span></div>
-      <p class="desc">Ongoing executive ownership across strategy, governance, and delivery.</p>
-      <div class="divide"></div>
-      <ul>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Everything in the diagnostic</span></li>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Operating model &amp; guardrails per use case</span></li>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Business, data, IT &amp; governance kept aligned</span></li>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Board-ready measurement</span></li>
-      </ul>
-      <a class="pill pill--outline pill--block pill--md" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Fractional%20CAIO%20engagement">Start here</a>
-    </article>
-    <article class="plan">
-      <div class="name">Scale</div>
-      <div class="price"><span class="amt">Custom</span></div>
-      <p class="desc">As the program matures — new models, new regs, new leaders — the planes stay aligned.</p>
-      <div class="divide"></div>
-      <ul>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Model &amp; use-case map kept current</span></li>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Build-vs-buy and new-model calls</span></li>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>Responsible-AI framework upkeep</span></li>
-        <li><span class="tick"><i data-lucide="check" style="width:11px;height:11px"></i></span><span>On call as you grow</span></li>
-      </ul>
-      <a class="pill pill--dark pill--block pill--md" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Scaling%20the%20AI%20program">Let's talk</a>
-    </article>
-  </div>
-</section>
-
-<!-- ── FAQ ────────────────────────────────────────────────────── -->
-<section class="section section--tight-top reveal" id="faq">
-  <div class="section-head">
-    <span class="eyebrow">FAQ</span>
-    <h2>Questions, answered</h2>
-  </div>
-  <div class="faq" id="faqlist">
-    <div class="faq-item">
-      <button class="faq-btn"><span class="n">01</span><span class="q">What does a fractional CAIO actually do, day to day?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
-      <div class="faq-panel"><div><p>Three things: keep the AI use-case map and model choices current; oversee deployments and responsible-AI review; and get business, data, IT, and governance to agree on specific use cases — then own whether adoption turns into measurable output. Most organizations underestimate that third part.</p></div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn"><span class="n">02</span><span class="q">How is this different from an AI consultant who builds tools?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
-      <div class="faq-panel"><div><p>A consultant builds something and leaves when the scope is done. A fractional CAIO owns the outcome over time — whether the thing gets used, whether it produces the business result, and whether it keeps its value as the organization and the models change. That needs a seat at leadership meetings and standing relationships across functions.</p></div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn"><span class="n">03</span><span class="q">When do we need a CAIO instead of just giving AI to the CIO?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
-      <div class="faq-panel"><div><p>When the block is alignment, not infrastructure. If the tools are in place and almost no one uses them consistently, that's a business and governance problem. A CIO owns the systems and infrastructure well; getting finance, operations, and a regulated function to agree on how AI changes their work sits outside that mandate.</p></div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn"><span class="n">04</span><span class="q">The tools are already bought — why is nothing changing?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
-      <div class="faq-panel"><div><p>Because adoption isn't a motivation problem. It's four functions that have never sat in one room and agreed on what the AI-assisted version of the work looks like, who owns it, and what the guardrails are. Buying a better platform rarely helps, because the thing that stalled was never the technology.</p></div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn"><span class="n">05</span><span class="q">Why fractional instead of a full-time Chief AI Officer?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
-      <div class="faq-panel"><div><p>Hiring a full-time CAIO before the business case exists usually creates more problems than it solves — the role turns theoretical and the budget scatters across pilots that never consolidate. Fractional gives you executive ownership at the level you need now, and it scales as you mature.</p></div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-btn"><span class="n">06</span><span class="q">Isn't the best consultant one who makes himself unnecessary?</span><span class="faq-plus"><i data-lucide="plus" style="width:15px;height:15px"></i></span></button>
-      <div class="faq-panel"><div><p>It sounds right and it rarely fits how organizations actually move. Strategy shifts, leaders change, regulations move, the models improve, the data grows. The value isn't disappearing after the first win — it's staying close enough to keep the four planes aligned as all of that changes. The goal isn't to stay indispensable; it's to stay useful.</p></div></div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ── FOOTER ─────────────────────────────────────────────────── -->
-<footer class="footer">
-  <div class="wrap footer-top">
-    <div class="about">
-      <a href="#top" class="brand">TriFold<span class="dot">.</span></a>
-      <p>Fractional CAIO services — closing the alignment gap between the business, data and IT, and governance, so AI reaches production and stays there.</p>
-    </div>
-    <div class="footer-cols">
-      <div class="col">
-        <span class="h">Company</span>
-        <a href="#top">About</a>
-        <a href="/ai-strategy-playbook/">AI Strategy Playbook</a>
-        <a href="/accessibility.html">Accessibility · נגישות</a>
-        <a href="/privacy.html">Privacy · פרטיות</a>
-        <a href="/terms.html">Terms · תנאי שימוש</a>
-        <a href="mailto:itzik.woda@trifoldtechnologies.com">Contact</a>
-      </div>
-      <div class="col">
-        <span class="h">Engagements</span>
-        <a href="#work">Diagnostic</a>
-        <a href="#gap">Governance</a>
-        <a href="#engagements">Delivery</a>
-      </div>
-      <div class="col">
-        <span class="h">Itzik Woda</span>
-        <a href="tel:+972528544775">052-8544775</a>
-        <a href="mailto:itzik.woda@trifoldtechnologies.com">itzik.woda@trifoldtechnologies.com</a>
-      </div>
-    </div>
-  </div>
-  <div class="wrap footer-cta">
-    <div class="line"></div>
-    <a class="pill pill--primary pill--lg" href="mailto:itzik.woda@trifoldtechnologies.com?subject=Diagnostic%20call">Book a diagnostic call</a>
-    <div class="line"></div>
-  </div>
-  <div class="wrap footer-legal">
-    <span>© 2026 TriFold Technologies</span>
-    <span class="links"><a href="/accessibility.html">Accessibility</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></span>
-  </div>
-  <div aria-hidden="true" class="footer-word">TriFold&nbsp;AI</div>
-</footer>
-
-<script>
-(function () {
-  var uid = 0;
-
-  /* Accordion (single-open) — Governance + FAQ share the same toggle logic.
-     Wires WCAG 4.1.2 state: aria-expanded on the trigger, aria-controls -> panel,
-     and a labelled region so screen readers announce open/closed. */
-  function wireAccordion(scopeSel, itemSel, panelSel, groupLabel) {
-    var scope = document.querySelector(scopeSel);
-    if (!scope) return;
-    var items = Array.prototype.slice.call(scope.querySelectorAll(itemSel));
-    scope.setAttribute('role', 'region');
-    scope.setAttribute('aria-label', groupLabel);
-    items.forEach(function (item) {
-      var btn = item.querySelector('button');
-      var panel = item.querySelector(panelSel);
-      var pid = 'acc-panel-' + (++uid);
-      panel.id = pid;
-      panel.setAttribute('role', 'region');
-      btn.setAttribute('aria-controls', pid);
-      var open = item.classList.contains('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.addEventListener('click', function () {
-        var wasOpen = item.classList.contains('open');
-        items.forEach(function (i) {
-          i.classList.remove('open');
-          i.querySelector('button').setAttribute('aria-expanded', 'false');
-        });
-        if (!wasOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
-      });
-    });
-  }
-  wireAccordion('#accordion', '.acc-item', '.acc-panel', 'Why the CIO and the platform can’t close it alone');
-  wireAccordion('#faqlist', '.faq-item', '.faq-panel', 'Frequently asked questions');
-
-  /* Nav active state — click + scroll spy, mirrored into aria-current */
-  var links = Array.prototype.slice.call(document.querySelectorAll('#navlinks a'));
-  function setActive(el) {
-    links.forEach(function (l) { l.classList.remove('active'); l.removeAttribute('aria-current'); });
-    if (el) { el.classList.add('active'); el.setAttribute('aria-current', 'page'); }
-  }
-  links.forEach(function (a) { a.addEventListener('click', function () { setActive(a); }); });
-  var sections = links.map(function (a) {
-    var href = a.getAttribute('href');
-    // Only in-page (#…) links participate in scroll-spy; external links (e.g. the
-    // Playbook) return null so querySelector never gets a full URL and throws.
-    return href && href.charAt(0) === '#' ? document.querySelector(href) : null;
-  });
-  var spy = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      var i = sections.indexOf(e.target);
-      if (i >= 0) setActive(links[i]);
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  sections.forEach(function (s) { if (s) spy.observe(s); });
-
-  /* Reveal-on-scroll (respect reduced-motion: reveal immediately) */
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) {
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
-  } else {
-    var reveal = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(function (el) { reveal.observe(el); });
-  }
-
-  /* Hide purely-decorative graphics from assistive tech (WCAG 1.1.1) */
-  document.querySelectorAll('.float-ico, .mockwrap, .chartbox, .hero-card .bars, .step .panel span')
-    .forEach(function (el) { el.setAttribute('aria-hidden', 'true'); });
-
-  /* Lucide glyphs — render, then mark the decorative SVGs hidden + unfocusable */
-  if (window.lucide) window.lucide.createIcons();
-  document.querySelectorAll('svg.lucide, [data-lucide]').forEach(function (svg) {
-    svg.setAttribute('aria-hidden', 'true');
-    svg.setAttribute('focusable', 'false');
-  });
-})();
-</script>
-
-<!-- ── Accessibility widget (self-contained; copied & re-skinned from trifoldtechnologies.com) ── -->
-<button class="a11y-trigger" id="a11yTrigger" aria-label="תפריט נגישות · Accessibility menu" title="נגישות" aria-expanded="false" aria-controls="a11yPanel" aria-haspopup="dialog">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm9 7h-6l-1.5 8.5L16 22h-2.5l-1.5-4-1.5 4H8l2.5-4.5L9 9H3V7h18v2z"/></svg>
-</button>
-<div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="הגדרות נגישות">
-  <div class="a11y-panel-header">
-    <h3>♿ נגישות</h3>
-    <button class="a11y-panel-close" id="a11yClose" aria-label="סגור תפריט נגישות">✕</button>
-  </div>
-  <div class="a11y-panel-body">
-    <button class="a11y-btn" data-a11y="font-up"><span class="a11y-icon" aria-hidden="true">🔤</span>הגדלת טקסט</button>
-    <button class="a11y-btn" data-a11y="high-contrast"><span class="a11y-icon" aria-hidden="true">◑</span>ניגודיות גבוהה</button>
-    <button class="a11y-btn" data-a11y="grayscale"><span class="a11y-icon" aria-hidden="true">🌑</span>גווני אפור</button>
-    <button class="a11y-btn" data-a11y="links-underline"><span class="a11y-icon" aria-hidden="true">🔗</span>הדגשת קישורים</button>
-    <button class="a11y-btn" data-a11y="big-cursor"><span class="a11y-icon" aria-hidden="true">🖱️</span>סמן גדול</button>
-    <button class="a11y-btn" data-a11y="highlight-focus"><span class="a11y-icon" aria-hidden="true">🎯</span>הדגשת מיקוד</button>
-    <button class="a11y-btn" data-a11y="line-height"><span class="a11y-icon" aria-hidden="true">↕️</span>מרווח שורות</button>
-    <button class="a11y-btn" data-a11y="letter-spacing"><span class="a11y-icon" aria-hidden="true">↔️</span>מרווח אותיות</button>
-    <button class="a11y-btn" data-a11y="stop-animations"><span class="a11y-icon" aria-hidden="true">⏸️</span>עצירת אנימציות</button>
-    <button class="a11y-reset" id="a11yReset">🔄 איפוס הגדרות נגישות</button>
-  </div>
+  <button type="button" class="a11y-fab" id="a11yFab" aria-label="Accessibility options · אפשרויות נגישות" aria-expanded="false">♿</button>
 </div>
-<script>
-(function() {
-  const trigger = document.getElementById('a11yTrigger');
-  const panel = document.getElementById('a11yPanel');
-  const closeBtn = document.getElementById('a11yClose');
-  const resetBtn = document.getElementById('a11yReset');
-  const STORAGE_KEY = 'trifold_a11y';
-  let fontLevel = 0; // 0=normal, 1=large, 2=xlarge
 
-  function loadPrefs() {
-    try {
-      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-      if (saved.fontLevel) { fontLevel = saved.fontLevel; applyFontLevel(); }
-      if (saved.toggles) {
-        saved.toggles.forEach(function(key) {
-          document.body.classList.add('a11y-' + key);
-          const btn = document.querySelector('[data-a11y="' + key + '"]');
-          if (btn) btn.classList.add('active');
-        });
-      }
-    } catch(e) {}
-  }
-  function savePrefs() {
-    const toggles = [];
-    document.querySelectorAll('.a11y-btn.active').forEach(function(btn) {
-      const key = btn.dataset.a11y;
-      if (key && key !== 'font-up') toggles.push(key);
-    });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ fontLevel: fontLevel, toggles: toggles }));
-  }
-  function applyFontLevel() {
-    document.body.classList.remove('a11y-large-text', 'a11y-xlarge-text');
-    var btn = document.querySelector('[data-a11y="font-up"]');
-    if (fontLevel === 1) { document.body.classList.add('a11y-large-text'); if (btn) btn.classList.add('active'); }
-    else if (fontLevel >= 2) { document.body.classList.add('a11y-xlarge-text'); if (btn) btn.classList.add('active'); }
-    else { if (btn) btn.classList.remove('active'); }
-  }
-
-  trigger.addEventListener('click', function() {
-    var isOpen = panel.classList.toggle('open');
-    trigger.setAttribute('aria-expanded', isOpen);
-  });
-  closeBtn.addEventListener('click', function() {
-    panel.classList.remove('open');
-    trigger.setAttribute('aria-expanded', 'false');
-  });
-  document.addEventListener('click', function(e) {
-    if (!panel.contains(e.target) && e.target !== trigger && !trigger.contains(e.target)) {
-      panel.classList.remove('open');
-      trigger.setAttribute('aria-expanded', 'false');
-    }
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && panel.classList.contains('open')) {
-      panel.classList.remove('open');
-      trigger.focus();
-    }
-  });
-  document.querySelectorAll('.a11y-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var key = btn.dataset.a11y;
-      if (key === 'font-up') {
-        fontLevel = (fontLevel + 1) % 3;
-        applyFontLevel();
-      } else {
-        btn.classList.toggle('active');
-        document.body.classList.toggle('a11y-' + key);
-      }
-      savePrefs();
-    });
-  });
-  resetBtn.addEventListener('click', function() {
-    fontLevel = 0;
-    document.body.className = document.body.className.split(' ').filter(function(c) { return !c.startsWith('a11y-'); }).join(' ');
-    document.querySelectorAll('.a11y-btn.active').forEach(function(b) { b.classList.remove('active'); });
-    localStorage.removeItem(STORAGE_KEY);
-  });
-  loadPrefs();
-})();
-</script>
+<script src="/a11y.js"></script>
 </body>
 </html>
