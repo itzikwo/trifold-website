@@ -88,11 +88,9 @@ h1, h2, h3, p { margin: 0; }
   max-width: 1200px; margin: 0 auto; padding: 14px 24px;
   display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px;
 }
-.brand { display: flex; align-items: flex-end; flex: 0 0 auto; }
-/* Logo sprite crop — the artwork is a full lockup; we window the wordmark region */
-.brand-logo { display: block; position: relative; width: 96px; height: 33px; overflow: hidden; mix-blend-mode: multiply; }
-.brand-logo img { position: absolute; width: 135px; height: auto; max-width: none; left: -20px; top: -96px; display: block; }
-.brand-mascot { height: 42px; width: auto; display: block; margin-left: 10px; }
+.brand { display: flex; align-items: center; flex: 0 0 auto; }
+/* Combined wordmark + mascot lockup, one transparent PNG (286×84) */
+.brand-logo-img { height: 42px; width: auto; display: block; }
 .main-nav { margin-left: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
 .nav-link { font-size: 15px; font-weight: 500; color: var(--ink); }
 .nav-link:hover, .nav-link[aria-current="page"] { color: var(--blue); }
@@ -221,10 +219,8 @@ a.info-card:hover { border-color: var(--blue); color: var(--blue); }
 /* ── Footer ────────────────────────────────────────────── */
 .site-footer { border-top: 1px solid var(--line); background: var(--footer-bg); }
 .site-footer .inner { max-width: 1200px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
-.footer-brand { display: flex; align-items: flex-end; flex: 0 0 auto; }
-.footer-brand .brand-logo { width: 84px; height: 29px; }
-.footer-brand .brand-logo img { width: 118px; left: -18px; top: -84px; }
-.footer-brand .brand-mascot { height: 38px; }
+.footer-brand { display: flex; align-items: center; flex: 0 0 auto; }
+.footer-brand .brand-logo-img { height: 34px; }
 .footer-nav { display: flex; flex-wrap: wrap; gap: 22px; margin-left: auto; }
 .footer-nav a { font-size: 15px; color: var(--muted); }
 .footer-nav a:hover { color: var(--blue); }
