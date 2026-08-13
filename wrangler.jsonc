@@ -1,0 +1,13 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "trifold-website",
+	"compatibility_date": "2026-08-13",
+	"observability": {
+		"enabled": true
+	},
+	"assets": {
+		"directory": ".",
+		"html_handling": "none",
+		"not_found_handling": "404-page"
+	}
+}

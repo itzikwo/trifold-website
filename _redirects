@@ -1,11 +1,10 @@
-# Netlify redirects file
-# https://docs.netlify.com/routing/redirects/
+# Cloudflare Workers/Pages redirects file
+# https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# html_handling is set to "none" in wrangler.jsonc, so .html targets here
+# are served as-is (no automatic clean-URL redirect back to the source,
+# which previously caused infinite redirect loops on these rules).
 
-# Handle clean URLs (optional)
-# /about    /about.html   200
-
-# Redirect admin without trailing slash
+# Serve the custom admin dashboard at /admin instead of the unused
+# Decap/Netlify CMS loader at /admin/index.html
 /admin    /admin.html   200
-
-# Custom 404
-/*    /404.html   200
