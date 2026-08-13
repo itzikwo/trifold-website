@@ -8,4 +8,4 @@
 /admin    /admin.html   200
 
 # Custom 404
-/*    /404.html   404
+/*    /404.html   200
