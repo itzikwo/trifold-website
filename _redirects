@@ -5,6 +5,10 @@
 # are served as-is (no automatic clean-URL redirect back to the source,
 # which previously caused infinite redirect loops on these rules).
 
+# html_handling: none disables automatic directory-index resolution,
+# so the root path needs an explicit rewrite to index.html
+/    /index.html   200
+
 # Serve the custom admin dashboard at /admin instead of the unused
 # Decap/Netlify CMS loader at /admin/index.html
 /admin    /admin.html   200

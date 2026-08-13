@@ -26,6 +26,9 @@ npm-debug.log*
 # Netlify
 .netlify/
 
+# Wrangler
+.wrangler/
+
 # Temporary files
 *.tmp
 *.temp
