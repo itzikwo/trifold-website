@@ -19,8 +19,6 @@
 # Repo docs and local tooling — not part of the site
 CLAUDE.md
 README.md
-Dockerfile
-docker-compose.yml
 **/.DS_Store
 
 # This file
