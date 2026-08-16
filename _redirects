@@ -9,6 +9,5 @@
 # so the root path needs an explicit rewrite to index.html
 /    /index.html   200
 
-# Serve the custom admin dashboard at /admin instead of the unused
-# Decap/Netlify CMS loader at /admin/index.html
-/admin    /admin.html   200
+# No /admin rule: the dashboard is no longer deployed. It is a client-side
+# draft editor, so it is run locally from the repo instead — see .assetsignore.

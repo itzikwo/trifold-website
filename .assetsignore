@@ -21,5 +21,12 @@ CLAUDE.md
 README.md
 **/.DS_Store
 
+# Admin dashboard. A client-side draft editor with no server component, so it
+# has no business being public — run it locally from the repo instead:
+#   python3 -m http.server 8000   then open http://localhost:8000/admin.html
+# (needs a local server, not file://, because it fetches content.json).
+admin.html
+admin/
+
 # This file
 .assetsignore
