@@ -1,0 +1,27 @@
+# Paths wrangler must not upload as public static assets.
+#
+# assets.directory in wrangler.jsonc is "." (the repo root), so without this
+# file wrangler walks the entire checkout — including .git, which would serve
+# the full repository and its history from https://trifoldtechnologies.com/.git/
+#
+# gitignore syntax. Keep this list narrow: anything not matched here is public.
+# In particular content.json (fetched by admin.html) and
+# ai-strategy-playbook/templates/* (linked downloads) must stay deployed.
+
+# Version control
+**/.git
+**/.gitignore
+**/.github
+
+# Wrangler scratch output
+**/.wrangler
+
+# Repo docs and local tooling — not part of the site
+CLAUDE.md
+README.md
+Dockerfile
+docker-compose.yml
+**/.DS_Store
+
+# This file
+.assetsignore
