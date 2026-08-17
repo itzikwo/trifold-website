@@ -1,10 +1,89 @@
 # robots.txt for TriFold Technologies
+# https://trifoldtechnologies.com
+
+# ---------------------------------------------------------------------------
+# Content signals (Cloudflare / IETF content-signals proposal)
+# search   = indexing and linking in search results
+# ai-input = grounding live AI answers (RAG, AI search citations)
+# ai-train = training or fine-tuning models
+# Restrictions below are an express reservation of rights under Article 4 of
+# EU Directive 2019/790 on copyright in the Digital Single Market.
+# ---------------------------------------------------------------------------
+
 User-agent: *
+Content-Signal: search=yes,ai-input=yes,ai-train=no
 Allow: /
 
-# Disallow admin page from indexing
+# Admin surfaces are not for indexing
 Disallow: /admin.html
 Disallow: /admin
+
+# ---------------------------------------------------------------------------
+# Anthropic crawlers: explicitly allowed
+# ClaudeBot        - crawls and indexes site content
+# Claude-User      - fetches a page live when a person asks Claude about it
+# Claude-SearchBot - indexes for Claude's search results
+# ---------------------------------------------------------------------------
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+User-agent: Claude-User
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+# ---------------------------------------------------------------------------
+# AI training crawlers: disallowed
+# These are also blocked at the edge in Cloudflare AI Crawl Control, so the
+# lines below are the polite signal rather than the enforcement.
+# ---------------------------------------------------------------------------
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Google-CloudVertexBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: ProRataInc
+Disallow: /
+
+User-agent: TikTokSpider
+Disallow: /
+
+User-agent: Timpibot
+Disallow: /
 
 # Sitemap
 Sitemap: https://trifoldtechnologies.com/sitemap.xml
