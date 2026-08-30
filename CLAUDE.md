@@ -117,8 +117,12 @@ The site is read by AI agents as well as people, and that surface is tested:
   action to take (the booking link). Keep it in step with the services pages.
 - JSON-LD lives in the `<head>` of the main pages; keep it factual and in step
   with the copy.
-- `robots.txt` keeps `ai-train=no`: content may ground live answers, not train
-  models. Do not add a training crawler to the allow list without Itzik's say-so.
+- `robots.txt` defaults to `ai-train=no`: content may ground live answers, not
+  train models. Google-Extended and DeepSeekBot are deliberate exceptions,
+  granted training use by name on Itzik's decision (Aug 2026) — leave them.
+  Do not add another training crawler to the allow list without his say-so, and
+  keep the file in step with Cloudflare AI Crawl Control: an agent allowed here
+  but blocked at the edge is still blocked.
 
 ### CTA Strategy
 - Primary CTA: Schedule Strategic Discovery Sprint consultation

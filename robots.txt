@@ -7,7 +7,9 @@
 # ai-input = grounding live AI answers (RAG, AI search citations)
 # ai-train = training or fine-tuning models
 # Restrictions below are an express reservation of rights under Article 4 of
-# EU Directive 2019/790 on copyright in the Digital Single Market.
+# EU Directive 2019/790 on copyright in the Digital Single Market. The
+# reservation is the default for every agent; it does not apply to the agents
+# granted training use by name further down this file.
 # ---------------------------------------------------------------------------
 
 User-agent: *
@@ -70,9 +72,35 @@ Disallow: /admin.html
 Disallow: /admin
 
 # ---------------------------------------------------------------------------
+# Training use granted by name
+# The two agents below are allowed the full site, including use of this content
+# for training, as an explicit exception to the ai-train=no default above.
+# Google-Extended - governs Gemini and Vertex AI use of pages Googlebot already
+#                   fetched; allowing it is what lets Gemini ground answers in
+#                   this site
+# DeepSeekBot     - DeepSeek's crawler
+# These agents must also be allowed at the edge (Cloudflare AI Crawl Control
+# and any bot rules); a block there overrides what this file says.
+# ---------------------------------------------------------------------------
+
+User-agent: Google-Extended
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+User-agent: DeepSeekBot
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+# ---------------------------------------------------------------------------
 # AI training crawlers: disallowed
 # These are also blocked at the edge in Cloudflare AI Crawl Control, so the
-# lines below are the polite signal rather than the enforcement.
+# lines below are the polite signal rather than the enforcement. Keep the two
+# lists in step: an agent granted access above but blocked at the edge is still
+# blocked.
 # ---------------------------------------------------------------------------
 
 User-agent: Amazonbot
@@ -91,9 +119,6 @@ User-agent: FacebookBot
 Disallow: /
 
 User-agent: Google-CloudVertexBot
-Disallow: /
-
-User-agent: Google-Extended
 Disallow: /
 
 User-agent: GPTBot
