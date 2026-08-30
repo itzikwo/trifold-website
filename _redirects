@@ -5,9 +5,10 @@
 # are served as-is (no automatic clean-URL redirect back to the source,
 # which previously caused infinite redirect loops on these rules).
 
-# html_handling: none disables automatic directory-index resolution,
-# so the root path needs an explicit rewrite to index.html
+# html_handling: none disables automatic directory-index resolution, so every
+# directory path needs an explicit rewrite to its index.html
 /    /index.html   200
+/ai-strategy-playbook/    /ai-strategy-playbook/index.html   200
 
 # No /admin rule: the dashboard is no longer deployed. It is a client-side
 # draft editor, so it is run locally from the repo instead — see .assetsignore.

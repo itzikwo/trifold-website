@@ -1,13 +1,19 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "trifold-website",
+	"main": "src/index.js",
 	"compatibility_date": "2026-08-13",
 	"observability": {
 		"enabled": true
 	},
 	"assets": {
 		"directory": ".",
+		"binding": "ASSETS",
 		"html_handling": "none",
-		"not_found_handling": "404-page"
+		"not_found_handling": "404-page",
+		// The worker runs ahead of the static assets so it can negotiate
+		// markdown, set Vary: Accept and serve an agent-readable 404. It hands
+		// every other request straight back to the asset server.
+		"run_worker_first": true
 	}
 }

@@ -1,120 +1,91 @@
-# TriFold Technologies - Landing Page
+# TriFold Technologies — website
 
-Landing page for TriFold Technologies - AI Implementation Consultancy.
+Static site for TriFold Technologies (fractional Chief AI Officer), deployed to
+Cloudflare Workers with static assets. A small worker sits in front of the files
+to serve markdown to AI agents and to keep the 404 useful.
 
-## Quick Deploy to Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/YOUR_USERNAME/trifold-website)
-
-## Project Structure
+## Project structure
 
 ```
-├── index.html          # Main landing page
-├── admin.html          # Content management interface
-├── content.json        # All editable content
-├── 404.html           # Custom 404 page
-├── netlify.toml       # Netlify configuration
-├── _redirects         # URL redirects
-├── robots.txt         # SEO robots file
-├── sitemap.xml        # SEO sitemap
-├── favicon.svg        # Site favicon
-├── CLAUDE.md          # AI assistant instructions
-└── README.md          # This file
+index.html, services.html, about.html, contact.html   # the site
+privacy.html, terms.html, accessibility.html, 404.html
+ai-strategy-playbook/                                 # Hebrew executive playbook + templates
+*.md                                                  # generated markdown twin of each page
+llms.txt                                              # what TriFold does and when an agent should use it
+robots.txt, sitemap.xml                               # crawler policy and URL index
+src/index.js                                          # worker: content negotiation, Vary, agent-readable 404
+src/negotiation.js                                    # Accept parsing and page -> markdown mapping
+tools/build-markdown.mjs                              # regenerates the markdown twins from the HTML
+test/                                                 # vitest suite, runs in the Workers runtime
+_redirects, wrangler.jsonc, .assetsignore             # routing and deployment config
+admin.html, admin/, content.json                      # local-only draft editor (not deployed, see .assetsignore)
 ```
 
-## Deployment Instructions
-
-### Option 1: Deploy via Netlify UI
-
-1. Push this repository to GitHub
-2. Go to [Netlify](https://app.netlify.com)
-3. Click "Add new site" → "Import an existing project"
-4. Connect to GitHub and select your repository
-5. Click "Deploy site"
-
-### Option 2: Deploy via Netlify CLI
+## Local development
 
 ```bash
-# Install Netlify CLI
-npm install -g netlify-cli
-
-# Login to Netlify
-netlify login
-
-# Deploy
-netlify deploy --prod
+npm install
+npm run dev      # wrangler dev — the site plus the worker, on localhost
+npm test         # markdown drift check + vitest (workerd, real static assets)
 ```
 
-## Updating Content
+## Editing content
 
-### Method 1: Using the Admin Panel (Recommended for simple edits)
+Edit the HTML page, then regenerate its markdown twin:
 
-1. Go to `https://your-site.netlify.app/admin`
-2. Edit content in the visual editor
-3. Click "שמור טיוטה" to save draft locally
-4. Click "ייצוא JSON" to download updated `content.json`
-5. Replace `content.json` in your repository
-6. Commit and push - Netlify will auto-deploy
-
-### Method 2: Direct JSON Edit
-
-1. Edit `content.json` directly
-2. Commit and push to GitHub
-3. Netlify will auto-deploy within minutes
-
-## Custom Domain Setup
-
-1. In Netlify dashboard, go to "Domain settings"
-2. Click "Add custom domain"
-3. Enter: `trifoldtechnologies.com`
-4. Update DNS records as instructed:
-   - Add A record pointing to Netlify's load balancer
-   - Or add CNAME record for `www` subdomain
-
-### Recommended DNS Settings
-
-```
-Type    Name    Value
-A       @       75.2.60.5
-CNAME   www     your-site.netlify.app
+```bash
+npm run build:markdown
 ```
 
-## Environment & Configuration
+`npm test` fails if a `.md` file no longer matches its `.html` source, so the two
+never drift. `ai-strategy-playbook/index.md` is the one exception: it is a curated
+Hebrew summary maintained by hand, because the playbook page has no `<main>` and a
+full transcription helps nobody.
 
-### Headers (configured in netlify.toml)
+The admin dashboard is a client-side draft editor with no server component, so it
+is not deployed. Run it locally:
 
-- Security headers (X-Frame-Options, XSS Protection)
-- Cache control for static assets
-- HTML/JSON files: no cache (always fresh)
-- CSS/JS/Images: long cache (immutable)
+```bash
+python3 -m http.server 8000   # then open http://localhost:8000/admin.html
+```
 
-### Redirects
+## How the site serves agents
 
-- `/admin` → `/admin.html`
-- All 404s → `/404.html`
+- **Markdown content negotiation.** `Accept: text/markdown` on any page returns
+  its markdown twin (`/services.html` → `/services.md`) with
+  `Content-Type: text/markdown; charset=utf-8`, `Content-Location`, and
+  `Vary: Accept, Accept-Encoding`. HTML clients are unaffected — a browser's
+  `Accept` ranks `text/html` above markdown, so it still gets the designed page.
+  A client that asks only for markdown on a page with no twin gets a 406 rather
+  than the wrong media type.
+- **`Vary: Accept, Accept-Encoding`** on every negotiated response, so a CDN
+  cannot hand the cached HTML variant to an agent asking for markdown.
+- **Recoverable 404s.** Unknown paths return a real HTTP 404. Browsers get the
+  designed 404 page; clients that do not insist on HTML get a short markdown
+  body with links to the home page, the sitemap and llms.txt.
+- **[llms.txt](llms.txt)** describes what TriFold does, the jobs it is the right
+  call for, the ones it is not, and the single action an agent should take
+  (the booking link). It is linked from robots.txt and the sitemap.
+- **JSON-LD** (`Organization`/`ProfessionalService`, `Person`, `WebSite`,
+  `OfferCatalog`, `HowTo`) is embedded in the head of the main pages.
+- **robots.txt** allows live AI agents and AI search crawlers (ClaudeBot,
+  Claude-User, Claude-SearchBot, ChatGPT-User, OAI-SearchBot, PerplexityBot,
+  Perplexity-User) and keeps the existing `ai-train=no` reservation for
+  training crawlers.
 
-## SEO Checklist
+## Deployment
 
-After deployment, update these files:
+Cloudflare Workers, configured in `wrangler.jsonc`:
 
-1. **sitemap.xml** - Update the domain URL
-2. **robots.txt** - Update the sitemap URL
-3. **index.html** - Update Open Graph URLs
-4. Add `og-image.png` (1200x630px) for social sharing
+```bash
+npm run deploy   # wrangler deploy
+```
 
-## Performance Tips
-
-- Images should be WebP format when possible
-- Keep images under 200KB
-- Use SVG for icons and logos
-- Consider adding a service worker for offline support
+`assets.directory` is the repository root, so `.assetsignore` decides what stays
+private. Anything not listed there is published — check it before adding files.
 
 ## Contact
 
 **Itzik Woda** | TriFold Technologies
-- 📱 052-8544775
-- ✉️ itzik.woda@trifoldtechnologies.com
-
----
-
-Built with ❤️ for Israeli enterprise executives.
+- 052-8544775
+- itzik.woda@trifoldtechnologies.com

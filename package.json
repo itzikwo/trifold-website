@@ -1,0 +1,18 @@
+{
+  "name": "trifold-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TriFold Technologies website — static pages served by a Cloudflare Worker that adds markdown content negotiation for AI agents.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build:markdown": "node tools/build-markdown.mjs",
+    "test": "node tools/build-markdown.mjs --check && vitest run"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.22.0",
+    "vitest": "^4.1.11",
+    "wrangler": "^4.127.1"
+  }
+}
