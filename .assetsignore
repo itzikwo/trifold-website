@@ -30,3 +30,13 @@ admin/
 
 # This file
 .assetsignore
+
+# Worker source (deployed as code, via main in wrangler.jsonc) and local
+# tooling. Neither belongs in the public asset tree.
+src/
+tools/
+test/
+package.json
+package-lock.json
+vitest.config.js
+node_modules/

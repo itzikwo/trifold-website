@@ -41,6 +41,35 @@ Disallow: /admin.html
 Disallow: /admin
 
 # ---------------------------------------------------------------------------
+# Live AI agents and AI search: explicitly allowed
+# These fetch a page because a person asked a question about it, or index it
+# for AI search results. Neither trains a model, so both fit the
+# ai-input=yes, ai-train=no signal above.
+# ChatGPT-User / OAI-SearchBot - OpenAI live fetch and search index
+# PerplexityBot / Perplexity-User - Perplexity search index and live fetch
+# ---------------------------------------------------------------------------
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+# ---------------------------------------------------------------------------
 # AI training crawlers: disallowed
 # These are also blocked at the edge in Cloudflare AI Crawl Control, so the
 # lines below are the polite signal rather than the enforcement.
@@ -84,6 +113,14 @@ Disallow: /
 
 User-agent: Timpibot
 Disallow: /
+
+# ---------------------------------------------------------------------------
+# Machine-readable entry points
+# llms.txt describes what TriFold does, when an agent should use it, and how to
+# get in touch. Every HTML page also answers Accept: text/markdown with a
+# markdown twin (/services.html -> /services.md).
+# llms.txt: https://trifoldtechnologies.com/llms.txt
+# ---------------------------------------------------------------------------
 
 # Sitemap
 Sitemap: https://trifoldtechnologies.com/sitemap.xml

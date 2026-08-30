@@ -106,6 +106,20 @@ Landing page for TriFold Technologies - a strategic AI implementation consultanc
 - Professional photography or high-quality illustrations
 - Avoid generic AI imagery (robots, blue circuits, etc.)
 
+### Agent Readiness (machine-readable surface)
+
+The site is read by AI agents as well as people, and that surface is tested:
+
+- Every HTML page has a markdown twin (`services.html` → `services.md`), served
+  by `src/index.js` when a client sends `Accept: text/markdown`. **After editing
+  any page, run `npm run build:markdown`** — `npm test` fails on drift.
+- `llms.txt` states what TriFold does, when an agent should use it, and the one
+  action to take (the booking link). Keep it in step with the services pages.
+- JSON-LD lives in the `<head>` of the main pages; keep it factual and in step
+  with the copy.
+- `robots.txt` keeps `ai-train=no`: content may ground live answers, not train
+  models. Do not add a training crawler to the allow list without Itzik's say-so.
+
 ### CTA Strategy
 - Primary CTA: Schedule Strategic Discovery Sprint consultation
 - Emphasize low-risk entry point (4-6 week sprint with clear deliverables)

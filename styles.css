@@ -147,6 +147,7 @@ h1, h2, h3, p { margin: 0; }
 }
 .band-dark .h2 { color: #fff; }
 .prose { font-size: 18px; line-height: 1.65; color: var(--muted); text-wrap: pretty; }
+code { font-family: var(--f-mono); font-size: 0.9em; background: var(--tint); border-radius: 5px; padding: 2px 6px; }
 .band-dark .prose { color: var(--dark-text); }
 .two-col { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 34px; }
 
