@@ -118,8 +118,9 @@ The site is read by AI agents as well as people, and that surface is tested:
 - JSON-LD lives in the `<head>` of the main pages; keep it factual and in step
   with the copy.
 - `robots.txt` defaults to `ai-train=no`: content may ground live answers, not
-  train models. Google-Extended and DeepSeekBot are deliberate exceptions,
-  granted training use by name on Itzik's decision (Aug 2026) — leave them.
+  train models. Google-Extended, GPTBot and DeepSeekBot are deliberate
+  exceptions, granted training use by name on Itzik's decision (Aug 2026) —
+  leave them.
   Do not add another training crawler to the allow list without his say-so, and
   keep the file in step with Cloudflare AI Crawl Control: an agent allowed here
   but blocked at the edge is still blocked.

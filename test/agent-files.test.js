@@ -86,18 +86,27 @@ describe('robots.txt', () => {
     }
   });
 
-  it('grants training use to the two agents named for it, and no others', () => {
-    for (const agent of ['Google-Extended', 'DeepSeekBot']) {
+  // "Disallow: /admin" contains "Disallow: /", so a substring check would call
+  // an allowed agent blocked. Match the whole line instead.
+  const blocksEverything = (group) => /^Disallow: \/$/m.test(group);
+
+  it('grants training use to the agents named for it, and no others', () => {
+    const granted = ['Google-Extended', 'GPTBot', 'DeepSeekBot'];
+
+    for (const agent of granted) {
       const block = groupFor(robots, agent);
       expect(block, agent).toBeDefined();
       expect(block, agent).toContain('Allow: /');
       expect(block, agent).toContain('ai-train=yes');
+      expect(blocksEverything(block), agent).toBe(false);
     }
 
     // The grant is by name; everything else still hits the default reservation.
-    const granted = robots.match(/ai-train=yes/g) || [];
-    expect(granted).toHaveLength(2);
-    expect(groupFor(robots, 'GPTBot')).toContain('Disallow: /');
+    expect(robots.match(/ai-train=yes/g) || []).toHaveLength(granted.length);
+
+    for (const agent of ['Bytespider', 'CCBot', 'Amazonbot', 'meta-externalagent']) {
+      expect(blocksEverything(groupFor(robots, agent)), agent).toBe(true);
+    }
   });
 
   it('keeps the sitemap and points at llms.txt', () => {

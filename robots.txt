@@ -73,17 +73,24 @@ Disallow: /admin
 
 # ---------------------------------------------------------------------------
 # Training use granted by name
-# The two agents below are allowed the full site, including use of this content
-# for training, as an explicit exception to the ai-train=no default above.
+# The agents below are allowed the full site, including use of this content for
+# training, as explicit exceptions to the ai-train=no default above.
 # Google-Extended - governs Gemini and Vertex AI use of pages Googlebot already
 #                   fetched; allowing it is what lets Gemini ground answers in
 #                   this site
+# GPTBot          - OpenAI's crawler; its stated purpose is training data
 # DeepSeekBot     - DeepSeek's crawler
 # These agents must also be allowed at the edge (Cloudflare AI Crawl Control
 # and any bot rules); a block there overrides what this file says.
 # ---------------------------------------------------------------------------
 
 User-agent: Google-Extended
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+Allow: /
+Disallow: /admin.html
+Disallow: /admin
+
+User-agent: GPTBot
 Content-Signal: search=yes,ai-input=yes,ai-train=yes
 Allow: /
 Disallow: /admin.html
@@ -119,9 +126,6 @@ User-agent: FacebookBot
 Disallow: /
 
 User-agent: Google-CloudVertexBot
-Disallow: /
-
-User-agent: GPTBot
 Disallow: /
 
 User-agent: meta-externalagent

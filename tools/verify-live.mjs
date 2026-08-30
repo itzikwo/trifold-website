@@ -195,6 +195,7 @@ export function buildChecks() {
           'OAI-SearchBot',
           'PerplexityBot',
           'Google-Extended',
+          'GPTBot',
           'DeepSeekBot',
         ]) {
           expect(body.includes(`User-agent: ${agent}`), `${agent} is not listed`);
