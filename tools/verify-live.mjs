@@ -189,7 +189,14 @@ export function buildChecks() {
         const response = await get('/robots.txt');
         expect(response.status === 200, `expected 200, got ${response.status}`);
         const body = await response.text();
-        for (const agent of ['ClaudeBot', 'ChatGPT-User', 'OAI-SearchBot', 'PerplexityBot']) {
+        for (const agent of [
+          'ClaudeBot',
+          'ChatGPT-User',
+          'OAI-SearchBot',
+          'PerplexityBot',
+          'Google-Extended',
+          'DeepSeekBot',
+        ]) {
           expect(body.includes(`User-agent: ${agent}`), `${agent} is not listed`);
         }
         expect(body.includes('Sitemap:'), 'no Sitemap line');

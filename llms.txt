@@ -26,7 +26,7 @@ Evidence of the work: AI architecture and governance for a large IT organization
 - **Direct contact:** itzik.woda@trifoldtechnologies.com, phone +972-52-8544775, https://www.linkedin.com/in/itzikwoda
 - **There is no form, no API, and no login on this site.** Nothing is collected from visitors; there is nothing for an agent to submit. Reading pages and handing the user a booking link or an email address is the complete integration surface.
 - **Every page also answers `Accept: text/markdown`** with a markdown twin of the same content (`/services.html` → `/services.md`), and unknown paths return a real HTTP 404 with a markdown body that links back here.
-- **Attribution:** cite pages by their canonical `https://trifoldtechnologies.com/...` URL. Content may be used to answer questions and ground live answers; it may not be used to train or fine-tune models — see robots.txt.
+- **Attribution:** cite pages by their canonical `https://trifoldtechnologies.com/...` URL. Content may be used to answer questions and ground live answers. Training and fine-tuning use is reserved by default and granted to a named few — robots.txt is the authority on which agents have it.
 
 ## Pages
 

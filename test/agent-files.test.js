@@ -65,6 +65,11 @@ describe('robots.txt', () => {
     robots = await text('/robots.txt');
   });
 
+  const groupFor = (robots, agent) =>
+    robots
+      .split(/\n(?=User-agent:)/)
+      .find((section) => section.startsWith(`User-agent: ${agent}`));
+
   it('allows live AI agents and AI search crawlers', () => {
     for (const agent of [
       'ClaudeBot',
@@ -75,12 +80,24 @@ describe('robots.txt', () => {
       'PerplexityBot',
       'Perplexity-User',
     ]) {
-      const block = robots.split(/\n(?=User-agent:)/).find((section) =>
-        section.startsWith(`User-agent: ${agent}`),
-      );
+      const block = groupFor(robots, agent);
       expect(block, agent).toBeDefined();
       expect(block, agent).toContain('Allow: /');
     }
+  });
+
+  it('grants training use to the two agents named for it, and no others', () => {
+    for (const agent of ['Google-Extended', 'DeepSeekBot']) {
+      const block = groupFor(robots, agent);
+      expect(block, agent).toBeDefined();
+      expect(block, agent).toContain('Allow: /');
+      expect(block, agent).toContain('ai-train=yes');
+    }
+
+    // The grant is by name; everything else still hits the default reservation.
+    const granted = robots.match(/ai-train=yes/g) || [];
+    expect(granted).toHaveLength(2);
+    expect(groupFor(robots, 'GPTBot')).toContain('Disallow: /');
   });
 
   it('keeps the sitemap and points at llms.txt', () => {
@@ -88,8 +105,10 @@ describe('robots.txt', () => {
     expect(robots).toContain(`${SITE}/llms.txt`);
   });
 
-  it('still reserves training rights', () => {
-    expect(robots).toContain('Content-Signal: search=yes,ai-input=yes,ai-train=no');
+  it('still reserves training rights by default', () => {
+    expect(groupFor(robots, '*')).toContain(
+      'Content-Signal: search=yes,ai-input=yes,ai-train=no',
+    );
   });
 });
 
