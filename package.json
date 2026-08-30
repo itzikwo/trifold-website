@@ -8,7 +8,8 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "build:markdown": "node tools/build-markdown.mjs",
-    "test": "node tools/build-markdown.mjs --check && vitest run"
+    "test": "node tools/build-markdown.mjs --check && vitest run",
+    "verify:live": "node tools/verify-live.mjs"
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.22.0",

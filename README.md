@@ -29,6 +29,22 @@ npm run dev      # wrangler dev — the site plus the worker, on localhost
 npm test         # markdown drift check + vitest (workerd, real static assets)
 ```
 
+## Checking a deployment
+
+`npm test` proves the code is right; it says nothing about what is actually
+live. After a deploy, check the running site:
+
+```bash
+npm run verify:live                                    # https://trifoldtechnologies.com
+npm run verify:live -- https://<branch>.workers.dev    # a preview deployment
+```
+
+It walks the site as an agent would — markdown negotiation and `Vary` on every
+page, a real 404 with a recoverable markdown body, llms.txt, robots.txt,
+JSON-LD, and every URL in the sitemap — prints a line per check and exits
+non-zero if any fail, so it works as a post-deploy gate. The same check list
+runs against the worker in `npm test`, so the checks themselves stay honest.
+
 ## Editing content
 
 Edit the HTML page, then regenerate its markdown twin:
