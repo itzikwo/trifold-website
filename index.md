@@ -20,17 +20,11 @@ Executives know AI matters. Teams run pilots. Very little reaches production. Af
 
 The blocker is almost never the model. It is alignment between the business, the data and IT teams, and governance. Three folds: business, data and IT, governance. Line them up and AI ships. Leave one out and you get demos.
 
-**FOLD 01**
+Fold 1 of 3 Business
 
-Business
+Fold 2 of 3 Data and IT
 
-**FOLD 02**
-
-Data and IT
-
-**FOLD 03**
-
-Governance
+Fold 3 of 3 Governance
 
 **What you get**
 
@@ -65,6 +59,8 @@ Designed the AI architecture and governance model for a large IT organization, m
 Ran AI strategy with the IT leadership of a leading hospitality group, tying use cases to measurable business value.
 
 Helped enterprise technology teams work out when RAG is actually required and when it isn’t, cutting unnecessary infrastructure.
+
+In production
 
 80%
 

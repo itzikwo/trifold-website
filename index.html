@@ -24,7 +24,7 @@
 <meta name="twitter:image" content="https://trifoldtechnologies.com/assets/og-image.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/styles.css" />
 <script type="application/ld+json">
 {
@@ -155,8 +155,7 @@
     <section class="hero">
       <div class="hero-copy">
         <div class="eyebrow eyebrow-lg">Fractional Chief AI Officer</div>
-        <h1 class="hero-h1">Your AI pilots worked. <span class="accent">So why is nothing in production?</span></h1>
-        <div class="accent-bar"></div>
+        <h1 class="hero-h1"><span class="quiet">Your AI pilots worked.</span> So why is nothing in production?</h1>
         <p class="lead">TriFold Technologies helps mid-to-large enterprises move AI out of pilots and presentations and into systems that run inside the business. Senior AI leadership, without the full-time hire.</p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="https://cal.com/itzik-woda/30min" target="_blank" rel="noopener">Book an intro call →</a>
@@ -175,19 +174,19 @@
         <p class="prose">Executives know AI matters. Teams run pilots. Very little reaches production. After three decades in enterprise technology, most recently at the Data &amp; AI team of IBM Israel, I watched this pattern repeat across pharma, financing, insurance, hospitality, and media.</p>
         <p class="prose">The blocker is almost never the model. It is alignment between the business, the data and IT teams, and governance. Three folds: business, data and IT, governance. Line them up and AI ships. Leave one out and you get demos.</p>
       </div>
-      <div class="fold-grid">
-        <div class="card fold-card"><div class="kicker">FOLD 01</div><div class="fold-name">Business</div></div>
-        <div class="card fold-card"><div class="kicker">FOLD 02</div><div class="fold-name">Data and IT</div></div>
-        <div class="card fold-card"><div class="kicker">FOLD 03</div><div class="fold-name">Governance</div></div>
+      <div class="fold-sheet" role="list" aria-label="The three folds">
+        <div class="fold" role="listitem"><span class="fold-n">Fold 1 of 3</span><span class="fold-name">Business</span></div>
+        <div class="fold" role="listitem"><span class="fold-n">Fold 2 of 3</span><span class="fold-name">Data and IT</span></div>
+        <div class="fold" role="listitem"><span class="fold-n">Fold 3 of 3</span><span class="fold-name">Governance</span></div>
       </div>
     </section>
 
     <section class="wrap section-tight">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px; align-items: start;">
+      <div class="split">
         <div>
           <div class="eyebrow eyebrow-lg">What you get</div>
-          <p style="font-size: 20px; line-height: 1.55; color: var(--ink); margin: 16px 0 0; font-weight: 500; text-wrap: pretty;">A fractional Chief AI Officer who owns the AI agenda a few days a month and works directly with your executives and your technical teams:</p>
-          <a href="/services.html" style="display: inline-block; margin-top: 24px; font-weight: 700; font-size: 16px;">Full services →</a>
+          <p class="intro-lg">A fractional Chief AI Officer who owns the AI agenda a few days a month and works directly with your executives and your technical teams:</p>
+          <a class="more-link" href="/services.html">Full services →</a>
         </div>
         <div class="num-list">
           <div class="num-row"><span class="n">01</span><span class="t">AI strategy and a clear, prioritized roadmap</span></div>
@@ -199,38 +198,48 @@
       </div>
     </section>
 
-    <section class="band-dark" style="margin-top: 40px;">
-      <div class="wrap" style="padding-top: 84px; padding-bottom: 84px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 48px;">
+    <section class="band-dark">
+      <div class="wrap band-pad split">
         <div>
           <div class="eyebrow">Why fractional</div>
-          <h2 class="h2" style="font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1; letter-spacing: -0.02em;">Seniority when you need it, not headcount you can’t justify yet</h2>
+          <h2 class="h2 h2-band">Seniority when you need it, not headcount you can’t justify yet</h2>
         </div>
         <div>
           <p class="prose">Most organizations are still early in AI adoption. Hiring a full-time Chief AI Officer before the business case exists tends to backfire: the role turns theoretical, expectations outrun execution, and the budget drifts.</p>
-          <p class="prose" style="margin-top: 20px;">The fractional model gives you the seniority when you need it, at a fraction of the cost, and hands more ownership to your own people as they grow into it.</p>
+          <p class="prose">The fractional model gives you the seniority when you need it, at a fraction of the cost, and hands more ownership to your own people as they grow into it.</p>
         </div>
       </div>
     </section>
 
     <section class="wrap section">
       <div class="eyebrow">Proof</div>
-      <h2 class="h2" style="margin-bottom: 34px;">The work in practice</h2>
+      <h2 class="h2 proof-head">The work in practice</h2>
       <div class="proof-grid">
         <div class="proof-card">Designed the AI architecture and governance model for a large IT organization, moving it from scattered experiments to structured initiatives.</div>
         <div class="proof-card">Ran AI strategy with the IT leadership of a leading hospitality group, tying use cases to measurable business value.</div>
         <div class="proof-card">Helped enterprise technology teams work out when RAG is actually required and when it isn’t, cutting unnecessary infrastructure.</div>
         <div class="proof-highlight">
-          <div class="stat">80%</div>
-          <div style="margin-top: 14px;">A pharmaceutical distribution group. AI discovery, then a voice AI agent built and shipped into the contact center. It handles 80% of incoming calls on its own, and the human agents keep the 20% that genuinely need a person. In production, taking real calls.</div>
+          <div>
+            <span class="status-live">In production</span>
+            <div class="stat">80%</div>
+            <p>A pharmaceutical distribution group. AI discovery, then a voice AI agent built and shipped into the contact center. It handles 80% of incoming calls on its own, and the human agents keep the 20% that genuinely need a person. In production, taking real calls.</p>
+          </div>
+          <figure class="calls" role="img" aria-label="Of every 100 incoming calls, the voice AI agent handles 80 and human agents handle 20">
+            <div class="calls-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i><i class="h"></i></div>
+            <figcaption aria-hidden="true">
+              <span><span class="key"><span class="sw"></span>Voice AI agent · 80</span><span class="key"><span class="sw h"></span>Human agents · 20</span></span>
+              <span class="per">per 100 incoming calls</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <section class="wrap" style="padding-top: 20px; padding-bottom: 80px;">
-      <div class="tint-panel" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; align-items: center;">
+    <section class="wrap for-section">
+      <div class="tint-panel for-panel">
         <div>
           <div class="eyebrow">Who it’s for</div>
-          <p style="font-size: 19px; line-height: 1.6; color: var(--ink); margin: 16px 0 0; text-wrap: pretty;">Mid-to-large Israeli and American enterprises, typically 500 to 5,000 employees, in pharma, banking and finance, insurance, hospitality, media, logistics, retail, and energy. I work in English and Hebrew.</p>
+          <p>Mid-to-large Israeli and American enterprises, typically 500 to 5,000 employees, in pharma, banking and finance, insurance, hospitality, media, logistics, retail, and energy. I work in English and Hebrew.</p>
         </div>
         <div class="tag-row">
           <span class="tag">Pharma</span>
@@ -246,13 +255,14 @@
     </section>
 
     <section class="band-dark">
-      <div class="wrap-1000" style="padding-top: 96px; padding-bottom: 96px; text-align: center;">
-        <h2 class="h2" style="font-size: clamp(30px, 4vw, 52px); line-height: 1.06;">You have pilots. <span style="color: var(--blue-soft);">Let’s talk about production.</span></h2>
-        <p class="prose" style="margin: 24px auto 0; max-width: 620px;">A 30-minute intro call. No sales deck. We’ll talk about where your AI effort actually stands and what it would take to get it running.</p>
-        <a class="btn btn-primary btn-lg" style="margin-top: 34px;" href="https://cal.com/itzik-woda/30min" target="_blank" rel="noopener">Book an intro call →</a>
+      <div class="wrap-1000 cta-final">
+        <h2 class="h2"><span class="quiet">You have pilots.</span> Let’s talk about production.</h2>
+        <p class="prose">A 30-minute intro call. No sales deck. We’ll talk about where your AI effort actually stands and what it would take to get it running.</p>
+        <a class="btn btn-primary btn-lg" href="https://cal.com/itzik-woda/30min" target="_blank" rel="noopener">Book an intro call →</a>
       </div>
     </section>
   </main>
+
 
   <footer class="site-footer">
     <div class="inner">
@@ -280,25 +290,25 @@
   <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="Accessibility options">
     <div class="a11y-panel-head">
       <span class="t">Accessibility · נגישות</span>
-      <button type="button" class="a11y-close" id="a11yClose" aria-label="Close accessibility panel">✕</button>
+      <button type="button" class="a11y-close" id="a11yClose" aria-label="Close accessibility panel"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
     </div>
     <div class="a11y-grid">
-      <button type="button" class="a11y-opt" data-flag="font" aria-pressed="false"><span class="ico" aria-hidden="true">🔤</span><span class="lab">Larger text</span></button>
-      <button type="button" class="a11y-opt" data-flag="contrast" aria-pressed="false"><span class="ico" aria-hidden="true">◑</span><span class="lab">High contrast</span></button>
-      <button type="button" class="a11y-opt" data-flag="gray" aria-pressed="false"><span class="ico" aria-hidden="true">🌑</span><span class="lab">Greyscale</span></button>
-      <button type="button" class="a11y-opt" data-flag="links" aria-pressed="false"><span class="ico" aria-hidden="true">🔗</span><span class="lab">Highlight links</span></button>
-      <button type="button" class="a11y-opt" data-flag="cursor" aria-pressed="false"><span class="ico" aria-hidden="true">🖱️</span><span class="lab">Big cursor</span></button>
-      <button type="button" class="a11y-opt" data-flag="focus" aria-pressed="false"><span class="ico" aria-hidden="true">🎯</span><span class="lab">Focus outline</span></button>
-      <button type="button" class="a11y-opt" data-flag="lines" aria-pressed="false"><span class="ico" aria-hidden="true">↕️</span><span class="lab">Line spacing</span></button>
-      <button type="button" class="a11y-opt" data-flag="spacing" aria-pressed="false"><span class="ico" aria-hidden="true">↔️</span><span class="lab">Letter spacing</span></button>
-      <button type="button" class="a11y-opt" data-flag="motion" aria-pressed="false"><span class="ico" aria-hidden="true">⏸️</span><span class="lab">Stop animation</span></button>
+      <button type="button" class="a11y-opt" data-flag="font" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg><span class="lab">Larger text</span></button>
+      <button type="button" class="a11y-opt" data-flag="contrast" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 18a6 6 0 0 0 0-12v12z"/></svg><span class="lab">High contrast</span></button>
+      <button type="button" class="a11y-opt" data-flag="gray" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg><span class="lab">Greyscale</span></button>
+      <button type="button" class="a11y-opt" data-flag="links" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg><span class="lab">Highlight links</span></button>
+      <button type="button" class="a11y-opt" data-flag="cursor" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 3 7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/><path d="m13 13 6 6"/></svg><span class="lab">Big cursor</span></button>
+      <button type="button" class="a11y-opt" data-flag="focus" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="22" x2="18" y1="12" y2="12"/><line x1="6" x2="2" y1="12" y2="12"/><line x1="12" x2="12" y1="6" y2="2"/><line x1="12" x2="12" y1="22" y2="18"/></svg><span class="lab">Focus outline</span></button>
+      <button type="button" class="a11y-opt" data-flag="lines" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg><span class="lab">Line spacing</span></button>
+      <button type="button" class="a11y-opt" data-flag="spacing" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg><span class="lab">Letter spacing</span></button>
+      <button type="button" class="a11y-opt" data-flag="motion" aria-pressed="false"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></svg><span class="lab">Stop animation</span></button>
     </div>
     <div class="a11y-foot">
       <button type="button" class="a11y-reset" id="a11yReset">Reset · איפוס</button>
       <a href="/accessibility.html">Accessibility statement · הצהרת נגישות</a>
     </div>
   </div>
-  <button type="button" class="a11y-fab" id="a11yFab" aria-label="Accessibility options · אפשרויות נגישות" aria-expanded="false">♿</button>
+  <button type="button" class="a11y-fab" id="a11yFab" aria-label="Accessibility options · אפשרויות נגישות" aria-expanded="false"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg></button>
 </div>
 
 <script src="/a11y.js"></script>
